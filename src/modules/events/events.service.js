@@ -48,6 +48,7 @@ const lootReviewCorrectionDrafts = new Map();
 const lootReviewCorrectionDraftLifetimeMs = 10 * 60 * 1000;
 let inactiveEventVoiceCleanupPromise = null;
 const pingContentIndexMessageKey = 'ping-content:event-index';
+const pingContentAutoIndexEnabled = false;
 const emojiRefs = {
   role: {
     tank: { name: 'Tank', id: '1517095771659436153' },
@@ -1228,6 +1229,7 @@ function pingContentIndexStatus(event, activeCount, totalSlots) {
 }
 
 async function syncPingContentIndex(client, providedChannel = null) {
+  if (!pingContentAutoIndexEnabled) return null;
   if (!ids.channels.pingContent) return null;
   let channel = providedChannel && isPingContentChannel(providedChannel.id) ? providedChannel : null;
   if (!channel && typeof client?.channels?.fetch === 'function') {
