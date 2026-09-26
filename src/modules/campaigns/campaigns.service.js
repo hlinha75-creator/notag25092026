@@ -17,30 +17,10 @@ function getActiveCampaign() {
 }
 
 function createEventPayoutChoices({ event, participants, actorId }) {
-  const campaign = repo.getActiveCampaign();
-  if (!campaign) return null;
-
-  const expiresAt = new Date(Date.now() + decisionWindowMs).toISOString();
-  const decisions = participants
-    .filter((participant) => !participant.is_spectator && Number(participant.payout_amount || 0) > 0)
-    .map((participant) => repo.createEventPayoutDecision({
-      campaignId: campaign.id,
-      eventId: event.id,
-      userId: participant.discord_id,
-      amount: Number(participant.payout_amount || 0),
-      expiresAt,
-      createdBy: actorId
-    }));
-
-  audit.createAuditLog({
-    type: 'campaign_event_choices_created',
-    actorId,
-    targetId: String(event.id),
-    reason: `${event.event_code} -> campanha ${campaign.code}`,
-    metadata: { campaignId: campaign.id, decisions: decisions.length, expiresAt }
-  });
-
-  return { campaign, decisions, expiresAt };
+  // O pedido de doação para a campanha no loot split foi removido do fluxo de evento.
+  // Os pagamentos agora vão direto para o saldo do membro sem criar escolha pendente.
+  if (!event || !participants) return null;
+  return null;
 }
 
 async function sendEventPayoutDms({ client, eventId, choices }) {
