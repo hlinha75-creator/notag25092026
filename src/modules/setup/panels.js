@@ -115,8 +115,17 @@ async function upsertSetupPanels(client) {
       results.push({ type: panel.type, channelId: panel.channelId, ok: false, error: 'canal não encontrado ou incompatível' });
       continue;
     }
+    const targetChannel = panel.type === 'admin' ? await operations.getAdminThreadTarget(client, panel.channelId) : channel;
     const previous = db.prepare('SELECT * FROM setup_messages WHERE channel_id = ?').get(panel.channelId);
-    let message = previous ? await channel.messages.fetch(previous.message_id).catch(() => null) : null;
+
+    if (panel.type === 'admin' && previous) {
+      const staleRootMessage = await channel.messages.fetch(previous.message_id).catch(() => null);
+      if (staleRootMessage && staleRootMessage.channelId !== targetChannel.id) {
+        await staleRootMessage.delete().catch(() => {});
+      }
+    }
+
+    let message = previous ? await targetChannel.messages.fetch(previous.message_id).catch(() => null) : null;
     try {
       const payload = panel.dynamic
         ? await panel.dynamic(channel.guild)
@@ -124,7 +133,7 @@ async function upsertSetupPanels(client) {
       if (message) {
         await message.edit(payload);
       } else {
-        message = await channel.send(payload);
+        message = await targetChannel.send(payload);
       }
       db.prepare(`
         INSERT INTO setup_messages (channel_id, message_id, panel_type, updated_at)

@@ -108,21 +108,20 @@ function listActivePositiveBalances() {
   return getDatabase()
     .prepare(`
       SELECT
-        u.discord_id,
+        COALESCE(u.discord_id, b.discord_id) AS discord_id,
         u.discord_name,
         u.albion_name,
         b.balance,
         b.updated_at AS last_updated
-      FROM users u
-      JOIN balances b ON b.discord_id = u.discord_id
+      FROM balances b
+      LEFT JOIN users u ON u.discord_id = b.discord_id
       LEFT JOIN linked_discord_accounts l
-        ON l.linked_discord_id = u.discord_id
+        ON l.linked_discord_id = b.discord_id
        AND l.primary_discord_id <> l.linked_discord_id
-      WHERE u.registration_status = 'member'
-        AND b.balance > 0
+      WHERE b.balance > 0
         AND l.linked_discord_id IS NULL
       ORDER BY b.balance DESC,
-               COALESCE(u.albion_name, u.discord_name, u.discord_id) COLLATE NOCASE
+               COALESCE(u.albion_name, u.discord_name, b.discord_id) COLLATE NOCASE
     `)
     .all()
     .map(enrichLinkedBalanceRow);

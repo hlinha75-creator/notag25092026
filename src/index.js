@@ -114,32 +114,14 @@ client.once('clientReady', () => {
     .catch((error) => console.error('Falha ao reconciliar mensagens de eventos:', error));
   void runTasks([
     backgroundTask(() => balanceBackup.postDailyBackupIfNeeded(client), 'Falha ao postar backup diario de saldos:'),
-    backgroundTask(() => operations.postDailyAdminReportIfNeeded(client), 'Falha ao enviar relatorio diario ADM:'),
-    backgroundTask(() => operations.postReleaseAnnouncementIfNeeded(client), 'Falha ao anunciar atualizacao do bot:'),
-    backgroundTask(() => operations.postWeeklyAlbionReminderIfNeeded(client), 'Falha ao postar lembrete semanal Albion:'),
-    backgroundTask(() => operations.postMonthlyInactivityPreviewIfNeeded(client), 'Falha ao postar previa mensal de inatividade:'),
     backgroundTask(() => campaigns.refreshActiveCampaignProgress(client), 'Falha ao atualizar progresso da campanha:'),
     backgroundTask(() => campaigns.processExpiredEventPayouts(client), 'Falha ao processar escolhas vencidas da campanha:'),
     backgroundTask(() => guildVerification.processIdentificationNoticeQueue(client), 'Falha ao processar avisos de regularizacao:'),
-    backgroundTask(() => voice.postWeeklyCoreAwardsIfNeeded(client), 'Falha ao publicar jogadores constantes:'),
     backgroundTask(() => guildReverification.postReminderIfNeeded(client), 'Falha ao processar verificacao da guilda:'),
     backgroundTask(() => activityRoles.reconcileActivityRoles(client), 'Falha ao sincronizar cargos NOVO e CORE:'),
-    backgroundTask(() => dailyPveRanking.postDailyPveRankingIfNeeded(client), 'Falha ao publicar Top 5 PvE:'),
-    backgroundTask(() => dailyPveRanking.postWeeklyRankingIfNeeded(client), 'Falha ao publicar ranking semanal de fama:'),
-    backgroundTask(() => springHideout.postAnnouncementIfNeeded(client), 'Falha ao publicar comunicado da HO de Spring:'),
     backgroundTask(() => killFeed.pollKillFeed(client), 'Falha ao consultar killfeed:'),
-    backgroundTask(() => guildKillboard.postGuildKillboardAnnouncementIfNeeded(client), 'Falha ao anunciar ranking de guildas:'),
-    backgroundTask(() => giveaways.processDueGiveaways(client), 'Falha ao processar sorteios:'),
-    backgroundTask(() => massRaffle.processNotifications(client), 'Falha ao processar avisos do sorteio em massa:'),
-    backgroundTask(() => constantPlayersRaffle.process(client), 'Falha ao processar o sorteio de jogadores constantes:'),
     backgroundTask(() => missions.processDueReminders(client), 'Falha ao processar lembretes de missoes:'),
     backgroundTask(() => contentPreview.disableOpenPreviews(client), 'Falha ao remover previa de conteudos desativada:'),
-    backgroundTask(async () => {
-      await missions.repairMissingMissionImages(client);
-      return missions.reconcileMissionMessages(client);
-    }, 'Falha ao recuperar e sincronizar mensagens de missoes:'),
-    backgroundTask(() => wtb.reconcileOrderMessages(client), 'Falha ao sincronizar anuncios do marketplace:'),
-    backgroundTask(() => seasonAnnouncement.publishSeasonAnnouncement(client), 'Falha ao publicar anuncio Ouro da temporada:'),
     backgroundTask(() => mandatoryRules.enforceIfVoiceQuiet(client), 'Falha ao aplicar confirmação das novas regras:'),
     backgroundTask(() => mandatoryRules.updateAnnouncementMessage(client), 'Falha ao atualizar o aviso das novas regras:')
   ]);
@@ -175,9 +157,6 @@ client.once('clientReady', () => {
     {
       intervalMs: 60 * 60 * 1000,
       tasks: [
-        backgroundTask(() => operations.postWeeklyAlbionReminderIfNeeded(client), 'Falha ao postar lembrete semanal Albion:'),
-        backgroundTask(() => operations.postMonthlyInactivityPreviewIfNeeded(client), 'Falha ao postar previa mensal de inatividade:'),
-        backgroundTask(() => voice.postWeeklyCoreAwardsIfNeeded(client), 'Falha ao publicar jogadores constantes:'),
         backgroundTask(() => guildReverification.postReminderIfNeeded(client), 'Falha ao processar verificacao da guilda:'),
         backgroundTask(() => activityRoles.reconcileActivityRoles(client), 'Falha ao sincronizar cargos NOVO e CORE:')
       ]

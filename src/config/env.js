@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('node:path');
 
 function requireEnv(name) {
   const value = process.env[name];
@@ -8,12 +9,19 @@ function requireEnv(name) {
   return value;
 }
 
+function resolveDatabasePath(value = process.env.DATABASE_PATH || './data/notag.sqlite') {
+  const projectRoot = path.resolve(__dirname, '..', '..');
+  if (!value) return path.join(projectRoot, 'data/notag.sqlite');
+  return path.isAbsolute(value) ? value : path.resolve(projectRoot, value);
+}
+
 module.exports = {
   token: process.env.DISCORD_TOKEN,
   discordClientId: process.env.CLIENT_ID,
   discordClientSecret: process.env.DISCORD_CLIENT_SECRET,
   requireEnv,
-  databasePath: process.env.DATABASE_PATH || './data/notag.sqlite',
+  resolveDatabasePath,
+  databasePath: resolveDatabasePath(),
   nodeEnv: process.env.NODE_ENV || 'development',
   dashboardBaseUrl: (process.env.DASHBOARD_BASE_URL || 'http://localhost:8080').replace(/\/$/, ''),
   dashboardHost: process.env.DASHBOARD_HOST || '0.0.0.0',

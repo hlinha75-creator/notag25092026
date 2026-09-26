@@ -151,7 +151,7 @@ function renderOverview(data) {
   const overview = data.overview;
   const campaign = overview.campaign;
   document.querySelector('#overview-metrics').innerHTML = [
-    metricCard('Dívida real com membros', formatExactSilver(overview.totalMemberBalance), 'Soma dos saldos positivos de membros ativos', '#23a55a'),
+    metricCard('Dívida real com membros', formatExactSilver(overview.totalMemberBalance), 'Soma dos saldos positivos registrados', '#23a55a'),
     metricCard('Campanha ativa', campaign ? silver.format(campaign.raised) : '—', campaign ? `Meta: ${silver.format(campaign.goal_amount)}` : 'Nenhuma campanha aberta', '#f0b232'),
     metricCard('Membros ativos', number.format(overview.activeMembers), 'Cadastros com status membro', '#5865f2'),
     metricCard('Depósitos — 7 dias', formatSilver(overview.deposits7d.amount), `${number.format(overview.deposits7d.count)} registros`, '#37c9ef')

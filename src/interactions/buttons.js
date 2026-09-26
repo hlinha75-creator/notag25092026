@@ -351,8 +351,8 @@ async function handleButton(interaction) {
       : csv.activeMemberBalancesHtmlAttachment();
     return interaction.editReply({
       content: action === 'csv'
-        ? 'CSV gerado com os saldos positivos dos membros ativos.'
-        : 'HTML gerado com os saldos positivos dos membros ativos. O arquivo também permite baixar o CSV.',
+        ? 'CSV gerado com os saldos positivos de todos, independente do cargo.'
+        : 'HTML gerado com os saldos positivos de todos, independente do cargo. O arquivo também permite baixar o CSV.',
       files: [attachment]
     });
   }

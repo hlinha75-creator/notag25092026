@@ -17,6 +17,35 @@ const inactiveGuests = require('../members/inactiveGuests.service');
 const dailyAdminRecipients = ['1436716667894759475', '1276439186513203234'];
 const releaseFilePath = path.resolve(__dirname, '../../../RELEASE.json');
 
+async function getThreadTarget(client, channelId, threadName, reason) {
+  const channel = await client.channels.fetch(channelId).catch(() => null);
+  if (!channel?.isTextBased() || !channel.threads) return channel;
+
+  const normalized = String(threadName || '').trim();
+  const existing = channel.threads.cache.find((thread) => {
+    const name = String(thread.name || '').toLowerCase();
+    return name === normalized.toLowerCase() || name.includes(normalized.toLowerCase());
+  });
+
+  if (existing) return existing;
+
+  const created = await channel.threads.create({
+    name: normalized,
+    autoArchiveDuration: 1440,
+    reason: reason || 'Agrupar mensagens em um tópico do canal.'
+  }).catch(() => null);
+
+  return created || channel;
+}
+
+async function getAdminThreadTarget(client, channelId = ids.channels.adminPanel) {
+  return getThreadTarget(client, channelId, 'Painel ADM', 'Agrupar o painel administrativo em um tópico específico.');
+}
+
+async function getReminderThreadTarget(client, channelId = ids.channels.adminPanel) {
+  return getThreadTarget(client, channelId, 'Lembretes ADM', 'Separar os lembretes e avisos administrativos em um tópico dedicado.');
+}
+
 function pendingQueuePayload() {
   const summary = pendingSummary();
   return {
@@ -409,9 +438,10 @@ async function postWeeklyAlbionReminderIfNeeded(client) {
   if (existing) return null;
 
   const channel = await client.channels.fetch(ids.channels.adminPanel).catch(() => null);
-  if (!channel?.isTextBased()) return null;
+  const targetChannel = await getReminderThreadTarget(client, ids.channels.adminPanel);
+  if (!targetChannel?.isTextBased()) return null;
 
-  const message = await channel.send({
+  const message = await targetChannel.send({
     content: `<@&${ids.roles.adm}> <@&${ids.roles.staff}> lembrete semanal da rotina Albion.`,
     embeds: [
       new EmbedBuilder()
@@ -448,7 +478,8 @@ async function postMonthlyInactivityPreviewIfNeeded(client) {
 
   const guild = await client.guilds.fetch(ids.guildId).catch(() => null);
   const channel = await client.channels.fetch(ids.channels.adminPanel).catch(() => null);
-  if (!guild || !channel?.isTextBased()) return null;
+  const targetChannel = await getReminderThreadTarget(client, ids.channels.adminPanel);
+  if (!guild || !targetChannel?.isTextBased()) return null;
 
   const expiresInMs = 7 * 24 * 60 * 60 * 1000;
   const actorId = client.user?.id || 'system';
@@ -468,7 +499,7 @@ async function postMonthlyInactivityPreviewIfNeeded(client) {
     shared: true
   });
 
-  const summary = await channel.send({
+  const summary = await targetChannel.send({
     content: `<@&${ids.roles.adm}> <@&${ids.roles.staff}> previa mensal de inatividade pronta para revisao.`,
     embeds: [
       new EmbedBuilder()
@@ -488,12 +519,12 @@ async function postMonthlyInactivityPreviewIfNeeded(client) {
     allowedMentions: { roles: [ids.roles.adm, ids.roles.staff] }
   });
 
-  await channel.send({
+  await targetChannel.send({
     content: 'Previa 1/2 - Membro -> Convidado',
     ...inactiveEvents.previewPayload(eventsPreview),
     allowedMentions: { parse: [] }
   });
-  await channel.send({
+  await targetChannel.send({
     content: 'Previa 2/2 - Convidado -> Sem Tag',
     ...inactiveGuests.previewPayload(guestsPreview),
     allowedMentions: { parse: [] }
@@ -1095,6 +1126,8 @@ module.exports = {
   adminMenuPayload,
   adminPanelPayload,
   backupTestPayload,
+  getAdminThreadTarget,
+  getReminderThreadTarget,
   pendingQueuePayload,
   pendingQueueHtmlPayload,
   postDailyAdminReportIfNeeded,

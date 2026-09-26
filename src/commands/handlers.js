@@ -128,9 +128,9 @@ async function handleCommand(interaction) {
     const total = rows.reduce((sum, row) => sum + Number(row.balance || 0), 0);
     return interaction.reply({
       content: [
-        '**Dívida real com os membros**',
+        '**Lista geral de saldos positivos**',
         `Total exato: **${new Intl.NumberFormat('pt-BR').format(total)} prata**`,
-        `Membros com saldo positivo: **${rows.length}**`,
+        `Cadastros com saldo positivo: **${rows.length}**`,
         '',
         'Qual formato você deseja exportar?'
       ].join('\n'),

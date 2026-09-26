@@ -139,10 +139,20 @@ const confirmPrize = transaction(({ discordId, slotNumber, now = new Date() }) =
 
 const drawAll = transaction(({ now = new Date(), randomInt = crypto.randomInt } = {}) => {
   const raffle = ensureRaffle(now);
+  if (raffle.status === 'completed') return false;
   if (raffle.status !== 'scheduled' || !raffle.scheduled_at || now.getTime() < Date.parse(raffle.scheduled_at)) return false;
+
   const db = getDatabase();
+  const existingResults = db.prepare('SELECT 1 FROM constant_raffle_results WHERE raffle_key = ? LIMIT 1').get(RAFFLE_KEY);
+  if (existingResults) {
+    db.prepare(`UPDATE constant_raffles SET status = 'completed', completed_at = COALESCE(completed_at, ?) WHERE raffle_key = ?`)
+      .run(now.toISOString(), RAFFLE_KEY);
+    return false;
+  }
+
   const participants = db.prepare('SELECT discord_id AS discordId, display_name AS name FROM constant_raffle_participants WHERE raffle_key = ?').all(RAFFLE_KEY);
   if (!participants.length) return false;
+
   const insert = db.prepare(`INSERT OR IGNORE INTO constant_raffle_results (raffle_key, slot_number, winner_discord_id, winner_name) VALUES (?, ?, ?, ?)`);
   for (let slot = 1; slot <= TOTAL_SLOTS; slot += 1) {
     const winner = participants[randomInt(participants.length)];
@@ -201,6 +211,7 @@ async function process(client, now = new Date()) {
   processing = true;
   try {
     const raffle = ensureRaffle(now);
+    if (raffle.status === 'completed') return;
     if (raffle.status === 'waiting' && now.getTime() - lastResolveAt >= 30_000) {
       lastResolveAt = now.getTime();
       await resolveParticipants(client, now);
@@ -220,4 +231,4 @@ async function process(client, now = new Date()) {
   }
 }
 
-module.exports = { PARTICIPANTS, RAFFLE_KEY, TOTAL_SLOTS, confirmPrize, getState, process };
+module.exports = { PARTICIPANTS, RAFFLE_KEY, TOTAL_SLOTS, confirmPrize, drawAll, getState, process };

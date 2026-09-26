@@ -31,8 +31,8 @@ function activeMemberBalancesHtmlAttachment() {
   const rows = activeMemberBalanceRows();
   const total = rows.reduce((sum, row) => sum + row.saldo_prata, 0);
   return htmlReportAttachment({
-    title: 'Dívida real com membros',
-    subtitle: 'Somente saldos positivos de cadastros com status Membro.',
+    title: 'Saldos positivos gerais',
+    subtitle: 'Todos os saldos positivos, independente do cargo atual.',
     fileName: 'saldos-geral-membros.html',
     csvName: 'saldos-geral-membros.csv',
     rows,
@@ -44,8 +44,8 @@ function activeMemberBalancesHtmlAttachment() {
       { key: 'atualizado_em', label: 'Atualizado em' }
     ],
     summary: [
-      ['Membros com saldo positivo', rows.length],
-      ['Total devido', exactSilver(total)]
+      ['Cadastros com saldo positivo', rows.length],
+      ['Total', exactSilver(total)]
     ]
   });
 }

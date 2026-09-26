@@ -32,6 +32,20 @@ const { parseLocalDateTime } = require('../src/utils/timezone');
 
 migrate();
 
+test('lista de saldos positivos inclui cadastros independentemente do cargo', () => {
+  const db = getDatabase();
+  db.prepare("INSERT INTO users (discord_id, discord_name, albion_name, registration_status) VALUES (?, ?, ?, ?)")
+    .run('all-role-member', 'Membro', 'Albion Membro', 'member');
+  db.prepare("INSERT INTO users (discord_id, discord_name, albion_name, registration_status) VALUES (?, ?, ?, ?)")
+    .run('all-role-guest', 'Convidado', 'Albion Convidado', 'guest');
+  db.prepare('INSERT INTO balances (discord_id, balance) VALUES (?, ?)').run('all-role-member', 1200);
+  db.prepare('INSERT INTO balances (discord_id, balance) VALUES (?, ?)').run('all-role-guest', 450);
+
+  const rows = financeRepo.listActivePositiveBalances();
+  assert.deepEqual(rows.map((row) => row.discord_id).sort(), ['all-role-guest', 'all-role-member']);
+  assert.equal(rows.find((row) => row.discord_id === 'all-role-guest').balance, 450);
+});
+
 test('aviso da defesa da HO controla leitura e participação separadamente', () => {
   let result = hideoutDefense.toggleAcknowledgement('member-1');
   assert.equal(result.added, true);
