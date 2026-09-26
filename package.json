@@ -1,0 +1,37 @@
+{
+  "name": "notag-bot",
+  "version": "1.0.0",
+  "description": "Bot Discord da guild Notag para eventos, loot split, registro e saldos.",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node --no-warnings src/index.js",
+    "test": "node --test",
+    "test:syntax": "node scripts/checkSyntax.js",
+    "test:repository": "node scripts/checkRepositorySafety.js",
+    "test:coverage": "node --test --experimental-test-coverage --test-coverage-lines=70 --test-coverage-functions=65 --test-coverage-branches=65",
+    "deploy:commands": "node --no-warnings scripts/deployCommands.js",
+    "clear:commands": "node --no-warnings scripts/clearCommands.js",
+    "audit:channels": "node --no-warnings scripts/auditChannels.js",
+    "audit:nicks": "node --no-warnings scripts/auditNicks.js",
+    "rename:channels": "node --no-warnings scripts/renameChannels.js",
+    "import:members": "node --no-warnings scripts/importMemberSnapshot.js",
+    "import:albion": "node --no-warnings scripts/importAlbionOperationalData.js",
+    "import:fame": "node --no-warnings scripts/importAlbionCategory.js",
+    "backup:db": "node --no-warnings scripts/backupDatabase.js",
+    "backup:prepare-download": "node --no-warnings scripts/prepareManualBackup.js",
+    "restore:db": "node --no-warnings scripts/restoreDatabase.js"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^1.8.2",
+    "@discordjs/voice": "^0.19.2",
+    "better-sqlite3": "^12.11.1",
+    "discord.js": "^14.27.0",
+    "dotenv": "^16.4.5",
+    "libsodium-wrappers": "^0.7.16",
+    "opusscript": "^0.0.8"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

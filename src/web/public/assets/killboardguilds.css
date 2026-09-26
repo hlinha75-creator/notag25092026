@@ -1,0 +1,46 @@
+.guild-killboard-main { min-height: calc(100vh - 165px); padding-block: 72px 90px; }
+.guild-killboard-hero { display: flex; align-items: end; justify-content: space-between; gap: 44px; padding-bottom: 50px; }
+.guild-killboard-hero h1 { margin: 18px 0 16px; font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -.055em; }
+.guild-killboard-hero h1 strong { color: #929aff; }
+.guild-killboard-hero p { margin: 0; color: var(--muted); font-size: 15px; }
+.guild-periods { display: flex; gap: 6px; padding: 5px; border: 1px solid var(--line); border-radius: 11px; background: rgba(25,26,30,.85); }
+.guild-periods button { min-height: 40px; padding: 0 17px; border: 0; border-radius: 7px; color: var(--muted); background: transparent; cursor: pointer; font-size: 12px; font-weight: 800; }
+.guild-periods button:hover { color: #fff; background: rgba(255,255,255,.04); }
+.guild-periods button.active { color: #fff; background: var(--blue); box-shadow: 0 8px 22px rgba(88,101,242,.26); }
+.guild-ranking-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.guild-ranking-card { overflow: hidden; border: 1px solid var(--line); border-radius: 17px; background: linear-gradient(145deg, rgba(31,32,38,.97), rgba(20,21,25,.97)); box-shadow: var(--shadow); }
+.guild-ranking-card > header { display: flex; min-height: 112px; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 27px; border-bottom: 1px solid var(--line); }
+.guild-ranking-card header small { font-size: 9px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+.guild-ranking-card h2 { margin: 7px 0 0; font-size: 21px; letter-spacing: -.03em; }
+.guild-ranking-card header > strong { display: grid; min-width: 54px; height: 54px; place-items: center; border: 1px solid; border-radius: 12px; font-size: 21px; font-variant-numeric: tabular-nums; }
+.guild-ranking-danger header small, .guild-ranking-danger .guild-row-count { color: #ff9699; }
+.guild-ranking-danger header > strong { color: #ff9699; border-color: rgba(242,63,66,.4); background: rgba(242,63,66,.1); }
+.guild-ranking-success header small, .guild-ranking-success .guild-row-count { color: #7fe0a6; }
+.guild-ranking-success header > strong { color: #7fe0a6; border-color: rgba(35,165,90,.4); background: rgba(35,165,90,.1); }
+.guild-ranking-card ol { margin: 0; padding: 8px 27px; list-style: none; }
+.guild-ranking-card li { min-width: 0; min-height: 58px; border-bottom: 1px solid rgba(255,255,255,.055); }
+.guild-ranking-card li:last-child { border-bottom: 0; }
+.guild-row-link { display: grid; min-width: 0; min-height: 58px; grid-template-columns: 35px minmax(0, 1fr) auto 16px; align-items: center; gap: 12px; margin-inline: -12px; padding-inline: 12px; border-radius: 8px; transition: background .16s ease, color .16s ease; }
+a.guild-row-link:hover { background: rgba(255,255,255,.045); }
+a.guild-row-link:hover .guild-row-name { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+a.guild-row-link:focus-visible { outline: 2px solid #7f89ff; outline-offset: -2px; }
+.guild-row-link-disabled { grid-template-columns: 35px minmax(0, 1fr) auto 16px; }
+.guild-row-position { color: var(--subtle); font-size: 11px; font-weight: 850; }
+.guild-ranking-card li:nth-child(1) .guild-row-position { color: #f3bf43; }
+.guild-ranking-card li:nth-child(2) .guild-row-position { color: #d3d7df; }
+.guild-ranking-card li:nth-child(3) .guild-row-position { color: #ca8d62; }
+.guild-row-name { overflow: hidden; font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+.guild-row-count { font-size: 12px; font-weight: 850; font-variant-numeric: tabular-nums; }
+.guild-row-external { color: #838aff; font-size: 14px; font-weight: 900; text-align: right; }
+.guild-loading, .guild-empty { display: block !important; padding-block: 25px; color: var(--subtle); font-size: 11px; text-align: center; }
+.guild-ranking-note { margin: 18px 0 0; color: var(--subtle); font-size: 10px; text-align: center; }
+@media (max-width: 760px) {
+  .guild-killboard-main { padding-block: 45px 65px; }
+  .guild-killboard-hero { align-items: flex-start; flex-direction: column; padding-bottom: 34px; }
+  .guild-killboard-hero h1 { font-size: 43px; }
+  .guild-periods { width: 100%; }
+  .guild-periods button { flex: 1; padding-inline: 8px; }
+  .guild-ranking-grid { grid-template-columns: 1fr; }
+  .guild-ranking-card > header { padding: 20px; }
+  .guild-ranking-card ol { padding-inline: 20px; }
+}

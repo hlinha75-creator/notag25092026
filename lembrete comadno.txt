@@ -1,0 +1,5 @@
+cd "C:\Users\Lucas\Documents\bot notag"
+git status
+git add .
+git commit -m "assistent 1506"
+git push origin main

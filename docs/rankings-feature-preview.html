@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notag — Prévia das classificações</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      color-scheme: dark;
+      --bg: #0e1014;
+      --side: #15171b;
+      --surface: #1b1d22;
+      --surface-2: #22252b;
+      --line: #30343d;
+      --text: #f4f5f7;
+      --muted: #989faa;
+      --brand: #5865f2;
+      --brand-soft: rgba(88,101,242,.14);
+      --green: #35c77a;
+      --amber: #e6aa4a;
+      --red: #e05d68;
+    }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; }
+    .app { min-height: 100vh; display: grid; grid-template-columns: 244px minmax(0,1fr); }
+    .sidebar { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; background: var(--side); border-right: 1px solid var(--line); }
+    .brand { height: 82px; display: flex; align-items: center; gap: 12px; padding: 0 20px; border-bottom: 1px solid var(--line); }
+    .brand img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 1px solid #70623f; }
+    .brand strong { display: block; letter-spacing: .12em; font-size: 15px; }
+    .brand small { color: var(--muted); font-size: 11px; }
+    .nav { padding: 18px 10px; display: grid; gap: 5px; }
+    .nav-label { margin: 14px 10px 5px; color: #747b87; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .nav button { width: 100%; border: 0; border-left: 3px solid transparent; border-radius: 8px; background: transparent; padding: 12px 13px; display: flex; gap: 11px; align-items: center; color: #b8bec8; cursor: pointer; text-align: left; }
+    .nav button:hover { background: #202329; color: white; }
+    .nav button.active { color: white; background: #363940; border-left-color: var(--brand); }
+    .nav-icon { width: 18px; color: #c3c8d1; text-align: center; }
+    .side-status { margin-top: auto; padding: 16px 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    .dot { width: 8px; height: 8px; display: inline-block; margin-right: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+    .workspace { min-width: 0; }
+    .topbar { height: 82px; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; background: #191b20; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: #8c93a0; font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .topbar h1 { margin: 4px 0 0; font-size: 21px; }
+    .preview-pill { border: 1px solid #4c5260; background: #252830; color: #d2d6dc; border-radius: 8px; padding: 8px 11px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+    main { padding: 32px; max-width: 1440px; margin: 0 auto; }
+    .view[hidden] { display: none; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 22px; }
+    .section-head h2 { margin: 0 0 5px; font-size: 26px; letter-spacing: -.03em; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 13px; }
+    .updated { color: var(--muted); font-size: 11px; }
+    .updated .dot { width: 6px; height: 6px; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 2fr; gap: 14px; }
+    .card { border: 1px solid var(--line); border-radius: 13px; background: var(--surface); }
+    .overall { padding: 23px; background: radial-gradient(circle at 80% 20%, rgba(88,101,242,.18), transparent 38%), var(--surface); }
+    .overall-label { color: #aab0bb; font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .rank-line { display: flex; align-items: end; gap: 14px; margin: 14px 0 5px; }
+    .rank-line strong { font-size: 58px; letter-spacing: -.07em; line-height: .9; }
+    .rank-line span { color: #c6cad1; padding-bottom: 5px; }
+    .score { color: var(--green); font-weight: 750; font-size: 13px; }
+    .progress { margin-top: 22px; height: 7px; background: #2c3038; border-radius: 99px; overflow: hidden; }
+    .progress i { display: block; width: 91%; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--brand), #8290ff); }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; }
+    .metric { padding: 18px; }
+    .metric-top { display: flex; justify-content: space-between; gap: 8px; color: #adb3bd; font-size: 11px; font-weight: 750; text-transform: uppercase; }
+    .metric-top b { color: #f6f7f8; }
+    .metric strong { display: block; margin-top: 16px; font-size: 25px; letter-spacing: -.04em; }
+    .metric small { display: block; margin-top: 5px; color: var(--green); }
+    .metric time { display: block; margin-top: 15px; color: #777f8b; font-size: 10px; }
+    .lower-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 14px; margin-top: 14px; }
+    .panel { padding: 20px; }
+    .panel-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .panel-title strong { font-size: 14px; }
+    select, .filter, textarea { border: 1px solid #3a3f49; background: #202329; color: #e9ebee; border-radius: 8px; }
+    select, .filter { padding: 8px 10px; font-size: 11px; }
+    .chart { height: 178px; display: flex; align-items: end; gap: 14px; padding: 18px 6px 26px; border-bottom: 1px solid #333741; position: relative; }
+    .chart::before, .chart::after { content: ""; position: absolute; left: 0; right: 0; border-top: 1px dashed #292d34; }
+    .chart::before { top: 35%; } .chart::after { top: 65%; }
+    .bar { flex: 1; position: relative; height: var(--h); min-width: 16px; max-width: 46px; margin: 0 auto; background: linear-gradient(180deg, #7e8aff, var(--brand)); border-radius: 5px 5px 1px 1px; z-index: 1; }
+    .bar span { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); color: #747c88; font-size: 9px; white-space: nowrap; }
+    .table-wrap { overflow: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { color: #858d99; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; text-align: left; padding: 11px 12px; border-bottom: 1px solid #3a3e47; }
+    td { padding: 12px; border-bottom: 1px solid #2c3037; }
+    tr.you { background: var(--brand-soft); box-shadow: inset 3px 0 var(--brand); }
+    .you-mark { margin-left: 7px; padding: 2px 5px; border-radius: 4px; background: var(--brand); font-size: 8px; font-weight: 800; }
+    .right { text-align: right; }
+    .import-layout { display: grid; grid-template-columns: 1.2fr .9fr; gap: 14px; }
+    .category-row { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin-bottom: 18px; }
+    .category { border: 1px solid #373b45; background: #202329; border-radius: 9px; padding: 12px; cursor: pointer; text-align: left; }
+    .category.active { border-color: var(--brand); background: var(--brand-soft); box-shadow: inset 0 0 0 1px var(--brand); }
+    .category strong { display: block; font-size: 12px; }
+    .category small { display: block; color: var(--muted); margin-top: 4px; font-size: 9px; }
+    .upload { min-height: 156px; border: 1px dashed #535966; border-radius: 11px; display: grid; place-items: center; text-align: center; padding: 22px; background: #181b20; }
+    .upload-icon { margin: 0 auto 8px; width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid #4c5260; border-radius: 10px; color: #b8c0ff; background: #242834; font-size: 19px; }
+    .upload strong { display: block; font-size: 13px; }
+    .upload span { display: block; color: var(--muted); margin-top: 5px; font-size: 10px; }
+    .or { display: flex; align-items: center; gap: 10px; color: #6f7782; font-size: 9px; text-transform: uppercase; margin: 14px 0; }
+    .or::before, .or::after { content: ""; height: 1px; flex: 1; background: #30343c; }
+    textarea { width: 100%; min-height: 105px; padding: 12px; resize: vertical; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; line-height: 1.45; }
+    .actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 14px; }
+    .btn { border: 1px solid #3d424c; border-radius: 8px; background: #292c33; padding: 10px 14px; font-size: 11px; font-weight: 750; cursor: pointer; }
+    .btn.primary { border-color: var(--brand); background: var(--brand); }
+    .btn.danger { color: #ffb2b8; border-color: rgba(224,93,104,.4); background: rgba(224,93,104,.08); }
+    .summary { padding: 20px; }
+    .summary-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+    .summary-item { padding: 13px; border-radius: 9px; background: #202329; border: 1px solid #313640; }
+    .summary-item small { color: var(--muted); font-size: 9px; text-transform: uppercase; }
+    .summary-item strong { display: block; margin-top: 5px; font-size: 21px; }
+    .summary-item.warn strong { color: var(--amber); }
+    .summary-item.good strong { color: var(--green); }
+    .notice { margin-top: 12px; padding: 12px; border: 1px solid rgba(230,170,74,.35); border-radius: 9px; background: rgba(230,170,74,.08); color: #e5c48c; font-size: 10px; line-height: 1.5; }
+    .preview-table { margin-top: 14px; }
+    .status { display: inline-flex; gap: 5px; align-items: center; border-radius: 5px; padding: 4px 6px; font-size: 9px; background: #292d34; }
+    .status.ok { color: #8de5b5; } .status.warn { color: #f0c474; }
+    @media (max-width: 1000px) {
+      .app { grid-template-columns: 82px minmax(0,1fr); }
+      .brand { padding: 0 18px; } .brand div, .nav button span:last-child, .nav-label, .side-status { display: none; }
+      .nav button { justify-content: center; padding: 12px; }
+      .hero-grid, .lower-grid, .import-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .app { display: block; } .sidebar { position: static; height: auto; }
+      .brand, .nav-label, .side-status { display: none; }
+      .nav { display: flex; overflow: auto; padding: 8px; } .nav button { min-width: max-content; }
+      .nav button span:last-child { display: inline; }
+      .topbar { height: auto; padding: 16px; } main { padding: 18px 12px; }
+      .section-head { align-items: start; flex-direction: column; }
+      .metrics, .category-row { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><img src="../src/web/public/assets/notag-logo.jpeg" alt="Brasão Notag"><div><strong>NOTAG</strong><small>Central da guilda</small></div></div>
+      <nav class="nav" aria-label="Telas da prévia">
+        <div class="nav-label">Prévia visual</div>
+        <button class="active" data-view="member"><span class="nav-icon">⌁</span><span>Classificações</span></button>
+        <button data-view="staff"><span class="nav-icon">↑</span><span>Importar tabelas</span></button>
+        <div class="nav-label">Outras áreas</div>
+        <button><span class="nav-icon">◎</span><span>Meu perfil</span></button>
+        <button><span class="nav-icon">◇</span><span>Eventos</span></button>
+        <button><span class="nav-icon">$</span><span>Saldo</span></button>
+      </nav>
+      <div class="side-status"><span class="dot"></span>Dados demonstrativos</div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <div><div class="eyebrow" id="top-eyebrow">Área do membro</div><h1 id="top-title">Classificações</h1></div>
+        <span class="preview-pill">Prévia — não salva dados</span>
+      </header>
+      <main>
+        <section class="view" id="view-member">
+          <header class="section-head"><div><h2>Seu desempenho</h2><p>Veja sua posição na guilda e a evolução desde cada importação.</p></div><span class="updated"><i class="dot"></i>Última atualização: Craft · 28 jul, 08:42</span></header>
+          <div class="hero-grid">
+            <article class="card overall"><span class="overall-label">Classificação geral</span><div class="rank-line"><strong>#7</strong><span>de 107 membros vinculados</span></div><div class="score">91.4 pontos · Top 7%</div><div class="progress"><i></i></div></article>
+            <section class="metrics">
+              <article class="card metric"><div class="metric-top"><span>PvE</span><b>#3</b></div><strong>1.254b</strong><small>+48.7m</small><time>Atualizado há 2 dias</time></article>
+              <article class="card metric"><div class="metric-top"><span>PvP</span><b>#18</b></div><strong>14.8m</strong><small>+1.2m</small><time>Atualizado há 4 dias</time></article>
+              <article class="card metric"><div class="metric-top"><span>Coleta</span><b>#27</b></div><strong>3.8m</strong><small>+620k</small><time>Atualizado há 8 dias</time></article>
+              <article class="card metric"><div class="metric-top"><span>Craft</span><b>#3</b></div><strong>116.4m</strong><small>+6.7m</small><time>Atualizado hoje</time></article>
+            </section>
+          </div>
+          <div class="lower-grid">
+            <article class="card panel">
+              <div class="panel-title"><strong>Evolução de PvE</strong><select aria-label="Categoria do gráfico"><option>PvE</option><option>PvP</option><option>Coleta</option><option>Craft</option></select></div>
+              <div class="chart"><i class="bar" style="--h:47%"><span>02 jun</span></i><i class="bar" style="--h:56%"><span>11 jun</span></i><i class="bar" style="--h:62%"><span>25 jun</span></i><i class="bar" style="--h:73%"><span>07 jul</span></i><i class="bar" style="--h:84%"><span>19 jul</span></i><i class="bar" style="--h:96%"><span>28 jul</span></i></div>
+            </article>
+            <article class="card panel">
+              <div class="panel-title"><strong>Ranking geral</strong><input class="filter" placeholder="Buscar jogador…" aria-label="Buscar jogador"></div>
+              <div class="table-wrap"><table><thead><tr><th>Pos.</th><th>Jogador</th><th class="right">Pontos</th></tr></thead><tbody>
+                <tr><td>#1</td><td>imdonedontkillme</td><td class="right">98.7</td></tr>
+                <tr><td>#2</td><td>BSAlGunner</td><td class="right">96.2</td></tr>
+                <tr><td>#3</td><td>avven1996</td><td class="right">95.8</td></tr>
+                <tr class="you"><td>#7</td><td>Tmaiusculo <span class="you-mark">VOCÊ</span></td><td class="right">91.4</td></tr>
+              </tbody></table></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="view-staff" hidden>
+          <header class="section-head"><div><h2>Importar classificações</h2><p>Envie uma categoria por vez. Os dados serão revisados antes de salvar.</p></div><button class="btn danger">Desfazer último Craft</button></header>
+          <div class="import-layout">
+            <article class="card panel">
+              <div class="category-row">
+                <button class="category"><strong>PvE</strong><small>26 jul · 187 jogadores</small></button>
+                <button class="category"><strong>PvP</strong><small>24 jul · 187 jogadores</small></button>
+                <button class="category"><strong>Coleta</strong><small>20 jul · 187 jogadores</small></button>
+                <button class="category active"><strong>Craft</strong><small>28 jul · 187 jogadores</small></button>
+              </div>
+              <div class="upload"><div><div class="upload-icon">↑</div><strong>Arraste o arquivo de Craft aqui</strong><span>ou clique para selecionar .txt, .tsv ou .csv</span></div></div>
+              <div class="or">ou cole a tabela copiada do jogo</div>
+              <textarea aria-label="Tabela copiada do jogo">"Rank"&#9;"Player"&#9;"Guild Role"&#9;"Amount"
+"1"&#9;"avven1996"&#9;"ENERGIAS GUILDA"&#9;"382677301"
+"2"&#9;"Cominhos"&#9;"fundador"&#9;"218170588"
+"3"&#9;"Tmaiusculo"&#9;"fundador"&#9;"116411678"</textarea>
+              <div class="actions"><button class="btn">Limpar</button><button class="btn primary">Analisar tabela</button></div>
+            </article>
+            <aside class="card summary">
+              <div class="panel-title"><strong>Prévia da importação</strong><span class="status ok">● Arquivo válido</span></div>
+              <div class="summary-grid">
+                <div class="summary-item"><small>Encontrados</small><strong>187</strong></div>
+                <div class="summary-item good"><small>Com pontuação</small><strong>111</strong></div>
+                <div class="summary-item"><small>Aguardam vínculo</small><strong>80</strong></div>
+                <div class="summary-item warn"><small>Reduções</small><strong>2</strong></div>
+              </div>
+              <div class="notice"><strong>Atenção:</strong> 2 valores All-time estão menores que na importação anterior. A confirmação exigirá uma segunda validação.</div>
+              <div class="preview-table table-wrap"><table><thead><tr><th>Jogador</th><th>Alteração</th><th>Status</th></tr></thead><tbody>
+                <tr><td>avven1996</td><td>+12.4m</td><td><span class="status ok">Vinculado</span></td></tr>
+                <tr><td>Cominhos</td><td>+8.1m</td><td><span class="status warn">Sem Discord</span></td></tr>
+                <tr><td>Tmaiusculo</td><td>+6.7m</td><td><span class="status ok">Vinculado</span></td></tr>
+              </tbody></table></div>
+              <div class="actions"><button class="btn primary">Confirmar importação</button></div>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </section>
+  </div>
+  <script>
+    const titles = { member: ['Área do membro', 'Classificações'], staff: ['Área da staff', 'Importar tabelas'] };
+    document.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => {
+      document.querySelectorAll('[data-view]').forEach((item) => item.classList.toggle('active', item === button));
+      document.querySelectorAll('.view').forEach((view) => { view.hidden = view.id !== `view-${button.dataset.view}`; });
+      document.querySelector('#top-eyebrow').textContent = titles[button.dataset.view][0];
+      document.querySelector('#top-title').textContent = titles[button.dataset.view][1];
+    }));
+    document.querySelectorAll('.category').forEach((button) => button.addEventListener('click', () => {
+      document.querySelectorAll('.category').forEach((item) => item.classList.toggle('active', item === button));
+    }));
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.env
+node_modules/
+data/*.sqlite
+data/*.sqlite-*
+data/backups/
+data/manual-download/
+data/campaign-*/
+data/reports/
+resources/season32/
+reports/
+*.log
+*.zip
+*.traineddata
+.replit
+.upm/
+.codex-remote-check/
+.vscode/.env

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0d0f">
+  <meta name="description" content="Rotina operacional de organização e venda de loot da Notag.">
+  <title>Rotina de loot · Notag</title>
+  <link rel="stylesheet" href="/assets/rotina.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Voltar para o início da Notag">
+        <span class="brand-mark">N</span>
+        <span><strong>NOTAG</strong><small>OPERAÇÕES</small></span>
+      </a>
+      <div class="day-status">
+        <span class="pulse" aria-hidden="true"></span>
+        <span id="today">Rotina ativa</span>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div class="eyebrow">GUIA INTERNO · VOCÊ + STAFF</div>
+      <h1 id="page-title">Rotina de <em>loot</em></h1>
+      <p>Organize uma vez, venda em lote e tire o loot da HO sem perder tempo anunciando item por item.</p>
+      <div class="hero-actions">
+        <a class="primary-button" href="#checklist">Começar rotina <span>↓</span></a>
+        <button class="text-button" id="copy-summary" type="button">Copiar resumo</button>
+      </div>
+    </section>
+
+    <section class="rule" aria-label="Regra principal">
+      <div class="rule-number">01</div>
+      <div class="rule-copy">
+        <span>REGRA PRINCIPAL</span>
+        <h2>Vender a tab inteira <strong>poupa tempo.</strong></h2>
+        <p>Priorize vender a aba completa para um membro ou comprador recorrente. Evite colocar cada item à venda separadamente.</p>
+      </div>
+      <div class="rule-badge">PADRÃO</div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <span class="eyebrow">ORGANIZAÇÃO DA HO</span>
+        <h2>Cada item no seu fluxo</h2>
+      </div>
+      <p>O que fica disponível, o que vai para encantamento e o que sai para Royal.</p>
+    </section>
+
+    <section class="tier-grid" aria-label="Organização das abas por tier">
+      <article class="tier-card tier-four">
+        <header>
+          <div class="tier-label"><span>ABA</span><strong>04</strong></div>
+          <div class="tier-name"><span>TIER 4</span><small>SEPARAÇÃO BASE</small></div>
+        </header>
+        <div class="lane stay">
+          <span class="lane-icon">●</span>
+          <div><small>FICA NA ABA 04</small><strong>4.0 e 4.1</strong></div>
+          <span class="destination">DISPONÍVEL</span>
+        </div>
+        <div class="lane enchant">
+          <span class="lane-icon">✦</span>
+          <div><small>SEPARAR EM OUTRA ABA</small><strong>Runas e almas</strong></div>
+          <span class="destination">ENCANTAR</span>
+        </div>
+        <div class="lane royal">
+          <span class="lane-icon">↗</span>
+          <div><small>RETIRAR DA HO</small><strong>4.2 e 4.3</strong></div>
+          <span class="destination">ROYAL</span>
+        </div>
+      </article>
+
+      <article class="tier-card tier-five">
+        <header>
+          <div class="tier-label"><span>ABA</span><strong>05</strong></div>
+          <div class="tier-name"><span>TIER 5</span><small>MESMO FLUXO</small></div>
+        </header>
+        <div class="lane stay">
+          <span class="lane-icon">●</span>
+          <div><small>FICA NA ABA 05</small><strong>5.0</strong></div>
+          <span class="destination">DISPONÍVEL</span>
+        </div>
+        <div class="lane enchant">
+          <span class="lane-icon">✦</span>
+          <div><small>SEPARAR EM OUTRA ABA</small><strong>Runas T5</strong></div>
+          <span class="destination">ENCANTAR</span>
+        </div>
+        <div class="lane royal">
+          <span class="lane-icon">↗</span>
+          <div><small>RETIRAR DA HO</small><strong>5.2 e 5.3</strong></div>
+          <span class="destination">ROYAL</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="sales-grid">
+      <article class="sales-card buyers">
+        <span class="card-index">02</span>
+        <div class="card-icon">◎</div>
+        <h2>Fechar compradores</h2>
+        <p>Oferecer tabs para membros ou compradores aleatórios que já compram loot de World Boss.</p>
+        <div class="contact-line"><span>PRÓXIMA AÇÃO</span><strong>Falar com Caxa sobre compradores de loot do WB</strong></div>
+      </article>
+      <article class="sales-card caerleon">
+        <span class="card-index">03</span>
+        <div class="card-icon">⌖</div>
+        <h2>Conta Hlinha</h2>
+        <p>Manter uma função única para evitar mistura de estoque, cidade e operação.</p>
+        <div class="city-lock"><span>USAR PARA VENDER</span><strong>SOMENTE EM CAERLEON</strong></div>
+      </article>
+    </section>
+
+    <section class="todo-section" id="organizador">
+      <div class="todo-heading">
+        <div>
+          <span class="eyebrow">ORGANIZADOR DA STAFF</span>
+          <h2>To-do operacional</h2>
+          <p>Registre tarefas, acompanhe o andamento e mantenha rotinas e lembretes à vista.</p>
+        </div>
+        <form class="quick-add" id="todo-form">
+          <label class="sr-only" for="todo-title">Nova tarefa</label>
+          <input id="todo-title" name="title" maxlength="90" placeholder="O que precisa ser feito?" autocomplete="off" required>
+          <label class="sr-only" for="todo-type">Tipo</label>
+          <select id="todo-type" name="type">
+            <option value="tarefa">Tarefa</option>
+            <option value="rotina">Rotina</option>
+            <option value="lembrete">Lembrete</option>
+          </select>
+          <button type="submit"><span>+</span> Adicionar</button>
+        </form>
+      </div>
+
+      <div class="board" aria-label="Quadro de tarefas">
+        <section class="board-column column-todo" data-column="todo">
+          <header><span class="status-dot"></span><h3>A fazer</h3><b data-count="todo">0</b></header>
+          <div class="task-list" data-list="todo"></div>
+        </section>
+        <section class="board-column column-doing" data-column="doing">
+          <header><span class="status-dot"></span><h3>Fazendo</h3><b data-count="doing">0</b></header>
+          <div class="task-list" data-list="doing"></div>
+        </section>
+        <section class="board-column column-done" data-column="done">
+          <header><span class="status-dot"></span><h3>Feito</h3><b data-count="done">0</b></header>
+          <div class="task-list" data-list="done"></div>
+        </section>
+      </div>
+
+      <div class="focus-grid">
+        <article class="focus-card routines-card">
+          <header><span>↻</span><div><small>RECORRENTE</small><h3>Rotinas</h3></div></header>
+          <div class="focus-list" id="routine-list"></div>
+        </article>
+        <article class="focus-card reminders-card">
+          <header><span>!</span><div><small>NÃO ESQUECER</small><h3>Lembretes</h3></div></header>
+          <div class="focus-list" id="reminder-list"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="checklist-section" id="checklist">
+      <div class="checklist-head">
+        <div>
+          <span class="eyebrow">EXECUÇÃO</span>
+          <h2>Checklist da rodada</h2>
+        </div>
+        <div class="progress-wrap" aria-live="polite">
+          <span id="progress-text">0 de 7</span>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+        </div>
+      </div>
+
+      <div class="checklist" role="list">
+        <label class="check-item"><input type="checkbox" data-task="t4-base"><span class="box"></span><span><strong>Organizar a aba 04</strong><small>Deixar somente 4.0 e 4.1.</small></span><b>01</b></label>
+        <label class="check-item"><input type="checkbox" data-task="t4-enchant"><span class="box"></span><span><strong>Separar encantamento T4</strong><small>Levar runas e almas para a aba de encantamento.</small></span><b>02</b></label>
+        <label class="check-item"><input type="checkbox" data-task="t4-royal"><span class="box"></span><span><strong>Retirar especiais T4</strong><small>Mover 4.2 e 4.3 para a aba que volta à Royal.</small></span><b>03</b></label>
+        <label class="check-item"><input type="checkbox" data-task="t5-base"><span class="box"></span><span><strong>Organizar a aba 05</strong><small>Deixar somente 5.0.</small></span><b>04</b></label>
+        <label class="check-item"><input type="checkbox" data-task="t5-flow"><span class="box"></span><span><strong>Separar o fluxo T5</strong><small>Runas T5 para encantar; 5.2 e 5.3 para Royal.</small></span><b>05</b></label>
+        <label class="check-item"><input type="checkbox" data-task="buyers"><span class="box"></span><span><strong>Oferecer as tabs completas</strong><small>Priorizar membro ou comprador de loot do WB.</small></span><b>06</b></label>
+        <label class="check-item"><input type="checkbox" data-task="caxa"><span class="box"></span><span><strong>Alinhar compradores com Caxa</strong><small>Fechar contatos para vendas recorrentes.</small></span><b>07</b></label>
+      </div>
+
+      <div class="checklist-footer">
+        <p>As marcações ficam salvas neste dispositivo.</p>
+        <button id="reset-checklist" type="button">Limpar checklist</button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-mark">N</div>
+      <p><strong>Menos anúncio. Mais giro.</strong><br>Organizar → separar → vender a tab.</p>
+      <a href="#page-title">Voltar ao topo ↑</a>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Resumo copiado</div>
+  <script src="/assets/rotina.js" defer></script>
+</body>
+</html>
