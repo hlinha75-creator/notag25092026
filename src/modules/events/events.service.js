@@ -2423,6 +2423,33 @@ async function cancelEvent(interaction, eventId, reason) {
   await deleteEventMessage(interaction.client, eventId);
 }
 
+async function handleEventPublicationDeleted(message) {
+  const channelId = message?.channelId || message?.channel?.id;
+  const messageId = message?.id;
+  if (!channelId || !messageId) return null;
+
+  const event = repo.getInteractiveEventByPublication(channelId, messageId);
+  if (!event) return null;
+
+  repo.updateEvent(event.id, {
+    status: 'cancelled',
+    cancel_reason: 'Publicacao do evento excluida no Discord',
+    cancelled_by: null
+  });
+  audit.createAuditLog({
+    type: 'event_cancelled',
+    targetId: String(event.id),
+    reason: 'Publicacao do evento excluida no Discord',
+    metadata: {
+      eventCode: event.event_code,
+      title: event.title,
+      previousStatus: event.status,
+      messageId
+    }
+  });
+  return event;
+}
+
 function saveLootReview({ eventId, lootTotal, repair, silverBags, taxPercent, evidenceNotes }) {
   const netLoot = calculateNetLoot({ lootTotal, repair, silverBags, taxPercent });
   repo.refreshParticipantSeconds(eventId);
@@ -3759,6 +3786,7 @@ module.exports = {
   addParticipantReview,
   autoJoinRunningEvent,
   cancelEvent,
+  handleEventPublicationDeleted,
   checkEventStartWarnings,
   cleanupInactiveEventVoiceChannels,
   cleanupExpiredReviewChannels,

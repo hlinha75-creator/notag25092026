@@ -3,6 +3,7 @@ const { handleButton } = require('./buttons');
 const { handleModal } = require('./modals');
 const { handleSelect } = require('./selects');
 const events = require('../modules/events/events.service');
+const eventsRepo = require('../modules/events/events.repository');
 const missions = require('../modules/missions/missions.service');
 const wtb = require('../modules/marketplace/wtb.service');
 const callerSchedule = require('../modules/operations/callerSchedule.service');
@@ -29,10 +30,25 @@ async function handleInteraction(interaction) {
         return await wtb.handleModal(interaction);
       }
       if (interaction.customId.startsWith('event:cancel_modal:')) {
-        const eventId = Number(interaction.customId.split(':')[2]);
+        const [, , eventIdRaw, channelId, messageId] = interaction.customId.split(':');
+        const eventId = Number(eventIdRaw);
         const reason = interaction.fields.getTextInputValue('reason');
         const acknowledged = await safeDeferReply(interaction, { flags: MessageFlags.Ephemeral });
         if (!acknowledged) return null;
+        if (!eventsRepo.getEvent(eventId)) {
+          const channel = channelId
+            ? await interaction.client.channels.fetch(channelId).catch(() => null)
+            : null;
+          const sourceMessage = channel && messageId
+            ? await channel.messages.fetch(messageId).catch(() => null)
+            : null;
+          await sourceMessage?.delete().catch(() => {});
+          return safeEditReply(interaction, {
+            content: sourceMessage
+              ? 'A mensagem antiga do evento foi removida. O registro já não existe no banco, então não havia evento para cancelar.'
+              : 'Esse evento já não existe no banco e não pôde ser cancelado. A mensagem antiga não foi localizada; remova-a manualmente no Discord.'
+          });
+        }
         await events.cancelEvent(interaction, eventId, reason);
         return safeEditReply(interaction, { content: 'Evento cancelado.' });
       }

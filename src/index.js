@@ -177,6 +177,11 @@ client.on('guildMemberAdd', (member) => {
   memberOnboarding.sendWelcomeGuide(member).catch((error) => console.error('Falha ao enviar guia inicial:', error));
 });
 client.on('guildMemberRemove', registration.handleGuildMemberRemove);
+client.on('messageDelete', (message) => {
+  events.handleEventPublicationDeleted(message).catch((error) => {
+    console.error('Falha ao registrar exclusao de publicacao de evento:', error);
+  });
+});
 client.on('guildMemberUpdate', (oldMember, newMember) => {
   mandatoryRules.handleMemberUpdate(oldMember, newMember).catch((error) => console.error('Falha ao proteger o cargo Membro pelas regras:', error));
 });

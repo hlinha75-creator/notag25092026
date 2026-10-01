@@ -1282,7 +1282,7 @@ async function handleButton(interaction) {
       if (!canForceStartFinish(interaction.member)) {
         return interaction.reply({ content: 'Somente Staff/ADM podem confirmar cancelamento de evento de outro criador.', flags: MessageFlags.Ephemeral });
       }
-      return showModal(interaction, `event:cancel_modal:${eventId}`, 'Cancelar Evento', [
+      return showModal(interaction, `event:cancel_modal:${eventId}:${interaction.channelId}:${interaction.message?.id || ''}`, 'Cancelar Evento', [
         textInput('reason', 'Motivo do cancelamento')
       ]);
     }
@@ -1373,7 +1373,7 @@ async function handleButton(interaction) {
           flags: MessageFlags.Ephemeral
         });
       }
-      return showModal(interaction, `event:cancel_modal:${eventId}`, 'Cancelar Evento', [
+      return showModal(interaction, `event:cancel_modal:${eventId}:${interaction.channelId}:${interaction.message?.id || ''}`, 'Cancelar Evento', [
         textInput('reason', 'Motivo do cancelamento')
       ]);
     }

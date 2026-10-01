@@ -28,6 +28,15 @@ function getEventByCode(eventCode) {
   return getDatabase().prepare('SELECT * FROM events WHERE event_code = ?').get(eventCode);
 }
 
+function getInteractiveEventByPublication(channelId, messageId) {
+  return getDatabase().prepare(`
+    SELECT * FROM events
+    WHERE message_channel_id = ? AND message_id = ?
+      AND status IN ('created', 'running')
+    LIMIT 1
+  `).get(String(channelId), String(messageId));
+}
+
 function getEventByVoiceChannel(voiceChannelId) {
   return getDatabase().prepare('SELECT * FROM events WHERE voice_channel_id = ? AND status = ?').get(voiceChannelId, 'running');
 }
@@ -1037,6 +1046,7 @@ module.exports = {
   clearParticipantPayouts,
   getEvent,
   getEventByCode,
+  getInteractiveEventByPublication,
   getEventByVoiceChannel,
   getLastCommonEventConfiguration,
   getLastCustomEventConfiguration,
