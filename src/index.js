@@ -71,6 +71,28 @@ const client = new Client({
   partials: [Partials.Channel]
 });
 
+client.on('shardReady', (shardId) => {
+  console.log(`[DISCORD] Gateway conectado; shard ${shardId} pronto.`);
+});
+
+client.on('shardDisconnect', (closeEvent, shardId) => {
+  console.error(
+    `[DISCORD] Gateway desconectou shard ${shardId}: codigo ${closeEvent.code}, motivo ${closeEvent.reason || 'sem motivo'}.`
+  );
+});
+
+client.on('shardError', (error, shardId) => {
+  console.error(`[DISCORD] Erro no Gateway do shard ${shardId}:`, error);
+});
+
+client.on('shardReconnecting', (shardId) => {
+  console.warn(`[DISCORD] Reconectando ao Gateway no shard ${shardId}.`);
+});
+
+client.on('shardResume', (shardId, replayedEvents) => {
+  console.log(`[DISCORD] Gateway retomado no shard ${shardId}; ${replayedEvents} evento(s) recuperado(s).`);
+});
+
 client.once('clientReady', () => {
   console.log(`Notag bot online como ${client.user.tag}`);
   client.application.commands.set(commandDefinitions, ids.guildId)
@@ -242,6 +264,7 @@ function handleShutdownSignal(signal) {
 process.once('SIGTERM', () => handleShutdownSignal('SIGTERM'));
 process.once('SIGINT', () => handleShutdownSignal('SIGINT'));
 
+console.log('[DISCORD] Iniciando conexao com o Gateway do Discord.');
 client.login(env.requireEnv('DISCORD_TOKEN')).catch((error) => {
   console.error('Falha ao conectar o bot ao Discord:', error);
   webServer.close();
