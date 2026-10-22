@@ -135,6 +135,7 @@ Quando fica online, o bot agenda:
 - processar escolhas vencidas da campanha a cada 10 min;
 - atualizar progresso da campanha a cada 10 min;
 - limpar canais de revisao expirados a cada 1h;
+- limpar cargos temporarios de evento expirados ou orfaos no inicio e a cada 1h;
 - postar backup diario de saldos se necessario a cada 1h;
 - postar lembrete semanal Albion se necessario;
 - postar previa mensal de inatividade se necessario.

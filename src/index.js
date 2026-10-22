@@ -11,6 +11,7 @@ const { backupDatabase } = require('./database/backup');
 const registration = require('./modules/registration/registration.service');
 const voice = require('./modules/voice/voice.service');
 const events = require('./modules/events/events.service');
+const { cleanupExpiredEventTempRoles } = require('./modules/events/eventReminders.service');
 const guildVerification = require('./modules/albion/guildVerification.service');
 const dailyPveRanking = require('./modules/albion/dailyPveRanking.service');
 const killFeed = require('./modules/albion/killFeed.service');
@@ -38,6 +39,11 @@ const { runTasks, scheduleTaskGroups } = require('./runtime/taskScheduler');
 
 function backgroundTask(run, errorMessage) {
   return { run, errorMessage };
+}
+
+async function cleanupEventTempRoles(client) {
+  const guild = await client.guilds.fetch(ids.guildId);
+  await cleanupExpiredEventTempRoles(guild);
 }
 
 migrate();
@@ -122,6 +128,7 @@ client.once('clientReady', () => {
     backgroundTask(() => killFeed.pollKillFeed(client), 'Falha ao consultar killfeed:'),
     backgroundTask(() => missions.processDueReminders(client), 'Falha ao processar lembretes de missoes:'),
     backgroundTask(() => contentPreview.disableOpenPreviews(client), 'Falha ao remover previa de conteudos desativada:'),
+    backgroundTask(() => cleanupEventTempRoles(client), 'Falha ao limpar cargos temporarios de eventos:'),
     backgroundTask(() => mandatoryRules.enforceIfVoiceQuiet(client), 'Falha ao aplicar confirmação das novas regras:'),
     backgroundTask(() => mandatoryRules.updateAnnouncementMessage(client), 'Falha ao atualizar o aviso das novas regras:')
   ]);
@@ -148,6 +155,7 @@ client.once('clientReady', () => {
     {
       intervalMs: 60 * 60 * 1000,
       tasks: [
+        backgroundTask(() => cleanupEventTempRoles(client), 'Falha ao limpar cargos temporarios de eventos:'),
         backgroundTask(() => balanceBackup.postDailyBackupIfNeeded(client), 'Falha ao postar backup diario de saldos:'),
         backgroundTask(() => operations.postDailyAdminReportIfNeeded(client), 'Falha ao enviar relatorio diario ADM:'),
         backgroundTask(() => dailyPveRanking.postDailyPveRankingIfNeeded(client), 'Falha ao publicar Top 5 PvE:'),

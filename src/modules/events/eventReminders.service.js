@@ -34,7 +34,6 @@ async function checkEventStartWarnings(client) {
   const events = repo.listPendingReminderEvents();
   const guild = await client.guilds.fetch(ids.guildId).catch(() => null);
   if (!guild) return;
-  await cleanupExpiredEventTempRoles(guild);
   for (const event of events) {
     const startAt = parseAlbionEventTime(event.scheduled_time);
     if (!startAt) continue;
