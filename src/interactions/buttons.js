@@ -386,15 +386,62 @@ async function handleButton(interaction) {
   }
   if (scope === 'event_config' && action === 'save') {
     if (!can(interaction.member, 'createEvent')) {
+      audit.createAuditLog({
+        type: 'event_template_save_failed',
+        actorId: interaction.user.id,
+        targetId: id,
+        reason: 'Usuário sem permissão para criar eventos',
+        metadata: { kind: extra, contentType: detail }
+      });
       return interaction.reply({ content: 'Você não tem permissão para salvar configurações.', flags: MessageFlags.Ephemeral });
     }
     const event = eventsRepo.getEvent(Number(id));
     if (!event || String(event.creator_id) !== String(interaction.user.id)) {
+      audit.createAuditLog({
+        type: 'event_template_save_failed',
+        actorId: interaction.user.id,
+        targetId: id,
+        reason: event ? 'Evento pertence a outro criador' : 'Evento não encontrado',
+        metadata: { kind: extra, contentType: detail }
+      });
       return interaction.reply({ content: 'Esse evento não está disponível para salvar.', flags: MessageFlags.Ephemeral });
     }
-    return showModal(interaction, `event_config:save:${id}:${extra}:${detail}`, 'Salvar configuração', [
-      textInput('name', 'Nome da configuração', true, `Ex: ${event.title}`)
-    ]);
+    try {
+      const saved = eventsRepo.saveEventConfiguration({
+        creatorId: interaction.user.id,
+        eventId: Number(id),
+        kind: extra,
+        contentType: detail,
+        name: event.title || event.event_code || `Evento ${id}`
+      });
+      audit.createAuditLog({
+        type: 'event_template_saved',
+        actorId: interaction.user.id,
+        targetId: id,
+        afterValue: saved.name,
+        reason: 'Configuração salva em um clique',
+        metadata: { templateId: saved.id, kind: extra, contentType: detail }
+      });
+      return interaction.update({
+        content: [
+          `✅ Configuração **${saved.name}** salva com sucesso.`,
+          `Ao criar outro evento de **${eventTypes.eventTypeLabel(detail)}**, escolha **Usar configuração salva**.`
+        ].join('\n'),
+        components: []
+      });
+    } catch (error) {
+      audit.createAuditLog({
+        type: 'event_template_save_failed',
+        actorId: interaction.user.id,
+        targetId: id,
+        reason: String(error?.message || error).slice(0, 500),
+        metadata: { kind: extra, contentType: detail }
+      });
+      return interaction.reply({
+        content: 'Não consegui salvar essa configuração. A falha foi registrada para a staff; tente novamente.',
+        flags: MessageFlags.Ephemeral
+      });
+    }
   }
   if (scope === 'event_loot_correction') {
     if (action === 'confirm') {
