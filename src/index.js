@@ -110,11 +110,13 @@ client.once('clientReady', () => {
         console.error(`Falha ao retirar o bot da call no servidor ${guild.id}:`, error);
       });
     }
-    temporaryVoice.initializeGuild(guild)
-      .then(({ trigger, deleted }) => {
-        console.log(`[VOZ TEMPORARIA] Gatilho pronto: ${trigger.name} (${trigger.id}); ${deleted} sala(s) vazia(s) removida(s).`);
-      })
-      .catch((error) => console.error(`[VOZ TEMPORARIA] Falha ao preparar o servidor ${guild.id}:`, error));
+    if (guild.id === ids.guildId) {
+      temporaryVoice.initializeGuild(guild)
+        .then(({ trigger, deleted }) => {
+          console.log(`[VOZ TEMPORARIA] Gatilho pronto: ${trigger.name} (${trigger.id}); ${deleted} sala(s) vazia(s) removida(s).`);
+        })
+        .catch((error) => console.error(`[VOZ TEMPORARIA] Falha ao preparar o servidor ${guild.id}:`, error));
+    }
   }
   events.cleanupExpiredReviewChannels(client).catch((error) => console.error('Falha ao limpar canais de revisao:', error));
   events.cleanupInactiveEventVoiceChannels(client)
