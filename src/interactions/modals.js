@@ -865,6 +865,7 @@ function defaultAlbionTime(minutesAhead) {
 function recoverEventCreation(interaction, contentType, values, error) {
   const retryId = eventCreationRecovery.remember({ creatorId: interaction.user.id, contentType, values });
   return safeEditReply(interaction, {
+    flags: MessageFlags.Ephemeral,
     content: [
       `Não foi possível criar o evento: ${error.message}`,
       'Seus dados foram mantidos por 30 minutos.',
