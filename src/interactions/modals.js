@@ -1,5 +1,6 @@
 const { can, hasRole, isOwner } = require('../config/permissions');
 const ids = require('../config/ids');
+const env = require('../config/env');
 const events = require('../modules/events/events.service');
 const eventsRepo = require('../modules/events/events.repository');
 const customEventWizard = require('../modules/events/customEventWizard.service');
@@ -864,12 +865,22 @@ function defaultAlbionTime(minutesAhead) {
 function recoverEventCreation(interaction, contentType, values, error) {
   const retryId = eventCreationRecovery.remember({ creatorId: interaction.user.id, contentType, values });
   return safeEditReply(interaction, {
-    content: `Não foi possível criar o evento: ${error.message}\nSeus dados foram mantidos por 30 minutos.`,
+    content: [
+      `Não foi possível criar o evento: ${error.message}`,
+      'Seus dados foram mantidos por 30 minutos.',
+      '',
+      '💡 Se preferir, use o **criador visual do site**, que facilita o preenchimento da data, hora e composição.'
+    ].join('\n'),
     components: [new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId(`event_create_retry:open:${retryId}`)
         .setLabel('Corrigir e tentar novamente')
-        .setStyle(ButtonStyle.Primary)
+        .setStyle(ButtonStyle.Primary),
+      new ButtonBuilder()
+        .setLabel('Criar pelo site')
+        .setEmoji('🌐')
+        .setURL(`${env.dashboardPublicBaseUrl}/pingcontent`)
+        .setStyle(ButtonStyle.Link)
     )]
   });
 }

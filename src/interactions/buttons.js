@@ -1,6 +1,7 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, MessageFlags, ModalBuilder, StringSelectMenuBuilder, TextInputBuilder, TextInputStyle, UserSelectMenuBuilder } = require('discord.js');
 const { can, hasRole, isOwner } = require('../config/permissions');
 const ids = require('../config/ids');
+const env = require('../config/env');
 const eventsRepo = require('../modules/events/events.repository');
 const events = require('../modules/events/events.service');
 const customEventWizard = require('../modules/events/customEventWizard.service');
@@ -849,13 +850,28 @@ async function handleButton(interaction) {
       return interaction.reply({ content: 'Voce nao tem permissao para criar evento.', flags: MessageFlags.Ephemeral });
     }
     return interaction.reply({
-      content: `**Qual tipo de evento?**\nA escolha abre o formulário e as regras corretas para esse conteúdo.\n\n📋 [Abrir planilha de composições](${compositionRules.COMPOSITION_SHEET_URL})`,
-      components: [new ActionRowBuilder().addComponents(
-        new StringSelectMenuBuilder()
-          .setCustomId('event_create_type:select')
-          .setPlaceholder('Selecione o tipo do evento')
-          .addOptions(eventTypes.discordOptions())
-      )],
+      content: [
+        '**Qual tipo de evento?**',
+        'A escolha abre o formulário e as regras corretas para esse conteúdo.',
+        '',
+        '💡 **Outra opção:** você também pode criar pelo painel visual do site. Ele facilita o preenchimento da data, hora e composição.',
+        `📋 [Abrir planilha de composições](${compositionRules.COMPOSITION_SHEET_URL})`
+      ].join('\n'),
+      components: [
+        new ActionRowBuilder().addComponents(
+          new StringSelectMenuBuilder()
+            .setCustomId('event_create_type:select')
+            .setPlaceholder('Selecione o tipo do evento')
+            .addOptions(eventTypes.discordOptions())
+        ),
+        new ActionRowBuilder().addComponents(
+          new ButtonBuilder()
+            .setLabel('Abrir criador visual no site')
+            .setEmoji('🌐')
+            .setURL(`${env.dashboardPublicBaseUrl}/pingcontent`)
+            .setStyle(ButtonStyle.Link)
+        )
+      ],
       flags: MessageFlags.Ephemeral
     });
   }

@@ -15,6 +15,11 @@ function resolveDatabasePath(value = process.env.DATABASE_PATH || './data/notag.
   return path.isAbsolute(value) ? value : path.resolve(projectRoot, value);
 }
 
+function publicDashboardBaseUrl(value = process.env.DASHBOARD_BASE_URL || 'http://localhost:8080') {
+  const baseUrl = String(value).replace(/\/$/, '');
+  return /localhost|127\.0\.0\.1/i.test(baseUrl) ? 'https://notag.discloud.app' : baseUrl;
+}
+
 module.exports = {
   token: process.env.DISCORD_TOKEN,
   discordClientId: process.env.CLIENT_ID,
@@ -24,6 +29,7 @@ module.exports = {
   databasePath: resolveDatabasePath(),
   nodeEnv: process.env.NODE_ENV || 'development',
   dashboardBaseUrl: (process.env.DASHBOARD_BASE_URL || 'http://localhost:8080').replace(/\/$/, ''),
+  dashboardPublicBaseUrl: publicDashboardBaseUrl(),
   dashboardHost: process.env.DASHBOARD_HOST || '0.0.0.0',
   dashboardPort: Number(process.env.PORT || process.env.DASHBOARD_PORT || 8080),
   dashboardSessionSecret: process.env.DASHBOARD_SESSION_SECRET,

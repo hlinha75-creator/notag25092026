@@ -5,12 +5,15 @@ const {
   EmbedBuilder
 } = require('discord.js');
 const ids = require('../../config/ids');
+const env = require('../../config/env');
 const { getDatabase } = require('../../database/connection');
 const operations = require('../operations/operations.service');
 const staffTutorial = require('../tutorials/staffTutorial.service');
 const memberOnboarding = require('../tutorials/memberOnboarding.service');
 const eventNotificationPreferences = require('../events/eventNotificationPreferences.service');
 const { COMPOSITION_SHEET_URL } = require('../events/compositionRules');
+
+const visualEventUrl = `${env.dashboardPublicBaseUrl}/pingcontent`;
 
 const archiveEmbed = new EmbedBuilder()
   .setTitle('Arquivar')
@@ -33,11 +36,16 @@ const panels = [
     channelId: ids.channels.createEvent,
     embed: new EmbedBuilder()
       .setTitle('Criar evento')
-      .setDescription('Um único fluxo para todos os conteúdos. Clique abaixo, escolha o tipo e siga as etapas.')
+      .setDescription([
+        'Um único fluxo para todos os conteúdos. Clique abaixo, escolha o tipo e siga as etapas.',
+        '',
+        'Prefere preencher data, hora e composição visualmente? Use também o **Criador de eventos no site**.'
+      ].join('\n'))
       .setColor(0x3182ce),
     components: [
       new ActionRowBuilder().addComponents(
         new ButtonBuilder().setCustomId('panel:create_event').setLabel('Criar Evento').setEmoji('➕').setStyle(ButtonStyle.Primary),
+        new ButtonBuilder().setLabel('Criar pelo site').setEmoji('🌐').setURL(visualEventUrl).setStyle(ButtonStyle.Link),
         new ButtonBuilder().setLabel('Planilha de composições').setEmoji('📋').setURL(COMPOSITION_SHEET_URL).setStyle(ButtonStyle.Link)
       )
     ]
