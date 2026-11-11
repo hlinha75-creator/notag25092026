@@ -2575,6 +2575,25 @@ const migrations = [
         );
       `);
     }
+  },
+  {
+    version: 88,
+    name: 'temporary_voice_channels',
+    up(db) {
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS temporary_voice_channels (
+          channel_id TEXT PRIMARY KEY,
+          guild_id TEXT NOT NULL,
+          owner_id TEXT NOT NULL,
+          trigger_channel_id TEXT NOT NULL,
+          created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          UNIQUE (guild_id, owner_id)
+        );
+
+        CREATE INDEX IF NOT EXISTS idx_temporary_voice_channels_guild
+          ON temporary_voice_channels (guild_id);
+      `);
+    }
   }
 ];
 

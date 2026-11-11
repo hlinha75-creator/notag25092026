@@ -42,6 +42,8 @@ module.exports = {
     .split(',').map((id) => id.trim()).filter(Boolean),
   idleTopicId: process.env.IDLE_TOPIC_ID || '1525824031784304770',
   idleArchiveTopicId: process.env.IDLE_ARCHIVE_TOPIC_ID || '1525841189939445810',
+  tempVoiceTriggerChannelId: process.env.TEMP_VOICE_TRIGGER_CHANNEL_ID || '',
+  tempVoiceCategoryId: process.env.TEMP_VOICE_CATEGORY_ID || '',
   missionAuthorIds: (process.env.MISSION_AUTHOR_IDS || '1276439186513203234,1436716667894759475')
     .split(',').map((id) => id.trim()).filter(Boolean)
 };

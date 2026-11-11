@@ -10,6 +10,7 @@ const { migrate } = require('./database/migrate');
 const { backupDatabase } = require('./database/backup');
 const registration = require('./modules/registration/registration.service');
 const voice = require('./modules/voice/voice.service');
+const temporaryVoice = require('./modules/voice/temporaryVoice.service');
 const events = require('./modules/events/events.service');
 const { cleanupExpiredEventTempRoles } = require('./modules/events/eventReminders.service');
 const guildVerification = require('./modules/albion/guildVerification.service');
@@ -109,6 +110,11 @@ client.once('clientReady', () => {
         console.error(`Falha ao retirar o bot da call no servidor ${guild.id}:`, error);
       });
     }
+    temporaryVoice.initializeGuild(guild)
+      .then(({ trigger, deleted }) => {
+        console.log(`[VOZ TEMPORARIA] Gatilho pronto: ${trigger.name} (${trigger.id}); ${deleted} sala(s) vazia(s) removida(s).`);
+      })
+      .catch((error) => console.error(`[VOZ TEMPORARIA] Falha ao preparar o servidor ${guild.id}:`, error));
   }
   events.cleanupExpiredReviewChannels(client).catch((error) => console.error('Falha ao limpar canais de revisao:', error));
   events.cleanupInactiveEventVoiceChannels(client)
@@ -216,6 +222,10 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
   mandatoryRules.handleMemberUpdate(oldMember, newMember).catch((error) => console.error('Falha ao proteger o cargo Membro pelas regras:', error));
 });
 client.on('voiceStateUpdate', voice.handleVoiceStateUpdate);
+client.on('voiceStateUpdate', (oldState, newState) => {
+  temporaryVoice.handleVoiceStateUpdate(oldState, newState)
+    .catch((error) => console.error('[VOZ TEMPORARIA] Falha ao processar entrada/saida:', error));
+});
 client.on('voiceStateUpdate', (_oldState, newState) => {
   mandatoryRules.enforceIfVoiceQuiet(newState.client).catch((error) => console.error('Falha ao verificar calls para as novas regras:', error));
 });
@@ -226,6 +236,7 @@ client.on('voiceStateUpdate', (_oldState, newState) => {
   });
 });
 client.on('interactionCreate', handleInteraction);
+client.on('channelDelete', temporaryVoice.handleChannelDelete);
 client.on('messageCreate', (message) => {
   guildVerification.handleDirectNickReply(message).catch((error) => console.error('Falha ao tratar resposta de nick por DM:', error));
   missions.handleMissionMessage(message).catch((error) => console.error('Falha ao transformar mensagem em missao:', error));
