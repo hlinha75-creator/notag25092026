@@ -18,7 +18,6 @@ const { getMemberRosterData, manageMemberRoster } = require('./staff-member-rost
 const { getCommandIntelligenceData, getMemberIntelligenceData } = require('./command-intelligence.service');
 const { getPrimeTimeData } = require('./primetime.service');
 const { getRegearData, setRegearStatus } = require('./regear.service');
-const massRaffle = require('../modules/giveaways/massRaffle.service');
 const constantPlayersRaffle = require('../modules/giveaways/constantPlayersRaffle.service');
 const { getDatabase } = require('../database/connection');
 const { completeOnboarding, ensureGuestMember, handleOnboardingIssue, onboardingConfigured } = require('./onboarding');
@@ -51,7 +50,7 @@ const {
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const PORTAL_RETURN_COOKIE = 'notag_portal_return';
 const STAFF_RETURN_COOKIE = 'notag_staff_return';
-const ALLOWED_STAFF_ROLES = new Set([ids.roles.adm, ids.roles.staff].filter(Boolean));
+const ALLOWED_STAFF_ROLES = new Set([ids.roles.adm, ids.roles.staff, ids.roles.treasurer].filter(Boolean));
 const PINGCONTENT_ROLES = new Set([ids.roles.adm, ids.roles.staff, ids.roles.caller].filter(Boolean));
 const REGISTRATION_REVIEW_ROLES = new Set([
   ids.roles.adm,
@@ -261,7 +260,6 @@ function configuredForOAuth() {
 }
 
 function staffReturnDestination(value) {
-  if (value === 'sorteio') return '/sorteio';
   if (value === 'pingcontent') return '/pingcontent';
   return '/dashboard';
 }
@@ -666,33 +664,6 @@ function createRequestHandler(client, options = {}) {
           }
         }
       }
-      if (req.method === 'POST' && url.pathname === '/api/staff/sorteio') {
-        if (!session) return json(res, 401, { error: 'Sessão da staff necessária.' }, isProduction);
-        if (!await sessionStillAuthorized(client, session)) return json(res, 403, { error: 'Acesso de staff necessário.' }, isProduction);
-        const expectedOrigin = new URL(env.dashboardBaseUrl).origin;
-        if (req.headers.origin !== expectedOrigin) return json(res, 403, { error: 'Origem inválida.' }, isProduction);
-        if (!String(req.headers['content-type'] || '').startsWith('application/x-www-form-urlencoded')) {
-          return json(res, 415, { error: 'Formato de formulário inválido.' }, isProduction);
-        }
-        const form = await readFormBody(req);
-        if (!session.csrf || form.get('csrf') !== session.csrf) {
-          return json(res, 403, { error: 'Sua sessão precisa ser renovada. Atualize a página e tente novamente.' }, isProduction);
-        }
-        try {
-          const action = form.get('action');
-          let result;
-          if (action === 'start') result = massRaffle.startOfficial({ actorId: session.id });
-          else if (action === 'draw') result = massRaffle.drawOfficial({ actorId: session.id, prizeId: form.get('prizeId') });
-          else throw Object.assign(new Error('Ação de sorteio inválida.'), { statusCode: 400 });
-          const renewedSession = createSession(session, env.dashboardSessionSecret);
-          const payload = action === 'start' ? { state: result } : result;
-          return json(res, 200, payload, isProduction, {
-            'Set-Cookie': cookie(SESSION_COOKIE, renewedSession, { maxAge: SESSION_MAX_AGE_SECONDS, secure: secureCookie })
-          });
-        } catch (error) {
-          return json(res, Number(error.statusCode || 400), { error: error.message || 'Não foi possível atualizar o sorteio.' }, isProduction);
-        }
-      }
       if (req.method === 'POST' && url.pathname === '/api/staff/pingcontent') {
         if (!session) return json(res, 401, { error: 'Sessão da staff necessária.' }, isProduction);
         if (!await sessionCanAccessPingContent(client, session)) return json(res, 403, { error: 'Acesso de Caller, Staff ou ADM necessário.' }, isProduction);
@@ -787,9 +758,7 @@ function createRequestHandler(client, options = {}) {
         });
       }
       if (url.pathname === '/sorteio' || url.pathname === '/sorteio-loot') {
-        return serveFile(res, 'sorteio-loot.html', isProduction, 'public, max-age=300', {
-          'Content-Security-Policy': "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
-        });
+        return redirect(res, '/?sorteio=encerrado', {}, isProduction);
       }
       if (url.pathname === '/sorteio240926') {
         return serveFile(res, 'sorteio240926.html', isProduction, 'public, max-age=300', {
@@ -819,14 +788,7 @@ function createRequestHandler(client, options = {}) {
         });
       }
       if (url.pathname === '/api/sorteio') {
-        const staff = Boolean(session && await sessionStillAuthorized(client, session));
-        const verificationId = portalSession?.id || session?.id || null;
-        return json(res, 200, {
-          state: massRaffle.getOfficialState(),
-          staff,
-          csrf: staff ? session.csrf : null,
-          verification: verificationId ? massRaffle.getParticipantVerification(verificationId) : null
-        }, isProduction);
+        return json(res, 410, { error: 'Este sorteio foi encerrado.' }, isProduction);
       }
       if (url.pathname === '/api/public/sorteio240926') {
         const identity = portalSession || session;
@@ -836,20 +798,7 @@ function createRequestHandler(client, options = {}) {
         }, isProduction, { 'Cache-Control': 'no-store' });
       }
       if (url.pathname === '/sorteio/verificar') {
-        if (portalSession) return redirect(res, '/sorteio?verificar=1', {}, isProduction);
-        if (session) {
-          const access = await portalAccess(client, session.id);
-          if (access) {
-            const portalToken = createPortalSession(session, env.dashboardSessionSecret, access);
-            const portalMaxAge = access.privileged ? PORTAL_PRIVILEGED_MAX_AGE_SECONDS : PORTAL_MEMBER_MAX_AGE_SECONDS;
-            return redirect(res, '/sorteio?verificar=1', {
-              'Set-Cookie': cookie(PORTAL_SESSION_COOKIE, portalToken, { maxAge: portalMaxAge, secure: secureCookie })
-            }, isProduction);
-          }
-        }
-        return redirect(res, '/join/discord', {
-          'Set-Cookie': cookie(PORTAL_RETURN_COOKIE, 'sorteio', { maxAge: OAUTH_STATE_MAX_AGE_SECONDS, secure: secureCookie })
-        }, isProduction);
+        return redirect(res, '/?sorteio=encerrado', {}, isProduction);
       }
       if (url.pathname === '/join') {
         if (!joinSession) return redirect(res, '/?join=required', {}, isProduction);
@@ -1013,7 +962,7 @@ function createRequestHandler(client, options = {}) {
         return serveFile(res, 'member.html', isProduction, 'private, no-store');
       }
       if (url.pathname === '/auth/discord') {
-        const requestedReturn = ['sorteio', 'pingcontent'].includes(url.searchParams.get('return'))
+        const requestedReturn = url.searchParams.get('return') === 'pingcontent'
           ? url.searchParams.get('return')
           : cookies[STAFF_RETURN_COOKIE];
         const staffDestination = staffReturnDestination(requestedReturn);
@@ -1039,7 +988,7 @@ function createRequestHandler(client, options = {}) {
           scope: 'identify',
           state
         });
-        const returnCookie = ['sorteio', 'pingcontent'].includes(url.searchParams.get('return'))
+        const returnCookie = url.searchParams.get('return') === 'pingcontent'
           ? cookie(STAFF_RETURN_COOKIE, url.searchParams.get('return'), { maxAge: OAUTH_STATE_MAX_AGE_SECONDS, secure: secureCookie })
           : clearCookie(STAFF_RETURN_COOKIE, secureCookie);
         return redirect(res, authorizeUrl.toString(), {
@@ -1082,9 +1031,7 @@ function createRequestHandler(client, options = {}) {
           ? '/sorteio240926?confirm=1'
           : requestedPortalReturn === 'temporada'
           ? '/portal#temporada'
-          : requestedPortalReturn === 'sorteio'
-            ? '/sorteio?verificar=1'
-            : '/portal';
+          : '/portal';
         if (portalSession && await portalAccess(client, portalSession.id)) {
           return redirect(res, portalDestination, { 'Set-Cookie': clearCookie(PORTAL_RETURN_COOKIE, secureCookie) }, isProduction);
         }
@@ -1141,9 +1088,7 @@ function createRequestHandler(client, options = {}) {
         const existingProfile = getPortalData(discordUser.id, access?.accessLevel || 'guest', access?.privileged || false).profile;
         const portalReturn = cookies[PORTAL_RETURN_COOKIE] === 'temporada'
           ? '/portal#temporada'
-          : cookies[PORTAL_RETURN_COOKIE] === 'sorteio'
-            ? '/sorteio?verificar=1'
-            : cookies[PORTAL_RETURN_COOKIE] === 'constant-raffle'
+          : cookies[PORTAL_RETURN_COOKIE] === 'constant-raffle'
               ? '/sorteio240926?confirm=1'
             : '/portal';
         const destination = portalReturn === '/sorteio240926?confirm=1' || access?.accessLevel === 'member' || existingProfile.albionName

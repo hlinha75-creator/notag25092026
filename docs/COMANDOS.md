@@ -2,13 +2,13 @@
 
 ## Como Registrar Comandos
 
-Sempre que adicionar, remover ou mudar comando slash, rode:
+O bot sincroniza automaticamente os comandos slash da guild quando fica online. Os comandos abaixo continuam disponiveis para manutencao manual ou diagnostico:
 
 ```bash
 npm run deploy:commands
 ```
 
-Se comandos antigos ficarem presos no Discord, use com cuidado:
+Se comandos antigos ficarem presos no Discord, use com cuidado. `clear:commands` nunca deve ser executado automaticamente:
 
 ```bash
 npm run clear:commands

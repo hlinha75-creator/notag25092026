@@ -146,14 +146,15 @@ Existe `discloud.config`.
 
 ### Deploy Automatico
 
-O workflow `.github/workflows/deploy-discloud.yml` testa e publica a aplicacao
-automaticamente quando alteracoes que afetam o bot chegam a branch `main`.
+O repositorio possui CI em `.github/workflows/ci.yml`. O deploy automatico da
+Discloud ainda precisa ser conectado a um repositorio remoto; ate isso acontecer,
+a publicacao continua manual.
 
 Configuracao unica no GitHub:
 
-1. Abrir `Settings > Secrets and variables > Actions` no repositorio.
-2. Criar o secret `DISCLOUD_TOKEN` com o token de API da conta Discloud.
-3. Fazer um push na `main` ou executar manualmente `Deploy Discloud` em `Actions`.
+1. Confirmar qual repositorio GitHub sera o oficial.
+2. Configurar o remote e publicar a branch `main`.
+3. Somente depois adicionar `DISCLOUD_TOKEN` e um workflow de deploy validado.
 
 O pacote respeita `.discloudignore` e bloqueia o envio de `.env`, `node_modules`,
 arquivos do Git e bancos SQLite. Os testes precisam passar antes da publicacao.

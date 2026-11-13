@@ -394,10 +394,11 @@ test('evento personalizado cria telas dinamicas e salva detalhes por vaga', asyn
   const draft = customEventWizard.createDraft({
     creatorId: 'creator-custom',
     title: 'Fame Farm Personalizada',
-    timeRange: 'das 18:30 as 20:30',
-    day: '20/07',
+    scheduledTime: '20/07/2099 18:30 UTC',
+    location: 'Portal de Bridgewatch',
     description: 'T6 equivalente',
-    composition: '1,1,1,17'
+    composition: '1,1,1,17',
+    template: { dpsPolicy: 'role_free' }
   });
   customEventWizard.saveDetails({
     id: draft.id,
@@ -423,7 +424,7 @@ test('evento personalizado cria telas dinamicas e salva detalhes por vaga', asyn
   const event = await events.createCustomEventFromDraft(harness.interaction('creator-custom'), draft);
   const message = [...harness.messages.values()][0];
   const description = message.payload.embeds[0].data.description;
-  assert.match(description, /20\/07 das 18:30 as 20:30/);
+  assert.match(description, /20\/07\/2099 18:30 UTC/);
   assert.match(description, /Full loot split/);
   assert.match(description, /Giga Pot T7/);
   assert.match(description, /Montaria:\*\* 120%\+/);

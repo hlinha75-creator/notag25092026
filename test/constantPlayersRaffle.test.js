@@ -14,12 +14,12 @@ const raffle = require('../src/modules/giveaways/constantPlayersRaffle.service')
 
 migrate();
 
-function resetState() {
+function resetState(scheduledAt = new Date(Date.now() - 1000)) {
   const db = getDatabase();
   db.prepare('DELETE FROM constant_raffle_results WHERE raffle_key = ?').run(raffle.RAFFLE_KEY);
   db.prepare('DELETE FROM constant_raffle_participants WHERE raffle_key = ?').run(raffle.RAFFLE_KEY);
   db.prepare('INSERT OR REPLACE INTO constant_raffles (raffle_key, scheduled_at, status, unresolved_json) VALUES (?, ?, ?, ?)')
-    .run(raffle.RAFFLE_KEY, new Date(Date.now() - 1000).toISOString(), 'scheduled', '[]');
+    .run(raffle.RAFFLE_KEY, scheduledAt.toISOString(), 'scheduled', '[]');
 
   const participants = raffle.PARTICIPANTS.slice(0, 10).map((name, index) => ({ discordId: `user-${index}`, name }));
   const insert = db.prepare('INSERT INTO constant_raffle_participants (raffle_key, discord_id, display_name) VALUES (?, ?, ?)');
@@ -29,9 +29,8 @@ function resetState() {
 }
 
 test('drawAll não sorteia novamente quando já houve resultado', () => {
-  resetState();
-
   const now = new Date('2026-09-26T20:00:00.000Z');
+  resetState(new Date(now.getTime() - 1000));
   const first = raffle.drawAll({ now });
   const firstResults = getDatabase()
     .prepare('SELECT slot_number, winner_discord_id, winner_name FROM constant_raffle_results WHERE raffle_key = ? ORDER BY slot_number')

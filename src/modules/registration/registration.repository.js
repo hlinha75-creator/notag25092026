@@ -35,9 +35,25 @@ function findUserByAlbionName(albionName, exceptDiscordId = null) {
 }
 
 function createRegistration({ discordId, albionName }) {
-  return getDatabase()
-    .prepare('INSERT INTO registrations (discord_id, albion_name) VALUES (?, ?)')
-    .run(discordId, albionName);
+  const db = getDatabase();
+  return db.transaction(() => {
+    const pending = db
+      .prepare("SELECT id FROM registrations WHERE discord_id = ? AND status = 'pending' ORDER BY id DESC LIMIT 1")
+      .get(discordId);
+
+    if (pending) {
+      const result = db.prepare(`
+        UPDATE registrations
+        SET albion_name = ?, created_at = CURRENT_TIMESTAMP
+        WHERE id = ?
+      `).run(albionName, pending.id);
+      return { ...result, lastInsertRowid: pending.id, reused: true };
+    }
+
+    return db
+      .prepare('INSERT INTO registrations (discord_id, albion_name) VALUES (?, ?)')
+      .run(discordId, albionName);
+  })();
 }
 
 function getRegistration(id) {

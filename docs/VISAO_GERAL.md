@@ -65,7 +65,7 @@ O fluxo mais importante do projeto e:
 
 Alguns detalhes nao estavam 100% lembrados no momento desta documentacao:
 
-- Funcionalidades antigas removidas: dashboard, leiloes, enquetes, FAQ, OCR e jogo de frutas.
+- Funcionalidades antigas desativadas: leiloes, enquetes antigas, FAQ automatica, OCR e modulos historicos desconectados. O dashboard novo, os jogos e os sorteios atuais sao oficiais.
 - Se existem variaveis secretas alem de `.env.example`.
 - Se o bot tem permissao administrativa completa no Discord.
 - Se existe rotina oficial de backup alem dos backups automaticos e manuais.

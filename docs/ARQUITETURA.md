@@ -2,7 +2,7 @@
 
 ## Resumo
 
-O projeto e um bot Discord em Node.js CommonJS.
+O projeto e uma plataforma em Node.js CommonJS: bot Discord, site publico, portal do membro e dashboard da staff.
 
 Principais tecnologias:
 
@@ -165,6 +165,6 @@ Painel Criar Evento
   -> finance deposita saldos
 ```
 
-## Recursos Removidos
+## Recursos Desativados
 
-Dashboard, leiloes, enquetes e FAQ foram removidos para manter o bot mais simples.
+Leiloes, enquetes antigas, FAQ automatica, OCR e modulos historicos desconectados permanecem desativados. O dashboard atual e uma implementacao nova aprovada; jogos e sorteios atuais fazem parte do produto.

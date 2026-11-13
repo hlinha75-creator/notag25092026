@@ -1,12 +1,14 @@
-# Notag Bot
+# Plataforma NOTAG
 
-Bot Discord da guild Notag para Albion Online.
+Plataforma da guild NOTAG para Albion Online, composta por bot Discord, site publico, portal do membro e dashboard da staff.
 
-O Notag Bot centraliza a rotina da guild: cria eventos, gerencia vagas, abre sala de voz, acompanha participacao, finaliza eventos com loot split, deposita saldos, paga membros, apoia recrutamento, controla membros ativos/inativos e gera relatorios de desempenho.
+A plataforma centraliza a rotina da guild: cria eventos, gerencia vagas, abre sala de voz, acompanha participacao, finaliza eventos com loot split, deposita saldos, paga membros, apoia recrutamento, controla membros ativos/inativos, oferece jogos e sorteios e gera relatorios de desempenho.
 
 Este projeto e feito somente para a guild Notag.
 
 ## Documentacao
+
+`MEMORY.md` e este `README.md` sao as fontes principais de verdade. A pasta `docs/` contem guias complementares e nao deve contradizer esses dois arquivos.
 
 A documentacao principal fica em `docs/`:
 
@@ -33,14 +35,10 @@ A documentacao principal fica em `docs/`:
    npm install
    ```
 
-3. Copie `.env.example` para `.env` e preencha pelo menos:
+3. Copie `.env.example` para `.env`, preencha as variaveis e valide:
 
-   ```env
-   DISCORD_TOKEN=
-   CLIENT_ID=
-   GUILD_ID=
-   DATABASE_PATH=./data/notag.sqlite
-   NODE_ENV=development
+   ```bash
+   npm run env:check
    ```
 
    Para ativar o dashboard e o login da staff, preencha tambem:
@@ -72,8 +70,9 @@ No VS Code tambem existe uma configuracao de debug chamada `Iniciar bot`.
 
 - A pagina publica abre em `/` e nao expoe dados do banco.
 - O dashboard da staff abre em `/dashboard` apos o login com Discord.
-- O acesso e permitido apenas ao dono do servidor e aos cargos `ADM` ou `Staff` configurados em `src/config/ids.js`.
-- Todas as telas da primeira versao sao somente leitura.
+- A administracao completa e permitida ao dono do servidor e aos cargos `ADM`, `Staff` e `Tesoureiro`.
+- `Caller` e `Recrutador` podem revisar cadastros sem receber acesso administrativo completo.
+- O dashboard executa operacoes de eventos, saques, registros, membros, importacoes e regear com autenticacao, CSRF e auditoria.
 - Os dados atualizam a cada 30 segundos enquanto a aba esta visivel e tambem podem ser atualizados manualmente.
 - Cadastre `https://notag.discloud.app/auth/discord/callback` como Redirect URI no Discord Developer Portal antes da publicacao.
 - Na Discloud, o projeto roda como `TYPE=site`, subdominio `notag`, escutando `0.0.0.0:8080`; o bot e o dashboard continuam no mesmo processo e compartilham o SQLite.
@@ -81,6 +80,7 @@ No VS Code tambem existe uma configuracao de debug chamada `Iniciar bot`.
 ## Scripts Uteis
 
 - `npm start`: inicia o bot.
+- `npm run env:check`: informa quais variaveis obrigatorias ainda faltam, sem mostrar segredos.
 - `npm run deploy:commands`: registra os comandos slash.
 - `npm run clear:commands`: limpa comandos antigos globais e da guild.
 - `npm run audit:channels`: audita canais do servidor.
@@ -102,4 +102,4 @@ No VS Code tambem existe uma configuracao de debug chamada `Iniciar bot`.
 
 ## Estado Atual
 
-Documentacao criada para uso pessoal do Lucas e da staff. Alguns pontos estao marcados como "a confirmar" porque dependem de decisao operacional ou memoria externa ao codigo.
+O dashboard atual e a implementacao nova aprovada depois da remocao do dashboard antigo. Jogos e sorteios atuais sao parte permanente do produto. Modulos historicos desconectados permanecem desativados ate decisao explicita.

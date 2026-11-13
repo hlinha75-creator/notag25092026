@@ -10,8 +10,9 @@ process.env.DATABASE_PATH = path.join(tempRoot, 'notag.sqlite');
 
 const { pruneBackups } = require('../src/database/backup');
 
-test('retenção preserva 30 recentes, um por dia e arquivos não gerenciados', (t) => {
+test('retenção mantém sete dias e arquiva cópias antigas sem tocar em arquivos não gerenciados', (t) => {
   const backupDir = path.join(tempRoot, 'backups');
+  const archiveDir = path.join(tempRoot, 'archive');
   const now = new Date('2026-07-28T12:00:00.000Z');
   fs.mkdirSync(backupDir, { recursive: true });
 
@@ -27,13 +28,15 @@ test('retenção preserva 30 recentes, um por dia e arquivos não gerenciados', 
 
   const unmanaged = path.join(backupDir, 'backup-importante.sqlite');
   fs.writeFileSync(unmanaged, 'preservar');
-  const result = pruneBackups(backupDir, { recentCount: 30, dailyDays: 30, now });
+  const result = pruneBackups(backupDir, { recentDays: 7, maxCount: 30, archiveDir, now });
   const managedRemaining = fs.readdirSync(backupDir).filter((name) => name.startsWith('notag-'));
 
   assert.equal(result.total, 80);
-  assert.equal(result.kept, 45);
-  assert.equal(result.removed.length, 35);
-  assert.equal(managedRemaining.length, 45);
+  assert.equal(result.kept, 14);
+  assert.equal(result.removed.length, 0);
+  assert.equal(result.archived.length, 66);
+  assert.equal(managedRemaining.length, 14);
+  assert.equal(fs.readdirSync(archiveDir).length, 66);
   assert.equal(fs.existsSync(unmanaged), true);
 
   t.after(() => fs.rmSync(tempRoot, { recursive: true, force: true }));

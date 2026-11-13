@@ -1602,7 +1602,9 @@ function customEventSlotOptions(eventId, role, discordId) {
   return slots
     .filter((slot) => !occupied.has(slot.slot_index) || occupied.get(slot.slot_index) === discordId)
     .map((slot) => {
-      const baseLabel = `${roleButtonLabel(role)} ${slot.slot_index}`;
+      const baseLabel = role === 'dps' && Number(slot.slot_index) === Number(event.dps_slots)
+        ? 'Looter'
+        : `${roleButtonLabel(role)} ${slot.slot_index}`;
       return {
         label: String(slot.slot_label ? `${baseLabel} - ${slot.slot_label}` : baseLabel).slice(0, 100),
         value: `${role}|${slot.slot_index}`,

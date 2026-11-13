@@ -4,9 +4,13 @@ Este arquivo guarda as decisoes permanentes do projeto. Antes de alterar o bot, 
 
 ## Objetivo
 
-Bot Discord da guild NOTAG para Albion Online.
+Plataforma oficial da guild NOTAG para Albion Online, composta por:
+- bot Discord;
+- site publico;
+- portal do membro;
+- dashboard operacional da staff.
 
-O bot existe para organizar eventos, controlar participacao em voz, calcular loot split, manter saldos de prata, registrar membros, lidar com saques/depositos e reduzir trabalho manual da staff.
+A plataforma existe para organizar eventos, controlar participacao em voz, calcular loot split, manter saldos de prata, registrar membros, lidar com saques/depositos, oferecer jogos e sorteios e reduzir trabalho manual da staff.
 
 Prioridade do projeto:
 - simples de manter;
@@ -15,25 +19,31 @@ Prioridade do projeto:
 - comandos slash apenas para setup e manutencao;
 - se ficar complexo demais, preferir refazer simples em vez de evoluir sem controle.
 
-## Recursos Removidos
+## Recursos Desativados
 
-Para simplificar o bot, nao manter nem recriar sem decisao explicita:
-- dashboard web/local antigo;
+Estes modulos podem continuar no repositorio para consulta historica, mas nao devem ser ligados ao runtime sem decisao explicita:
 - anuncio e agendamento unico da defesa da HO em Sunstrand Shoal de 22/07/2026;
 - leiloes;
 - enquetes manuais;
 - enquete diaria Black For-Fun;
-- jogo de frutas/estrelinhas/sorteio;
 - OCR de prints;
-- FAQ/conversa automatica por palavras-chave.
+- FAQ/conversa automatica por palavras-chave;
+- backend antigo do idle game;
+- objetivos antigos;
+- painel antigo de membro;
+- auditoria/renomeacao de canais por comando;
+- ranking semanal antigo desconectado do runtime.
 
 Tabelas antigas desses recursos podem existir em bancos ja migrados, mas o runtime do bot nao deve expor comandos, botoes, handlers ou modulos para eles.
+
+Jogos e sorteios atuais fazem parte permanente do produto e nao devem ser retirados. O sorteio em massa de 82 premios de 22/08/2026 e uma campanha encerrada e nao deve continuar agendado nem receber novas operacoes.
 
 ## Stack
 
 - Node.js
 - discord.js
 - SQLite via `better-sqlite3`
+- servidor HTTP nativo do Node.js para site, portal e dashboard;
 - Replit para desenvolvimento/testes
 - Discloud para rodar em producao
 - Git/GitHub para versionamento
@@ -157,6 +167,21 @@ Assumir/gerenciar evento:
 - recrutador;
 - adm;
 - owner.
+
+Dashboard completo:
+- ADM;
+- Staff;
+- Tesoureiro;
+- owner.
+
+Revisao de cadastro pela web:
+- ADM;
+- Staff;
+- Recrutador;
+- Caller;
+- owner.
+
+Caller e Recrutador podem revisar cadastros, mas nao recebem por isso acesso administrativo completo ao dashboard.
 
 Iniciar/finalizar evento:
 - criador do evento diretamente;
@@ -538,6 +563,8 @@ Discloud:
 
 ## Regras de Manutencao
 
+`MEMORY.md` e `README.md` sao as fontes principais de verdade do produto. Arquivos em `docs/` sao material complementar e devem ser atualizados quando divergirem destes dois arquivos.
+
 Preferir codigo dividido por modulos:
 - events;
 - finance;
@@ -548,12 +575,12 @@ Preferir codigo dividido por modulos:
 - commands;
 - setup.
 
-Nao criar dashboard web agora.
-
 Dashboard/API:
-- dashboard web antigo removido;
-- nao recriar dashboard web/API agora;
-- manter relatorios HTML pontuais gerados sob demanda por comandos/botoes quando forem uteis para operacao.
+- o dashboard atual e uma implementacao nova, aprovada depois da remocao do dashboard antigo;
+- site publico, portal do membro e dashboard da staff fazem parte do produto oficial;
+- o dashboard pode executar operacoes, desde que respeite permissoes, previa, auditoria e protecao CSRF;
+- administracao completa e restrita a ADM, Staff, Tesoureiro e owner;
+- manter relatorios HTML pontuais quando forem uteis para operacao.
 
 Interface de eventos:
 - evento aberto deve ser compacto e mais horizontal;
@@ -611,20 +638,12 @@ Antes de terminar uma alteracao:
 - nao alterar `.env`;
 - nao commitar banco real.
 
-## Backlog Futuro
+## Plataforma Web Aprovada
 
-Itens anotados para implementar depois. Estes requisitos ainda nao representam funcionalidade pronta.
-
-### Dashboard Web - Discloud Platinum
-
-- preparar o bot e a arquitetura para usar um dashboard web hospedado com a versao Platinum da Discloud;
-- o dashboard deve facilitar para Staff, Caller e demais cargos autorizados gerenciarem:
-  - saldos;
-  - membros;
-  - eventos;
-  - configuracoes e operacao do bot;
-- definir permissoes por cargo e manter auditoria nas operacoes sensiveis, especialmente alteracoes de saldo;
-- este item e planejamento futuro aprovado e nao deve reativar o dashboard/API antigo sem uma implementacao nova e explicitamente solicitada.
+- hospedada na Discloud junto com o bot;
+- inclui site publico, entrada com Discord, portal pessoal e dashboard operacional;
+- permite gerenciar saldos, membros, eventos e operacao conforme a permissao do cargo;
+- operacoes sensiveis devem manter auditoria, confirmacao e transacao no banco quando aplicavel.
 
 ## Duvidas Pendentes Para Confirmar
 

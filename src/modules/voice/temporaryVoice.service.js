@@ -3,9 +3,17 @@ const env = require('../../config/env');
 const ids = require('../../config/ids');
 const repo = require('./temporaryVoice.repository');
 
-const TRIGGER_NAME = '+Criar Sala';
+const TRIGGER_NAME = '+ Criar Sala';
 const creatingForMember = new Map();
 const ensuringForGuild = new Map();
+
+function isTriggerName(name) {
+  return String(name || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '')
+    .toLowerCase() === '+criarsala';
+}
 
 function memberRoomName(member) {
   const rawName = member?.displayName || member?.user?.globalName || member?.user?.username || 'Membro';
@@ -28,18 +36,43 @@ async function resolveParentId(guild) {
   return waiting?.parentId || null;
 }
 
-async function findTriggerChannel(guild, parentId) {
+function sortedTriggerCandidates(guild, parentId) {
+  return [...(guild.channels.cache?.values?.() || [])]
+    .filter((channel) => (
+      channel.type === ChannelType.GuildVoice
+        && isTriggerName(channel.name)
+        && (!parentId || channel.parentId === parentId)
+    ))
+    .sort((left, right) => String(left.id).localeCompare(String(right.id)));
+}
+
+async function reconcileTriggerChannels(guild, parentId) {
   if (env.tempVoiceTriggerChannelId) {
     const configured = await fetchChannel(guild, env.tempVoiceTriggerChannelId);
-    if (configured?.type === ChannelType.GuildVoice) return configured;
+    if (configured?.type === ChannelType.GuildVoice) {
+      if (configured.name !== TRIGGER_NAME) {
+        await configured.setName?.(TRIGGER_NAME, 'Padronizando o gatilho de salas temporarias').catch(() => {});
+      }
+      await removeDuplicateTriggers(sortedTriggerCandidates(guild, parentId), configured);
+      return configured;
+    }
   }
   await guild.channels.fetch().catch(() => null);
-  const channels = [...(guild.channels.cache?.values?.() || [])];
-  return channels.find((channel) => (
-    channel.type === ChannelType.GuildVoice
-      && channel.name === TRIGGER_NAME
-      && (!parentId || channel.parentId === parentId)
-  )) || null;
+  const candidates = sortedTriggerCandidates(guild, parentId);
+  const canonical = candidates[0] || null;
+  if (!canonical) return null;
+  if (canonical.name !== TRIGGER_NAME) {
+    await canonical.setName?.(TRIGGER_NAME, 'Padronizando o gatilho de salas temporarias').catch(() => {});
+  }
+  await removeDuplicateTriggers(candidates, canonical);
+  return canonical;
+}
+
+async function removeDuplicateTriggers(candidates, canonical) {
+  for (const duplicate of candidates) {
+    if (duplicate.id === canonical.id || duplicate.members?.size > 0) continue;
+    await duplicate.delete('Removendo gatilho duplicado de salas temporarias').catch(() => {});
+  }
 }
 
 async function ensureTriggerChannel(guild) {
@@ -47,14 +80,16 @@ async function ensureTriggerChannel(guild) {
   if (current) return current;
   const task = (async () => {
     const parentId = await resolveParentId(guild);
-    const existing = await findTriggerChannel(guild, parentId);
+    const existing = await reconcileTriggerChannels(guild, parentId);
     if (existing) return existing;
-    return guild.channels.create({
+    await guild.channels.create({
       name: TRIGGER_NAME,
       type: ChannelType.GuildVoice,
       parent: parentId || undefined,
       reason: 'Canal para criacao automatica de salas temporarias'
     });
+    await guild.channels.fetch().catch(() => null);
+    return reconcileTriggerChannels(guild, parentId);
   })().finally(() => ensuringForGuild.delete(guild.id));
   ensuringForGuild.set(guild.id, task);
   return task;
@@ -158,5 +193,6 @@ module.exports = {
   handleChannelDelete,
   handleVoiceStateUpdate,
   initializeGuild,
+  isTriggerName,
   memberRoomName
 };

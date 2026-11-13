@@ -116,7 +116,9 @@ function buildSlotDefinitions(composition, templateSlots = [], options = {}) {
       return {
         role,
         index: position,
-        fieldLabel: `${roleLabels[role]} ${position}`,
+        fieldLabel: role === 'dps' && position === composition.dps
+          ? 'Looter (ultima vaga DPS)'
+          : `${roleLabels[role]} ${position}`,
         value: clean(saved?.value ?? saved?.slot_label, 80),
         buildKey: saved?.buildKey ?? saved?.build_key ?? null,
         buildUrl: saved?.buildUrl ?? saved?.build_url ?? null,

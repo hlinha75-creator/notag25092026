@@ -21,38 +21,51 @@ function listManagedBackups(backupDir) {
       if (path.dirname(filePath) !== resolvedDir) return null;
       const stat = fs.lstatSync(filePath);
       if (!stat.isFile() || stat.isSymbolicLink()) return null;
-      return { name, path: filePath, modifiedAt: stat.mtime };
+      return { name, path: filePath, modifiedAt: stat.mtime, backupAt: backupDateFromName(name) || stat.mtime };
     })
     .filter(Boolean)
-    .sort((a, b) => b.modifiedAt.getTime() - a.modifiedAt.getTime());
+    .sort((a, b) => b.backupAt.getTime() - a.backupAt.getTime());
+}
+
+function backupDateFromName(name) {
+  const match = String(name).match(/^notag-(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})-(\d{3})Z-/i);
+  if (!match) return null;
+  const [, year, month, day, hour, minute, second, millisecond] = match;
+  const value = new Date(Date.UTC(
+    Number(year), Number(month) - 1, Number(day), Number(hour),
+    Number(minute), Number(second), Number(millisecond)
+  ));
+  return Number.isNaN(value.getTime()) ? null : value;
 }
 
 function pruneBackups(backupDir, options = {}) {
-  const recentCount = Math.max(1, Number(options.recentCount || 30));
-  const dailyDays = Math.max(1, Number(options.dailyDays || 30));
+  const recentDays = Math.max(1, Number(options.recentDays || 7));
+  const maxCount = Math.max(1, Number(options.maxCount || 30));
   const now = options.now instanceof Date ? options.now : new Date();
-  const cutoff = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - ((dailyDays - 1) * DAY_MS);
+  const cutoff = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - ((recentDays - 1) * DAY_MS);
   const files = listManagedBackups(backupDir);
-  const keep = new Set(files.slice(0, recentCount).map((file) => file.path));
-  const keptDays = new Set();
-
-  for (const file of files) {
-    const modifiedAt = file.modifiedAt.getTime();
-    if (modifiedAt < cutoff || modifiedAt > now.getTime()) continue;
-    const day = file.modifiedAt.toISOString().slice(0, 10);
-    if (keptDays.has(day)) continue;
-    keptDays.add(day);
-    keep.add(file.path);
-  }
+  const recent = files.filter((file) => file.backupAt.getTime() >= cutoff && file.backupAt.getTime() <= now.getTime());
+  const keep = new Set(recent.slice(0, maxCount).map((file) => file.path));
+  if (files[0]) keep.add(files[0].path);
 
   const removed = [];
+  const archived = [];
+  const archiveDir = options.archiveDir ? path.resolve(options.archiveDir) : null;
+  if (archiveDir) fs.mkdirSync(archiveDir, { recursive: true });
   for (const file of files) {
     if (keep.has(file.path)) continue;
-    fs.rmSync(file.path);
-    removed.push(file.path);
+    if (archiveDir) {
+      const destination = path.join(archiveDir, file.name);
+      if (fs.existsSync(destination)) continue;
+      fs.renameSync(file.path, destination);
+      archived.push(destination);
+    } else {
+      fs.rmSync(file.path);
+      removed.push(file.path);
+    }
   }
 
-  return { total: files.length, kept: files.length - removed.length, removed };
+  return { total: files.length, kept: files.length - removed.length - archived.length, removed, archived };
 }
 
 function backupDatabase(reason = 'manual') {
@@ -74,7 +87,10 @@ function backupDatabase(reason = 'manual') {
     source.close();
   }
   try {
-    pruneBackups(backupDir);
+    const archiveDir = env.nodeEnv === 'development'
+      ? (process.env.BACKUP_ARCHIVE_DIR || path.join(os.homedir(), 'Desktop', 'NOTAG-backups-antigos'))
+      : null;
+    pruneBackups(backupDir, { archiveDir });
   } catch (error) {
     console.warn(`[BACKUP] Cópia criada, mas a retenção falhou: ${error.message}`);
   }

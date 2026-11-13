@@ -7,6 +7,10 @@ const test = require('node:test');
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'notag-dashboard-test-'));
 process.env.NODE_ENV = 'test';
 process.env.DATABASE_PATH = path.join(tempRoot, 'dashboard.sqlite');
+process.env.DASHBOARD_SESSION_SECRET = 'segredo-isolado-dos-testes-do-dashboard';
+process.env.DISCORD_TOKEN = 'token-isolado-dos-testes';
+process.env.CLIENT_ID = '1465328470312747181';
+process.env.DISCORD_CLIENT_SECRET = 'segredo-oauth-isolado-dos-testes';
 
 const { getDatabase } = require('../src/database/connection');
 const env = require('../src/config/env');
@@ -100,8 +104,8 @@ test('servidor publica landing e protege a API do dashboard', async (t) => {
   const base = `http://127.0.0.1:${address.port}`;
 
   const health = await fetch(`${base}/health`);
-  assert.equal(health.status, 200);
-  assert.equal((await health.json()).status, 'ok');
+  assert.equal(health.status, 503);
+  assert.equal((await health.json()).status, 'degraded');
 
   const landing = await fetch(`${base}/`);
   assert.equal(landing.status, 200);
@@ -267,7 +271,6 @@ test('portal solicita saque, avisa a staff e bloqueia duplicidade ou saldo insuf
   assert.equal(staffMessages.length, 1);
   assert.match(staffMessages[0].content, /Saque #\d+.*1\.5m/);
   assert.deepEqual(staffMessages[0].components[0].components.map((button) => button.data.custom_id), [
-    `finance:approve_withdraw:${created.result.request.id}`,
     `finance:pay_withdraw:${created.result.request.id}`,
     `finance:refuse_withdraw:${created.result.request.id}`
   ]);

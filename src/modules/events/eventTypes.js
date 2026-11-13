@@ -80,6 +80,7 @@ const eventTypes = [
     label: 'CTA',
     emoji: '📣',
     creationKind: 'custom',
+    visualComposition: true,
     description: 'Composição visual e cardápio dinâmico de DPS.'
   },
   {

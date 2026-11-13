@@ -259,6 +259,6 @@ Atualize `docs/` quando:
 
 - Confirmar quais funcionalidades antigas devem aparecer para staff.
 - Confirmar politica oficial de backup.
-- Dashboard antigo removido; nao recriar sem decisao explicita.
+- O dashboard antigo foi removido, mas a implementacao nova atual foi aprovada e faz parte do produto.
 - Confirmar permissoes reais do bot no Discord.
 - Confirmar todos os arquivos que devem ser tratados como dados reais.

@@ -130,7 +130,7 @@ Uso:
 
 ### Recursos Removidos
 
-Tabelas antigas de enquetes, leiloes, frutas e OCR podem existir em bancos ja migrados, mas o runtime atual nao usa esses recursos.
+Tabelas antigas de enquetes, leiloes, OCR e outros modulos historicos podem existir em bancos ja migrados, mas o runtime atual nao usa esses recursos. As tabelas dos jogos e sorteios atuais continuam oficiais.
 
 ### Albion
 

@@ -115,13 +115,16 @@ function registeredAlbionNames() {
 
 async function fetchFameRanking(names, options = {}) {
   const { fetchImpl = fetch, apiBase = process.env.ALBION_API_BASE || DEFAULT_API_BASE } = options;
+  const concurrency = Math.max(1, Number(options.concurrency || 3));
+  const throttleMs = Math.max(0, Number(options.throttleMs ?? (fetchImpl === fetch ? 300 : 0)));
   const uniqueNames = [...new Set(names.map((name) => String(name || '').trim()).filter(Boolean))];
   if (!uniqueNames.length) throw new Error('Nao ha jogadores Albion aprovados para montar o ranking.');
   const results = [];
-  for (let index = 0; index < uniqueNames.length; index += 8) {
-    const batch = uniqueNames.slice(index, index + 8);
-    const rows = await Promise.all(batch.map((name) => fetchPlayerFame(name, { fetchImpl, apiBase })));
+  for (let index = 0; index < uniqueNames.length; index += concurrency) {
+    const batch = uniqueNames.slice(index, index + concurrency);
+    const rows = await Promise.all(batch.map((name) => fetchPlayerFame(name, { ...options, fetchImpl, apiBase })));
     results.push(...rows.filter(Boolean));
+    if (throttleMs && index + concurrency < uniqueNames.length) await wait(throttleMs);
   }
   return results;
 }
@@ -131,17 +134,41 @@ async function fetchPveRanking(names, options = {}) {
   return rows.sort((a, b) => b.pveFame - a.pveFame || a.name.localeCompare(b.name));
 }
 
-async function fetchPlayerFame(name, { fetchImpl, apiBase }) {
-  const searchResponse = await fetchImpl(`${apiBase}/search?q=${encodeURIComponent(name)}`);
-  if (!searchResponse.ok) throw new Error(`API Albion respondeu ${searchResponse.status} ao buscar ${name}.`);
-  const search = await searchResponse.json();
+async function fetchPlayerFame(name, options) {
+  const { fetchImpl, apiBase } = options;
+  const search = await fetchAlbionJson(
+    `${apiBase}/search?q=${encodeURIComponent(name)}`,
+    `buscar ${name}`,
+    options
+  );
   const match = (search.players || []).find((player) => normalizeName(player.Name) === normalizeName(name));
   if (!match?.Id) return null;
-  const response = await fetchImpl(`${apiBase}/players/${encodeURIComponent(match.Id)}`);
-  if (!response.ok) throw new Error(`API Albion respondeu ${response.status} ao consultar ${name}.`);
-  const player = await response.json();
+  const player = await fetchAlbionJson(
+    `${apiBase}/players/${encodeURIComponent(match.Id)}`,
+    `consultar ${name}`,
+    options
+  );
   if (normalizeGuildName(player?.GuildName) !== normalizeGuildName(GUILD_NAME)) return null;
   return extractFame(player, match.Name || name);
+}
+
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchAlbionJson(url, action, options = {}) {
+  const retries = Math.max(1, Number(options.retries || 3));
+  const waitImpl = options.waitImpl || wait;
+  let lastStatus = 0;
+  for (let attempt = 1; attempt <= retries; attempt += 1) {
+    const response = await options.fetchImpl(url);
+    if (response.ok) return response.json();
+    lastStatus = Number(response.status || 0);
+    const retryable = lastStatus === 429 || lastStatus >= 500;
+    if (!retryable || attempt === retries) break;
+    await waitImpl(attempt * 1000);
+  }
+  throw new Error(`API Albion respondeu ${lastStatus || 'com erro'} ao ${action}.`);
 }
 
 function extractFame(player, fallbackName = '') {
