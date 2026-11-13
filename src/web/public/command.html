@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>NOTAG Intelligence — Staff</title>
+  <link rel="stylesheet" href="/assets/command.css?v=20260831-1">
+  <script src="/assets/command.js?v=20260821-1" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/dashboard"><img src="/assets/notag-logo.jpeg" alt="Brasão da NOTAG"><span>NOTAG<small>Intelligence · Staff</small></span></a>
+    <nav><a href="/dashboard">Central da staff</a><a href="/portal">Meu portal</a><a href="/auth/logout">Sair</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div><span class="eyebrow">INTELLIGENCE STAFF</span><h1>Visão completa da guilda</h1><p>Atividade, carreira, presença, funções e movimentação reunidas para decisões baseadas em evidências.</p></div>
+      <div class="freshness"><i></i><span id="freshness">Sincronizando dados…</span><button id="refresh" type="button" aria-label="Atualizar">↻</button></div>
+    </section>
+
+    <section class="game-update" aria-labelledby="dragonfire-title">
+      <header class="game-update-head">
+        <div><span class="update-live"><i></i> 31 AGO 2026 · AO VIVO</span><h2 id="dragonfire-title">Dragonfire + Season 34</h2><p>Briefing operacional da atualização para organizar grupos, chamadas e prioridades da NOTAG.</p></div>
+        <a class="button primary" href="https://albiononline.com/changelog/dragonfire-update" target="_blank" rel="noopener noreferrer">Ver patch notes</a>
+      </header>
+
+      <div class="game-update-grid">
+        <article><span class="update-number">01</span><h3>Ancient Lands</h3><p>Portais atendem desde jogadores solo até grupos de 20. Conclua objetivos, reúna Keystones e ative Leygates para avançar a áreas mais perigosas e valiosas.</p><strong>Leitura NOTAG</strong><small>Separar grupos por tamanho e disputar objetivos antes que rivais controlem as rotas.</small></article>
+        <article><span class="update-number">02</span><h3>Dragon Sanctuary</h3><p>Raid PvE instanciada para 20 jogadores, liberada por Spirit Waystone. O percurso termina em Azaryon e exige equipamento forte, composição otimizada e coordenação.</p><strong>Leitura NOTAG</strong><small>Montar roster de 20, suplentes, funções e estoque de regears antes de consumir a Waystone.</small></article>
+        <article><span class="update-number">03</span><h3>Dragon Attacks</h3><p>No Continente Real surgem com pouco aviso. Nas Outlands são anunciados antes, dando tempo para guildas reunirem forças — e para rivais contestarem a recompensa.</p><strong>Leitura NOTAG</strong><small>Criar chamada rápida para Royal e mass antecipada com scout para ataques nas Outlands.</small></article>
+      </div>
+
+      <div class="reward-strip" aria-label="Novidades e recompensas Dragonfire">
+        <div><span>ARMADURA</span><strong>Dragonslayer</strong><small>Escamas e artefatos de Dragões</small></div>
+        <div><span>MONTARIA RARA</span><strong>Firewing Drake</strong><small>Ovo de Azaryon; criado alimentando-o com outras montarias</small></div>
+        <div><span>CONSUMÍVEIS</span><strong>Leyfin e Dragon Blood</strong><small>Nova comida de cura e poção capaz de proteger um aliado da morte</small></div>
+        <div><span>SEASON 34</span><strong>Dragon Hunter</strong><small>Pacote temático; preço e conteúdo devem ser conferidos na loja oficial</small></div>
+      </div>
+
+      <div class="update-deadlines">
+        <strong>Janelas limitadas</strong><span>Presente grátis até 07/09 às 07:00 BRT · Twitch Drops em dobro até 14/09 às 06:30 BRT.</span>
+      </div>
+      <nav class="update-sources" aria-label="Fontes oficiais da atualização"><span>Fontes oficiais</span><a href="https://albiononline.com/changelog/dragonfire-update" target="_blank" rel="noopener noreferrer">Changelog</a><a href="https://albiononline.com/news/season-34-bundles" target="_blank" rel="noopener noreferrer">Pacotes Season 34</a><a href="https://albiononline.com/news/dragonfire-live" target="_blank" rel="noopener noreferrer">Dragonfire ao vivo</a></nav>
+    </section>
+
+    <section class="metrics" id="metrics" aria-label="Resumo da guilda">
+      <article class="metric skeleton"></article><article class="metric skeleton"></article><article class="metric skeleton"></article><article class="metric skeleton"></article><article class="metric skeleton"></article>
+    </section>
+
+    <section class="workspace">
+      <div class="workspace-head">
+        <div><span class="eyebrow">MEMBROS</span><h2>Relação geral</h2><p id="result-summary">Carregando membros…</p></div>
+        <div class="actions"><button class="button" id="clear-filters" type="button">Limpar filtros</button><button class="button" id="export-csv" type="button">Exportar CSV</button><details class="column-picker"><summary class="button primary">Colunas</summary><div id="column-options"></div></details></div>
+      </div>
+
+      <div class="filters">
+        <label class="wide"><span>Buscar</span><input id="search" type="search" placeholder="Personagem, Discord ou conta vinculada"></label>
+        <label><span>Hierarquia</span><select id="hierarchy"><option value="">Todos os cargos</option></select></label>
+        <label><span>Atividade semanal</span><select id="weekly"><option value="">Todos</option><option value="active">Ativos</option><option value="inactive">Sem atividade</option></select></label>
+        <label><span>Tipo de participação</span><select id="event-type"><option value="">Todos os eventos</option><option value="transport">Transporte</option><option value="raid">Raid</option><option value="worldBoss">World boss</option><option value="roaming">Roaming</option><option value="farm">Farm</option></select></label>
+        <label><span>Mínimo de eventos</span><input id="min-events" type="number" min="0" step="1" placeholder="0"></label>
+        <label><span>Ordenar por</span><select id="sort"><option value="score-desc">Contribuição</option><option value="name-asc">Nome A–Z</option><option value="events-desc">Mais eventos</option><option value="hours-desc">Mais horas</option><option value="fame-desc">Maior fama</option><option value="balance-desc">Maior saldo</option><option value="inactive-first">Sem atividade primeiro</option></select></label>
+      </div>
+
+      <div class="notice"><strong>Leitura dos dados</strong><span id="definitions">A atividade semanal considera os registros disponíveis no bot. Categorias de eventos podem ser inferidas pelo título.</span></div>
+      <div class="table-shell"><table><thead id="member-head"></thead><tbody id="member-body"><tr><td class="loading">Organizando informações da guilda…</td></tr></tbody></table></div>
+    </section>
+  </main>
+
+  <dialog id="member-dialog"><button class="dialog-close" type="button" aria-label="Fechar">×</button><div id="member-detail"></div></dialog>
+  <div class="toast" id="toast" hidden></div>
+</body>
+</html>

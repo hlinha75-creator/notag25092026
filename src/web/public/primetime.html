@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Prime Time — Notag</title>
+  <link rel="stylesheet" href="/assets/primetime.css?v=20260825-2">
+  <script src="/assets/primetime.js?v=20260825-2" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/dashboard"><img src="/assets/notag-logo.jpeg" alt="Brasão da Notag"><span>NOTAG<small>Prime Time</small></span></a>
+    <nav><a href="/dashboard">Central da staff</a><a href="/portal">Meu portal</a><a href="/auth/logout">Sair</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div><span class="eyebrow">ANÁLISE DE ATIVIDADE</span><h1>Quando puxar content?</h1><p>Presença real nas calls, horários recorrentes e jogadores disponíveis para formar grupo.</p></div>
+      <div class="hero-actions">
+        <label><span>Período analisado</span><select id="period"><option value="7">Últimos 7 dias</option><option value="30" selected>Últimos 30 dias</option><option value="90">Últimos 90 dias</option></select></label>
+        <button id="refresh" type="button" aria-label="Atualizar dados">↻ Atualizar</button>
+      </div>
+    </section>
+
+    <div class="freshness"><i></i><span id="freshness">Sincronizando atividade…</span></div>
+    <section class="metrics" id="metrics" aria-label="Resumo da atividade">
+      <article class="metric skeleton"></article><article class="metric skeleton"></article><article class="metric skeleton"></article><article class="metric skeleton"></article>
+    </section>
+
+    <aside class="quality-notice" id="quality-notice" hidden></aside>
+
+    <section class="layout split">
+      <article class="panel live-panel">
+        <header><div><span class="eyebrow">AGORA</span><h2>Jogadores ativos</h2><p>Quem está em call neste momento.</p></div><span class="live-count" id="live-count">0</span></header>
+        <div class="live-list" id="live-list"><div class="empty">Carregando jogadores ativos…</div></div>
+      </article>
+
+      <article class="panel recommendations">
+        <header><div><span class="eyebrow">MELHORES JANELAS</span><h2>Top 5 para content</h2><p>Faixas de duas horas com maior presença média.</p></div></header>
+        <ol id="best-windows"><li class="empty">Calculando melhores horários…</li></ol>
+      </article>
+    </section>
+
+    <section class="panel heatmap-panel">
+      <header><div><span class="eyebrow">DIA × HORA</span><h2>Mapa de calor semanal</h2><p>Média de jogadores simultâneos em cada horário. Quanto mais claro, maior a disponibilidade.</p></div><div class="legend"><span>Menor</span><i class="level-1"></i><i class="level-2"></i><i class="level-3"></i><i class="level-4"></i><i class="level-5"></i><span>Maior</span></div></header>
+      <div class="heatmap-scroll"><div class="heatmap" id="heatmap"></div></div>
+    </section>
+
+    <section class="panel calendar-panel">
+      <header><div><span class="eyebrow">DIA DO MÊS</span><h2>Leitura diária da atividade</h2><p>Veja rapidamente se o dia foi fraco ou forte, quando ocorreu o pico e como ele se compara ao padrão.</p></div></header>
+      <div class="calendar-insights" id="calendar-insights"></div>
+      <div class="calendar" id="calendar"></div>
+    </section>
+
+    <section class="panel players-panel">
+      <header><div><span class="eyebrow">HÁBITOS INDIVIDUAIS</span><h2>Quando cada jogador costuma aparecer</h2><p>Dias, horários e tempo de voz dentro do período escolhido.</p></div><label class="search"><span>Buscar jogador</span><input id="player-search" type="search" placeholder="Nome no Albion ou Discord"></label></header>
+      <div class="result-summary" id="player-summary"></div>
+      <div class="table-scroll"><table><thead><tr><th>Jogador</th><th>Status</th><th>Dias frequentes</th><th>Horários fortes</th><th>Dias ativos</th><th>Tempo em call</th><th>Última atividade</th></tr></thead><tbody id="players"><tr><td colspan="7" class="empty">Organizando hábitos dos jogadores…</td></tr></tbody></table></div>
+    </section>
+  </main>
+  <dialog id="day-dialog"><button class="dialog-close" type="button" aria-label="Fechar detalhes">×</button><div id="day-detail"></div></dialog>
+</body>
+</html>

@@ -1,0 +1,4 @@
+.notag-site-nav { position: fixed; right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); z-index: 2147483000; display: flex; gap: 7px; padding: 6px; border: 1px solid rgba(255,255,255,.13); border-radius: 12px; background: rgba(16,18,23,.92); box-shadow: 0 12px 35px rgba(0,0,0,.35); backdrop-filter: blur(14px); }
+.notag-site-nav a, .notag-site-nav button { display: inline-flex; min-height: 36px; align-items: center; gap: 6px; padding: 0 11px; border: 0; border-radius: 8px; color: #e8eaf0; background: transparent; cursor: pointer; font: 750 11px/1 ui-sans-serif, system-ui, sans-serif; text-decoration: none; }
+.notag-site-nav a:hover, .notag-site-nav button:hover { background: #2a2e37; color: #fff; }
+@media (max-width: 520px) { .notag-site-nav { right: 8px; bottom: 8px; } .notag-site-nav a, .notag-site-nav button { min-height: 34px; padding: 0 9px; } }

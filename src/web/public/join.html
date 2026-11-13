@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Entrar na Notag</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=20260728-7">
+  <script src="/assets/join.js" defer></script>
+</head>
+<body class="join-body">
+  <main class="join-shell">
+    <a class="public-brand join-brand" href="/" aria-label="Página inicial da Notag">
+      <img src="/assets/notag-logo.jpeg" alt="Brasão da guilda Notag">
+      <span>NOTAG</span>
+    </a>
+
+    <section class="join-card">
+      <div class="join-intro">
+        <span class="kicker"><i></i> Entrada na comunidade</span>
+        <h1>Qual é o seu personagem no Albion?</h1>
+        <p>Vamos validar seu personagem, atualizar seu apelido e preparar seu acesso como Convidado.</p>
+      </div>
+
+      <div class="join-user" id="join-user" hidden>
+        <img id="join-avatar" alt="">
+        <div><span>Discord conectado</span><strong id="join-name">Carregando…</strong></div>
+      </div>
+
+      <form class="join-form" id="join-form" hidden>
+        <label for="albion-name">Nome exato no Albion</label>
+        <input id="albion-name" name="albionName" type="text" minlength="3" maxlength="32" autocomplete="off" required placeholder="Ex.: MeuPersonagem">
+        <button class="button button-primary" id="join-submit" type="submit">Validar e entrar</button>
+        <p class="form-note">Servidor Europa · Cargo Convidado · Você poderá conversar com a equipe na recepção.</p>
+      </form>
+
+      <div class="join-loading" id="join-loading"><span class="loader"></span><p>Preparando seu cadastro…</p></div>
+      <div class="join-feedback" id="join-error" role="alert" hidden></div>
+
+      <div class="join-success" id="join-success" hidden>
+        <span class="success-mark">✓</span>
+        <h2 id="join-success-title">Entrada concluída</h2>
+        <p id="join-success-message">Seu apelido e cargo foram atualizados.</p>
+        <a class="button button-primary" id="voice-link" href="#">Abrir sala de voz</a>
+        <a class="button button-secondary" href="/portal">Acessar meu portal</a>
+        <small>A sala será aberta automaticamente. No Discord, confirme para entrar na chamada.</small>
+      </div>
+    </section>
+
+    <p class="join-footer"><a href="/">Voltar ao site</a> · Atividades das 12h às 03h UTC</p>
+  </main>
+</body>
+</html>

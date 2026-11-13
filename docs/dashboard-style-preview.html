@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notag — Direções visuais do dashboard</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #0b0e14;
+      color: #eef2f7;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .page { width: min(1440px, calc(100% - 32px)); margin: 0 auto; padding: 40px 0 64px; }
+    .intro { margin-bottom: 28px; }
+    .eyebrow { color: #a7b0c0; font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 9px 0 8px; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.04em; }
+    .intro p { max-width: 680px; margin: 0; color: #aeb6c4; line-height: 1.6; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+    .choice { overflow: hidden; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 20px 45px rgba(0,0,0,.22); }
+    .choice-head { display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+    .number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; color: var(--number-color); background: var(--accent); font-weight: 900; }
+    .choice-title { font-size: 16px; font-weight: 850; }
+    .choice-sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .dashboard { display: grid; grid-template-columns: 142px 1fr; min-height: 335px; }
+    .sidebar { padding: 18px 12px; border-right: 1px solid var(--line); background: var(--side); }
+    .brand { display: flex; align-items: center; gap: 8px; padding: 4px 8px 18px; font-size: 14px; font-weight: 900; letter-spacing: .04em; }
+    .crest { width: 27px; height: 27px; border: 2px solid var(--accent-strong); transform: rotate(45deg); border-radius: 7px 2px; box-shadow: inset 0 0 0 3px var(--side); background: var(--accent-strong); }
+    .nav { display: grid; gap: 5px; }
+    .nav span { padding: 8px 9px; border-radius: 8px; color: var(--muted); font-size: 11px; font-weight: 650; }
+    .nav .active { color: var(--text); background: var(--active); }
+    .main { min-width: 0; padding: 18px; background: var(--canvas); }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 17px; }
+    .top h2 { margin: 0; color: var(--text); font-size: 18px; letter-spacing: -.025em; }
+    .avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-strong), var(--active)); border: 2px solid var(--line); }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+    .stat, .panel { border: 1px solid var(--line); background: var(--card); }
+    .stat { padding: 12px; border-radius: var(--radius); }
+    .stat small, .panel small { display: block; color: var(--muted); font-size: 9px; font-weight: 750; text-transform: uppercase; letter-spacing: .06em; }
+    .stat strong { display: block; margin-top: 6px; color: var(--text); font-size: 19px; }
+    .delta { color: var(--success); font-size: 9px; font-weight: 800; }
+    .content { display: grid; grid-template-columns: 1.35fr .8fr; gap: 9px; margin-top: 9px; }
+    .panel { min-height: 143px; padding: 13px; border-radius: var(--radius); }
+    .bars { display: flex; align-items: end; gap: 7px; height: 76px; margin-top: 12px; border-bottom: 1px solid var(--line); }
+    .bars i { flex: 1; min-width: 4px; height: var(--h); border-radius: 4px 4px 0 0; background: var(--accent-strong); opacity: var(--o, .9); }
+    .event { margin-top: 10px; padding: 10px; border-left: 3px solid var(--accent-strong); border-radius: 4px var(--radius) var(--radius) 4px; background: var(--active); }
+    .event b { display: block; color: var(--text); font-size: 11px; }
+    .event span { color: var(--muted); font-size: 9px; }
+
+    .medieval {
+      --surface:#17120c; --canvas:#17120c; --side:#100c08; --card:#211910; --line:#473722;
+      --accent:#d2a74b; --accent-strong:#d2a74b; --active:#332718; --text:#f7ecd2; --muted:#ad9a78;
+      --success:#9fc965; --number-color:#171007; --radius:3px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .discord {
+      --surface:#1e1f22; --canvas:#313338; --side:#1e1f22; --card:#2b2d31; --line:#3f4147;
+      --accent:#5865f2; --accent-strong:#5865f2; --active:#3f4147; --text:#f2f3f5; --muted:#b5bac1;
+      --success:#23a55a; --number-color:#fff; --radius:9px;
+    }
+    .minimal {
+      --surface:#fff; --canvas:#f5f7fa; --side:#fff; --card:#fff; --line:#dfe4ea;
+      --accent:#111827; --accent-strong:#2563eb; --active:#edf3ff; --text:#111827; --muted:#6b7280;
+      --success:#16835f; --number-color:#fff; --radius:12px;
+    }
+    .hybrid {
+      --surface:#11151b; --canvas:#101318; --side:#0b0e12; --card:#181d24; --line:#2b323c;
+      --accent:#c89843; --accent-strong:#d6a94e; --active:#252117; --text:#f6f1e8; --muted:#929aa7;
+      --success:#62b58a; --number-color:#17120a; --radius:10px;
+    }
+    .hybrid .choice-head, .hybrid .top h2, .hybrid .brand { font-family: Georgia, "Times New Roman", serif; }
+
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) {
+      .page { width: min(100% - 18px, 1440px); padding-top: 24px; }
+      .dashboard { grid-template-columns: 94px 1fr; }
+      .sidebar { padding-inline: 7px; }
+      .brand { font-size: 11px; }
+      .crest { width: 20px; height: 20px; }
+      .main { padding: 12px 9px; }
+      .stats { grid-template-columns: 1fr; }
+      .stats .stat:nth-child(n+2) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <div class="eyebrow">Notag • Dashboard da staff</div>
+      <h1>Escolha a direção visual</h1>
+      <p>Os quatro exemplos têm o mesmo conteúdo para facilitar a comparação. A versão final poderá combinar detalhes de mais de uma opção.</p>
+    </header>
+    <section class="grid">
+      <article class="choice medieval">
+        <header class="choice-head"><span class="number">1</span><div><div class="choice-title">Medieval</div><div class="choice-sub">Atmosfera forte de Albion</div></div></header>
+        <div class="dashboard"><aside class="sidebar"><div class="brand"><i class="crest"></i> NOTAG</div><nav class="nav"><span class="active">Visão geral</span><span>Membros</span><span>Eventos</span><span>Financeiro</span><span>Operações</span></nav></aside><section class="main"><div class="top"><h2>Salão de comando</h2><i class="avatar"></i></div><div class="stats"><div class="stat"><small>Membros ativos</small><strong>184</strong><span class="delta">+12 esta semana</span></div><div class="stat"><small>Prata em caixa</small><strong>2,4 bi</strong><span class="delta">+8,3%</span></div><div class="stat"><small>Eventos</small><strong>27</strong><span class="delta">6 hoje</span></div></div><div class="content"><div class="panel"><small>Atividade semanal</small><div class="bars"><i style="--h:42%"></i><i style="--h:64%;--o:.65"></i><i style="--h:52%"></i><i style="--h:83%;--o:.7"></i><i style="--h:72%"></i><i style="--h:95%"></i><i style="--h:78%;--o:.7"></i></div></div><div class="panel"><small>Próximo evento</small><div class="event"><b>Defesa do Hideout</b><span>Hoje, 21:30 • 43 confirmados</span></div></div></div></section></div>
+      </article>
+      <article class="choice discord">
+        <header class="choice-head"><span class="number">2</span><div><div class="choice-title">Discord</div><div class="choice-sub">Familiar, amigável e funcional</div></div></header>
+        <div class="dashboard"><aside class="sidebar"><div class="brand"><i class="crest"></i> NOTAG</div><nav class="nav"><span class="active">Visão geral</span><span>Membros</span><span>Eventos</span><span>Financeiro</span><span>Operações</span></nav></aside><section class="main"><div class="top"><h2>Visão geral</h2><i class="avatar"></i></div><div class="stats"><div class="stat"><small>Membros ativos</small><strong>184</strong><span class="delta">+12 esta semana</span></div><div class="stat"><small>Prata em caixa</small><strong>2,4 bi</strong><span class="delta">+8,3%</span></div><div class="stat"><small>Eventos</small><strong>27</strong><span class="delta">6 hoje</span></div></div><div class="content"><div class="panel"><small>Atividade semanal</small><div class="bars"><i style="--h:42%"></i><i style="--h:64%;--o:.65"></i><i style="--h:52%"></i><i style="--h:83%;--o:.7"></i><i style="--h:72%"></i><i style="--h:95%"></i><i style="--h:78%;--o:.7"></i></div></div><div class="panel"><small>Próximo evento</small><div class="event"><b>Defesa do Hideout</b><span>Hoje, 21:30 • 43 confirmados</span></div></div></div></section></div>
+      </article>
+      <article class="choice minimal">
+        <header class="choice-head"><span class="number">3</span><div><div class="choice-title">Minimalista</div><div class="choice-sub">Claro, profissional e direto</div></div></header>
+        <div class="dashboard"><aside class="sidebar"><div class="brand"><i class="crest"></i> NOTAG</div><nav class="nav"><span class="active">Visão geral</span><span>Membros</span><span>Eventos</span><span>Financeiro</span><span>Operações</span></nav></aside><section class="main"><div class="top"><h2>Visão geral</h2><i class="avatar"></i></div><div class="stats"><div class="stat"><small>Membros ativos</small><strong>184</strong><span class="delta">+12 esta semana</span></div><div class="stat"><small>Prata em caixa</small><strong>2,4 bi</strong><span class="delta">+8,3%</span></div><div class="stat"><small>Eventos</small><strong>27</strong><span class="delta">6 hoje</span></div></div><div class="content"><div class="panel"><small>Atividade semanal</small><div class="bars"><i style="--h:42%"></i><i style="--h:64%;--o:.65"></i><i style="--h:52%"></i><i style="--h:83%;--o:.7"></i><i style="--h:72%"></i><i style="--h:95%"></i><i style="--h:78%;--o:.7"></i></div></div><div class="panel"><small>Próximo evento</small><div class="event"><b>Defesa do Hideout</b><span>Hoje, 21:30 • 43 confirmados</span></div></div></div></section></div>
+      </article>
+      <article class="choice hybrid">
+        <header class="choice-head"><span class="number">4</span><div><div class="choice-title">Medieval moderno</div><div class="choice-sub">Identidade de Albion com boa leitura</div></div></header>
+        <div class="dashboard"><aside class="sidebar"><div class="brand"><i class="crest"></i> NOTAG</div><nav class="nav"><span class="active">Visão geral</span><span>Membros</span><span>Eventos</span><span>Financeiro</span><span>Operações</span></nav></aside><section class="main"><div class="top"><h2>Central da guilda</h2><i class="avatar"></i></div><div class="stats"><div class="stat"><small>Membros ativos</small><strong>184</strong><span class="delta">+12 esta semana</span></div><div class="stat"><small>Prata em caixa</small><strong>2,4 bi</strong><span class="delta">+8,3%</span></div><div class="stat"><small>Eventos</small><strong>27</strong><span class="delta">6 hoje</span></div></div><div class="content"><div class="panel"><small>Atividade semanal</small><div class="bars"><i style="--h:42%"></i><i style="--h:64%;--o:.65"></i><i style="--h:52%"></i><i style="--h:83%;--o:.7"></i><i style="--h:72%"></i><i style="--h:95%"></i><i style="--h:78%;--o:.7"></i></div></div><div class="panel"><small>Próximo evento</small><div class="event"><b>Defesa do Hideout</b><span>Hoje, 21:30 • 43 confirmados</span></div></div></div></section></div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

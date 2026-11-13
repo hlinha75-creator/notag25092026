@@ -1,0 +1,249 @@
+.player-you { --x: 46%; --y: 64%; --player: #d6a848; }
+.player-robert { --x: 23%; --y: 70%; --player: #9a5be2; }
+.player-horsix { --x: 69%; --y: 58%; --player: #48a879; }
+.player-naga { --x: 82%; --y: 75%; --player: #c85b66; }
+.chat-robert { --chat: #ad78ed; }
+.chat-horsix { --chat: #5bc48c; }
+.chat-lunar { --chat: #e1b04b; }
+.chat-you { --chat: #f1c45f; }
+.chat-player { --chat: #65c893; }
+
+body {
+  font-family: "Cascadia Mono", "Segoe UI", monospace;
+}
+
+.game-brand b,
+.panel-title span,
+.zone-bar h1,
+.event-card h2,
+.rock-three span {
+  font-family: "Cascadia Mono", "Segoe UI", monospace;
+  font-weight: 900;
+}
+
+.play-grid {
+  grid-template-columns: 238px minmax(620px, 1fr) 310px;
+}
+
+.pixel-world {
+  height: 560px;
+  background-color: #303924;
+  background-image: linear-gradient(to bottom, transparent 62%, rgba(18, 16, 11, .12)), url("/assets/minigame-valley-v2.png");
+  background-position: center center;
+  background-size: cover;
+  transition: filter .45s ease;
+}
+
+.pixel-world[data-zone="wood"] { filter: saturate(1.05) hue-rotate(7deg); }
+.pixel-world[data-zone="stone"] { filter: saturate(.94); }
+.pixel-world[data-zone="ore"] { filter: saturate(1.12) hue-rotate(-8deg) brightness(.9); }
+.pixel-world[data-zone="food"] { filter: saturate(1.08) brightness(1.08); }
+
+.pixel-world::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  height: auto;
+  background: linear-gradient(to bottom, rgba(11, 14, 12, .02) 45%, rgba(11, 10, 8, .2));
+  clip-path: none;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.pixel-world::after,
+.pixel-world > .sky,
+.pixel-world > .mountains,
+.pixel-world > .tower,
+.pixel-world > .pine,
+.pixel-world > .rock,
+.pixel-world > .camp {
+  display: none;
+}
+
+.player {
+  z-index: 6;
+  width: 78px;
+  height: 88px;
+  filter: drop-shadow(0 7px 3px rgba(0, 0, 0, .5));
+}
+
+.player-you { --x: 47%; --y: 71%; }
+.player-robert { --x: 28%; --y: 79%; }
+.player-horsix { --x: 66%; --y: 65%; }
+.player-naga { --x: 78%; --y: 80%; }
+
+.player .avatar {
+  inset: 0;
+  background-image: url("/assets/miner-sprite-v2.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+  animation: miner-bob 1.15s steps(2, end) infinite;
+}
+
+.player-robert .avatar { filter: hue-rotate(38deg) saturate(.82); }
+.player-horsix .avatar { filter: hue-rotate(102deg) saturate(.72); }
+.player-naga .avatar { filter: hue-rotate(-33deg) saturate(.9); }
+
+.player .avatar > *,
+.player .avatar::after {
+  display: none;
+}
+
+.nameplate {
+  top: -19px;
+  padding: 5px 7px;
+  border-radius: 3px;
+  background: rgba(12, 12, 10, .9);
+  font-size: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .4);
+}
+
+.hit {
+  right: -4px;
+  top: 14px;
+  font-size: 12px;
+}
+
+.world-message {
+  z-index: 8;
+  bottom: 16px;
+  padding: 9px 14px;
+  border-color: rgba(215, 166, 64, .55);
+  border-radius: 4px;
+  background: rgba(14, 13, 10, .9);
+  font-size: 9px;
+}
+
+.activity-list button {
+  min-height: 63px;
+}
+
+.activity-list b,
+.farm-state b {
+  font-size: 12px;
+}
+
+.activity-list small,
+.party-bonus p,
+.event-card > p,
+.chat-messages p {
+  font-size: 9px;
+}
+
+@keyframes miner-bob {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(2px) rotate(1deg); }
+}
+
+@media (max-width: 1250px) {
+  .play-grid { grid-template-columns: 210px minmax(540px, 1fr); }
+}
+
+@media (max-width: 820px) {
+  .pixel-world { height: 470px; }
+  .player { width: 66px; height: 76px; }
+}
+
+/* Multiplayer world atlas: each destination owns a real scene, activity and roster. */
+.pixel-world {
+  background-image: linear-gradient(to bottom, transparent 65%, rgba(8, 7, 7, .2)), url("/assets/minigame-world-atlas-v1.png");
+  background-size: 100% 100%, 300% 200%;
+  background-repeat: no-repeat;
+  filter: none;
+  transition: filter .32s ease, opacity .32s ease;
+}
+
+.pixel-world[data-zone="ancient-forest"] { background-position: center, 0 0; filter: saturate(1.03); }
+.pixel-world[data-zone="abandoned-mine"] { background-position: center, 50% 0; filter: saturate(.96); }
+.pixel-world[data-zone="royal-fields"] { background-position: center, 100% 0; filter: saturate(1.04); }
+.pixel-world[data-zone="red-desert"] { background-position: center, 0 100%; filter: saturate(1.06); }
+.pixel-world[data-zone="frozen-mountains"] { background-position: center, 50% 100%; filter: saturate(.95) brightness(1.03); }
+.pixel-world[data-zone="black-lands"] { background-position: center, 100% 100%; filter: saturate(1.08) brightness(.88); }
+
+.instance-status {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 3px 8px;
+  margin-left: auto;
+  margin-right: 24px;
+  padding: 7px 11px;
+  border: 1px solid #4d463b;
+  background: #16151299;
+}
+
+.instance-status span {
+  grid-column: 1 / -1;
+  color: #777268;
+  font-size: 7px;
+  letter-spacing: .14em;
+}
+
+.instance-status b { color: #e6d7b9; font-size: 9px; }
+.instance-status small { color: #64cc91; font-size: 8px; }
+
+.desert-icon { color: #cb6d43; }
+.ice-icon { color: #79cbe0; }
+.black-icon { color: #a86bc8; }
+
+.players-layer {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  pointer-events: none;
+}
+
+.player-slot-1 { --x: 47%; --y: 72%; }
+.player-slot-2 { --x: 27%; --y: 80%; }
+.player-slot-3 { --x: 68%; --y: 66%; }
+.player-slot-4 { --x: 80%; --y: 81%; }
+.player-tone-violet .avatar { filter: hue-rotate(38deg) saturate(.82); }
+.player-tone-green .avatar { filter: hue-rotate(102deg) saturate(.72); }
+.player-tone-red .avatar { filter: hue-rotate(-33deg) saturate(.9); }
+.player-tone-blue .avatar { filter: hue-rotate(145deg) saturate(.82); }
+.player-tone-shadow .avatar { filter: grayscale(.6) hue-rotate(220deg) brightness(.72); }
+.player-tone-gold .avatar { filter: none; }
+
+.travel-curtain {
+  position: absolute;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  background: #0c0b0af2;
+  color: #e9c268;
+  font-size: 10px;
+  letter-spacing: .16em;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.travel-curtain i {
+  width: 34px;
+  height: 34px;
+  margin: auto;
+  border: 4px solid #4f4635;
+  border-top-color: #e9b84f;
+  border-radius: 50%;
+  animation: travel-spin .7s steps(8) infinite;
+}
+
+.pixel-world.is-travelling .travel-curtain { opacity: 1; visibility: visible; }
+
+@keyframes travel-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 1250px) {
+  .activity-panel { min-height: auto; }
+  .instance-status { margin-right: 12px; }
+}
+
+@media (max-width: 820px) {
+  .zone-bar { height: auto; min-height: 76px; gap: 8px; flex-wrap: wrap; padding: 10px 12px; }
+  .instance-status { order: 3; width: 100%; margin: 0; }
+  .pixel-world { background-size: 100% 100%, 300% 200%; }
+}

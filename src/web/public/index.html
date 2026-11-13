@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Notag — PvE, Farm de World Boss e Roaming para portugueses e brasileiros, das 12h às 03h UTC.">
+  <title>Notag — Guilda de Albion Online</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=20260729-10">
+  <script src="/assets/landing.js?v=20260729-10" defer></script>
+</head>
+<body class="landing-body">
+  <header class="public-header shell">
+    <a class="public-brand" href="/" aria-label="Página inicial da Notag">
+      <img src="/assets/notag-logo.jpeg" alt="Brasão da guilda Notag">
+      <span>NOTAG</span>
+    </a>
+    <nav class="public-nav" aria-label="Navegação principal">
+      <a href="#atividades">Atividades</a>
+      <a href="#comunidade">Comunidade</a>
+      <a href="/minigame">Minigame</a>
+      <a class="button button-ghost" href="/join/discord">Meu portal</a>
+      <a class="button button-ghost" href="/auth/discord">Área da staff</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <span class="kicker"><i></i> Guilda de Albion Online</span>
+        <h1>PvE, Farm de World Boss e Roaming.</h1>
+        <p>Guilda para portugueses e brasileiros, com atividades organizadas diariamente das 12h às 03h UTC.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/join/discord">Entrar com Discord</a>
+          <a class="button button-secondary" href="#atividades">Conhecer a Notag</a>
+        </div>
+        <p class="hero-note">Entre, informe seu personagem e receba automaticamente o cargo de Convidado.</p>
+      </div>
+      <div class="hero-emblem" aria-hidden="true">
+        <div class="emblem-glow"></div>
+        <img src="/assets/notag-logo.jpeg" alt="">
+        <span class="orbit orbit-one"></span>
+        <span class="orbit orbit-two"></span>
+      </div>
+      <section class="public-rankings" aria-labelledby="public-rankings-title">
+        <div class="public-rankings-heading">
+          <div>
+            <span class="kicker"><i></i> Classificações da guilda</span>
+            <h2 id="public-rankings-title">Top 5 em evolução</h2>
+          </div>
+          <p id="public-rankings-status">Carregando as últimas importações...</p>
+        </div>
+        <div id="public-ranking-grid" class="public-ranking-grid" aria-live="polite" aria-busy="true">
+          <article class="public-ranking-card public-ranking-loading"><span></span></article>
+          <article class="public-ranking-card public-ranking-loading"><span></span></article>
+          <article class="public-ranking-card public-ranking-loading"><span></span></article>
+          <article class="public-ranking-card public-ranking-loading"><span></span></article>
+        </div>
+        <p class="public-rankings-note">Ganho de fama entre as duas últimas tabelas confirmadas. Novos nomes sem base anterior não entram no cálculo.</p>
+      </section>
+    </section>
+
+    <section id="atividades" class="section shell">
+      <div class="section-heading">
+        <span class="kicker"><i></i> Nossa força</span>
+        <h2>Conteúdo todos os dias</h2>
+        <p>Do PvE organizado ao combate em mundo aberto, sempre existe um grupo pronto para jogar.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-number">01</span>
+          <div class="feature-icon">PvE</div>
+          <h3>Foco em PvE</h3>
+          <p>Grupos frequentes para evoluir builds, especializações, fama e experiência em equipe.</p>
+        </article>
+        <article class="feature-card featured">
+          <span class="feature-number">02</span>
+          <div class="feature-icon">WB</div>
+          <h3>Farm de World Boss</h3>
+          <p>Composição, organização e execução para aproveitar um dos conteúdos mais exigentes de Albion.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">03</span>
+          <div class="feature-icon">R</div>
+          <h3>Roaming</h3>
+          <p>Conteúdo em mundo aberto para encontrar lutas, explorar zonas e conquistar objetivos em grupo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="comunidade" class="community shell">
+      <div>
+        <span class="kicker"><i></i> Entre para a comunidade</span>
+        <h2>Portugueses e brasileiros jogando juntos.</h2>
+        <p>Ativos das 12h às 03h UTC. Entre com o Discord, informe seu personagem e vá direto para a recepção.</p>
+      </div>
+      <a class="button button-primary" href="/join/discord">Começar agora</a>
+    </section>
+    <div id="auth-message" class="auth-toast" role="status" hidden></div>
+  </main>
+
+  <footer class="public-footer shell">
+    <div class="public-brand compact"><img src="/assets/notag-logo.jpeg" alt=""><span>NOTAG</span></div>
+    <p>Comunidade independente de Albion Online.</p>
+    <a href="/join/discord">Portal do membro</a>
+    <a href="/auth/discord">Acesso da staff</a>
+  </footer>
+</body>
+</html>

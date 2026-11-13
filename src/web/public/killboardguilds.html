@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ranking das guildas que mais enfrentam a NoTag nas últimas 24 horas, 7 dias e 30 dias.">
+  <title>Ranking de Guildas — Killboard NoTag</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=20260823-1">
+  <link rel="stylesheet" href="/assets/killboardguilds.css?v=20260823-1">
+  <script src="/assets/killboardguilds.js?v=20260823-1" defer></script>
+</head>
+<body class="landing-body guild-killboard-body">
+  <header class="public-header shell">
+    <a class="public-brand" href="/" aria-label="Página inicial da Notag"><img src="/assets/notag-logo.jpeg" alt="Brasão da guilda Notag"><span>NOTAG</span></a>
+    <nav class="public-nav" aria-label="Navegação"><a href="#rankings">Rankings</a><a class="button button-ghost" href="/portal">Meu portal</a></nav>
+  </header>
+  <main class="guild-killboard-main shell">
+    <section class="guild-killboard-hero">
+      <div><span class="kicker"><i></i> Killboard NoTag</span><h1>Quem caça a NoTag.<br><strong>E quem nós caçamos.</strong></h1><p>Confrontos diretos registrados pelo killfeed europeu do Albion Online.</p></div>
+      <div class="guild-periods" role="group" aria-label="Período do ranking">
+        <button class="active" type="button" data-period="24h">24 horas</button>
+        <button type="button" data-period="7d">7 dias</button>
+        <button type="button" data-period="30d">30 dias</button>
+      </div>
+    </section>
+    <section id="rankings" class="guild-ranking-grid" aria-live="polite" aria-busy="true">
+      <article class="guild-ranking-card guild-ranking-danger"><header><div><small>Ameaças</small><h2>Quem mais matou a NoTag</h2></div><strong id="death-total">—</strong></header><ol id="death-ranking"><li class="guild-loading">Carregando confrontos…</li></ol></article>
+      <article class="guild-ranking-card guild-ranking-success"><header><div><small>Alvos</small><h2>Quem a NoTag mais matou</h2></div><strong id="kill-total">—</strong></header><ol id="kill-ranking"><li class="guild-loading">Carregando confrontos…</li></ol></article>
+    </section>
+    <p class="guild-ranking-note" id="ranking-note">Atualizando os dados…</p>
+  </main>
+  <footer class="public-footer shell"><div class="public-brand compact"><img src="/assets/notag-logo.jpeg" alt=""><span>NOTAG</span></div><p>Ranking automático de confrontos entre guildas.</p><a href="/">Página inicial</a><a href="/portal">Portal do membro</a></footer>
+</body>
+</html>

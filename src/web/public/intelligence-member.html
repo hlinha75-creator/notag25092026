@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>NOTAG Intelligence — Membro</title>
+  <link rel="stylesheet" href="/assets/command.css?v=20260831-1">
+  <script src="/assets/intelligence-member.js?v=20260829-1" defer></script>
+</head>
+<body class="member-intelligence">
+  <header class="topbar">
+    <a class="brand" href="/intelligence"><img src="/assets/notag-logo.jpeg" alt="Brasão da NOTAG"><span>NOTAG<small>Intelligence · Membro</small></span></a>
+    <nav><a href="/portal">Meu portal</a><a id="staff-intelligence" href="/intelligence/staff" hidden>Versão staff</a><a href="/auth/logout">Sair</a></nav>
+  </header>
+
+  <main>
+    <section class="hero member-hero">
+      <div><span class="eyebrow">MINHA INTELIGÊNCIA</span><h1 id="member-name">Seu desempenho na NOTAG</h1><p>Uma leitura pessoal da sua atividade, contribuição, funções e evolução na guilda.</p></div>
+      <div class="freshness"><i></i><span id="freshness">Sincronizando dados…</span><button id="refresh" type="button" aria-label="Atualizar">↻</button></div>
+    </section>
+
+    <section class="game-update" aria-labelledby="dragonfire-title">
+      <header class="game-update-head">
+        <div><span class="update-live"><i></i> 31 AGO 2026 · AO VIVO</span><h2 id="dragonfire-title">Dragonfire + Season 34</h2><p>O que mudou e como se preparar para os novos conteúdos com a NOTAG.</p></div>
+        <a class="button primary" href="https://albiononline.com/news/dragonfire-live" target="_blank" rel="noopener noreferrer">Abrir anúncio</a>
+      </header>
+
+      <div class="game-update-grid">
+        <article><span class="update-number">01</span><h3>Ancient Lands</h3><p>Há portais para jogadores solo e grupos de até 20. Complete objetivos, colete Keystones e use Leygates para avançar a áreas mais perigosas e recompensadoras.</p><strong>Sua prioridade</strong><small>Entre com um grupo compatível com o portal e preserve Spirit Waystones para a raid da guilda.</small></article>
+        <article><span class="update-number">02</span><h3>Dragon Sanctuary</h3><p>Raid PvE instanciada para 20 jogadores, acessada com Spirit Waystone. Fire Drakes, Ashborn e Azaryon exigem equipamento forte e composição coordenada.</p><strong>Sua prioridade</strong><small>Prepare função, build, comida, poção e regear antes de confirmar presença na chamada.</small></article>
+        <article><span class="update-number">03</span><h3>Dragon Attacks</h3><p>No Continente Real aparecem com pouco aviso. Nas Outlands são anunciados antes e podem virar disputa entre guildas pela recompensa.</p><strong>Sua prioridade</strong><small>Acompanhe as chamadas, chegue pronto e espere orientação antes de se comprometer no combate.</small></article>
+      </div>
+
+      <div class="reward-strip" aria-label="Novidades e recompensas Dragonfire">
+        <div><span>ARMADURA</span><strong>Dragonslayer</strong><small>Escamas e artefatos de Dragões</small></div>
+        <div><span>MONTARIA RARA</span><strong>Firewing Drake</strong><small>Ovo de Azaryon; criado alimentando-o com outras montarias</small></div>
+        <div><span>CONSUMÍVEIS</span><strong>Leyfin e Dragon Blood</strong><small>Nova comida de cura e poção capaz de proteger um aliado da morte</small></div>
+        <div><span>SEASON 34</span><strong>Dragon Hunter</strong><small>Pacote temático; preço e conteúdo devem ser conferidos na loja oficial</small></div>
+      </div>
+
+      <div class="update-deadlines">
+        <strong>Janelas limitadas</strong><span>Presente grátis até 07/09 às 07:00 BRT · Twitch Drops em dobro até 14/09 às 06:30 BRT.</span>
+      </div>
+      <nav class="update-sources" aria-label="Fontes oficiais da atualização"><span>Fontes oficiais</span><a href="https://albiononline.com/changelog/dragonfire-update" target="_blank" rel="noopener noreferrer">Changelog</a><a href="https://albiononline.com/news/season-34-bundles" target="_blank" rel="noopener noreferrer">Pacotes Season 34</a><a href="https://albiononline.com/news/dragonfire-live" target="_blank" rel="noopener noreferrer">Dragonfire ao vivo</a></nav>
+    </section>
+
+    <section class="metrics member-metrics" id="metrics" aria-label="Resumo pessoal">
+      <article class="metric skeleton"></article><article class="metric skeleton"></article><article class="metric skeleton"></article><article class="metric skeleton"></article>
+    </section>
+
+    <section class="member-intelligence-grid">
+      <article class="insight-card contribution-card">
+        <div class="card-heading"><div><span class="eyebrow">CONTRIBUIÇÃO</span><h2>Índice pessoal</h2></div><strong class="score-ring" id="score">—</strong></div>
+        <div class="progress-track"><span id="score-bar"></span></div>
+        <p id="score-copy">Calculando sua participação registrada…</p>
+      </article>
+
+      <article class="insight-card">
+        <div class="card-heading"><div><span class="eyebrow">ATIVIDADE</span><h2>Eventos por tipo</h2></div></div>
+        <div class="activity-bars" id="activity-bars"></div>
+      </article>
+
+      <article class="insight-card">
+        <div class="card-heading"><div><span class="eyebrow">POSIÇÕES</span><h2>Dentro da guilda</h2></div></div>
+        <div class="position-grid" id="positions"></div>
+      </article>
+
+      <article class="insight-card">
+        <div class="card-heading"><div><span class="eyebrow">FUNÇÕES</span><h2>Seu histórico</h2></div></div>
+        <div class="role-grid" id="roles"></div>
+      </article>
+
+      <article class="insight-card detail-wide">
+        <div class="card-heading"><div><span class="eyebrow">FICHA PESSOAL</span><h2>Indicadores completos</h2></div><span class="status" id="weekly-status">—</span></div>
+        <div class="personal-detail" id="personal-detail"></div>
+      </article>
+    </section>
+
+    <div class="notice member-notice"><strong>Como os dados são calculados</strong><span id="definitions">Atividade e categorias consideram os registros disponíveis no bot.</span></div>
+  </main>
+  <div class="toast" id="toast" hidden></div>
+</body>
+</html>

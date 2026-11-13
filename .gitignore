@@ -1,0 +1,21 @@
+.env
+node_modules/
+data/
+discloud/
+outputs/
+dist/
+coverage/
+.codex-backups/
+.codex-remote-check/
+.npm/
+resources/season32/
+/reports/
+2807*.txt
+lembrete comadno.txt
+imagens-lado-a-lado.png
+*.log
+*.zip
+*.traineddata
+.replit
+.upm/
+.vscode/.env

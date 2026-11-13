@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Central da staff — Notag</title>
+  <link rel="stylesheet" href="/assets/styles.css?v=20260829-1">
+  <script src="/assets/dashboard.js?v=20260829-2" defer></script>
+</head>
+<body class="dashboard-body">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <a class="app-brand" href="/dashboard"><img src="/assets/notag-logo.jpeg" alt="Brasão da Notag"><span>NOTAG<small>Central da staff</small></span></a>
+        <button class="icon-button sidebar-close" id="sidebar-close" aria-label="Fechar menu">×</button>
+      </div>
+      <nav class="app-nav" aria-label="Navegação do dashboard">
+        <button class="nav-item active" data-view="overview"><span class="nav-symbol">⌂</span>Visão geral</button>
+        <div class="nav-group">
+          <p>Gestão</p>
+          <button class="nav-item" data-view="members"><span class="nav-symbol">◎</span>Membros</button>
+          <button class="nav-item" data-view="registrations"><span class="nav-symbol">✓</span>Cadastros</button>
+        </div>
+        <div class="nav-group">
+          <p>Atividades</p>
+          <a class="nav-item" href="/pingcontent"><span class="nav-symbol">✦</span>Criar evento visual</a>
+          <button class="nav-item" data-view="events"><span class="nav-symbol">◇</span>Eventos</button>
+          <button class="nav-item" data-view="operations"><span class="nav-symbol">⚑</span>Operações</button>
+        </div>
+        <div class="nav-group">
+          <p>Financeiro</p>
+          <button class="nav-item" data-view="finance"><span class="nav-symbol">$</span>Saldos e saques</button>
+          <button class="nav-item" data-view="deposits"><span class="nav-symbol">↓</span>Depósitos</button>
+        </div>
+        <div class="nav-group">
+          <p>Desempenho</p>
+          <a class="nav-item" id="intelligence-link" href="/intelligence/staff" hidden><span class="nav-symbol">◈</span>Intelligence</a>
+          <a class="nav-item" href="/primetime"><span class="nav-symbol">◷</span>Prime Time</a>
+          <a class="nav-item" href="/regear"><span class="nav-symbol">☠</span>Mortes e regear</a>
+          <button class="nav-item" data-view="rankings"><span class="nav-symbol">↗</span>Rankings</button>
+          <button class="nav-item" data-view="ranking-import"><span class="nav-symbol">↑</span>Importar tabelas</button>
+          <button class="nav-item" data-view="albion-data"><span class="nav-symbol">▤</span>Dados Albion</button>
+        </div>
+        <div class="nav-group">
+          <p>Sistema</p>
+          <button class="nav-item" data-view="audit"><span class="nav-symbol">≡</span>Auditoria</button>
+        </div>
+      </nav>
+      <div class="sidebar-footer"><span class="status-dot"></span><span>Dados sincronizados</span></div>
+    </aside>
+
+    <div class="app-main">
+      <header class="app-header">
+        <button class="icon-button menu-toggle" id="menu-toggle" aria-label="Abrir menu">☰</button>
+        <div class="header-title"><p id="page-kicker">Central da staff</p><h1 id="page-title">Visão geral</h1></div>
+        <div class="header-actions">
+          <div class="refresh-state"><span class="status-dot"></span><span id="freshness">Carregando dados…</span></div>
+          <button class="icon-button" id="refresh-button" aria-label="Atualizar dados" title="Atualizar dados">↻</button>
+          <div class="user-menu">
+            <img id="user-avatar" alt="" hidden>
+            <span id="user-name">Staff</span>
+            <a href="/portal">Meu portal</a>
+            <a href="/auth/logout">Sair</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-content" id="dashboard-content">
+        <div class="loading-panel" id="loading-panel"><span class="loader"></span><p>Organizando os dados da guilda…</p></div>
+        <section class="view active" id="view-overview" data-title="Visão geral" data-kicker="Central da staff">
+          <div class="welcome-row"><div><h2>Panorama da guilda</h2><p>Os indicadores que a staff precisa acompanhar agora.</p></div><span class="readonly-badge">Visão geral</span></div>
+          <div class="metric-grid" id="overview-metrics"></div>
+          <div class="dashboard-grid two-one">
+            <article class="panel"><div class="panel-head"><div><span>Atividade</span><h3>Participações nos últimos 7 dias</h3></div></div><div class="bar-chart" id="activity-chart"></div></article>
+            <article class="panel"><div class="panel-head"><div><span>Campanha ativa</span><h3 id="campaign-title">Meta da guilda</h3></div></div><div id="campaign-card"></div></article>
+          </div>
+          <div class="dashboard-grid equal">
+            <article class="panel"><div class="panel-head"><div><span>Ranking semanal</span><h3>Fama PvE</h3></div><button class="text-button" data-go="rankings">Ver ranking</button></div><div class="ranking-list" id="pve-ranking-mini"></div></article>
+            <article class="panel"><div class="panel-head"><div><span>Ranking semanal</span><h3>Participação em eventos</h3></div><button class="text-button" data-go="rankings">Ver ranking</button></div><div class="ranking-list" id="participation-ranking-mini"></div></article>
+          </div>
+          <article class="panel"><div class="panel-head"><div><span>Movimentação</span><h3>Depósitos recentes</h3></div><button class="text-button" data-go="deposits">Ver todos</button></div><div class="table-wrap"><table><thead><tr><th>Jogador</th><th>Motivo</th><th>Data</th><th class="number-cell">Valor</th></tr></thead><tbody id="recent-deposits-table"></tbody></table></div></article>
+        </section>
+
+        <section class="view" id="view-members" data-title="Membros" data-kicker="Gestão"><div class="view-heading"><div><h2>Membros da guilda</h2><p>Cadastro, saldo e participação de cada jogador.</p></div><div class="table-controls"><input class="search-input" id="member-search" type="search" placeholder="Buscar jogador…" aria-label="Buscar membro"><select id="member-status" aria-label="Filtrar membros por status"><option value="">Todos os status</option><option value="member">Membros</option><option value="pending">Pendentes</option><option value="guest">Convidados</option><option value="unregistered">Sem cadastro</option></select><select id="member-sort" aria-label="Classificar membros"><option value="name-asc">Nome: A–Z</option><option value="name-desc">Nome: Z–A</option><option value="balance-desc">Saldo: maior–menor</option><option value="balance-asc">Saldo: menor–maior</option><option value="events-desc">Eventos: maior–menor</option><option value="events-asc">Eventos: menor–maior</option></select></div></div><article class="panel"><div class="result-summary" id="members-summary"></div><div class="table-wrap"><table><thead><tr><th>Jogador</th><th>Status</th><th>Discord</th><th>Eventos</th><th class="number-cell">Saldo</th></tr></thead><tbody id="members-table"></tbody></table></div></article></section>
+        <section class="view" id="view-registrations" data-title="Cadastros" data-kicker="Gestão">
+          <div id="registration-feedback" class="finance-action-feedback" hidden></div>
+          <details class="panel member-roster-panel" id="member-roster-panel">
+            <summary>
+              <div><span>LISTA ATUAL DO JOGO</span><h3>Atualizar membros da guilda</h3><p id="member-roster-current">Nenhuma lista importada.</p></div>
+              <strong>Importar lista</strong>
+            </summary>
+            <div class="dashboard-grid equal member-roster-grid">
+              <div>
+                <label class="fame-upload member-roster-upload" for="member-roster-file"><span class="fame-upload-icon">↑</span><strong>Selecionar arquivo</strong><small>.txt, .tsv ou .csv · máximo 512 KB</small></label>
+                <input id="member-roster-file" type="file" accept=".txt,.tsv,.csv,text/plain,text/csv" hidden>
+                <div class="fame-divider"><span>ou cole a lista copiada do jogo</span></div>
+                <textarea class="fame-textarea member-roster-textarea" id="member-roster-text" spellcheck="false" placeholder="&quot;Character Name&quot;&#9;&quot;Last Seen&quot;&#9;&quot;Roles&quot;"></textarea>
+                <div class="fame-actions"><span id="member-roster-source">Nenhum arquivo selecionado</span><button class="button button-primary" id="member-roster-analyze" type="button">Analisar lista</button></div>
+              </div>
+              <div class="member-roster-preview">
+                <div class="panel-head"><div><span>CONFERÊNCIA</span><h3>Prévia das diferenças</h3></div><span class="badge" id="member-roster-status">Aguardando lista</span></div>
+                <div class="fame-preview-empty" id="member-roster-empty"><span>⌁</span><p>Analise a lista antes de salvar. A importação não remove cargos do Discord automaticamente.</p></div>
+                <div id="member-roster-preview-content" hidden>
+                  <div class="metric-grid compact member-roster-metrics" id="member-roster-metrics"></div>
+                  <div class="roster-differences" id="member-roster-differences"></div>
+                  <div class="result-summary" id="member-roster-preview-summary"></div>
+                  <div class="table-wrap"><table><thead><tr><th>Personagem</th><th>Último acesso</th><th>Cargos no jogo</th><th>Vínculo</th></tr></thead><tbody id="member-roster-preview-table"></tbody></table></div>
+                  <div class="fame-actions confirm"><span class="safe-note">Somente correspondências seguras serão promovidas; ninguém será rebaixado.</span><button class="button button-primary" id="member-roster-confirm" type="button">Confirmar e automatizar</button></div>
+                </div>
+              </div>
+            </div>
+          </details>
+          <div class="view-heading">
+            <div><h2>Fila de cadastros</h2><p>Valide o personagem no Albion, aprove novos membros e resolva contas vinculadas.</p></div>
+            <div class="table-controls">
+              <input class="search-input" id="registration-search" type="search" placeholder="Buscar cadastro…" aria-label="Buscar cadastro">
+              <select id="registration-status" aria-label="Filtrar cadastros por status"><option value="">Todos os status</option><option value="link_review">Análise de vínculo</option><option value="pending">Pendentes</option><option value="overdue">Cadastro atrasado</option><option value="unregistered">Aguardando cadastro</option><option value="rejected">Devolvidos</option><option value="guest">Convidados</option><option value="member">Membros</option></select>
+              <select id="registration-sort" aria-label="Classificar cadastros"><option value="priority">Prioridade</option><option value="waiting-desc">Espera: maior–menor</option><option value="waiting-asc">Espera: menor–maior</option><option value="name-asc">Nome: A–Z</option><option value="name-desc">Nome: Z–A</option></select>
+            </div>
+          </div>
+          <div class="metric-grid compact" id="registration-metrics"></div>
+          <article class="panel"><div class="result-summary" id="registrations-summary"></div><div class="table-wrap"><table><thead><tr><th>Personagem</th><th>Discord</th><th>Situação</th><th>Tempo</th><th>Ações</th></tr></thead><tbody id="registrations-table"></tbody></table></div></article>
+        </section>
+        <section class="view" id="view-events" data-title="Eventos" data-kicker="Atividades"><div class="view-heading"><div><h2>Eventos</h2><p>Histórico recente, participação e revisão financeira.</p></div><div class="table-controls"><input class="search-input" id="event-search" type="search" placeholder="Buscar evento…" aria-label="Buscar evento"><select id="event-status" aria-label="Filtrar eventos por status"><option value="">Todos os status</option><option value="created">Criados</option><option value="running">Em andamento</option><option value="review">Em revisão</option><option value="approved">Aprovados</option><option value="cancelled">Cancelados</option></select><select id="event-sort" aria-label="Classificar eventos"><option value="date-desc">Data: recente</option><option value="date-asc">Data: antiga</option><option value="participants-desc">Participantes: maior–menor</option><option value="participants-asc">Participantes: menor–maior</option><option value="name-asc">Nome: A–Z</option><option value="name-desc">Nome: Z–A</option></select></div></div><article class="panel"><div class="result-summary" id="events-summary"></div><div class="table-wrap"><table><thead><tr><th>Evento</th><th>Local</th><th>Status</th><th>Participantes</th><th>Revisão</th><th>Data</th></tr></thead><tbody id="events-table"></tbody></table></div></article></section>
+        <section class="view" id="view-operations" data-title="Operações" data-kicker="Atividades"><div class="view-heading"><div><h2>Fila operacional</h2><p>Itens que merecem atenção da staff.</p></div></div><div class="metric-grid" id="operations-metrics"></div><article class="panel empty-guidance"><span class="empty-icon">✓</span><h3>Acompanhamento centralizado</h3><p>Esta primeira versão reúne os totais. As ações administrativas serão adicionadas na próxima etapa.</p></article></section>
+        <section class="view" id="view-finance" data-title="Saldos e saques" data-kicker="Financeiro">
+          <div id="staff-finance-feedback" class="finance-action-feedback" hidden></div>
+          <div class="view-heading"><div><h2>Financeiro</h2><p>Acompanhe a dívida real com os membros, saques e movimentações.</p></div></div>
+          <div class="metric-grid compact" id="finance-metrics"></div>
+          <div class="finance-tabs" id="finance-tabs" role="tablist" aria-label="Áreas financeiras">
+            <button class="finance-tab active" type="button" role="tab" aria-selected="true" data-finance-tab="withdrawals">Saques pendentes <span id="finance-tab-withdrawals-count">0</span></button>
+            <button class="finance-tab" type="button" role="tab" aria-selected="false" data-finance-tab="balances">Saldos dos membros <span id="finance-tab-balances-count">0</span></button>
+            <button class="finance-tab" type="button" role="tab" aria-selected="false" data-finance-tab="transactions">Movimentações</button>
+          </div>
+          <div class="finance-tab-panel active" data-finance-panel="withdrawals" role="tabpanel">
+            <article class="panel"><div class="panel-head"><div><span>Fila da staff</span><h3>Saques para analisar</h3></div><small id="withdrawals-summary"></small></div><div class="staff-withdraw-list" id="staff-withdraw-list"></div></article>
+          </div>
+          <div class="finance-tab-panel" data-finance-panel="balances" role="tabpanel" hidden>
+            <article class="panel"><div class="panel-head"><div><span>Saldos positivos</span><h3>Dívida real com os membros</h3></div><div class="table-controls"><input class="search-input" id="member-balance-search" type="search" placeholder="Buscar membro…" aria-label="Buscar membro com saldo"><select id="member-balance-sort" aria-label="Classificar saldos"><option value="balance-desc">Maior saldo</option><option value="balance-asc">Menor saldo</option><option value="name-asc">Nome A–Z</option><option value="name-desc">Nome Z–A</option></select></div></div><div class="result-summary" id="member-balances-summary"></div><div class="table-wrap"><table><thead><tr><th>Jogador</th><th>Discord</th><th class="number-cell">Saldo exato</th><th>Atualizado em</th></tr></thead><tbody id="member-balances-table"></tbody></table></div></article>
+          </div>
+          <div class="finance-tab-panel" data-finance-panel="transactions" role="tabpanel" hidden>
+            <article class="panel"><div class="panel-head"><div><span>Extrato</span><h3>Movimentações recentes</h3></div><div class="table-controls"><input class="search-input" id="transaction-search" type="search" placeholder="Buscar movimentação…" aria-label="Buscar movimentação"><select id="transaction-kind" aria-label="Filtrar movimentações"><option value="">Créditos e débitos</option><option value="credit">Somente créditos</option><option value="debit">Somente débitos</option></select><select id="transaction-sort" aria-label="Classificar movimentações"><option value="date-desc">Data: recente</option><option value="date-asc">Data: antiga</option><option value="amount-desc">Valor: maior–menor</option><option value="amount-asc">Valor: menor–maior</option><option value="name-asc">Nome: A–Z</option><option value="name-desc">Nome: Z–A</option></select></div></div><div class="result-summary" id="transactions-summary"></div><div class="table-wrap"><table><thead><tr><th>Jogador</th><th>Tipo</th><th>Motivo</th><th>Data</th><th class="number-cell">Valor</th></tr></thead><tbody id="transactions-table"></tbody></table></div></article>
+          </div>
+        </section>
+        <section class="view" id="view-deposits" data-title="Depósitos" data-kicker="Financeiro"><div class="view-heading"><div><h2>Depósitos recentes</h2><p>Créditos identificados no histórico financeiro.</p></div><div class="table-controls"><input class="search-input" id="deposit-search" type="search" placeholder="Buscar depósito…" aria-label="Buscar depósito"><select id="deposit-sort" aria-label="Classificar depósitos"><option value="date-desc">Data: recente</option><option value="date-asc">Data: antiga</option><option value="amount-desc">Valor: maior–menor</option><option value="amount-asc">Valor: menor–maior</option><option value="name-asc">Nome: A–Z</option><option value="name-desc">Nome: Z–A</option></select></div></div><article class="panel"><div class="result-summary" id="deposits-summary"></div><div class="table-wrap"><table><thead><tr><th>Jogador</th><th>Tipo</th><th>Motivo</th><th>Data</th><th class="number-cell">Valor</th></tr></thead><tbody id="deposits-table"></tbody></table></div></article></section>
+        <section class="view" id="view-rankings" data-title="Rankings" data-kicker="Desempenho">
+          <div class="view-heading">
+            <div><h2>Classificações All-time</h2><p>Desempenho acumulado dos jogadores nas quatro categorias importadas.</p></div>
+            <div class="table-controls">
+              <input class="search-input" id="ranking-search" type="search" placeholder="Buscar jogador…" aria-label="Buscar nos rankings">
+              <select id="ranking-link" aria-label="Filtrar rankings por vínculo"><option value="">Todos os jogadores</option><option value="linked">Vinculados ao Discord</option><option value="unlinked">Aguardando vínculo</option></select>
+              <select id="ranking-sort" aria-label="Classificar rankings"><option value="rank">Posição oficial</option><option value="value-desc">Pontos: maior–menor</option><option value="value-asc">Pontos: menor–maior</option><option value="name-asc">Nome: A–Z</option><option value="name-desc">Nome: Z–A</option></select>
+            </div>
+          </div>
+          <div class="view-subheading"><div><h2>Temporada 33 — Black</h2><p>Estimativa proporcional do snapshot Ouro, usando somente os rankings do Guild Might.</p></div><div class="table-controls"><input class="search-input" id="season-ranking-search" type="search" placeholder="Buscar na temporada…" aria-label="Buscar no ranking da temporada"></div></div>
+          <div class="metric-grid compact ranking-metrics" id="season-ranking-metrics"></div>
+          <article class="panel ranking-panel season-ranking-panel">
+            <div class="panel-head"><div><span id="season-ranking-period">Snapshot Ouro</span><h3>Ranking estimado da temporada</h3></div><span class="badge">Black</span></div>
+            <div class="result-summary" id="season-ranking-summary"></div>
+            <div class="table-wrap"><table class="fame-ranking-table"><thead><tr><th>Posição</th><th>Jogador</th><th>Principal categoria</th><th class="number-cell">Pontos estimados</th></tr></thead><tbody id="season-ranking-table"></tbody></table></div>
+            <p class="table-note" id="season-ranking-note"></p>
+          </article>
+          <div class="view-subheading"><div><h2>Classificações All-time</h2><p>Desempenho acumulado nas categorias importadas.</p></div></div>
+          <div class="ranking-tabs" id="ranking-tabs" role="tablist" aria-label="Categorias de classificação">
+            <button class="ranking-tab active" type="button" role="tab" aria-selected="true" data-ranking-category="overall">Geral</button>
+            <button class="ranking-tab" type="button" role="tab" aria-selected="false" data-ranking-category="pve">PvE</button>
+            <button class="ranking-tab" type="button" role="tab" aria-selected="false" data-ranking-category="pvp">PvP</button>
+            <button class="ranking-tab" type="button" role="tab" aria-selected="false" data-ranking-category="gathering">Coleta</button>
+            <button class="ranking-tab" type="button" role="tab" aria-selected="false" data-ranking-category="crafting">Craft</button>
+          </div>
+          <div class="metric-grid compact ranking-metrics" id="fame-ranking-metrics"></div>
+          <article class="panel ranking-panel">
+            <div class="panel-head"><div><span id="fame-ranking-period">All-time</span><h3 id="fame-ranking-title">Classificação geral</h3></div><span class="badge" id="fame-ranking-scope">Geral</span></div>
+            <div class="result-summary" id="fame-ranking-summary"></div>
+            <div class="table-wrap"><table class="fame-ranking-table"><thead id="fame-ranking-head"></thead><tbody id="fame-ranking-table"></tbody></table></div>
+          </article>
+          <div class="view-subheading"><div><h2>Atividade recente</h2><p>Rankings semanais mantidos para acompanhamento operacional.</p></div></div>
+          <div class="dashboard-grid equal"><article class="panel"><div class="panel-head"><div><span id="pve-period">Semana</span><h3>Fama PvE</h3></div></div><div class="ranking-list large" id="pve-ranking-full"></div></article><article class="panel"><div class="panel-head"><div><span id="participation-period">Últimos 7 dias</span><h3>Participação em eventos</h3></div></div><div class="ranking-list large" id="participation-ranking-full"></div></article></div>
+        </section>
+        <section class="view" id="view-ranking-import" data-title="Importar tabelas" data-kicker="Desempenho">
+          <div class="view-heading"><div><h2>Importar classificações</h2><p>Envie uma categoria All-time por vez. Nada será salvo antes da confirmação.</p></div><button class="button button-ghost import-undo" id="fame-undo" type="button">Desfazer última importação</button></div>
+          <div class="fame-category-grid" id="fame-categories">
+            <button class="fame-category active" type="button" data-category="pve"><strong>PvE</strong><small>Sem importação</small></button>
+            <button class="fame-category" type="button" data-category="pvp"><strong>PvP</strong><small>Sem importação</small></button>
+            <button class="fame-category" type="button" data-category="gathering"><strong>Coleta</strong><small>Sem importação</small></button>
+            <button class="fame-category" type="button" data-category="crafting"><strong>Craft</strong><small>Sem importação</small></button>
+          </div>
+          <div class="dashboard-grid equal fame-import-grid">
+            <article class="panel">
+              <div class="panel-head"><div><span>Nova tabela</span><h3 id="fame-import-title">Importar PvE</h3></div></div>
+              <label class="fame-upload" for="fame-file"><span class="fame-upload-icon">↑</span><strong>Selecionar arquivo</strong><small>.txt, .tsv ou .csv · máximo 512 KB</small></label>
+              <input id="fame-file" type="file" accept=".txt,.tsv,.csv,text/plain,text/csv" hidden>
+              <div class="fame-divider"><span>ou cole a tabela copiada do jogo</span></div>
+              <textarea class="fame-textarea" id="fame-text" spellcheck="false" placeholder="&quot;Rank&quot;&#9;&quot;Player&quot;&#9;&quot;Guild Role&quot;&#9;&quot;Amount&quot;"></textarea>
+              <div class="fame-actions"><span id="fame-source-name">Nenhum arquivo selecionado</span><button class="button button-primary" id="fame-analyze" type="button">Analisar tabela</button></div>
+            </article>
+            <article class="panel fame-preview" id="fame-preview">
+              <div class="panel-head"><div><span>Validação</span><h3>Prévia da importação</h3></div><span class="badge" id="fame-preview-status">Aguardando tabela</span></div>
+              <div class="fame-preview-empty" id="fame-preview-empty"><span>⌁</span><p>Escolha uma categoria e envie a tabela para ver jogadores, vínculos e alterações.</p></div>
+              <div id="fame-preview-content" hidden>
+                <div class="metric-grid compact fame-preview-metrics" id="fame-preview-metrics"></div>
+                <div class="fame-warning" id="fame-reduction-warning" hidden><label><input id="fame-confirm-reductions" type="checkbox"> Confirmo que revisei os valores All-time menores.</label></div>
+                <div class="result-summary" id="fame-preview-summary"></div>
+                <div class="table-wrap"><table><thead><tr><th>Jogador</th><th>Vínculo</th><th class="number-cell">Anterior</th><th class="number-cell">Novo</th><th class="number-cell" id="fame-delta-header" aria-sort="descending"><button class="table-sort-button" id="fame-delta-sort" type="button" title="Ordenado do maior para o menor. Clique para inverter.">Alteração <span aria-hidden="true">↓</span></button></th></tr></thead><tbody id="fame-preview-table"></tbody></table></div>
+                <div class="fame-actions confirm"><span id="fame-preview-errors"></span><button class="button button-primary" id="fame-confirm" type="button">Confirmar importação</button></div>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section class="view" id="view-albion-data" data-title="Dados Albion" data-kicker="Desempenho">
+          <div class="view-heading"><div><h2>Histórico operacional do Albion</h2><p>Preserva contribuições, ações administrativas e banco antes que os registros desapareçam do jogo.</p></div><span class="readonly-badge">Somente staff</span></div>
+          <div class="fame-category-grid" id="albion-data-categories">
+            <button class="fame-category active" type="button" data-operational-kind="food"><strong>Alimento</strong><small>Contribuição para construção</small></button>
+            <button class="fame-category" type="button" data-operational-kind="guild_history"><strong>Histórico</strong><small>Cargos, entradas e saídas</small></button>
+            <button class="fame-category" type="button" data-operational-kind="bank"><strong>Banco</strong><small>Depósitos e retiradas</small></button>
+          </div>
+          <div class="dashboard-grid equal fame-import-grid">
+            <article class="panel">
+              <div class="panel-head"><div><span>Arquivo do jogo</span><h3 id="albion-data-import-title">Importar alimento</h3></div></div>
+              <label class="fame-upload" for="albion-data-file"><span class="fame-upload-icon">↑</span><strong>Selecionar arquivo</strong><small>.txt, .tsv ou .csv · máximo 640 KB</small></label>
+              <input id="albion-data-file" type="file" accept=".txt,.tsv,.csv,text/plain,text/csv" hidden>
+              <div class="fame-divider"><span>ou cole a tabela copiada do jogo</span></div>
+              <textarea class="fame-textarea" id="albion-data-text" spellcheck="false" placeholder="Cole aqui a tabela completa, incluindo o cabeçalho."></textarea>
+              <div class="fame-actions"><span id="albion-data-source">Nenhum arquivo selecionado</span><button class="button button-primary" id="albion-data-analyze" type="button">Analisar tabela</button></div>
+            </article>
+            <article class="panel fame-preview">
+              <div class="panel-head"><div><span>Validação</span><h3>Prévia da importação</h3></div><span class="badge" id="albion-data-preview-status">Aguardando tabela</span></div>
+              <div class="fame-preview-empty" id="albion-data-preview-empty"><span>⌁</span><p>Os arquivos repetidos e eventos já salvos são detectados automaticamente.</p></div>
+              <div id="albion-data-preview-content" hidden>
+                <div class="metric-grid compact fame-preview-metrics" id="albion-data-preview-metrics"></div>
+                <div class="result-summary" id="albion-data-preview-summary"></div>
+                <div class="table-wrap"><table><thead id="albion-data-preview-head"></thead><tbody id="albion-data-preview-table"></tbody></table></div>
+                <div class="fame-actions confirm"><span id="albion-data-preview-errors"></span><button class="button button-primary" id="albion-data-confirm" type="button">Confirmar importação</button></div>
+              </div>
+            </article>
+          </div>
+          <div class="view-subheading"><div><h2>Informações preservadas</h2><p>As visões abaixo acumulam o histórico importado e não aplicam punições nem cargos automaticamente.</p></div></div>
+          <article class="panel"><div class="panel-head"><div><span>Construção</span><h3>Contribuição de alimento</h3></div></div><div class="metric-grid compact" id="albion-food-metrics"></div><div class="table-wrap"><table><thead><tr><th>Posição</th><th>Jogador</th><th>Cargo</th><th class="number-cell">Total</th><th class="number-cell">Alteração</th></tr></thead><tbody id="albion-food-table"></tbody></table></div></article>
+          <div class="dashboard-grid equal operational-history-grid">
+            <article class="panel"><div class="panel-head"><div><span>Administração</span><h3>Histórico da guilda</h3></div></div><div class="metric-grid compact" id="albion-history-metrics"></div><div class="table-wrap"><table><thead><tr><th>Data</th><th>Responsável</th><th>Ação</th><th>Alvo</th></tr></thead><tbody id="albion-history-table"></tbody></table></div></article>
+            <article class="panel"><div class="panel-head"><div><span>Financeiro</span><h3>Banco da guilda</h3></div></div><div class="metric-grid compact" id="albion-bank-metrics"></div><div class="table-wrap"><table><thead><tr><th>Data</th><th>Jogador</th><th>Motivo</th><th class="number-cell">Valor</th></tr></thead><tbody id="albion-bank-table"></tbody></table></div></article>
+          </div>
+        </section>
+        <section class="view" id="view-audit" data-title="Auditoria" data-kicker="Sistema"><div class="view-heading"><div><h2>Auditoria</h2><p>Registro das ações recentes executadas pelo bot e pela equipe.</p></div><div class="table-controls"><input class="search-input" id="audit-search" type="search" placeholder="Buscar auditoria…" aria-label="Buscar auditoria"><select id="audit-sort" aria-label="Classificar auditoria"><option value="date-desc">Data: recente</option><option value="date-asc">Data: antiga</option><option value="type-asc">Ação: A–Z</option><option value="type-desc">Ação: Z–A</option></select></div></div><article class="panel"><div class="result-summary" id="audit-summary"></div><div class="table-wrap"><table><thead><tr><th>Ação</th><th>Responsável</th><th>Alvo</th><th>Motivo</th><th>Data</th></tr></thead><tbody id="audit-table"></tbody></table></div></article></section>
+      </main>
+    </div>
+  </div>
+  <div class="mobile-scrim" id="mobile-scrim"></div>
+  <dialog class="event-dialog registration-dialog" id="registration-dialog">
+    <form method="dialog" id="registration-form">
+      <div class="dialog-head"><div><span>ANÁLISE DE CADASTRO</span><h2 id="registration-dialog-title">Validar personagem</h2></div><button class="icon-button" id="registration-dialog-x" type="button" aria-label="Fechar">×</button></div>
+      <input type="hidden" name="discordId">
+      <label class="field-label">Nome exato no Albion<input name="albionName" type="text" minlength="3" maxlength="32" required placeholder="Ex: Tmaiusculo"></label>
+      <div class="registration-preview" id="registration-preview" hidden></div>
+      <div class="dialog-actions"><button class="button button-ghost" value="cancel" type="button" id="registration-dialog-close">Voltar</button><button class="button button-primary" type="submit" id="registration-dialog-submit">Consultar Albion</button></div>
+    </form>
+  </dialog>
+  <div class="error-toast" id="error-toast" role="alert" hidden></div>
+</body>
+</html>

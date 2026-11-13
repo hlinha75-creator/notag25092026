@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Criar evento visual — Notag</title>
+  <link rel="stylesheet" href="/assets/pingcontent.css?v=20260827-1">
+  <script src="/assets/pingcontent.js?v=20260827-2" defer></script>
+</head>
+<body class="pc-body">
+  <header class="pc-header">
+    <a class="pc-brand" href="/dashboard"><img src="/assets/notag-logo.jpeg" alt="Brasão da Notag"><span>NOTAG<small>Criador de eventos</small></span></a>
+    <div class="pc-header-actions"><a class="pc-link" href="/dashboard">Central da staff</a><span id="pc-user">Carregando…</span></div>
+  </header>
+
+  <main class="pc-shell">
+    <section class="pc-hero">
+      <div><span class="pc-eyebrow">PING CONTENT</span><h1>Monte a composição vendo cada arma</h1><p>Defina o evento, escolha as armas por vaga e confira a publicação antes de enviar ao Discord.</p></div>
+      <div class="pc-header-actions"><button class="pc-button pc-button-soft" id="load-last" type="button" hidden>Usar último evento</button><select id="saved-configurations" aria-label="Configurações salvas"><option value="">Configurações salvas</option></select><button class="pc-button pc-button-soft" id="save-configuration" type="button" hidden>Salvar configuração</button><button class="pc-button pc-button-soft" id="delete-configuration" type="button">Excluir configuração</button></div>
+    </section>
+
+    <nav class="pc-stepper" aria-label="Etapas do criador">
+      <button class="pc-step active" type="button" data-go-step="1"><b>1</b><span>Informações<small>Quando e onde</small></span></button>
+      <button class="pc-step" type="button" data-go-step="2"><b>2</b><span>Composição<small>Funções e armas</small></span></button>
+      <button class="pc-step" type="button" data-go-step="3"><b>3</b><span>Requisitos<small>Tier, IP e regras</small></span></button>
+      <button class="pc-step" type="button" data-go-step="4"><b>4</b><span>Revisar<small>Prévia do Discord</small></span></button>
+    </nav>
+
+    <form id="pingcontent-form" novalidate>
+      <section class="pc-stage active" data-stage="1">
+        <div class="pc-stage-heading"><span>ETAPA 1 DE 4</span><h2>Informações do evento</h2><p>Os dados principais aparecem no topo da publicação.</p></div>
+        <div class="pc-panel pc-form-grid">
+          <label class="pc-field pc-field-wide"><span>Qual tipo de evento?</span><select name="contentType" required><option value="">Selecione o tipo do evento</option></select></label>
+          <label class="pc-field pc-field-wide"><span>Nome do evento</span><input name="title" maxlength="80" required placeholder="Ex: Roaming 8.1 da Notag"></label>
+          <label class="pc-field"><span>Data</span><input name="eventDate" type="date" required></label>
+          <label class="pc-field"><span>Horário UTC</span><input name="eventTime" type="time" required></label>
+          <label class="pc-field"><span>Local de encontro</span><input name="location" maxlength="100" required placeholder="Ex: Portal de Bridgewatch"></label>
+          <label class="pc-field"><span>Quem pode participar</span><select name="audience"><option value="member">Somente membros</option><option value="public">Membros e convidados</option><option value="staff">Somente staff</option></select></label>
+          <label class="pc-field pc-field-wide"><span>Objetivo ou observações</span><textarea name="description" maxlength="350" rows="3" placeholder="Ex: Luta em mapa aberto, seguir o caller e chegar 15 minutos antes."></textarea></label>
+        </div>
+      </section>
+
+      <section class="pc-stage" data-stage="2" hidden>
+        <div class="pc-stage-heading"><span>ETAPA 2 DE 4</span><h2>Composição visual</h2><p>Ajuste as quantidades e as armas fixas. Para DPS, configure o cardápio e o limite disponível de cada arma.</p></div>
+        <div class="pc-panel pc-composition-tools">
+          <div class="pc-template-row" aria-label="Modelos de composição">
+            <button type="button" data-template="20"><strong>CTA 20</strong><small>1 · 1 · 1 · 17</small></button>
+            <button type="button" data-template="10"><strong>Small scale 10</strong><small>1 · 1 · 1 · 7</small></button>
+            <button type="button" data-template="5"><strong>Grupo 5</strong><small>1 · 1 · 0 · 3</small></button>
+            <button type="button" data-template="blank"><strong>Do zero</strong><small>Composição vazia</small></button>
+          </div>
+          <div class="pc-counter-grid">
+            <div class="pc-counter role-tank"><span>🛡️ Tank</span><div><button type="button" data-counter="tank" data-delta="-1">−</button><output id="count-tank">1</output><button type="button" data-counter="tank" data-delta="1">+</button></div></div>
+            <div class="pc-counter role-healer"><span>✋ Healer</span><div><button type="button" data-counter="healer" data-delta="-1">−</button><output id="count-healer">1</output><button type="button" data-counter="healer" data-delta="1">+</button></div></div>
+            <div class="pc-counter role-support"><span>🟧 Suporte</span><div><button type="button" data-counter="support" data-delta="-1">−</button><output id="count-support">1</output><button type="button" data-counter="support" data-delta="1">+</button></div></div>
+            <div class="pc-counter role-dps"><span>⚔️ DPS</span><div><button type="button" data-counter="dps" data-delta="-1">−</button><output id="count-dps">7</output><button type="button" data-counter="dps" data-delta="1">+</button></div></div>
+          </div>
+          <div class="pc-capacity"><span><b id="capacity-total">10</b>/20 jogadores</span><i><em id="capacity-fill"></em></i></div>
+          <label class="pc-field pc-field-wide"><span>Como os DPS escolhem as armas?</span><select name="dpsPolicy"><option value="predefined">Armas predefinidas pelo caller</option><option value="role_free">Livre por função, sem informar arma</option><option value="sheet_limited">Escolha respeitando a planilha</option><option value="weapon_declared">Escolha sem limite, informando arma</option></select></label>
+        </div>
+        <div id="slot-groups" class="pc-slot-groups"></div>
+      </section>
+
+      <section class="pc-stage" data-stage="3" hidden>
+        <div class="pc-stage-heading"><span>ETAPA 3 DE 4</span><h2>Requisitos e regras</h2><p>Essas informações serão aplicadas à composição inteira.</p></div>
+        <div class="pc-panel pc-form-grid requirements-grid">
+          <label class="pc-field"><span>Tier</span><select name="tier"><option>4</option><option>5</option><option>6</option><option>7</option><option selected>8</option></select></label>
+          <label class="pc-field"><span>Encantamento</span><select name="enchantment"><option>0</option><option selected>1</option><option>2</option><option>3</option><option>4</option></select></label>
+          <label class="pc-field"><span>Qualidade mínima</span><select name="quality"><option>Normal</option><option>Bom</option><option>Notável</option><option selected>Excelente</option><option>Obra-prima</option></select></label>
+          <label class="pc-field"><span>IP mínimo</span><input name="itemPower" type="number" min="0" max="3000" value="1300" placeholder="Ex: 1300"></label>
+          <label class="pc-field"><span>Montaria</span><input name="mount" maxlength="200" placeholder="Ex: Lobo ou montaria 120%"></label>
+          <label class="pc-field"><span>Comida e poção</span><input name="consumables" maxlength="500" placeholder="Ex: Comida 8.1 e poção T7"></label>
+          <label class="pc-field pc-field-wide"><span>Regras de loot</span><textarea name="lootRules" maxlength="500" rows="3" placeholder="Ex: Split igual, itens da guilda ficam para regear o grupo."></textarea></label>
+        </div>
+        <article class="pc-tip"><span>💡</span><div><strong>Escolha dinâmica de DPS</strong><p>Tank, Healer e Suporte mantêm armas por vaga. Cada DPS escolhe uma arma disponível no cardápio durante a inscrição.</p></div></article>
+      </section>
+
+      <section class="pc-stage" data-stage="4" hidden>
+        <div class="pc-stage-heading"><span>ETAPA 4 DE 4</span><h2>Confira antes de publicar</h2><p>A prévia abaixo reproduz a organização que os jogadores verão.</p></div>
+        <div class="pc-review-layout">
+          <article class="pc-discord-preview" id="discord-preview"></article>
+          <aside class="pc-review-summary"><span>RESUMO</span><h3>Escolha como finalizar</h3><ul id="review-checklist"></ul><p><b>Criar e publicar</b> envia o evento ao Discord. <b>Copiar Markdown</b> apenas copia o texto formatado, sem criar evento ou enviar ping.</p></aside>
+        </div>
+      </section>
+
+      <div class="pc-form-error" id="form-error" role="alert" hidden></div>
+      <footer class="pc-footer-actions">
+        <button class="pc-button pc-button-soft" id="previous-step" type="button" hidden>Voltar</button>
+        <span id="draft-state">Rascunho salvo neste navegador</span>
+        <button class="pc-button pc-button-primary" id="next-step" type="button">Continuar</button>
+        <button class="pc-button pc-button-copy" id="copy-markdown" type="button" hidden>Copiar Markdown</button>
+        <button class="pc-button pc-button-publish" id="publish-event" type="submit" hidden>Criar e publicar no Discord</button>
+      </footer>
+    </form>
+  </main>
+
+  <dialog class="weapon-dialog" id="weapon-dialog">
+    <div class="weapon-dialog-head"><div><span id="picker-slot">ESCOLHER ARMA</span><h2 id="picker-title">Selecione uma família</h2></div><button type="button" id="picker-close" aria-label="Fechar">×</button></div>
+    <div class="weapon-search"><input id="weapon-search" type="search" placeholder="Buscar família ou arma…" autocomplete="off"></div>
+    <p class="picker-guidance" id="picker-guidance"></p>
+    <div class="family-grid" id="family-grid"></div>
+    <div class="weapon-grid" id="weapon-grid" hidden></div>
+    <div class="weapon-dialog-footer"><button class="pc-button pc-button-soft" id="picker-back" type="button" hidden>Voltar às famílias</button><span>Ícones do Albion Online</span></div>
+  </dialog>
+
+  <div class="pc-toast" id="pc-toast" role="status" hidden></div>
+</body>
+</html>

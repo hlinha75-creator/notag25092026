@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notag Bot - Guia Interativo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Navegacao principal">
+      <div class="brand">
+        <span class="brand-mark">NB</span>
+        <div>
+          <strong>Notag Bot</strong>
+          <span>Guia da staff</span>
+        </div>
+      </div>
+      <nav id="nav"></nav>
+      <div class="quick-links">
+        <a href="../README.md">README</a>
+        <a href="STAFF.md">Staff.md</a>
+        <a href="COMANDOS.md">Comandos.md</a>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <span class="eyebrow">Documentacao viva da guild Notag</span>
+          <h1>Aprenda o bot pelo fluxo real da staff.</h1>
+          <p>Um mapa visual para criar evento, controlar vagas, finalizar loot split, pagar saldos, cuidar de membros e manter o projeto sem depender de memoria.</p>
+          <div class="hero-actions">
+            <button class="primary-action" type="button" data-jump="fluxos">Ver fluxo de evento</button>
+            <button class="ghost-action" type="button" data-jump="comandos">Buscar comandos</button>
+          </div>
+        </div>
+        <div class="hero-board" aria-label="Resumo visual do bot">
+          <div class="board-row">
+            <span class="board-icon">T</span>
+            <span>Evento</span>
+            <strong>Vagas</strong>
+          </div>
+          <div class="board-row">
+            <span class="board-icon">H</span>
+            <span>Voz</span>
+            <strong>Tempo</strong>
+          </div>
+          <div class="board-row">
+            <span class="board-icon">D</span>
+            <span>Loot</span>
+            <strong>Split</strong>
+          </div>
+          <div class="board-row">
+            <span class="board-icon">S</span>
+            <span>Financeiro</span>
+            <strong>Saldo</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="utility-bar">
+        <label>
+          Buscar no guia
+          <input id="globalSearch" type="search" placeholder="evento, saldo, registro, deploy...">
+        </label>
+        <label>
+          Perfil
+          <select id="roleFilter">
+            <option value="todos">Todos</option>
+            <option value="staff">Staff</option>
+            <option value="adm">ADM</option>
+            <option value="caller">Caller</option>
+            <option value="treasurer">Tesouraria</option>
+            <option value="recruiter">Recrutador</option>
+            <option value="member">Membro</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="section" id="mapa">
+        <div class="section-head">
+          <span>Mapa rapido</span>
+          <h2>Onde mexer e quando usar</h2>
+        </div>
+        <div class="card-grid" id="mapCards"></div>
+      </section>
+
+      <section class="section" id="fluxos">
+        <div class="section-head">
+          <span>Fluxos guiados</span>
+          <h2>Evento do inicio ao pagamento</h2>
+        </div>
+        <div class="flow-layout">
+          <div class="step-list" id="flowSteps"></div>
+          <article class="step-detail" id="stepDetail"></article>
+        </div>
+      </section>
+
+      <section class="section" id="comandos">
+        <div class="section-head">
+          <span>Consulta rapida</span>
+          <h2>Comandos slash e paineis</h2>
+        </div>
+        <div class="command-tools">
+          <input id="commandSearch" type="search" placeholder="Buscar comando ou painel">
+          <div class="segmented" id="commandTabs"></div>
+        </div>
+        <div class="command-list" id="commandList"></div>
+      </section>
+
+      <section class="section" id="permissoes">
+        <div class="section-head">
+          <span>Quem pode o que</span>
+          <h2>Permissoes internas</h2>
+        </div>
+        <div class="permission-grid" id="permissionGrid"></div>
+      </section>
+
+      <section class="section" id="operacao">
+        <div class="section-head">
+          <span>Rotina sem susto</span>
+          <h2>Operacao, backup e deploy</h2>
+        </div>
+        <div class="ops-grid" id="opsGrid"></div>
+      </section>
+
+      <section class="section" id="memoria">
+        <div class="section-head">
+          <span>Para economizar tokens depois</span>
+          <h2>Pontos a confirmar</h2>
+        </div>
+        <div class="note-panel">
+          <p>Estes itens ficaram marcados porque dependem de memoria da operacao, decisao da staff ou conferencao no Discord.</p>
+          <ul id="openQuestions"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Notag Frontier — uma primeira experiência idle multiplayer da comunidade NOTAG.">
+  <title>Notag Frontier — Minigame idle</title>
+  <link rel="stylesheet" href="/assets/minigame.css?v=20260820-1">
+  <link rel="stylesheet" href="/assets/minigame-overrides.css?v=20260820-3">
+  <script src="/assets/minigame.js?v=20260820-3" defer></script>
+</head>
+<body>
+  <header class="game-header">
+    <a class="game-brand" href="/" aria-label="Voltar ao site da NOTAG">
+      <img src="/assets/notag-logo.jpeg" alt="">
+      <span><b>NOTAG</b><small>FRONTIER</small></span>
+    </a>
+    <div class="world-status"><i></i><span><b id="world-online">32</b> aventureiros online</span><small>Mundo Alfa 01</small></div>
+    <nav aria-label="Ações da conta">
+      <a href="/">Site</a>
+      <a class="portal-link" href="/join/discord">Meu portal</a>
+    </nav>
+  </header>
+
+  <main class="game-shell">
+    <section class="resource-strip" aria-label="Seus recursos">
+      <div><i class="resource-icon wood">▥</i><span><small>MADEIRA</small><b id="resource-wood">1.240</b></span><em id="rate-wood">+0/min</em></div>
+      <div><i class="resource-icon stone">◆</i><span><small>PEDRA</small><b id="resource-stone">860</b></span><em id="rate-stone">+18/min</em></div>
+      <div><i class="resource-icon ore">⬢</i><span><small>MINÉRIO</small><b id="resource-ore">415</b></span><em id="rate-ore">+0/min</em></div>
+      <div><i class="resource-icon food">●</i><span><small>COMIDA</small><b id="resource-food">92</b></span><em id="rate-food">+0/min</em></div>
+      <div class="level-card"><span>NÍVEL 12</span><div><i></i></div><b>2.840 / 4.000 XP</b></div>
+    </section>
+
+    <section class="play-grid">
+      <aside class="activity-panel panel">
+        <div class="panel-title"><span>MAPA-MÚNDI</span><small>ESCOLHA SEU DESTINO</small></div>
+        <div id="activity-list" class="activity-list">
+          <button data-zone="ancient-forest"><i class="tree-icon">♠</i><span><b>Floresta Antiga</b><small>Madeira · Ervas</small></span><em>14/m</em></button>
+          <button class="active" data-zone="abandoned-mine"><i class="mine-icon">◆</i><span><b>Mina Abandonada</b><small>Ferro · Carvão</small></span><em>18/m</em></button>
+          <button data-zone="royal-fields"><i class="food-icon">●</i><span><b>Campos Reais</b><small>Comida · Animais</small></span><em>22/m</em></button>
+          <button data-zone="red-desert"><i class="desert-icon">▲</i><span><b>Deserto Vermelho</b><small>Minérios raros</small></span><em>12/m</em></button>
+          <button data-zone="frozen-mountains"><i class="ice-icon">✦</i><span><b>Montanhas Geladas</b><small>Cristais · Bosses</small></span><em>10/m</em></button>
+          <button data-zone="black-lands"><i class="black-icon">♜</i><span><b>Terras Negras</b><small>Recursos raros · PvP</small></span><em>8/m</em></button>
+        </div>
+        <div class="party-bonus">
+          <span><i></i> GRUPO DE VIAGEM</span>
+          <strong id="party-status">Viajando sozinho</strong>
+          <p id="party-detail">Party e seguir jogador já possuem pontos de integração para o multiplayer real.</p>
+        </div>
+      </aside>
+
+      <section class="world-panel panel" aria-label="Área de farming multiplayer">
+        <div class="zone-bar">
+          <div><span id="zone-safety">REGIÃO SEGURA</span><h1 id="zone-name">MINA ABANDONADA</h1></div>
+          <div class="instance-status"><span>INSTÂNCIA</span><b id="instance-name">MINA #1</b><small id="instance-capacity">12/30</small></div>
+          <div class="zone-weather"><i id="weather-icon">◈</i><span><b id="weather-name">SUBTERRÂNEO</b><small id="zone-activity">Extração de ferro</small></span></div>
+        </div>
+        <div class="pixel-world" id="pixel-world" data-zone="abandoned-mine">
+          <div class="travel-curtain" id="travel-curtain"><i></i><b>VIAJANDO...</b></div>
+          <div class="sky"><i class="cloud cloud-one"></i><i class="cloud cloud-two"></i><span class="sun"></span></div>
+          <div class="mountains back"></div><div class="mountains front"></div>
+          <div class="tower"><i></i><b></b></div>
+          <div class="pine pine-one"></div><div class="pine pine-two"></div><div class="pine pine-three"></div>
+          <div class="rock rock-one"></div><div class="rock rock-two"></div><div class="rock rock-three rare"><span>VEIO RARO</span></div>
+          <div class="camp"><i></i><b></b></div>
+          <div id="players-layer" class="players-layer" aria-label="Jogadores nesta instância"></div>
+          <div class="world-message" id="world-message"><span>Horsix encontrou </span><b>Pedra Encantada!</b></div>
+        </div>
+        <div class="farm-bar">
+          <div class="farm-state"><span class="tool-icon" id="tool-icon">⛏</span><div><small>FARM AUTOMÁTICO</small><b id="farm-label">Extraindo ferro...</b></div></div>
+          <div class="farm-progress"><span><b id="pending-value">7</b> <span id="pending-label">minério</span> aguardando</span><div><i id="farm-progress-fill"></i></div></div>
+          <button id="collect-button">COLETAR</button>
+        </div>
+      </section>
+
+      <aside class="social-column">
+        <section class="event-card panel">
+          <div class="event-tag"><i></i> EVENTO GLOBAL</div>
+          <h2>O COLOSSO DESPERTA</h2>
+          <p>Ajude a comunidade a quebrar a armadura do Colosso.</p>
+          <div class="boss-portrait"><div class="boss"><i></i><b></b><em></em></div><span>TERMINA EM <b id="event-timer">04:27:18</b></span></div>
+          <div class="event-progress"><span><b>67%</b><small>3,4M / 5M</small></span><div><i id="event-fill"></i></div></div>
+          <div class="event-reward"><span>RECOMPENSA</span><b>Baú do Colosso ×1</b></div>
+          <button id="event-button">CONTRIBUIR <span>500</span></button>
+        </section>
+
+        <section class="chat-card panel">
+          <div class="chat-head"><span>CHAT DA INSTÂNCIA</span><i><b id="local-online">12</b> online</i></div>
+          <div id="chat-messages" class="chat-messages" aria-live="polite">
+            <p><b class="chat-robert">RobertXVII</b><span>alguém vai no colosso?</span></p>
+            <p><b class="chat-horsix">Horsix</b><span>fechando mais 500 pedra</span></p>
+            <p class="system"><b>SISTEMA</b><span>Naga entrou na região.</span></p>
+            <p><b class="chat-lunar">LunarFox</b><span>veio raro no canto direito!</span></p>
+          </div>
+          <form id="chat-form" class="chat-form"><label class="sr-only" for="chat-input">Mensagem</label><input id="chat-input" maxlength="120" placeholder="Escreva uma mensagem..." autocomplete="off"><button aria-label="Enviar mensagem">➤</button></form>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <div class="toast" id="game-toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

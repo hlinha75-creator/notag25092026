@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Histórico de mortes e perdas dos membros da Notag.">
+  <title>Regear — Notag</title>
+  <link rel="stylesheet" href="/assets/regear.css?v=20260831-2">
+  <script src="/assets/regear.js?v=20260831-2" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><img src="/assets/notag-logo.jpeg" alt="Brasão da Notag"><span>NOTAG<small>Central de regear</small></span></a>
+    <nav aria-label="Navegação principal"><a href="/portal">Meu portal</a><a id="staff-link" href="/dashboard" hidden>Central da staff</a><a href="/auth/logout">Sair</a></nav>
+  </header>
+  <main>
+    <section class="intro">
+      <div><span class="eyebrow" id="mode-label">Histórico pessoal</span><h1 id="page-heading">Suas mortes e perdas</h1><p id="page-description">Veja cada morte registrada e quanto seu equipamento perdido valia.</p></div>
+      <button class="refresh" id="refresh-button" type="button">Atualizar</button>
+    </section>
+
+    <div class="metrics" id="metrics" aria-live="polite">
+      <article><span>Mortes registradas</span><strong>—</strong><small>Carregando histórico</small></article>
+      <article class="loss"><span>Valor total perdido</span><strong>—</strong><small>Estimativa de mercado</small></article>
+      <article class="pending"><span>Aguardando</span><strong>—</strong><small>Regears pendentes</small></article>
+      <article class="approved"><span>Aprovados</span><strong>—</strong><small>Aguardando pagamento</small></article>
+      <article class="paid"><span>Pagos</span><strong>—</strong><small>Regears concluídos</small></article>
+    </div>
+
+    <section class="filters" id="staff-filters" hidden aria-label="Filtros da staff">
+      <div class="filter-heading"><div><span>Visão da staff</span><h2>Filtrar mortes</h2></div><button id="clear-filters" type="button">Limpar filtros</button></div>
+      <div class="filter-grid">
+        <label><span>Jogador</span><input id="filter-player" type="search" placeholder="Nome Albion ou Discord"></label>
+        <label><span>Cargo atual</span><select id="filter-role"><option value="">Todos os cargos</option></select></label>
+        <label><span>Status do regear</span><select id="filter-status"><option value="">Todos os status</option><option value="pending">Aguardando</option><option value="approved">Aprovado</option><option value="paid">Pago</option></select></label>
+        <label><span>Data inicial</span><input id="filter-date-from" type="date"></label>
+        <label><span>Data final</span><input id="filter-date-to" type="date"></label>
+        <label><span>Horário inicial</span><input id="filter-time-from" type="time"></label>
+        <label><span>Horário final</span><input id="filter-time-to" type="time"></label>
+      </div>
+    </section>
+
+    <section class="history">
+      <div class="history-heading"><div><span id="history-kicker">Detalhamento</span><h2 id="history-heading">Todas as suas mortes</h2></div><p id="result-count"></p></div>
+      <div id="error" class="message error" hidden></div>
+      <div id="loading" class="message">Carregando mortes registradas…</div>
+      <div id="empty" class="message" hidden>Nenhuma morte encontrada para estes filtros.</div>
+      <div class="death-list" id="death-list"></div>
+    </section>
+  </main>
+</body>
+</html>

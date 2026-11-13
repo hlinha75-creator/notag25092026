@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "version": "1.45",
+  "title": "Criação de eventos integrada à planilha de composições",
+  "notes": [
+    "O caller escolhe entre composição livre para os membros ou armas predefinidas.",
+    "O bot consulta a planilha e congela uma cópia das regras em cada evento publicado.",
+    "Único, Mínimo 1, Máximo 1, Pode repetir e Não permitido são validados no Discord.",
+    "No modo livre, o membro escolhe família e arma com os ícones do catálogo.",
+    "A planilha de composições está disponível diretamente no painel Criar Evento.",
+    "O card do CTA mostra um link direto para o fórum onde ficam as builds."
+  ]
+}
