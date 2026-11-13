@@ -1,0 +1,6914 @@
+{
+  "season": 33,
+  "guild": "NoTag",
+  "snapshotLabel": "Final 2026-08-29",
+  "capturedAt": "2026-08-29",
+  "officialGuildRank": 84,
+  "officialGuildPoints": 150732,
+  "formula": "seasonPoints * memberAmount / totalAmount",
+  "sourceFolder": "C:\\Users\\Lucas\\Documents\\pontos season 29082026",
+  "sourceNotes": [
+    "Season point categories reconcile exactly to the official guild total of 150,732.",
+    "Member contribution totals use the sum of extracted ranked rows and require OCR review before publication."
+  ],
+  "categories": [
+    {
+      "name": "Guild Challenge",
+      "seasonPoints": 17100,
+      "totalAmount": 212132955,
+      "displayedRoundedTotal": 212134000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "jrfate",
+          "amount": 17122000
+        },
+        {
+          "rank": 2,
+          "player": "Horsix",
+          "amount": 15224000
+        },
+        {
+          "rank": 3,
+          "player": "TKZX",
+          "amount": 12788000
+        },
+        {
+          "rank": 4,
+          "player": "Sabedoria7",
+          "amount": 7693527,
+          "ocrAmount": 87693527
+        },
+        {
+          "rank": 5,
+          "player": "imdonedontkillme",
+          "amount": 5887500
+        },
+        {
+          "rank": 6,
+          "player": "Euhh",
+          "amount": 5184007
+        },
+        {
+          "rank": 7,
+          "player": "SerpentVeil",
+          "amount": 5162019
+        },
+        {
+          "rank": 8,
+          "player": "JrMadRyukk",
+          "amount": 4730858
+        },
+        {
+          "rank": 9,
+          "player": "xXFate",
+          "amount": 4428778
+        },
+        {
+          "rank": 10,
+          "player": "PlantsTK",
+          "amount": 3959913
+        },
+        {
+          "rank": 11,
+          "player": "Tmaiusculo",
+          "amount": 3538195
+        },
+        {
+          "rank": 12,
+          "player": "Hi6or",
+          "amount": 3237385
+        },
+        {
+          "rank": 13,
+          "player": "BSAIGunner",
+          "amount": 3190074
+        },
+        {
+          "rank": 14,
+          "player": "Nagacaburos",
+          "amount": 3160196
+        },
+        {
+          "rank": 15,
+          "player": "jokker1998",
+          "amount": 2772615
+        },
+        {
+          "rank": 16,
+          "player": "OniGuM000",
+          "amount": 2646599
+        },
+        {
+          "rank": 17,
+          "player": "Julioczr",
+          "amount": 2624927
+        },
+        {
+          "rank": 18,
+          "player": "lordkiller01",
+          "amount": 2616956
+        },
+        {
+          "rank": 19,
+          "player": "dsn",
+          "amount": 2584852
+        },
+        {
+          "rank": 20,
+          "player": "Groom84",
+          "amount": 2515082
+        },
+        {
+          "rank": 21,
+          "player": "ISpellNotFound",
+          "amount": 2502224
+        },
+        {
+          "rank": 22,
+          "player": "Jairrodrigo",
+          "amount": 2453701
+        },
+        {
+          "rank": 23,
+          "player": "minhafemea1",
+          "amount": 2392960
+        },
+        {
+          "rank": 24,
+          "player": "WellITKD",
+          "amount": 2339725
+        },
+        {
+          "rank": 25,
+          "player": "MatMac",
+          "amount": 2294095
+        },
+        {
+          "rank": 26,
+          "player": "Dorfiuses",
+          "amount": 2164737
+        },
+        {
+          "rank": 27,
+          "player": "avven1996",
+          "amount": 2064915,
+          "ocrAmount": 82064915
+        },
+        {
+          "rank": 28,
+          "player": "maicon1357",
+          "amount": 2020696
+        },
+        {
+          "rank": 29,
+          "player": "BrEnnD",
+          "amount": 2011435
+        },
+        {
+          "rank": 30,
+          "player": "Akuma1000",
+          "amount": 2005800
+        },
+        {
+          "rank": 31,
+          "player": "theYousek",
+          "amount": 1955190
+        },
+        {
+          "rank": 32,
+          "player": "jordansPt",
+          "amount": 1952354
+        },
+        {
+          "rank": 33,
+          "player": "LEOPOLD",
+          "amount": 1904072
+        },
+        {
+          "rank": 34,
+          "player": "goncalves23",
+          "amount": 1750320
+        },
+        {
+          "rank": 35,
+          "player": "Lamusk",
+          "amount": 1690890
+        },
+        {
+          "rank": 36,
+          "player": "LipeFuab",
+          "amount": 1669077
+        },
+        {
+          "rank": 37,
+          "player": "Natsury",
+          "amount": 1633355
+        },
+        {
+          "rank": 38,
+          "player": "KuNaKiNa",
+          "amount": 1624030
+        },
+        {
+          "rank": 39,
+          "player": "Reguilla",
+          "amount": 1529970
+        },
+        {
+          "rank": 40,
+          "player": "Ruizao",
+          "amount": 1499223
+        },
+        {
+          "rank": 41,
+          "player": "Cominhos",
+          "amount": 1498697
+        },
+        {
+          "rank": 42,
+          "player": "hardfedles",
+          "amount": 1461299
+        },
+        {
+          "rank": 43,
+          "player": "gugaboss",
+          "amount": 1433704
+        },
+        {
+          "rank": 44,
+          "player": "Patolas",
+          "amount": 1426502
+        },
+        {
+          "rank": 45,
+          "player": "Jmbv",
+          "amount": 1398746
+        },
+        {
+          "rank": 46,
+          "player": "Nandixx",
+          "amount": 1289974
+        },
+        {
+          "rank": 47,
+          "player": "Superpk",
+          "amount": 1279067
+        },
+        {
+          "rank": 48,
+          "player": "Temperamental",
+          "amount": 1266632
+        },
+        {
+          "rank": 49,
+          "player": "MineMim",
+          "amount": 1257517,
+          "ocrAmount": 31257517
+        },
+        {
+          "rank": 50,
+          "player": "Karz1N",
+          "amount": 1218506
+        },
+        {
+          "rank": 51,
+          "player": "VTracer",
+          "amount": 1190988
+        },
+        {
+          "rank": 52,
+          "player": "Soldier027",
+          "amount": 1171640
+        },
+        {
+          "rank": 53,
+          "player": "Amakv",
+          "amount": 1160350
+        },
+        {
+          "rank": 54,
+          "player": "Merlinavo",
+          "amount": 1116632
+        },
+        {
+          "rank": 55,
+          "player": "Lumen821",
+          "amount": 1113516
+        },
+        {
+          "rank": 56,
+          "player": "MARIOMALAN",
+          "amount": 1083603
+        },
+        {
+          "rank": 57,
+          "player": "Stresseed",
+          "amount": 1082708
+        },
+        {
+          "rank": 58,
+          "player": "zNeii",
+          "amount": 1063029,
+          "ocrAmount": 81063029
+        },
+        {
+          "rank": 59,
+          "player": "habibino",
+          "amount": 1047873,
+          "ocrAmount": 81047873
+        },
+        {
+          "rank": 60,
+          "player": "Djwd",
+          "amount": 952748,
+          "ocrAmount": 8952748
+        },
+        {
+          "rank": 61,
+          "player": "Yuangii",
+          "amount": 915935
+        },
+        {
+          "rank": 62,
+          "player": "A2ar",
+          "amount": 883433
+        },
+        {
+          "rank": 63,
+          "player": "BBob",
+          "amount": 855425
+        },
+        {
+          "rank": 64,
+          "player": "VnfaTI",
+          "amount": 854240
+        },
+        {
+          "rank": 65,
+          "player": "KABRITONHO",
+          "amount": 850508
+        },
+        {
+          "rank": 66,
+          "player": "YukitoRaiden",
+          "amount": 837628
+        },
+        {
+          "rank": 67,
+          "player": "Chuckzerah",
+          "amount": 835144,
+          "ocrAmount": 3835144
+        },
+        {
+          "rank": 68,
+          "player": "VULTO",
+          "amount": 806378
+        },
+        {
+          "rank": 69,
+          "player": "ImPetty",
+          "amount": 776047
+        },
+        {
+          "rank": 70,
+          "player": "Aradzin",
+          "amount": 764229,
+          "ocrAmount": 8764229
+        },
+        {
+          "rank": 71,
+          "player": "XIShanksXI",
+          "amount": 754708
+        },
+        {
+          "rank": 72,
+          "player": "Guislave",
+          "amount": 720682
+        },
+        {
+          "rank": 73,
+          "player": "MaxHardcore",
+          "amount": 714262,
+          "ocrAmount": 8714262
+        },
+        {
+          "rank": 74,
+          "player": "Grockyy",
+          "amount": 711145
+        },
+        {
+          "rank": 75,
+          "player": "Elga7id",
+          "amount": 710765,
+          "manual": true
+        },
+        {
+          "rank": 76,
+          "player": "HolyGyat2324",
+          "amount": 707456
+        },
+        {
+          "rank": 77,
+          "player": "Rammstein",
+          "amount": 681726
+        },
+        {
+          "rank": 78,
+          "player": "MYLOLA262",
+          "amount": 669313
+        },
+        {
+          "rank": 79,
+          "player": "LORDJAPAA",
+          "amount": 659536
+        },
+        {
+          "rank": 80,
+          "player": "okiteKomi",
+          "amount": 623662,
+          "ocrAmount": 8623662
+        },
+        {
+          "rank": 81,
+          "player": "Davimix",
+          "amount": 578112
+        },
+        {
+          "rank": 82,
+          "player": "MachoAlpha",
+          "amount": 572024
+        },
+        {
+          "rank": 83,
+          "player": "LuiziN",
+          "amount": 552596,
+          "ocrAmount": 8552596
+        },
+        {
+          "rank": 84,
+          "player": "Jabiroca1",
+          "amount": 532787
+        },
+        {
+          "rank": 85,
+          "player": "morrty",
+          "amount": 517580
+        },
+        {
+          "rank": 86,
+          "player": "OlhaOPassarinho",
+          "amount": 504379
+        },
+        {
+          "rank": 87,
+          "player": "SuSex",
+          "amount": 501599
+        },
+        {
+          "rank": 88,
+          "player": "RVZZ24",
+          "amount": 500629
+        },
+        {
+          "rank": 89,
+          "player": "Kuntakint",
+          "amount": 477518,
+          "ocrAmount": 3477518
+        },
+        {
+          "rank": 90,
+          "player": "ChicaoCowboy",
+          "amount": 470514
+        },
+        {
+          "rank": 91,
+          "player": "3YS4N",
+          "amount": 468173
+        },
+        {
+          "rank": 92,
+          "player": "MRBrutu",
+          "amount": 443603,
+          "ocrAmount": 8443603
+        },
+        {
+          "rank": 93,
+          "player": "Nery",
+          "amount": 423813
+        },
+        {
+          "rank": 94,
+          "player": "MonetaryMike",
+          "amount": 417562
+        },
+        {
+          "rank": 95,
+          "player": "WarlockLord",
+          "amount": 412412
+        },
+        {
+          "rank": 96,
+          "player": "vadisley",
+          "amount": 389888
+        },
+        {
+          "rank": 97,
+          "player": "xVenon",
+          "amount": 378714
+        },
+        {
+          "rank": 98,
+          "player": "Sum0l",
+          "amount": 366559
+        },
+        {
+          "rank": 99,
+          "player": "RullinSKILL",
+          "amount": 342708
+        },
+        {
+          "rank": 100,
+          "player": "Xakalzin",
+          "amount": 322577
+        },
+        {
+          "rank": 101,
+          "player": "Pevida",
+          "amount": 320952
+        },
+        {
+          "rank": 102,
+          "player": "Hachixi",
+          "amount": 320329
+        },
+        {
+          "rank": 103,
+          "player": "KatarinasemC",
+          "amount": 314238
+        },
+        {
+          "rank": 104,
+          "player": "julszthaone",
+          "amount": 312298
+        },
+        {
+          "rank": 105,
+          "player": "SeuDanadoo",
+          "amount": 309534
+        },
+        {
+          "rank": 106,
+          "player": "IPPON",
+          "amount": 307793
+        },
+        {
+          "rank": 107,
+          "player": "MissyPT",
+          "amount": 293934,
+          "ocrAmount": 3293934
+        },
+        {
+          "rank": 108,
+          "player": "NamikazePT",
+          "amount": 293328,
+          "ocrAmount": 8293328
+        },
+        {
+          "rank": 109,
+          "player": "AnjoThall",
+          "amount": 291105,
+          "ocrAmount": 3291105
+        },
+        {
+          "rank": 110,
+          "player": "zBrunooHD",
+          "amount": 285286
+        },
+        {
+          "rank": 111,
+          "player": "1NightReaperLWY",
+          "amount": 284396
+        },
+        {
+          "rank": 112,
+          "player": "Tuga95",
+          "amount": 268764
+        },
+        {
+          "rank": 113,
+          "player": "BrunoAnulino",
+          "amount": 266627
+        },
+        {
+          "rank": 114,
+          "player": "MaCiRoSKi",
+          "amount": 246407
+        },
+        {
+          "rank": 115,
+          "player": "RodriRowanShade",
+          "amount": 246005
+        },
+        {
+          "rank": 116,
+          "player": "EBMonarca",
+          "amount": 245239
+        },
+        {
+          "rank": 117,
+          "player": "TOTOYBATO",
+          "amount": 240899
+        },
+        {
+          "rank": 118,
+          "player": "ROLEPLAY",
+          "amount": 232789
+        },
+        {
+          "rank": 119,
+          "player": "Wolfy1st",
+          "amount": 226761
+        },
+        {
+          "rank": 120,
+          "player": "Warm4m",
+          "amount": 226289
+        },
+        {
+          "rank": 121,
+          "player": "tfmPuniSHEr",
+          "amount": 214508
+        },
+        {
+          "rank": 122,
+          "player": "ThordaSilva",
+          "amount": 209851
+        },
+        {
+          "rank": 123,
+          "player": "Jarjarjeanbon",
+          "amount": 209783
+        },
+        {
+          "rank": 124,
+          "player": "Merus",
+          "amount": 206746
+        },
+        {
+          "rank": 125,
+          "player": "Lostmothers",
+          "amount": 185754
+        },
+        {
+          "rank": 126,
+          "player": "JackTrip21",
+          "amount": 177947,
+          "ocrAmount": 8177947
+        },
+        {
+          "rank": 127,
+          "player": "teessa",
+          "amount": 176526
+        },
+        {
+          "rank": 128,
+          "player": "kadigo",
+          "amount": 167464
+        },
+        {
+          "rank": 129,
+          "player": "IIIIIIIIIII",
+          "amount": 164620,
+          "manual": true
+        },
+        {
+          "rank": 130,
+          "player": "TheoTheLion",
+          "amount": 163584
+        },
+        {
+          "rank": 131,
+          "player": "dudugamexd43",
+          "amount": 161974
+        },
+        {
+          "rank": 132,
+          "player": "GlitterGold",
+          "amount": 159073,
+          "ocrAmount": 8159073
+        },
+        {
+          "rank": 133,
+          "player": "NevesXC",
+          "amount": 158792
+        },
+        {
+          "rank": 134,
+          "player": "nito19",
+          "amount": 156797
+        },
+        {
+          "rank": 135,
+          "player": "RobertXVII",
+          "amount": 153204
+        },
+        {
+          "rank": 136,
+          "player": "vitinraba",
+          "amount": 152200
+        },
+        {
+          "rank": 137,
+          "player": "Mavin",
+          "amount": 143718
+        },
+        {
+          "rank": 138,
+          "player": "CunaPrata",
+          "amount": 143063
+        },
+        {
+          "rank": 139,
+          "player": "Imortal",
+          "amount": 141197
+        },
+        {
+          "rank": 140,
+          "player": "Davllmix",
+          "amount": 139815
+        },
+        {
+          "rank": 141,
+          "player": "xKickout",
+          "amount": 137344
+        },
+        {
+          "rank": 142,
+          "player": "Madruguinha",
+          "amount": 133757
+        },
+        {
+          "rank": 143,
+          "player": "2PowerGiat",
+          "amount": 133289
+        },
+        {
+          "rank": 144,
+          "player": "ViToR09",
+          "amount": 132589
+        },
+        {
+          "rank": 145,
+          "player": "Hlinha",
+          "amount": 130398
+        },
+        {
+          "rank": 146,
+          "player": "Vr4L",
+          "amount": 127206
+        },
+        {
+          "rank": 147,
+          "player": "Afonsosa",
+          "amount": 115355,
+          "ocrAmount": 8115355
+        },
+        {
+          "rank": 148,
+          "player": "BobBob",
+          "amount": 103632
+        },
+        {
+          "rank": 149,
+          "player": "ToastT",
+          "amount": 103377,
+          "ocrAmount": 8103377
+        },
+        {
+          "rank": 150,
+          "player": "Superrr2855",
+          "amount": 103273
+        },
+        {
+          "rank": 151,
+          "player": "TensaiPT",
+          "amount": 99827
+        },
+        {
+          "rank": 152,
+          "player": "B2r",
+          "amount": 95173
+        },
+        {
+          "rank": 153,
+          "player": "suypoM",
+          "amount": 89078
+        },
+        {
+          "rank": 154,
+          "player": "BWCTuga",
+          "amount": 88226
+        },
+        {
+          "rank": 155,
+          "player": "JoxPT",
+          "amount": 86234
+        },
+        {
+          "rank": 156,
+          "player": "oldZada",
+          "amount": 85764
+        },
+        {
+          "rank": 157,
+          "player": "Lourok",
+          "amount": 85462
+        },
+        {
+          "rank": 158,
+          "player": "Patiinhas",
+          "amount": 79159
+        },
+        {
+          "rank": 159,
+          "player": "MakeOverBonk",
+          "amount": 77976,
+          "ocrAmount": 877976
+        },
+        {
+          "rank": 160,
+          "player": "1SkylifhtLWY",
+          "amount": 75520,
+          "ocrAmount": 875520
+        },
+        {
+          "rank": 161,
+          "player": "Telesss",
+          "amount": 69630
+        },
+        {
+          "rank": 162,
+          "player": "ZURGUING",
+          "amount": 68152
+        },
+        {
+          "rank": 163,
+          "player": "BigKaHuNa",
+          "amount": 58891
+        },
+        {
+          "rank": 164,
+          "player": "executador",
+          "amount": 56420
+        },
+        {
+          "rank": 165,
+          "player": "Sariely",
+          "amount": 50565
+        },
+        {
+          "rank": 166,
+          "player": "leonekilua",
+          "amount": 47257,
+          "ocrAmount": 347257
+        },
+        {
+          "rank": 167,
+          "player": "WillHue",
+          "amount": 43214,
+          "ocrAmount": 343214
+        },
+        {
+          "rank": 168,
+          "player": "Sonjigolo",
+          "amount": 43018
+        },
+        {
+          "rank": 169,
+          "player": "FullTime",
+          "amount": 40320
+        },
+        {
+          "rank": 170,
+          "player": "o",
+          "amount": 39540
+        },
+        {
+          "rank": 171,
+          "player": "Zicadas",
+          "amount": 39232
+        },
+        {
+          "rank": 172,
+          "player": "OWERLORI123",
+          "amount": 37996,
+          "ocrAmount": 837996
+        },
+        {
+          "rank": 173,
+          "player": "Kytario",
+          "amount": 37465,
+          "ocrAmount": 837465
+        },
+        {
+          "rank": 174,
+          "player": "Xiitos",
+          "amount": 36996
+        },
+        {
+          "rank": 175,
+          "player": "Bijior",
+          "amount": 36962
+        },
+        {
+          "rank": 176,
+          "player": "gusta23",
+          "amount": 36567
+        },
+        {
+          "rank": 177,
+          "player": "Andrezao",
+          "amount": 36477
+        },
+        {
+          "rank": 178,
+          "player": "RUILEI",
+          "amount": 35211,
+          "ocrAmount": 835211
+        },
+        {
+          "rank": 179,
+          "player": "yPROF",
+          "amount": 33908
+        },
+        {
+          "rank": 180,
+          "player": "SShadowless",
+          "amount": 32611
+        },
+        {
+          "rank": 181,
+          "player": "xotinhadecoco",
+          "amount": 31972
+        },
+        {
+          "rank": 182,
+          "player": "Spotk",
+          "amount": 31846
+        },
+        {
+          "rank": 183,
+          "player": "Siriuslx7",
+          "amount": 31622
+        },
+        {
+          "rank": 184,
+          "player": "JowManojow",
+          "amount": 30609
+        },
+        {
+          "rank": 185,
+          "player": "elcondopassa",
+          "amount": 30062
+        },
+        {
+          "rank": 186,
+          "player": "Porquitchona",
+          "amount": 27245,
+          "ocrAmount": 827245
+        },
+        {
+          "rank": 187,
+          "player": "Thevyr",
+          "amount": 25774
+        },
+        {
+          "rank": 188,
+          "player": "ONEGANO",
+          "amount": 25599
+        },
+        {
+          "rank": 189,
+          "player": "TheBad",
+          "amount": 24306
+        },
+        {
+          "rank": 190,
+          "player": "bezaina",
+          "amount": 23783
+        },
+        {
+          "rank": 191,
+          "player": "jotarokunBR78",
+          "amount": 23578
+        },
+        {
+          "rank": 192,
+          "player": "ImTheBestOf",
+          "amount": 23023
+        },
+        {
+          "rank": 193,
+          "player": "GLADIADOR",
+          "amount": 22396
+        },
+        {
+          "rank": 194,
+          "player": "Toolsnew",
+          "amount": 22374
+        },
+        {
+          "rank": 195,
+          "player": "GolpeBaixo",
+          "amount": 22144
+        },
+        {
+          "rank": 196,
+          "player": "DanyV2",
+          "amount": 22021
+        },
+        {
+          "rank": 197,
+          "player": "BUNNYYKII",
+          "amount": 19811
+        },
+        {
+          "rank": 198,
+          "player": "jamaiquinha",
+          "amount": 19268
+        },
+        {
+          "rank": 199,
+          "player": "mknjbh",
+          "amount": 19247
+        },
+        {
+          "rank": 200,
+          "player": "Caiporaathenari",
+          "amount": 18908
+        },
+        {
+          "rank": 201,
+          "player": "Miliys",
+          "amount": 17656,
+          "ocrAmount": 317656
+        },
+        {
+          "rank": 202,
+          "player": "Sekarlatt",
+          "amount": 15640
+        },
+        {
+          "rank": 203,
+          "player": "DinossauroDino",
+          "amount": 14913
+        },
+        {
+          "rank": 204,
+          "player": "JJWAR",
+          "amount": 13675,
+          "ocrAmount": 313675
+        },
+        {
+          "rank": 205,
+          "player": "ROBINHOBINHO",
+          "amount": 13595,
+          "ocrAmount": 313595
+        },
+        {
+          "rank": 206,
+          "player": "TioTrymmi",
+          "amount": 11142
+        },
+        {
+          "rank": 207,
+          "player": "totentandojoga",
+          "amount": 10831
+        },
+        {
+          "rank": 208,
+          "player": "BloodXD",
+          "amount": 9848
+        },
+        {
+          "rank": 209,
+          "player": "HooLiSheet",
+          "amount": 9542,
+          "ocrAmount": 89542
+        },
+        {
+          "rank": 210,
+          "player": "ziorni",
+          "amount": 8010
+        },
+        {
+          "rank": 211,
+          "player": "JaxSlayer",
+          "amount": 7729,
+          "ocrAmount": 87729
+        },
+        {
+          "rank": 212,
+          "player": "Chapadexx",
+          "amount": 6595
+        },
+        {
+          "rank": 213,
+          "player": "KalosKirk2",
+          "amount": 4842
+        },
+        {
+          "rank": 214,
+          "player": "kingjolas",
+          "amount": 4773
+        },
+        {
+          "rank": 215,
+          "player": "OldEleven11",
+          "amount": 4526
+        },
+        {
+          "rank": 216,
+          "player": "OskiGoat",
+          "amount": 4428
+        },
+        {
+          "rank": 217,
+          "player": "NicoleHellmann",
+          "amount": 4297
+        },
+        {
+          "rank": 218,
+          "player": "Austrix",
+          "amount": 3908
+        },
+        {
+          "rank": 219,
+          "player": "Blackflare",
+          "amount": 3802
+        },
+        {
+          "rank": 220,
+          "player": "JORJAO",
+          "amount": 3548
+        },
+        {
+          "rank": 221,
+          "player": "Bigodediarame",
+          "amount": 3447,
+          "ocrAmount": 83447
+        },
+        {
+          "rank": 222,
+          "player": "Lusitano",
+          "amount": 3375,
+          "ocrAmount": 83375
+        },
+        {
+          "rank": 223,
+          "player": "garotadeprograma",
+          "amount": 3197
+        },
+        {
+          "rank": 224,
+          "player": "Sracriola",
+          "amount": 2964
+        },
+        {
+          "rank": 225,
+          "player": "nnnnnpox",
+          "amount": 2680
+        },
+        {
+          "rank": 226,
+          "player": "MRyeezy007",
+          "amount": 2436
+        },
+        {
+          "rank": 227,
+          "player": "FVZX",
+          "amount": 2408
+        },
+        {
+          "rank": 228,
+          "player": "RAPARIG4",
+          "amount": 2160
+        },
+        {
+          "rank": 229,
+          "player": "SainorViking",
+          "amount": 2035
+        },
+        {
+          "rank": 230,
+          "player": "ArmandoTeles",
+          "amount": 1871
+        },
+        {
+          "rank": 231,
+          "player": "J061H",
+          "amount": 1783
+        },
+        {
+          "rank": 232,
+          "player": "Margitomen",
+          "amount": 1564
+        },
+        {
+          "rank": 233,
+          "player": "BufasPT",
+          "amount": 1476
+        },
+        {
+          "rank": 234,
+          "player": "DeadlySnake",
+          "amount": 1411
+        },
+        {
+          "rank": 235,
+          "player": "Soamaldioado",
+          "amount": 1250
+        },
+        {
+          "rank": 236,
+          "player": "BotaAcara",
+          "amount": 820,
+          "ocrAmount": 8820
+        },
+        {
+          "rank": 237,
+          "player": "ElizabethR",
+          "amount": 249
+        },
+        {
+          "rank": 238,
+          "player": "tokaszi",
+          "amount": 214
+        },
+        {
+          "rank": 239,
+          "player": "SHEIKdOPONTILHAO",
+          "amount": 58,
+          "ocrAmount": 858
+        },
+        {
+          "rank": 240,
+          "player": "Hitsukan",
+          "amount": 30,
+          "ocrAmount": 830
+        },
+        {
+          "rank": 241,
+          "player": "lord3444",
+          "amount": 27,
+          "ocrAmount": 827
+        },
+        {
+          "rank": 242,
+          "player": "Avelha",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 243,
+          "player": "HromeuPint0",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 244,
+          "player": "Phomi",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 245,
+          "player": "St4ayawayfromme",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 246,
+          "player": "AmadaFoka",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 247,
+          "player": "CARLGALAGHER",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 248,
+          "player": "TheOneSinx",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 249,
+          "player": "Caxa01",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 250,
+          "player": "tistaoo",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 251,
+          "player": "ShobbyYeti",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 252,
+          "player": "Hlinha2",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 253,
+          "player": "SucoDeFruta",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 254,
+          "player": "OReiDoGado",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 255,
+          "player": "user01Ouser",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 256,
+          "player": "BuchaCaller",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 257,
+          "player": "ORKuT",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 258,
+          "player": "Itryit",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 259,
+          "player": "MoneyMaker555",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 260,
+          "player": "ReiDsn",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 261,
+          "player": "HematomaBr",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 262,
+          "player": "Leygrin",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 263,
+          "player": "muller001122",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 264,
+          "player": "UCKRAPT",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 265,
+          "player": "noob0102",
+          "amount": 0,
+          "manual": true
+        },
+        {
+          "rank": 266,
+          "player": "NOTAGBusiness",
+          "amount": 0,
+          "manual": true
+        }
+      ]
+    },
+    {
+      "name": "PvE (Outlands and Roads)",
+      "seasonPoints": 11000,
+      "totalAmount": 31087804,
+      "displayedRoundedTotal": 31000000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "jrfate",
+          "amount": 4062163
+        },
+        {
+          "rank": 2,
+          "player": "Horsix",
+          "amount": 3581099
+        },
+        {
+          "rank": 3,
+          "player": "TKZX",
+          "amount": 2829998
+        },
+        {
+          "rank": 4,
+          "player": "Sabedoria7",
+          "amount": 1505413
+        },
+        {
+          "rank": 5,
+          "player": "JrMadRyukk",
+          "amount": 1069066
+        },
+        {
+          "rank": 6,
+          "player": "imdonedontkillme",
+          "amount": 1042382
+        },
+        {
+          "rank": 7,
+          "player": "xXFate",
+          "amount": 932936
+        },
+        {
+          "rank": 8,
+          "player": "SerpentVeil",
+          "amount": 932319
+        },
+        {
+          "rank": 9,
+          "player": "PlantsTK",
+          "amount": 744644
+        },
+        {
+          "rank": 10,
+          "player": "Euhh",
+          "amount": 649860
+        },
+        {
+          "rank": 11,
+          "player": "Tmaiusculo",
+          "amount": 649331
+        },
+        {
+          "rank": 12,
+          "player": "Hi6or",
+          "amount": 562948
+        },
+        {
+          "rank": 13,
+          "player": "ISpellNotFound",
+          "amount": 538520
+        },
+        {
+          "rank": 14,
+          "player": "Julioczr",
+          "amount": 507381
+        },
+        {
+          "rank": 15,
+          "player": "jokker1998",
+          "amount": 448942
+        },
+        {
+          "rank": 16,
+          "player": "Nagacaburos",
+          "amount": 436441
+        },
+        {
+          "rank": 17,
+          "player": "dsn",
+          "amount": 350885
+        },
+        {
+          "rank": 18,
+          "player": "maicon1357",
+          "amount": 346042
+        },
+        {
+          "rank": 19,
+          "player": "BSAIGunner",
+          "amount": 338675
+        },
+        {
+          "rank": 20,
+          "player": "Dorfiuses",
+          "amount": 328378
+        },
+        {
+          "rank": 21,
+          "player": "goncalves23",
+          "amount": 317865
+        },
+        {
+          "rank": 22,
+          "player": "jairrodrigo",
+          "amount": 292668
+        },
+        {
+          "rank": 23,
+          "player": "lordkiller01",
+          "amount": 283950
+        },
+        {
+          "rank": 24,
+          "player": "LipeFuab",
+          "amount": 278863
+        },
+        {
+          "rank": 25,
+          "player": "Stresseed",
+          "amount": 259134
+        },
+        {
+          "rank": 26,
+          "player": "Akuma1000",
+          "amount": 239817
+        },
+        {
+          "rank": 27,
+          "player": "MatMac",
+          "amount": 229391
+        },
+        {
+          "rank": 28,
+          "player": "jordansPt",
+          "amount": 226879
+        },
+        {
+          "rank": 29,
+          "player": "WellITKD",
+          "amount": 225523
+        },
+        {
+          "rank": 30,
+          "player": "avven1996",
+          "amount": 222084
+        },
+        {
+          "rank": 31,
+          "player": "habibino",
+          "amount": 216981
+        },
+        {
+          "rank": 32,
+          "player": "Amakv",
+          "amount": 213432
+        },
+        {
+          "rank": 33,
+          "player": "MineMim",
+          "amount": 206468
+        },
+        {
+          "rank": 34,
+          "player": "Cominhos",
+          "amount": 206287
+        },
+        {
+          "rank": 35,
+          "player": "minhafemea1",
+          "amount": 205702
+        },
+        {
+          "rank": 36,
+          "player": "OniGuM000",
+          "amount": 204510
+        },
+        {
+          "rank": 37,
+          "player": "HolyGyat2324",
+          "amount": 201733
+        },
+        {
+          "rank": 38,
+          "player": "Lamusk",
+          "amount": 199205
+        },
+        {
+          "rank": 39,
+          "player": "KuNaKiNa",
+          "amount": 183416
+        },
+        {
+          "rank": 40,
+          "player": "VULTO",
+          "amount": 179291
+        },
+        {
+          "rank": 41,
+          "player": "hardfedles",
+          "amount": 167656
+        },
+        {
+          "rank": 42,
+          "player": "Rammstein",
+          "amount": 166314
+        },
+        {
+          "rank": 43,
+          "player": "KABRITONHO",
+          "amount": 161365
+        },
+        {
+          "rank": 44,
+          "player": "Natsury",
+          "amount": 158385
+        },
+        {
+          "rank": 45,
+          "player": "zNeii",
+          "amount": 157481
+        },
+        {
+          "rank": 46,
+          "player": "Jmbv",
+          "amount": 143799
+        },
+        {
+          "rank": 47,
+          "player": "Patolas",
+          "amount": 139283
+        },
+        {
+          "rank": 48,
+          "player": "Yuangii",
+          "amount": 138578
+        },
+        {
+          "rank": 49,
+          "player": "Elga7id",
+          "amount": 128286
+        },
+        {
+          "rank": 50,
+          "player": "Karz1N",
+          "amount": 125805
+        },
+        {
+          "rank": 51,
+          "player": "A2ar",
+          "amount": 116041
+        },
+        {
+          "rank": 52,
+          "player": "Temperamental",
+          "amount": 109312
+        },
+        {
+          "rank": 53,
+          "player": "Merlinavo",
+          "amount": 107555
+        },
+        {
+          "rank": 54,
+          "player": "BrEnnD",
+          "amount": 103023
+        },
+        {
+          "rank": 55,
+          "player": "OkiteKomi",
+          "amount": 95377
+        },
+        {
+          "rank": 56,
+          "player": "Soldier027",
+          "amount": 93772
+        },
+        {
+          "rank": 57,
+          "player": "Superpk",
+          "amount": 91225
+        },
+        {
+          "rank": 58,
+          "player": "Nandixx",
+          "amount": 89701
+        },
+        {
+          "rank": 59,
+          "player": "MYLOLA262",
+          "amount": 88220
+        },
+        {
+          "rank": 60,
+          "player": "LuiziN",
+          "amount": 86572
+        },
+        {
+          "rank": 61,
+          "player": "XIShanksXI",
+          "amount": 84405
+        },
+        {
+          "rank": 62,
+          "player": "vadisley",
+          "amount": 81278
+        },
+        {
+          "rank": 63,
+          "player": "theYousek",
+          "amount": 78944
+        },
+        {
+          "rank": 64,
+          "player": "WarlockLord",
+          "amount": 75058
+        },
+        {
+          "rank": 65,
+          "player": "Jabiroca1",
+          "amount": 74006
+        },
+        {
+          "rank": 66,
+          "player": "VTracer",
+          "amount": 73851
+        },
+        {
+          "rank": 67,
+          "player": "VnfaTI",
+          "amount": 73294
+        },
+        {
+          "rank": 68,
+          "player": "MonetaryMike",
+          "amount": 73115
+        },
+        {
+          "rank": 69,
+          "player": "Grockyy",
+          "amount": 72952
+        },
+        {
+          "rank": 70,
+          "player": "Hachixi",
+          "amount": 71665
+        },
+        {
+          "rank": 71,
+          "player": "Djwd",
+          "amount": 66941
+        },
+        {
+          "rank": 72,
+          "player": "LEOPOLD",
+          "amount": 62420
+        },
+        {
+          "rank": 73,
+          "player": "Chuckzerah",
+          "amount": 59896
+        },
+        {
+          "rank": 74,
+          "player": "Lumen821",
+          "amount": 53449
+        },
+        {
+          "rank": 75,
+          "player": "MaxHardcore",
+          "amount": 52342
+        },
+        {
+          "rank": 76,
+          "player": "BBob",
+          "amount": 50598
+        },
+        {
+          "rank": 77,
+          "player": "Reguilla",
+          "amount": 50301
+        },
+        {
+          "rank": 78,
+          "player": "Davimix",
+          "amount": 42837
+        },
+        {
+          "rank": 79,
+          "player": "LORDJAPAA",
+          "amount": 39769
+        },
+        {
+          "rank": 80,
+          "player": "Sum0l",
+          "amount": 37019
+        },
+        {
+          "rank": 81,
+          "player": "Groom84",
+          "amount": 35544
+        },
+        {
+          "rank": 82,
+          "player": "RobertXVII",
+          "amount": 30964
+        },
+        {
+          "rank": 83,
+          "player": "Guislave",
+          "amount": 30106
+        },
+        {
+          "rank": 84,
+          "player": "IPPON",
+          "amount": 29687
+        },
+        {
+          "rank": 85,
+          "player": "KatarinaSemC",
+          "amount": 28654
+        },
+        {
+          "rank": 86,
+          "player": "julszthaone",
+          "amount": 28102
+        },
+        {
+          "rank": 87,
+          "player": "teessa",
+          "amount": 25427
+        },
+        {
+          "rank": 88,
+          "player": "MissyPT",
+          "amount": 24574
+        },
+        {
+          "rank": 89,
+          "player": "3YS4N",
+          "amount": 21465
+        },
+        {
+          "rank": 90,
+          "player": "TheoTheLion",
+          "amount": 21268
+        },
+        {
+          "rank": 91,
+          "player": "MachoAlpha",
+          "amount": 21151
+        },
+        {
+          "rank": 92,
+          "player": "YukitoRaiden",
+          "amount": 20913
+        },
+        {
+          "rank": 93,
+          "player": "Davllmix",
+          "amount": 20739
+        },
+        {
+          "rank": 94,
+          "player": "MARIOMALAN",
+          "amount": 19985
+        },
+        {
+          "rank": 95,
+          "player": "SeuDanadoo",
+          "amount": 18067
+        },
+        {
+          "rank": 96,
+          "player": "Imortal",
+          "amount": 17894
+        },
+        {
+          "rank": 97,
+          "player": "morrty",
+          "amount": 17833
+        },
+        {
+          "rank": 98,
+          "player": "Hlinha",
+          "amount": 16908
+        },
+        {
+          "rank": 99,
+          "player": "OlhaOPassarinho",
+          "amount": 16269
+        },
+        {
+          "rank": 100,
+          "player": "SuSex",
+          "amount": 15455
+        },
+        {
+          "rank": 101,
+          "player": "2PowerGiat",
+          "amount": 15225
+        },
+        {
+          "rank": 102,
+          "player": "kadigo",
+          "amount": 14746
+        },
+        {
+          "rank": 103,
+          "player": "BWCTuga",
+          "amount": 14648
+        },
+        {
+          "rank": 104,
+          "player": "Tuga95",
+          "amount": 14381
+        },
+        {
+          "rank": 105,
+          "player": "Lostmothers",
+          "amount": 14265
+        },
+        {
+          "rank": 106,
+          "player": "Warm4m",
+          "amount": 14237
+        },
+        {
+          "rank": 107,
+          "player": "ToastT",
+          "amount": 13877
+        },
+        {
+          "rank": 108,
+          "player": "Jarjarjeanbon",
+          "amount": 12614
+        },
+        {
+          "rank": 109,
+          "player": "Superrr2855",
+          "amount": 12604
+        },
+        {
+          "rank": 110,
+          "player": "vitinraba",
+          "amount": 12050
+        },
+        {
+          "rank": 111,
+          "player": "1NightReaperLWY",
+          "amount": 11620
+        },
+        {
+          "rank": 112,
+          "player": "TensaiPT",
+          "amount": 11388
+        },
+        {
+          "rank": 113,
+          "player": "DpOZPIO",
+          "amount": 11367
+        },
+        {
+          "rank": 114,
+          "player": "EBMonarca",
+          "amount": 11363
+        },
+        {
+          "rank": 115,
+          "player": "AnjoThall",
+          "amount": 11072
+        },
+        {
+          "rank": 116,
+          "player": "elcondopassa",
+          "amount": 8293
+        },
+        {
+          "rank": 117,
+          "player": "B2r",
+          "amount": 8105
+        },
+        {
+          "rank": 118,
+          "player": "Telesss",
+          "amount": 7843
+        },
+        {
+          "rank": 119,
+          "player": "JackTrip21",
+          "amount": 7693
+        },
+        {
+          "rank": 120,
+          "player": "CunaPrata",
+          "amount": 7640
+        },
+        {
+          "rank": 121,
+          "player": "NamikazePT",
+          "amount": 7587
+        },
+        {
+          "rank": 122,
+          "player": "1SkylifhtLWY",
+          "amount": 7225
+        },
+        {
+          "rank": 123,
+          "player": "Kytario",
+          "amount": 7120
+        },
+        {
+          "rank": 124,
+          "player": "ZURGUING",
+          "amount": 7050
+        },
+        {
+          "rank": 125,
+          "player": "BobBob",
+          "amount": 6884
+        },
+        {
+          "rank": 126,
+          "player": "Ruizao",
+          "amount": 6549
+        },
+        {
+          "rank": 127,
+          "player": "NevesXC",
+          "amount": 6429
+        },
+        {
+          "rank": 128,
+          "player": "zBrunooHD",
+          "amount": 6397
+        },
+        {
+          "rank": 129,
+          "player": "xotinhadecoco",
+          "amount": 6212
+        },
+        {
+          "rank": 130,
+          "player": "Kuntakint",
+          "amount": 5835
+        },
+        {
+          "rank": 131,
+          "player": "BigKaHuNa",
+          "amount": 5817
+        },
+        {
+          "rank": 132,
+          "player": "TheBad",
+          "amount": 5607
+        },
+        {
+          "rank": 133,
+          "player": "Madruguinha",
+          "amount": 5540
+        },
+        {
+          "rank": 134,
+          "player": "OWERLORI123",
+          "amount": 5249
+        },
+        {
+          "rank": 135,
+          "player": "WillHue",
+          "amount": 5085
+        },
+        {
+          "rank": 136,
+          "player": "executador",
+          "amount": 4925
+        },
+        {
+          "rank": 137,
+          "player": "RUILEI",
+          "amount": 4730
+        },
+        {
+          "rank": 138,
+          "player": "Merus",
+          "amount": 4476
+        },
+        {
+          "rank": 139,
+          "player": "JoxPT",
+          "amount": 3893
+        },
+        {
+          "rank": 140,
+          "player": "Xakalzin",
+          "amount": 3752
+        },
+        {
+          "rank": 141,
+          "player": "Vr4L",
+          "amount": 3685
+        },
+        {
+          "rank": 142,
+          "player": "diovolo",
+          "amount": 3504
+        },
+        {
+          "rank": 143,
+          "player": "Sonjigolo",
+          "amount": 3389
+        },
+        {
+          "rank": 144,
+          "player": "FullTime",
+          "amount": 3200
+        },
+        {
+          "rank": 145,
+          "player": "Porquitchona",
+          "amount": 3161
+        },
+        {
+          "rank": 146,
+          "player": "leonekilua",
+          "amount": 3100
+        },
+        {
+          "rank": 147,
+          "player": "RodriRowanShade",
+          "amount": 3098
+        },
+        {
+          "rank": 148,
+          "player": "jamaiquinha",
+          "amount": 3081
+        },
+        {
+          "rank": 149,
+          "player": "jotarokunBR78",
+          "amount": 3008
+        },
+        {
+          "rank": 150,
+          "player": "DanyV2",
+          "amount": 2954
+        },
+        {
+          "rank": 151,
+          "player": "nito19",
+          "amount": 2931
+        },
+        {
+          "rank": 152,
+          "player": "tfmPuniSHEr",
+          "amount": 2878
+        },
+        {
+          "rank": 153,
+          "player": "BrunoAnulino",
+          "amount": 2823
+        },
+        {
+          "rank": 154,
+          "player": "MaCiRoSKi",
+          "amount": 2821
+        },
+        {
+          "rank": 155,
+          "player": "dudugamexd43",
+          "amount": 2546
+        },
+        {
+          "rank": 156,
+          "player": "IIIIIIIIIII",
+          "amount": 2437
+        },
+        {
+          "rank": 157,
+          "player": "Aradzin",
+          "amount": 2333
+        },
+        {
+          "rank": 158,
+          "player": "JowManojow",
+          "amount": 2178
+        },
+        {
+          "rank": 159,
+          "player": "GlitterGold",
+          "amount": 2128
+        },
+        {
+          "rank": 160,
+          "player": "Zicadas",
+          "amount": 2080
+        },
+        {
+          "rank": 161,
+          "player": "JJWAR",
+          "amount": 2071
+        },
+        {
+          "rank": 162,
+          "player": "ImTheBestof",
+          "amount": 2063
+        },
+        {
+          "rank": 163,
+          "player": "gugaboss",
+          "amount": 1963
+        },
+        {
+          "rank": 164,
+          "player": "MRBrutu",
+          "amount": 1908
+        },
+        {
+          "rank": 165,
+          "player": "Mavin",
+          "amount": 1729
+        },
+        {
+          "rank": 166,
+          "player": "Miliys",
+          "amount": 1618
+        },
+        {
+          "rank": 167,
+          "player": "mknjbh",
+          "amount": 1397
+        },
+        {
+          "rank": 168,
+          "player": "RullinSKILL",
+          "amount": 1260
+        },
+        {
+          "rank": 169,
+          "player": "Pevida",
+          "amount": 1258
+        },
+        {
+          "rank": 170,
+          "player": "gusta23",
+          "amount": 951
+        },
+        {
+          "rank": 171,
+          "player": "Toolsnew",
+          "amount": 908,
+          "manual": true
+        },
+        {
+          "rank": 172,
+          "player": "HooLisheet",
+          "amount": 897
+        },
+        {
+          "rank": 173,
+          "player": "Chapadexx",
+          "amount": 704
+        },
+        {
+          "rank": 174,
+          "player": "Spotk",
+          "amount": 677
+        },
+        {
+          "rank": 175,
+          "player": "TioTrymmi",
+          "amount": 581
+        },
+        {
+          "rank": 176,
+          "player": "ROLEPLAY",
+          "amount": 518
+        },
+        {
+          "rank": 177,
+          "player": "Siriuslx7",
+          "amount": 487
+        },
+        {
+          "rank": 178,
+          "player": "Kaduuuuu",
+          "amount": 427
+        },
+        {
+          "rank": 179,
+          "player": "OskiGoat",
+          "amount": 383
+        },
+        {
+          "rank": 180,
+          "player": "Lourok",
+          "amount": 364
+        },
+        {
+          "rank": 181,
+          "player": "yPROF",
+          "amount": 301
+        },
+        {
+          "rank": 182,
+          "player": "Bigodediarame",
+          "amount": 293
+        },
+        {
+          "rank": 183,
+          "player": "Austrix",
+          "amount": 292
+        },
+        {
+          "rank": 184,
+          "player": "SShadowless",
+          "amount": 279
+        },
+        {
+          "rank": 185,
+          "player": "Wolfy1st",
+          "amount": 267
+        },
+        {
+          "rank": 186,
+          "player": "Bijior",
+          "amount": 249
+        },
+        {
+          "rank": 187,
+          "player": "suypoM",
+          "amount": 233
+        },
+        {
+          "rank": 188,
+          "player": "Sracriola",
+          "amount": 206
+        },
+        {
+          "rank": 189,
+          "player": "FVZX",
+          "amount": 174
+        },
+        {
+          "rank": 190,
+          "player": "MRyeezy007",
+          "amount": 156
+        },
+        {
+          "rank": 191,
+          "player": "JORJAO",
+          "amount": 132
+        },
+        {
+          "rank": 192,
+          "player": "H1gor",
+          "amount": 110
+        },
+        {
+          "rank": 193,
+          "player": "Soamaldioado",
+          "amount": 108
+        },
+        {
+          "rank": 194,
+          "player": "ROBINHOBINHO",
+          "amount": 105
+        },
+        {
+          "rank": 195,
+          "player": "Afonsosa",
+          "amount": 99,
+          "manual": true
+        },
+        {
+          "rank": 196,
+          "player": "Patiinhas",
+          "amount": 77
+        },
+        {
+          "rank": 197,
+          "player": "BUNNYYKII",
+          "amount": 69
+        },
+        {
+          "rank": 198,
+          "player": "Margitomen",
+          "amount": 67
+        },
+        {
+          "rank": 199,
+          "player": "DinossauroDino",
+          "amount": 59
+        },
+        {
+          "rank": 200,
+          "player": "BotaAcara",
+          "amount": 42
+        },
+        {
+          "rank": 201,
+          "player": "SainorViking",
+          "amount": 31
+        },
+        {
+          "rank": 202,
+          "player": "ArmandoTeles",
+          "amount": 29
+        },
+        {
+          "rank": 203,
+          "player": "Xiitos",
+          "amount": 14
+        },
+        {
+          "rank": 204,
+          "player": "SHEIKdoPONTILHAO",
+          "amount": 2,
+          "manual": true
+        },
+        {
+          "rank": 205,
+          "player": "lord3444",
+          "amount": 1,
+          "manual": true
+        }
+      ]
+    },
+    {
+      "name": "Gathering (Outlands and Roads)",
+      "seasonPoints": 7600,
+      "totalAmount": 1929619,
+      "displayedRoundedTotal": 1900000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "Nagacaburos",
+          "amount": 112217
+        },
+        {
+          "rank": 2,
+          "player": "VTracer",
+          "amount": 88870
+        },
+        {
+          "rank": 3,
+          "player": "LEOPOLD",
+          "amount": 77061
+        },
+        {
+          "rank": 4,
+          "player": "Superpk",
+          "amount": 74033
+        },
+        {
+          "rank": 5,
+          "player": "Euhh",
+          "amount": 73603
+        },
+        {
+          "rank": 6,
+          "player": "Patolas",
+          "amount": 68582
+        },
+        {
+          "rank": 7,
+          "player": "avven1996",
+          "amount": 65314
+        },
+        {
+          "rank": 8,
+          "player": "jairrodrigo",
+          "amount": 59721
+        },
+        {
+          "rank": 9,
+          "player": "TKZX",
+          "amount": 58195
+        },
+        {
+          "rank": 10,
+          "player": "dsn",
+          "amount": 53534
+        },
+        {
+          "rank": 11,
+          "player": "Xakalzin",
+          "amount": 49185
+        },
+        {
+          "rank": 12,
+          "player": "lordkiller01",
+          "amount": 47297
+        },
+        {
+          "rank": 13,
+          "player": "SerpentVeil",
+          "amount": 46771
+        },
+        {
+          "rank": 14,
+          "player": "OlhaOPassarinho",
+          "amount": 46048
+        },
+        {
+          "rank": 15,
+          "player": "minhafemea1",
+          "amount": 45936
+        },
+        {
+          "rank": 16,
+          "player": "MARIOMALAN",
+          "amount": 44682
+        },
+        {
+          "rank": 17,
+          "player": "RullinSKILL",
+          "amount": 44618
+        },
+        {
+          "rank": 18,
+          "player": "Davimix",
+          "amount": 40235
+        },
+        {
+          "rank": 19,
+          "player": "PlantsTK",
+          "amount": 39532
+        },
+        {
+          "rank": 20,
+          "player": "Sabedoria7",
+          "amount": 37759
+        },
+        {
+          "rank": 21,
+          "player": "imdonedontkillme",
+          "amount": 36894
+        },
+        {
+          "rank": 22,
+          "player": "LORDJAPAA",
+          "amount": 34992
+        },
+        {
+          "rank": 23,
+          "player": "Soldier027",
+          "amount": 30895
+        },
+        {
+          "rank": 24,
+          "player": "KuNaKiNa",
+          "amount": 30488
+        },
+        {
+          "rank": 25,
+          "player": "zBrunooHD",
+          "amount": 26683
+        },
+        {
+          "rank": 26,
+          "player": "Merus",
+          "amount": 24992
+        },
+        {
+          "rank": 27,
+          "player": "maicon1357",
+          "amount": 24763
+        },
+        {
+          "rank": 28,
+          "player": "Amakv",
+          "amount": 24216
+        },
+        {
+          "rank": 29,
+          "player": "Hi6or",
+          "amount": 23370
+        },
+        {
+          "rank": 30,
+          "player": "Guislave",
+          "amount": 22764
+        },
+        {
+          "rank": 31,
+          "player": "zNeii",
+          "amount": 22315
+        },
+        {
+          "rank": 32,
+          "player": "Tmaiusculo",
+          "amount": 21149
+        },
+        {
+          "rank": 33,
+          "player": "Grockyy",
+          "amount": 20890
+        },
+        {
+          "rank": 34,
+          "player": "MachoAlpha",
+          "amount": 20881
+        },
+        {
+          "rank": 35,
+          "player": "HolyGyat2324",
+          "amount": 20062
+        },
+        {
+          "rank": 36,
+          "player": "NamikazePT",
+          "amount": 18748
+        },
+        {
+          "rank": 37,
+          "player": "jokker1998",
+          "amount": 17077
+        },
+        {
+          "rank": 38,
+          "player": "BSAIGunner",
+          "amount": 16544
+        },
+        {
+          "rank": 39,
+          "player": "Mavin",
+          "amount": 14930
+        },
+        {
+          "rank": 40,
+          "player": "goncalves23",
+          "amount": 14014
+        },
+        {
+          "rank": 41,
+          "player": "Jmbv",
+          "amount": 13168
+        },
+        {
+          "rank": 42,
+          "player": "SeuDanadoo",
+          "amount": 13029
+        },
+        {
+          "rank": 43,
+          "player": "Jarjarjeanbon",
+          "amount": 12374
+        },
+        {
+          "rank": 44,
+          "player": "MYLOLA262",
+          "amount": 12351
+        },
+        {
+          "rank": 45,
+          "player": "hardfedles",
+          "amount": 11794
+        },
+        {
+          "rank": 46,
+          "player": "Sum0l",
+          "amount": 11721
+        },
+        {
+          "rank": 47,
+          "player": "Groom84",
+          "amount": 11170
+        },
+        {
+          "rank": 48,
+          "player": "BrEnnD",
+          "amount": 11139
+        },
+        {
+          "rank": 49,
+          "player": "IIIIIIIIIII",
+          "amount": 10899
+        },
+        {
+          "rank": 50,
+          "player": "Lamusk",
+          "amount": 9741
+        },
+        {
+          "rank": 51,
+          "player": "Dorfiuses",
+          "amount": 9630
+        },
+        {
+          "rank": 52,
+          "player": "Yuangii",
+          "amount": 9247
+        },
+        {
+          "rank": 53,
+          "player": "MonetaryMike",
+          "amount": 8898
+        },
+        {
+          "rank": 54,
+          "player": "Cominhos",
+          "amount": 8751
+        },
+        {
+          "rank": 55,
+          "player": "jordansPt",
+          "amount": 8542
+        },
+        {
+          "rank": 56,
+          "player": "theYousek",
+          "amount": 8441
+        },
+        {
+          "rank": 57,
+          "player": "EBMonarca",
+          "amount": 8413
+        },
+        {
+          "rank": 58,
+          "player": "Merlinavo",
+          "amount": 8127
+        },
+        {
+          "rank": 59,
+          "player": "Patiinhas",
+          "amount": 7989
+        },
+        {
+          "rank": 60,
+          "player": "Jabiroca1",
+          "amount": 6569
+        },
+        {
+          "rank": 61,
+          "player": "KatarinaSemC",
+          "amount": 6485
+        },
+        {
+          "rank": 62,
+          "player": "Tuga95",
+          "amount": 4973,
+          "manual": true
+        },
+        {
+          "rank": 63,
+          "player": "Kuntakint",
+          "amount": 4437
+        },
+        {
+          "rank": 64,
+          "player": "MatMac",
+          "amount": 4323
+        },
+        {
+          "rank": 65,
+          "player": "Natsury",
+          "amount": 4265
+        },
+        {
+          "rank": 66,
+          "player": "3YS4N",
+          "amount": 3899
+        },
+        {
+          "rank": 67,
+          "player": "Reguilla",
+          "amount": 3707
+        },
+        {
+          "rank": 68,
+          "player": "jrfate",
+          "amount": 3468
+        },
+        {
+          "rank": 69,
+          "player": "Lostmothers",
+          "amount": 3467
+        },
+        {
+          "rank": 70,
+          "player": "Rammstein",
+          "amount": 3155
+        },
+        {
+          "rank": 71,
+          "player": "Warm4m",
+          "amount": 2956
+        },
+        {
+          "rank": 72,
+          "player": "MissyPT",
+          "amount": 2917
+        },
+        {
+          "rank": 73,
+          "player": "VULTO",
+          "amount": 2809
+        },
+        {
+          "rank": 74,
+          "player": "Djwd",
+          "amount": 2634
+        },
+        {
+          "rank": 75,
+          "player": "Akuma1000",
+          "amount": 2498
+        },
+        {
+          "rank": 76,
+          "player": "ROLEPLAY",
+          "amount": 2231
+        },
+        {
+          "rank": 77,
+          "player": "FullTime",
+          "amount": 2199
+        },
+        {
+          "rank": 78,
+          "player": "NevesxC",
+          "amount": 1982
+        },
+        {
+          "rank": 79,
+          "player": "Temperamental",
+          "amount": 1964
+        },
+        {
+          "rank": 80,
+          "player": "Nandixx",
+          "amount": 1958
+        },
+        {
+          "rank": 81,
+          "player": "teessa",
+          "amount": 1944
+        },
+        {
+          "rank": 82,
+          "player": "LuiziN",
+          "amount": 1917
+        },
+        {
+          "rank": 83,
+          "player": "morrty",
+          "amount": 1909
+        },
+        {
+          "rank": 84,
+          "player": "leonekilua",
+          "amount": 1857
+        },
+        {
+          "rank": 85,
+          "player": "LipeFuab",
+          "amount": 1733
+        },
+        {
+          "rank": 86,
+          "player": "vadisley",
+          "amount": 1536
+        },
+        {
+          "rank": 87,
+          "player": "Chuckzerah",
+          "amount": 1389
+        },
+        {
+          "rank": 88,
+          "player": "MineMim",
+          "amount": 1205
+        },
+        {
+          "rank": 89,
+          "player": "julioczr",
+          "amount": 1109
+        },
+        {
+          "rank": 90,
+          "player": "BrunoAnulino",
+          "amount": 1008
+        },
+        {
+          "rank": 91,
+          "player": "WellITKD",
+          "amount": 1002
+        },
+        {
+          "rank": 92,
+          "player": "VnfaTI",
+          "amount": 946
+        },
+        {
+          "rank": 93,
+          "player": "XIShanksXI",
+          "amount": 815
+        },
+        {
+          "rank": 94,
+          "player": "BigKaHuNa",
+          "amount": 810
+        },
+        {
+          "rank": 95,
+          "player": "gugaboss",
+          "amount": 786
+        },
+        {
+          "rank": 96,
+          "player": "WarlockLord",
+          "amount": 743
+        },
+        {
+          "rank": 97,
+          "player": "Karz1N",
+          "amount": 730
+        }
+      ]
+    },
+    {
+      "name": "Hideout Power Cores",
+      "seasonPoints": 6075,
+      "totalAmount": 6179525,
+      "displayedRoundedTotal": 6200000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "Tmaiusculo",
+          "amount": 380869
+        },
+        {
+          "rank": 2,
+          "player": "TKZX",
+          "amount": 338945
+        },
+        {
+          "rank": 3,
+          "player": "Jairrodrigo",
+          "amount": 301288
+        },
+        {
+          "rank": 4,
+          "player": "MatMac",
+          "amount": 244803
+        },
+        {
+          "rank": 5,
+          "player": "dsn",
+          "amount": 219981
+        },
+        {
+          "rank": 6,
+          "player": "Sabedoria7",
+          "amount": 216221
+        },
+        {
+          "rank": 7,
+          "player": "Soldier027",
+          "amount": 193103
+        },
+        {
+          "rank": 8,
+          "player": "minhafemea1",
+          "amount": 183195
+        },
+        {
+          "rank": 9,
+          "player": "jokker1998",
+          "amount": 157205
+        },
+        {
+          "rank": 10,
+          "player": "MaxHardcore",
+          "amount": 154129
+        },
+        {
+          "rank": 11,
+          "player": "KuNaKiNa",
+          "amount": 150973
+        },
+        {
+          "rank": 12,
+          "player": "Akuma1000",
+          "amount": 147116
+        },
+        {
+          "rank": 13,
+          "player": "Jmbv",
+          "amount": 146588
+        },
+        {
+          "rank": 14,
+          "player": "goncalves23",
+          "amount": 129702
+        },
+        {
+          "rank": 15,
+          "player": "LEOPOLD",
+          "amount": 128517
+        },
+        {
+          "rank": 16,
+          "player": "OniGuM000",
+          "amount": 128196
+        },
+        {
+          "rank": 17,
+          "player": "A2ar",
+          "amount": 127078
+        },
+        {
+          "rank": 18,
+          "player": "Hi6or",
+          "amount": 126419
+        },
+        {
+          "rank": 19,
+          "player": "Patolas",
+          "amount": 123233
+        },
+        {
+          "rank": 20,
+          "player": "Euhh",
+          "amount": 121499
+        },
+        {
+          "rank": 21,
+          "player": "Groom84",
+          "amount": 120321
+        },
+        {
+          "rank": 22,
+          "player": "BSAIGunner",
+          "amount": 117843
+        },
+        {
+          "rank": 23,
+          "player": "PlantsTK",
+          "amount": 110870
+        },
+        {
+          "rank": 24,
+          "player": "lordkiller01",
+          "amount": 110621
+        },
+        {
+          "rank": 25,
+          "player": "maicon1357",
+          "amount": 103402
+        },
+        {
+          "rank": 26,
+          "player": "Amakv",
+          "amount": 94909
+        },
+        {
+          "rank": 27,
+          "player": "LipeFuab",
+          "amount": 94594
+        },
+        {
+          "rank": 28,
+          "player": "Nagacaburos",
+          "amount": 94422
+        },
+        {
+          "rank": 29,
+          "player": "MARIOMALAN",
+          "amount": 93289
+        },
+        {
+          "rank": 30,
+          "player": "VTracer",
+          "amount": 87039
+        },
+        {
+          "rank": 31,
+          "player": "Natsury",
+          "amount": 82626
+        },
+        {
+          "rank": 32,
+          "player": "Yuangii",
+          "amount": 66582
+        },
+        {
+          "rank": 33,
+          "player": "imdonedontkillme",
+          "amount": 65369
+        },
+        {
+          "rank": 34,
+          "player": "SerpentVeil",
+          "amount": 64654
+        },
+        {
+          "rank": 35,
+          "player": "Cominhos",
+          "amount": 57580
+        },
+        {
+          "rank": 36,
+          "player": "Jabiroca1",
+          "amount": 54600
+        },
+        {
+          "rank": 37,
+          "player": "theYousek",
+          "amount": 52704
+        },
+        {
+          "rank": 38,
+          "player": "julioczr",
+          "amount": 52002
+        },
+        {
+          "rank": 39,
+          "player": "MineMim",
+          "amount": 50716
+        },
+        {
+          "rank": 40,
+          "player": "jrfate",
+          "amount": 46273
+        },
+        {
+          "rank": 41,
+          "player": "Davimix",
+          "amount": 46205
+        },
+        {
+          "rank": 42,
+          "player": "MYLOLA262",
+          "amount": 45430
+        },
+        {
+          "rank": 43,
+          "player": "Lamusk",
+          "amount": 42970
+        },
+        {
+          "rank": 44,
+          "player": "Guislave",
+          "amount": 36003
+        },
+        {
+          "rank": 45,
+          "player": "IIIIIIIIIII",
+          "amount": 32731,
+          "manual": true
+        },
+        {
+          "rank": 46,
+          "player": "RullinSKILL",
+          "amount": 32122
+        },
+        {
+          "rank": 47,
+          "player": "Sum0l",
+          "amount": 26800
+        },
+        {
+          "rank": 48,
+          "player": "SeuDanadoo",
+          "amount": 26310
+        },
+        {
+          "rank": 49,
+          "player": "vadisley",
+          "amount": 24182
+        },
+        {
+          "rank": 50,
+          "player": "Dorfiuses",
+          "amount": 23175
+        },
+        {
+          "rank": 51,
+          "player": "zBrunooHD",
+          "amount": 22694
+        },
+        {
+          "rank": 52,
+          "player": "BrEnnD",
+          "amount": 21752
+        },
+        {
+          "rank": 53,
+          "player": "Karz1N",
+          "amount": 21288
+        },
+        {
+          "rank": 54,
+          "player": "Djwd",
+          "amount": 21246
+        },
+        {
+          "rank": 55,
+          "player": "Chuckzerah",
+          "amount": 21051
+        },
+        {
+          "rank": 56,
+          "player": "IPPON",
+          "amount": 19005
+        },
+        {
+          "rank": 57,
+          "player": "JoxPT",
+          "amount": 18041
+        },
+        {
+          "rank": 58,
+          "player": "Lumen821",
+          "amount": 17787
+        },
+        {
+          "rank": 59,
+          "player": "avven1996",
+          "amount": 17625
+        },
+        {
+          "rank": 60,
+          "player": "MachoAlpha",
+          "amount": 16894
+        },
+        {
+          "rank": 61,
+          "player": "Kuntakint",
+          "amount": 16786
+        },
+        {
+          "rank": 62,
+          "player": "vitinraba",
+          "amount": 15860
+        },
+        {
+          "rank": 63,
+          "player": "WellITKD",
+          "amount": 15253
+        },
+        {
+          "rank": 64,
+          "player": "Hlinha",
+          "amount": 15161
+        },
+        {
+          "rank": 65,
+          "player": "morrty",
+          "amount": 14367
+        },
+        {
+          "rank": 66,
+          "player": "Superpk",
+          "amount": 14213
+        },
+        {
+          "rank": 67,
+          "player": "VULTO",
+          "amount": 13929
+        },
+        {
+          "rank": 68,
+          "player": "Merlinavo",
+          "amount": 12869
+        },
+        {
+          "rank": 69,
+          "player": "Xakalzin",
+          "amount": 10558
+        },
+        {
+          "rank": 70,
+          "player": "FullTime",
+          "amount": 10064
+        },
+        {
+          "rank": 71,
+          "player": "MonetaryMike",
+          "amount": 9097
+        },
+        {
+          "rank": 72,
+          "player": "NamikazePT",
+          "amount": 8663
+        },
+        {
+          "rank": 73,
+          "player": "executador",
+          "amount": 8623
+        },
+        {
+          "rank": 74,
+          "player": "OWERLORI123",
+          "amount": 8447
+        },
+        {
+          "rank": 75,
+          "player": "Nandixx",
+          "amount": 8386
+        },
+        {
+          "rank": 76,
+          "player": "BrunoAnulino",
+          "amount": 7959
+        },
+        {
+          "rank": 77,
+          "player": "Hachixi",
+          "amount": 7770
+        },
+        {
+          "rank": 78,
+          "player": "JORJAO",
+          "amount": 7580
+        },
+        {
+          "rank": 79,
+          "player": "OkiteKomi",
+          "amount": 7400
+        },
+        {
+          "rank": 80,
+          "player": "Jarjarjeanbon",
+          "amount": 7391
+        },
+        {
+          "rank": 81,
+          "player": "tfmPuniSHEr",
+          "amount": 6159
+        },
+        {
+          "rank": 82,
+          "player": "MaCiRoSKi",
+          "amount": 6159
+        },
+        {
+          "rank": 83,
+          "player": "Mavin",
+          "amount": 6064
+        },
+        {
+          "rank": 84,
+          "player": "Reguilla",
+          "amount": 5721
+        },
+        {
+          "rank": 85,
+          "player": "ROLEPLAY",
+          "amount": 5685
+        },
+        {
+          "rank": 86,
+          "player": "teessa",
+          "amount": 5685
+        },
+        {
+          "rank": 87,
+          "player": "nito19",
+          "amount": 5279
+        },
+        {
+          "rank": 88,
+          "player": "AmadaFoka",
+          "amount": 4927
+        },
+        {
+          "rank": 89,
+          "player": "Telesss",
+          "amount": 4548
+        },
+        {
+          "rank": 90,
+          "player": "Lostmothers",
+          "amount": 4548
+        },
+        {
+          "rank": 91,
+          "player": "HolyGyat2324",
+          "amount": 4085
+        },
+        {
+          "rank": 92,
+          "player": "TioTrymmi",
+          "amount": 3980
+        },
+        {
+          "rank": 93,
+          "player": "Madruguinha",
+          "amount": 3790
+        },
+        {
+          "rank": 94,
+          "player": "Porquitchona",
+          "amount": 3460
+        },
+        {
+          "rank": 95,
+          "player": "OlhaOPassarinho",
+          "amount": 3364
+        },
+        {
+          "rank": 96,
+          "player": "XIShanksXI",
+          "amount": 2527
+        },
+        {
+          "rank": 97,
+          "player": "ToastT",
+          "amount": 2274
+        },
+        {
+          "rank": 98,
+          "player": "Stresseed",
+          "amount": 2112
+        },
+        {
+          "rank": 99,
+          "player": "CunaPrata",
+          "amount": 1895
+        },
+        {
+          "rank": 100,
+          "player": "LuiziN",
+          "amount": 1706
+        },
+        {
+          "rank": 101,
+          "player": "JJWAR",
+          "amount": 1508
+        },
+        {
+          "rank": 102,
+          "player": "jackTrip21",
+          "amount": 886
+        }
+      ]
+    },
+    {
+      "name": "Outlands Treasures",
+      "seasonPoints": 5616,
+      "totalAmount": 3667207,
+      "displayedRoundedTotal": 3700000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "Euhh",
+          "amount": 177620
+        },
+        {
+          "rank": 2,
+          "player": "TKZX",
+          "amount": 148279
+        },
+        {
+          "rank": 3,
+          "player": "hardfedles",
+          "amount": 122546
+        },
+        {
+          "rank": 4,
+          "player": "jordansPt",
+          "amount": 121422
+        },
+        {
+          "rank": 5,
+          "player": "OniGuM000",
+          "amount": 108500
+        },
+        {
+          "rank": 6,
+          "player": "VnfaTI",
+          "amount": 104171
+        },
+        {
+          "rank": 7,
+          "player": "Karz1N",
+          "amount": 100001
+        },
+        {
+          "rank": 8,
+          "player": "MatMac",
+          "amount": 87913
+        },
+        {
+          "rank": 9,
+          "player": "A2ar",
+          "amount": 87863
+        },
+        {
+          "rank": 10,
+          "player": "lordkiller01",
+          "amount": 83954
+        },
+        {
+          "rank": 11,
+          "player": "Nagacaburos",
+          "amount": 81780
+        },
+        {
+          "rank": 12,
+          "player": "dsn",
+          "amount": 78024
+        },
+        {
+          "rank": 13,
+          "player": "Jmbv",
+          "amount": 75833
+        },
+        {
+          "rank": 14,
+          "player": "Tmaiusculo",
+          "amount": 74378
+        },
+        {
+          "rank": 15,
+          "player": "jairrodrigo",
+          "amount": 67473
+        },
+        {
+          "rank": 16,
+          "player": "SerpentVeil",
+          "amount": 66657
+        },
+        {
+          "rank": 17,
+          "player": "KuNaKiNa",
+          "amount": 65833
+        },
+        {
+          "rank": 18,
+          "player": "imdonedontkillme",
+          "amount": 65817
+        },
+        {
+          "rank": 19,
+          "player": "Hi6or",
+          "amount": 65466
+        },
+        {
+          "rank": 20,
+          "player": "Dorfiuses",
+          "amount": 59621
+        },
+        {
+          "rank": 21,
+          "player": "MonetaryMike",
+          "amount": 59603
+        },
+        {
+          "rank": 22,
+          "player": "PlantsTK",
+          "amount": 58426
+        },
+        {
+          "rank": 23,
+          "player": "minhafemea1",
+          "amount": 57435
+        },
+        {
+          "rank": 24,
+          "player": "LEOPOLD",
+          "amount": 53390
+        },
+        {
+          "rank": 25,
+          "player": "BSAIGunner",
+          "amount": 47850
+        },
+        {
+          "rank": 26,
+          "player": "Akuma1000",
+          "amount": 46190
+        },
+        {
+          "rank": 27,
+          "player": "Soldier027",
+          "amount": 42899
+        },
+        {
+          "rank": 28,
+          "player": "Lamusk",
+          "amount": 41935
+        },
+        {
+          "rank": 29,
+          "player": "MARIOMALAN",
+          "amount": 38845
+        },
+        {
+          "rank": 30,
+          "player": "Superpk",
+          "amount": 37817
+        },
+        {
+          "rank": 31,
+          "player": "theYousek",
+          "amount": 37029
+        },
+        {
+          "rank": 32,
+          "player": "Jabiroca1",
+          "amount": 34720
+        },
+        {
+          "rank": 33,
+          "player": "OlhaOPassarinho",
+          "amount": 34332
+        },
+        {
+          "rank": 34,
+          "player": "goncalves23",
+          "amount": 33371
+        },
+        {
+          "rank": 35,
+          "player": "maicon1357",
+          "amount": 31790
+        },
+        {
+          "rank": 36,
+          "player": "Sabedoria7",
+          "amount": 30580
+        },
+        {
+          "rank": 37,
+          "player": "Patolas",
+          "amount": 30470
+        },
+        {
+          "rank": 38,
+          "player": "Cominhos",
+          "amount": 30293
+        },
+        {
+          "rank": 39,
+          "player": "jokker1998",
+          "amount": 29388
+        },
+        {
+          "rank": 40,
+          "player": "MaxHardcore",
+          "amount": 27773
+        },
+        {
+          "rank": 41,
+          "player": "3YS4N",
+          "amount": 27519
+        },
+        {
+          "rank": 42,
+          "player": "Temperamental",
+          "amount": 27014
+        },
+        {
+          "rank": 43,
+          "player": "Natsury",
+          "amount": 25074
+        },
+        {
+          "rank": 44,
+          "player": "VTracer",
+          "amount": 24984
+        },
+        {
+          "rank": 45,
+          "player": "BrEnnD",
+          "amount": 24975
+        },
+        {
+          "rank": 46,
+          "player": "Grockyy",
+          "amount": 24645
+        },
+        {
+          "rank": 47,
+          "player": "Nandixx",
+          "amount": 23647
+        },
+        {
+          "rank": 48,
+          "player": "Djwd",
+          "amount": 23134
+        },
+        {
+          "rank": 49,
+          "player": "Yuangii",
+          "amount": 22083
+        },
+        {
+          "rank": 50,
+          "player": "WarlockLord",
+          "amount": 21469
+        },
+        {
+          "rank": 51,
+          "player": "LipeFuab",
+          "amount": 20654
+        },
+        {
+          "rank": 52,
+          "player": "avven1996",
+          "amount": 20231
+        },
+        {
+          "rank": 53,
+          "player": "zBrunooHD",
+          "amount": 20140
+        },
+        {
+          "rank": 54,
+          "player": "MachoAlpha",
+          "amount": 20037
+        },
+        {
+          "rank": 55,
+          "player": "RullinSKiLL",
+          "amount": 18858
+        },
+        {
+          "rank": 56,
+          "player": "NamikazePT",
+          "amount": 18227
+        },
+        {
+          "rank": 57,
+          "player": "MYLOLA262",
+          "amount": 18187
+        },
+        {
+          "rank": 58,
+          "player": "Xakalzin",
+          "amount": 18068
+        },
+        {
+          "rank": 59,
+          "player": "Amakv",
+          "amount": 17661
+        },
+        {
+          "rank": 60,
+          "player": "jrfate",
+          "amount": 17338
+        },
+        {
+          "rank": 61,
+          "player": "SeuDanadoo",
+          "amount": 16969
+        },
+        {
+          "rank": 62,
+          "player": "Reguilla",
+          "amount": 16616
+        },
+        {
+          "rank": 63,
+          "player": "AnjoThall",
+          "amount": 16209
+        },
+        {
+          "rank": 64,
+          "player": "Guislave",
+          "amount": 15912
+        },
+        {
+          "rank": 65,
+          "player": "VULTO",
+          "amount": 15205
+        },
+        {
+          "rank": 66,
+          "player": "vadisley",
+          "amount": 15051
+        },
+        {
+          "rank": 67,
+          "player": "BBob",
+          "amount": 14975
+        },
+        {
+          "rank": 68,
+          "player": "Davimix",
+          "amount": 14958
+        },
+        {
+          "rank": 69,
+          "player": "julszthaone",
+          "amount": 14922
+        },
+        {
+          "rank": 70,
+          "player": "Stresseed",
+          "amount": 14878
+        },
+        {
+          "rank": 71,
+          "player": "OkiteKomi",
+          "amount": 14071
+        },
+        {
+          "rank": 72,
+          "player": "zNeii",
+          "amount": 12932
+        },
+        {
+          "rank": 73,
+          "player": "Tuga95",
+          "amount": 11688
+        },
+        {
+          "rank": 74,
+          "player": "IPPON",
+          "amount": 11628
+        },
+        {
+          "rank": 75,
+          "player": "Sum0l",
+          "amount": 11045
+        },
+        {
+          "rank": 76,
+          "player": "Julioczr",
+          "amount": 10804
+        },
+        {
+          "rank": 77,
+          "player": "SuSex",
+          "amount": 9929
+        },
+        {
+          "rank": 78,
+          "player": "Lumen821",
+          "amount": 9726
+        },
+        {
+          "rank": 79,
+          "player": "Merlinavo",
+          "amount": 9593
+        },
+        {
+          "rank": 80,
+          "player": "BigKaHuNa",
+          "amount": 9481
+        },
+        {
+          "rank": 81,
+          "player": "YukitoRaiden",
+          "amount": 9302
+        },
+        {
+          "rank": 82,
+          "player": "BrunoAnulino",
+          "amount": 9278
+        },
+        {
+          "rank": 83,
+          "player": "Lostmothers",
+          "amount": 9092
+        },
+        {
+          "rank": 84,
+          "player": "WellITKD",
+          "amount": 9065
+        },
+        {
+          "rank": 85,
+          "player": "Mavin",
+          "amount": 8974
+        },
+        {
+          "rank": 86,
+          "player": "LuiziN",
+          "amount": 8860
+        },
+        {
+          "rank": 87,
+          "player": "MineMim",
+          "amount": 8452
+        },
+        {
+          "rank": 88,
+          "player": "CunaPrata",
+          "amount": 8120
+        },
+        {
+          "rank": 89,
+          "player": "Groom84",
+          "amount": 8094
+        },
+        {
+          "rank": 90,
+          "player": "DanyV2",
+          "amount": 8048
+        },
+        {
+          "rank": 91,
+          "player": "EBMonarca",
+          "amount": 7871
+        },
+        {
+          "rank": 92,
+          "player": "HolyGyat2324",
+          "amount": 7583
+        },
+        {
+          "rank": 93,
+          "player": "LORDJAPAA",
+          "amount": 7513
+        },
+        {
+          "rank": 94,
+          "player": "Warm4m",
+          "amount": 7460
+        },
+        {
+          "rank": 95,
+          "player": "KABRITONHO",
+          "amount": 7426
+        },
+        {
+          "rank": 96,
+          "player": "xXFate",
+          "amount": 7300
+        },
+        {
+          "rank": 97,
+          "player": "Davllmix",
+          "amount": 7152
+        },
+        {
+          "rank": 98,
+          "player": "Ruizao",
+          "amount": 6887
+        },
+        {
+          "rank": 99,
+          "player": "Madruguinha",
+          "amount": 6872
+        },
+        {
+          "rank": 100,
+          "player": "Merus",
+          "amount": 6798
+        },
+        {
+          "rank": 101,
+          "player": "Hlinha",
+          "amount": 6534
+        },
+        {
+          "rank": 102,
+          "player": "B2r",
+          "amount": 6460
+        },
+        {
+          "rank": 103,
+          "player": "gugaboss",
+          "amount": 6261
+        },
+        {
+          "rank": 104,
+          "player": "leonekilua",
+          "amount": 5993
+        },
+        {
+          "rank": 105,
+          "player": "vitinraba",
+          "amount": 5642
+        },
+        {
+          "rank": 106,
+          "player": "dudugamexd43",
+          "amount": 5367
+        },
+        {
+          "rank": 107,
+          "player": "morrty",
+          "amount": 5337
+        },
+        {
+          "rank": 108,
+          "player": "Jarjarjeanbon",
+          "amount": 5082
+        },
+        {
+          "rank": 109,
+          "player": "Hachixi",
+          "amount": 4905
+        },
+        {
+          "rank": 110,
+          "player": "NevesxC",
+          "amount": 4601
+        },
+        {
+          "rank": 111,
+          "player": "kadigo",
+          "amount": 4348
+        },
+        {
+          "rank": 112,
+          "player": "JowManojow",
+          "amount": 3906
+        },
+        {
+          "rank": 113,
+          "player": "HooLisheet",
+          "amount": 3488
+        },
+        {
+          "rank": 114,
+          "player": "MissyPT",
+          "amount": 3339,
+          "manual": true
+        },
+        {
+          "rank": 115,
+          "player": "FullTime",
+          "amount": 3313,
+          "manual": true
+        },
+        {
+          "rank": 116,
+          "player": "JackTrip21",
+          "amount": 3293,
+          "manual": true
+        },
+        {
+          "rank": 117,
+          "player": "Superrr2855",
+          "amount": 3188,
+          "manual": true
+        },
+        {
+          "rank": 118,
+          "player": "TensaiPT",
+          "amount": 2868,
+          "manual": true
+        },
+        {
+          "rank": 119,
+          "player": "diovolo",
+          "amount": 2852,
+          "manual": true
+        },
+        {
+          "rank": 120,
+          "player": "KatarinaSemC",
+          "amount": 2840,
+          "manual": true
+        },
+        {
+          "rank": 121,
+          "player": "TheoTheLion",
+          "amount": 2800
+        },
+        {
+          "rank": 122,
+          "player": "MaCiRoSKi",
+          "amount": 2746
+        },
+        {
+          "rank": 123,
+          "player": "OWERLORI123",
+          "amount": 2713
+        },
+        {
+          "rank": 124,
+          "player": "Imortal",
+          "amount": 2703
+        },
+        {
+          "rank": 125,
+          "player": "Telesss",
+          "amount": 2563
+        },
+        {
+          "rank": 126,
+          "player": "ZURGUING",
+          "amount": 2415
+        },
+        {
+          "rank": 127,
+          "player": "IIIIIIIIIII",
+          "amount": 2359,
+          "manual": true
+        },
+        {
+          "rank": 128,
+          "player": "RodriRowanShade",
+          "amount": 2256
+        },
+        {
+          "rank": 129,
+          "player": "JoxPT",
+          "amount": 2180
+        },
+        {
+          "rank": 130,
+          "player": "TheBad",
+          "amount": 2132
+        },
+        {
+          "rank": 131,
+          "player": "Chuckzerah",
+          "amount": 2058
+        },
+        {
+          "rank": 132,
+          "player": "teessa",
+          "amount": 1950
+        },
+        {
+          "rank": 133,
+          "player": "Kytario",
+          "amount": 1878
+        },
+        {
+          "rank": 134,
+          "player": "nito19",
+          "amount": 1647
+        },
+        {
+          "rank": 135,
+          "player": "XIShanksXI",
+          "amount": 1634
+        },
+        {
+          "rank": 136,
+          "player": "H1gor",
+          "amount": 1610
+        },
+        {
+          "rank": 137,
+          "player": "Kuntakint",
+          "amount": 1604
+        },
+        {
+          "rank": 138,
+          "player": "tfmPuniSHEr",
+          "amount": 1494
+        },
+        {
+          "rank": 139,
+          "player": "habibino",
+          "amount": 1431
+        },
+        {
+          "rank": 140,
+          "player": "2PowerGiat",
+          "amount": 1421
+        },
+        {
+          "rank": 141,
+          "player": "Porquitchona",
+          "amount": 1289
+        },
+        {
+          "rank": 142,
+          "player": "lord3444",
+          "amount": 1252
+        },
+        {
+          "rank": 143,
+          "player": "SHEIKdoPONTILHAO",
+          "amount": 1252
+        },
+        {
+          "rank": 144,
+          "player": "Zicadas",
+          "amount": 1252
+        },
+        {
+          "rank": 145,
+          "player": "TioTrymmi",
+          "amount": 1193
+        },
+        {
+          "rank": 146,
+          "player": "ROLEPLAY",
+          "amount": 1193
+        },
+        {
+          "rank": 147,
+          "player": "Horsix",
+          "amount": 1176
+        },
+        {
+          "rank": 148,
+          "player": "Miliys",
+          "amount": 1113
+        },
+        {
+          "rank": 149,
+          "player": "1NightReaperLWY",
+          "amount": 1113
+        },
+        {
+          "rank": 150,
+          "player": "WillHue",
+          "amount": 1073
+        },
+        {
+          "rank": 151,
+          "player": "gusta23",
+          "amount": 1044
+        },
+        {
+          "rank": 152,
+          "player": "Sracriola",
+          "amount": 984
+        },
+        {
+          "rank": 153,
+          "player": "ImTheBestOf",
+          "amount": 984
+        },
+        {
+          "rank": 154,
+          "player": "1SkylifhtLWY",
+          "amount": 974
+        },
+        {
+          "rank": 155,
+          "player": "Toolsnew",
+          "amount": 954
+        },
+        {
+          "rank": 156,
+          "player": "Rammstein",
+          "amount": 894
+        },
+        {
+          "rank": 157,
+          "player": "ISpellNotFound",
+          "amount": 886
+        },
+        {
+          "rank": 158,
+          "player": "executador",
+          "amount": 877
+        },
+        {
+          "rank": 159,
+          "player": "BWCTuga",
+          "amount": 853
+        },
+        {
+          "rank": 160,
+          "player": "Bijior",
+          "amount": 835
+        },
+        {
+          "rank": 161,
+          "player": "SShadowless",
+          "amount": 814
+        },
+        {
+          "rank": 162,
+          "player": "jotarokunBR78",
+          "amount": 696,
+          "manual": true
+        },
+        {
+          "rank": 163,
+          "player": "Aradzin",
+          "amount": 656
+        },
+        {
+          "rank": 164,
+          "player": "BobBob",
+          "amount": 537
+        },
+        {
+          "rank": 165,
+          "player": "Patiinhas",
+          "amount": 537
+        },
+        {
+          "rank": 166,
+          "player": "mknjbh",
+          "amount": 517
+        },
+        {
+          "rank": 167,
+          "player": "MRBrutu",
+          "amount": 477
+        },
+        {
+          "rank": 168,
+          "player": "ToastT",
+          "amount": 429
+        },
+        {
+          "rank": 169,
+          "player": "Vr4L",
+          "amount": 417
+        },
+        {
+          "rank": 170,
+          "player": "Sonjigolo",
+          "amount": 398
+        },
+        {
+          "rank": 171,
+          "player": "Spotk",
+          "amount": 327
+        },
+        {
+          "rank": 172,
+          "player": "JJWAR",
+          "amount": 258
+        },
+        {
+          "rank": 173,
+          "player": "Kaduuuuu",
+          "amount": 239
+        },
+        {
+          "rank": 174,
+          "player": "BotaAcara",
+          "amount": 181
+        },
+        {
+          "rank": 175,
+          "player": "Elga7id",
+          "amount": 164
+        },
+        {
+          "rank": 176,
+          "player": "OskiGoat",
+          "amount": 109
+        },
+        {
+          "rank": 177,
+          "player": "Bigodediarame",
+          "amount": 78
+        }
+      ]
+    },
+    {
+      "name": "Keeper Uprising",
+      "seasonPoints": 89225,
+      "totalAmount": 7207273,
+      "displayedRoundedTotal": 7200000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "Tmaiusculo",
+          "amount": 610442
+        },
+        {
+          "rank": 2,
+          "player": "Akuma1000",
+          "amount": 445475
+        },
+        {
+          "rank": 3,
+          "player": "minhafemea1",
+          "amount": 347021
+        },
+        {
+          "rank": 4,
+          "player": "Euhh",
+          "amount": 313993
+        },
+        {
+          "rank": 5,
+          "player": "PlantsTK",
+          "amount": 246290
+        },
+        {
+          "rank": 6,
+          "player": "TKZX",
+          "amount": 245471
+        },
+        {
+          "rank": 7,
+          "player": "VTracer",
+          "amount": 243466
+        },
+        {
+          "rank": 8,
+          "player": "dsn",
+          "amount": 229758
+        },
+        {
+          "rank": 9,
+          "player": "Sabedoria7",
+          "amount": 220843
+        },
+        {
+          "rank": 10,
+          "player": "lordkiller01",
+          "amount": 210376
+        },
+        {
+          "rank": 11,
+          "player": "MaxHardcore",
+          "amount": 210246
+        },
+        {
+          "rank": 12,
+          "player": "BSAIGunner",
+          "amount": 196520
+        },
+        {
+          "rank": 13,
+          "player": "A2ar",
+          "amount": 195760
+        },
+        {
+          "rank": 14,
+          "player": "Hi6or",
+          "amount": 165508
+        },
+        {
+          "rank": 15,
+          "player": "Patolas",
+          "amount": 154697
+        },
+        {
+          "rank": 16,
+          "player": "OniGuM000",
+          "amount": 152571
+        },
+        {
+          "rank": 17,
+          "player": "Cominhos",
+          "amount": 147408
+        },
+        {
+          "rank": 18,
+          "player": "Soldier027",
+          "amount": 146110
+        },
+        {
+          "rank": 19,
+          "player": "Yuangii",
+          "amount": 127044
+        },
+        {
+          "rank": 20,
+          "player": "MatMac",
+          "amount": 118435
+        },
+        {
+          "rank": 21,
+          "player": "vadisley",
+          "amount": 107889
+        },
+        {
+          "rank": 22,
+          "player": "KuNaKiNa",
+          "amount": 102212
+        },
+        {
+          "rank": 23,
+          "player": "Temperamental",
+          "amount": 97595
+        },
+        {
+          "rank": 24,
+          "player": "Nandixx",
+          "amount": 93727
+        },
+        {
+          "rank": 25,
+          "player": "Davimix",
+          "amount": 92929
+        },
+        {
+          "rank": 26,
+          "player": "MYLOLA262",
+          "amount": 81728
+        },
+        {
+          "rank": 27,
+          "player": "imdonedontkillme",
+          "amount": 79701
+        },
+        {
+          "rank": 28,
+          "player": "Natsury",
+          "amount": 77398
+        },
+        {
+          "rank": 29,
+          "player": "jairrodrigo",
+          "amount": 74637
+        },
+        {
+          "rank": 30,
+          "player": "goncalves23",
+          "amount": 72614,
+          "manual": true
+        },
+        {
+          "rank": 31,
+          "player": "MARIOMALAN",
+          "amount": 69968,
+          "manual": true
+        },
+        {
+          "rank": 32,
+          "player": "MineMim",
+          "amount": 69119,
+          "manual": true
+        },
+        {
+          "rank": 33,
+          "player": "Nagacaburos",
+          "amount": 64475
+        },
+        {
+          "rank": 34,
+          "player": "jrfate",
+          "amount": 61111
+        },
+        {
+          "rank": 35,
+          "player": "LipeFuab",
+          "amount": 57284
+        },
+        {
+          "rank": 36,
+          "player": "BrEnnD",
+          "amount": 56171
+        },
+        {
+          "rank": 37,
+          "player": "Reguilla",
+          "amount": 55743
+        },
+        {
+          "rank": 38,
+          "player": "Jmbv",
+          "amount": 53520
+        },
+        {
+          "rank": 39,
+          "player": "Lamusk",
+          "amount": 52829
+        },
+        {
+          "rank": 40,
+          "player": "Guislave",
+          "amount": 52467
+        },
+        {
+          "rank": 41,
+          "player": "Groom84",
+          "amount": 51748
+        },
+        {
+          "rank": 42,
+          "player": "maicon1357",
+          "amount": 48548
+        },
+        {
+          "rank": 43,
+          "player": "LEOPOLD",
+          "amount": 47724
+        },
+        {
+          "rank": 44,
+          "player": "Sum0l",
+          "amount": 46834
+        },
+        {
+          "rank": 45,
+          "player": "Dorfiuses",
+          "amount": 43711
+        },
+        {
+          "rank": 46,
+          "player": "Amakv",
+          "amount": 43485
+        },
+        {
+          "rank": 47,
+          "player": "Jabiroca1",
+          "amount": 42286
+        },
+        {
+          "rank": 48,
+          "player": "SerpentVeil",
+          "amount": 34540
+        },
+        {
+          "rank": 49,
+          "player": "Grockyy",
+          "amount": 34331
+        },
+        {
+          "rank": 50,
+          "player": "Merlinavo",
+          "amount": 34129
+        },
+        {
+          "rank": 51,
+          "player": "jokker1998",
+          "amount": 34031
+        },
+        {
+          "rank": 52,
+          "player": "WellITKD",
+          "amount": 29877
+        },
+        {
+          "rank": 53,
+          "player": "Karz1N",
+          "amount": 28420
+        },
+        {
+          "rank": 54,
+          "player": "Djwd",
+          "amount": 25628
+        },
+        {
+          "rank": 55,
+          "player": "julioczr",
+          "amount": 22763
+        },
+        {
+          "rank": 56,
+          "player": "theYousek",
+          "amount": 21667
+        },
+        {
+          "rank": 57,
+          "player": "KABRITONHO",
+          "amount": 21602
+        },
+        {
+          "rank": 58,
+          "player": "JackTrip21",
+          "amount": 21019
+        },
+        {
+          "rank": 59,
+          "player": "hardfedles",
+          "amount": 19879
+        },
+        {
+          "rank": 60,
+          "player": "WarlockLord",
+          "amount": 16834
+        },
+        {
+          "rank": 61,
+          "player": "IIIIIIIIIII",
+          "amount": 16756,
+          "manual": true
+        },
+        {
+          "rank": 62,
+          "player": "FullTime",
+          "amount": 16599
+        },
+        {
+          "rank": 63,
+          "player": "Horsix",
+          "amount": 16018
+        },
+        {
+          "rank": 64,
+          "player": "TioTrymmi",
+          "amount": 15379
+        },
+        {
+          "rank": 65,
+          "player": "vitinraba",
+          "amount": 15018
+        },
+        {
+          "rank": 66,
+          "player": "SeuDanadoo",
+          "amount": 14666
+        },
+        {
+          "rank": 67,
+          "player": "HolyGyat2324",
+          "amount": 13969
+        },
+        {
+          "rank": 68,
+          "player": "jarjarjeanbon",
+          "amount": 13756
+        },
+        {
+          "rank": 69,
+          "player": "MonetaryMike",
+          "amount": 13584
+        },
+        {
+          "rank": 70,
+          "player": "avven1996",
+          "amount": 12695
+        },
+        {
+          "rank": 71,
+          "player": "Lumen821",
+          "amount": 12348
+        },
+        {
+          "rank": 72,
+          "player": "Hachixi",
+          "amount": 11966
+        },
+        {
+          "rank": 73,
+          "player": "Spotk",
+          "amount": 11662
+        },
+        {
+          "rank": 74,
+          "player": "JJWAR",
+          "amount": 11597
+        },
+        {
+          "rank": 75,
+          "player": "LORDJAPAA",
+          "amount": 9358
+        },
+        {
+          "rank": 76,
+          "player": "ISpellNotFound",
+          "amount": 9014
+        },
+        {
+          "rank": 77,
+          "player": "BWCTuga",
+          "amount": 7966
+        },
+        {
+          "rank": 78,
+          "player": "Kuntakint",
+          "amount": 6947
+        },
+        {
+          "rank": 79,
+          "player": "teessa",
+          "amount": 5890
+        },
+        {
+          "rank": 80,
+          "player": "MissyPT",
+          "amount": 5438
+        },
+        {
+          "rank": 81,
+          "player": "Mavin",
+          "amount": 5125
+        },
+        {
+          "rank": 82,
+          "player": "jordansPt",
+          "amount": 4689
+        },
+        {
+          "rank": 83,
+          "player": "OkiteKomi",
+          "amount": 4662
+        },
+        {
+          "rank": 84,
+          "player": "olhaoPassarinho",
+          "amount": 4619
+        },
+        {
+          "rank": 85,
+          "player": "BBob",
+          "amount": 4145
+        },
+        {
+          "rank": 86,
+          "player": "VULTO",
+          "amount": 3517
+        },
+        {
+          "rank": 87,
+          "player": "morrty",
+          "amount": 3136
+        },
+        {
+          "rank": 88,
+          "player": "Ruizao",
+          "amount": 2959
+        },
+        {
+          "rank": 89,
+          "player": "1NightReaperLWY",
+          "amount": 2692
+        },
+        {
+          "rank": 90,
+          "player": "Chuckzerah",
+          "amount": 2640
+        },
+        {
+          "rank": 91,
+          "player": "zBrunooHD",
+          "amount": 2625
+        },
+        {
+          "rank": 92,
+          "player": "Stresseed",
+          "amount": 2573
+        },
+        {
+          "rank": 93,
+          "player": "3YS4N",
+          "amount": 2538
+        },
+        {
+          "rank": 94,
+          "player": "Merus",
+          "amount": 2508
+        },
+        {
+          "rank": 95,
+          "player": "NamikazePT",
+          "amount": 2280
+        },
+        {
+          "rank": 96,
+          "player": "XIShanksXI",
+          "amount": 2265
+        },
+        {
+          "rank": 97,
+          "player": "Superrr2855",
+          "amount": 2257
+        },
+        {
+          "rank": 98,
+          "player": "YukitoRaiden",
+          "amount": 2107
+        },
+        {
+          "rank": 99,
+          "player": "julszthaone",
+          "amount": 2080
+        },
+        {
+          "rank": 100,
+          "player": "Hlinha",
+          "amount": 2032
+        },
+        {
+          "rank": 101,
+          "player": "kadigo",
+          "amount": 1981
+        },
+        {
+          "rank": 102,
+          "player": "1SkylifhtLWY",
+          "amount": 1920
+        },
+        {
+          "rank": 103,
+          "player": "CunaPrata",
+          "amount": 1888
+        },
+        {
+          "rank": 104,
+          "player": "IPPON",
+          "amount": 1885
+        },
+        {
+          "rank": 105,
+          "player": "LuiziN",
+          "amount": 1749
+        },
+        {
+          "rank": 106,
+          "player": "TheBad",
+          "amount": 1712
+        },
+        {
+          "rank": 107,
+          "player": "VnfaTI",
+          "amount": 1369
+        },
+        {
+          "rank": 108,
+          "player": "Imortal",
+          "amount": 1314
+        },
+        {
+          "rank": 109,
+          "player": "TensaiPT",
+          "amount": 1191
+        },
+        {
+          "rank": 110,
+          "player": "Superpk",
+          "amount": 1020
+        },
+        {
+          "rank": 111,
+          "player": "JoxPT",
+          "amount": 1012
+        },
+        {
+          "rank": 112,
+          "player": "Davllmix",
+          "amount": 977
+        },
+        {
+          "rank": 113,
+          "player": "TheoTheLion",
+          "amount": 936
+        },
+        {
+          "rank": 114,
+          "player": "DanyV2",
+          "amount": 910
+        },
+        {
+          "rank": 115,
+          "player": "OWERLORI123",
+          "amount": 849
+        },
+        {
+          "rank": 116,
+          "player": "RodriRowanShade",
+          "amount": 809
+        },
+        {
+          "rank": 117,
+          "player": "MRBrutu",
+          "amount": 808
+        },
+        {
+          "rank": 118,
+          "player": "Tuga95",
+          "amount": 765
+        },
+        {
+          "rank": 119,
+          "player": "2PowerGiat",
+          "amount": 722
+        },
+        {
+          "rank": 120,
+          "player": "MachoAlpha",
+          "amount": 677
+        },
+        {
+          "rank": 121,
+          "player": "AnjoThall",
+          "amount": 672
+        },
+        {
+          "rank": 122,
+          "player": "SuSex",
+          "amount": 671
+        },
+        {
+          "rank": 123,
+          "player": "Warm4m",
+          "amount": 601
+        },
+        {
+          "rank": 124,
+          "player": "Madruguinha",
+          "amount": 588
+        },
+        {
+          "rank": 125,
+          "player": "BrunoAnulino",
+          "amount": 579
+        },
+        {
+          "rank": 126,
+          "player": "MaCiRoSKi",
+          "amount": 535
+        },
+        {
+          "rank": 127,
+          "player": "JORJAO",
+          "amount": 419
+        },
+        {
+          "rank": 128,
+          "player": "zNeii",
+          "amount": 390
+        },
+        {
+          "rank": 129,
+          "player": "JowManoJow",
+          "amount": 387
+        },
+        {
+          "rank": 130,
+          "player": "tfmPuniSHEr",
+          "amount": 378
+        },
+        {
+          "rank": 131,
+          "player": "xXFate",
+          "amount": 368
+        },
+        {
+          "rank": 132,
+          "player": "Telesss",
+          "amount": 366
+        },
+        {
+          "rank": 133,
+          "player": "BobBob",
+          "amount": 331
+        },
+        {
+          "rank": 134,
+          "player": "ZURGUING",
+          "amount": 331
+        },
+        {
+          "rank": 135,
+          "player": "habibino",
+          "amount": 294
+        },
+        {
+          "rank": 136,
+          "player": "BigKaHuNa",
+          "amount": 282
+        },
+        {
+          "rank": 137,
+          "player": "Zicadas",
+          "amount": 279
+        },
+        {
+          "rank": 138,
+          "player": "RobertXVII",
+          "amount": 249
+        },
+        {
+          "rank": 139,
+          "player": "leonekilua",
+          "amount": 233
+        },
+        {
+          "rank": 140,
+          "player": "HooLisheet",
+          "amount": 211
+        },
+        {
+          "rank": 141,
+          "player": "B2r",
+          "amount": 204
+        },
+        {
+          "rank": 142,
+          "player": "KatarinaSemC",
+          "amount": 199
+        },
+        {
+          "rank": 143,
+          "player": "NevesXC",
+          "amount": 194
+        },
+        {
+          "rank": 144,
+          "player": "executador",
+          "amount": 191
+        },
+        {
+          "rank": 145,
+          "player": "WillHue",
+          "amount": 180
+        },
+        {
+          "rank": 146,
+          "player": "JrMadRyukk",
+          "amount": 179
+        },
+        {
+          "rank": 147,
+          "player": "gugaboss",
+          "amount": 150
+        },
+        {
+          "rank": 148,
+          "player": "Austrix",
+          "amount": 150
+        },
+        {
+          "rank": 149,
+          "player": "Lostmothers",
+          "amount": 131
+        },
+        {
+          "rank": 150,
+          "player": "RUILEI",
+          "amount": 129
+        },
+        {
+          "rank": 151,
+          "player": "Margitomen",
+          "amount": 123
+        },
+        {
+          "rank": 152,
+          "player": "Lourok",
+          "amount": 110
+        },
+        {
+          "rank": 153,
+          "player": "Bigodediarame",
+          "amount": 110
+        },
+        {
+          "rank": 154,
+          "player": "Pevida",
+          "amount": 100
+        },
+        {
+          "rank": 155,
+          "player": "GlitterGold",
+          "amount": 92
+        },
+        {
+          "rank": 156,
+          "player": "Porquitchona",
+          "amount": 90
+        },
+        {
+          "rank": 157,
+          "player": "FVZX",
+          "amount": 86
+        },
+        {
+          "rank": 158,
+          "player": "ToastT",
+          "amount": 80
+        },
+        {
+          "rank": 159,
+          "player": "diovolo",
+          "amount": 71
+        },
+        {
+          "rank": 160,
+          "player": "Aradzin",
+          "amount": 71
+        },
+        {
+          "rank": 161,
+          "player": "gusta23",
+          "amount": 71
+        },
+        {
+          "rank": 162,
+          "player": "Miliys",
+          "amount": 66
+        },
+        {
+          "rank": 163,
+          "player": "Sonjigolo",
+          "amount": 61
+        },
+        {
+          "rank": 164,
+          "player": "RullinSKILL",
+          "amount": 59
+        },
+        {
+          "rank": 165,
+          "player": "EBMonarca",
+          "amount": 36
+        }
+      ]
+    },
+    {
+      "name": "Smugglers",
+      "seasonPoints": 4216,
+      "totalAmount": 5270049,
+      "displayedRoundedTotal": 5300000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "hardfedles",
+          "amount": 370209
+        },
+        {
+          "rank": 2,
+          "player": "minhafemea1",
+          "amount": 265061
+        },
+        {
+          "rank": 3,
+          "player": "OniGuM000",
+          "amount": 222565
+        },
+        {
+          "rank": 4,
+          "player": "KuNaKiNa",
+          "amount": 203034
+        },
+        {
+          "rank": 5,
+          "player": "PlantsTK",
+          "amount": 160826
+        },
+        {
+          "rank": 6,
+          "player": "Tmaiusculo",
+          "amount": 135454
+        },
+        {
+          "rank": 7,
+          "player": "Soldier027",
+          "amount": 127364
+        },
+        {
+          "rank": 8,
+          "player": "Jmbv",
+          "amount": 124635
+        },
+        {
+          "rank": 9,
+          "player": "BBob",
+          "amount": 111131
+        },
+        {
+          "rank": 10,
+          "player": "BSAIGunner",
+          "amount": 110052
+        },
+        {
+          "rank": 11,
+          "player": "jokker1998",
+          "amount": 109951
+        },
+        {
+          "rank": 12,
+          "player": "MatMac",
+          "amount": 108979
+        },
+        {
+          "rank": 13,
+          "player": "Temperamental",
+          "amount": 97662
+        },
+        {
+          "rank": 14,
+          "player": "LORDJAPAA",
+          "amount": 95989
+        },
+        {
+          "rank": 15,
+          "player": "Dorfiuses",
+          "amount": 95801
+        },
+        {
+          "rank": 16,
+          "player": "dsn",
+          "amount": 88397,
+          "manual": true
+        },
+        {
+          "rank": 17,
+          "player": "3YS4N",
+          "amount": 88316,
+          "manual": true
+        },
+        {
+          "rank": 18,
+          "player": "SerpentVeil",
+          "amount": 84978
+        },
+        {
+          "rank": 19,
+          "player": "LEOPOLD",
+          "amount": 81679
+        },
+        {
+          "rank": 20,
+          "player": "TKZX",
+          "amount": 81667
+        },
+        {
+          "rank": 21,
+          "player": "Grockyy",
+          "amount": 80223
+        },
+        {
+          "rank": 22,
+          "player": "imdonedontkillme",
+          "amount": 76418
+        },
+        {
+          "rank": 23,
+          "player": "Lamusk",
+          "amount": 73371
+        },
+        {
+          "rank": 24,
+          "player": "Jairrodrigo",
+          "amount": 73063
+        },
+        {
+          "rank": 25,
+          "player": "Akuma1000",
+          "amount": 72692
+        },
+        {
+          "rank": 26,
+          "player": "Hi6or",
+          "amount": 68255
+        },
+        {
+          "rank": 27,
+          "player": "A2ar",
+          "amount": 66753
+        },
+        {
+          "rank": 28,
+          "player": "Euhh",
+          "amount": 65465
+        },
+        {
+          "rank": 29,
+          "player": "Jabiroca1",
+          "amount": 64024
+        },
+        {
+          "rank": 30,
+          "player": "VnfaTI",
+          "amount": 62978
+        },
+        {
+          "rank": 31,
+          "player": "theYousek",
+          "amount": 60109
+        },
+        {
+          "rank": 32,
+          "player": "Amakv",
+          "amount": 58680
+        },
+        {
+          "rank": 33,
+          "player": "MaxHardcore",
+          "amount": 57019
+        },
+        {
+          "rank": 34,
+          "player": "Patolas",
+          "amount": 52424
+        },
+        {
+          "rank": 35,
+          "player": "Yuangii",
+          "amount": 47843
+        },
+        {
+          "rank": 36,
+          "player": "LipeFuab",
+          "amount": 47025
+        },
+        {
+          "rank": 37,
+          "player": "Djwd",
+          "amount": 44619
+        },
+        {
+          "rank": 38,
+          "player": "MineMim",
+          "amount": 42827
+        },
+        {
+          "rank": 39,
+          "player": "BrEnnD",
+          "amount": 42384
+        },
+        {
+          "rank": 40,
+          "player": "jordansPt",
+          "amount": 41303
+        },
+        {
+          "rank": 41,
+          "player": "lordkiller01",
+          "amount": 40630
+        },
+        {
+          "rank": 42,
+          "player": "Madruguinha",
+          "amount": 40179
+        },
+        {
+          "rank": 43,
+          "player": "Sabedoria7",
+          "amount": 35684
+        },
+        {
+          "rank": 44,
+          "player": "jarjarjeanbon",
+          "amount": 34645
+        },
+        {
+          "rank": 45,
+          "player": "MissyPT",
+          "amount": 34256
+        },
+        {
+          "rank": 46,
+          "player": "VTracer",
+          "amount": 34128
+        },
+        {
+          "rank": 47,
+          "player": "Nagacaburos",
+          "amount": 33852
+        },
+        {
+          "rank": 48,
+          "player": "Xakalzin",
+          "amount": 31897
+        },
+        {
+          "rank": 49,
+          "player": "Guislave",
+          "amount": 30751
+        },
+        {
+          "rank": 50,
+          "player": "Natsury",
+          "amount": 30674
+        },
+        {
+          "rank": 51,
+          "player": "RullinSKILL",
+          "amount": 29541
+        },
+        {
+          "rank": 52,
+          "player": "maicon1357",
+          "amount": 29237
+        },
+        {
+          "rank": 53,
+          "player": "MonetaryMike",
+          "amount": 27649
+        },
+        {
+          "rank": 54,
+          "player": "teessa",
+          "amount": 27117
+        },
+        {
+          "rank": 55,
+          "player": "Lumen821",
+          "amount": 26544
+        },
+        {
+          "rank": 56,
+          "player": "MARIOMALAN",
+          "amount": 25791
+        },
+        {
+          "rank": 57,
+          "player": "OlhaOPassarinho",
+          "amount": 25082
+        },
+        {
+          "rank": 58,
+          "player": "Sum0l",
+          "amount": 24474
+        },
+        {
+          "rank": 59,
+          "player": "Lostmothers",
+          "amount": 23502
+        },
+        {
+          "rank": 60,
+          "player": "zBrunooHD",
+          "amount": 23036
+        },
+        {
+          "rank": 61,
+          "player": "goncalves23",
+          "amount": 22468
+        },
+        {
+          "rank": 62,
+          "player": "Nandixx",
+          "amount": 21666
+        },
+        {
+          "rank": 63,
+          "player": "YukitoRaiden",
+          "amount": 21596
+        },
+        {
+          "rank": 64,
+          "player": "OkiteKomi",
+          "amount": 21550
+        },
+        {
+          "rank": 65,
+          "player": "Superpk",
+          "amount": 20675
+        },
+        {
+          "rank": 66,
+          "player": "SeuDanadoo",
+          "amount": 20280
+        },
+        {
+          "rank": 67,
+          "player": "Reguilla",
+          "amount": 19669
+        },
+        {
+          "rank": 68,
+          "player": "BobBob",
+          "amount": 19612
+        },
+        {
+          "rank": 69,
+          "player": "Hachixi",
+          "amount": 18783
+        },
+        {
+          "rank": 70,
+          "player": "WellITKD",
+          "amount": 18753
+        },
+        {
+          "rank": 71,
+          "player": "leonekilua",
+          "amount": 18099
+        },
+        {
+          "rank": 72,
+          "player": "jrfate",
+          "amount": 17551
+        },
+        {
+          "rank": 73,
+          "player": "HolyGyat2324",
+          "amount": 17439
+        },
+        {
+          "rank": 74,
+          "player": "WarlockLord",
+          "amount": 17178
+        },
+        {
+          "rank": 75,
+          "player": "Superrr2855",
+          "amount": 16663
+        },
+        {
+          "rank": 76,
+          "player": "Karz1N",
+          "amount": 16192
+        },
+        {
+          "rank": 77,
+          "player": "MYLOLA262",
+          "amount": 15727
+        },
+        {
+          "rank": 78,
+          "player": "Imortal",
+          "amount": 15256
+        },
+        {
+          "rank": 79,
+          "player": "BrunoAnulino",
+          "amount": 15104
+        },
+        {
+          "rank": 80,
+          "player": "morrty",
+          "amount": 15063
+        },
+        {
+          "rank": 81,
+          "player": "TheoTheLion",
+          "amount": 14667
+        },
+        {
+          "rank": 82,
+          "player": "MachoAlpha",
+          "amount": 14504
+        },
+        {
+          "rank": 83,
+          "player": "julioczr",
+          "amount": 14036
+        },
+        {
+          "rank": 84,
+          "player": "IIIIIIIIIII",
+          "amount": 13385,
+          "manual": true
+        },
+        {
+          "rank": 85,
+          "player": "RodriRowanShade",
+          "amount": 13236
+        },
+        {
+          "rank": 86,
+          "player": "Groom84",
+          "amount": 12989
+        },
+        {
+          "rank": 87,
+          "player": "CunaPrata",
+          "amount": 12762
+        },
+        {
+          "rank": 88,
+          "player": "vadisley",
+          "amount": 12060
+        },
+        {
+          "rank": 89,
+          "player": "AnjoThall",
+          "amount": 11936
+        },
+        {
+          "rank": 90,
+          "player": "Davimix",
+          "amount": 11826
+        },
+        {
+          "rank": 91,
+          "player": "Cominhos",
+          "amount": 11792
+        },
+        {
+          "rank": 92,
+          "player": "NevesxC",
+          "amount": 11539
+        },
+        {
+          "rank": 93,
+          "player": "KABRITONHO",
+          "amount": 9894
+        },
+        {
+          "rank": 94,
+          "player": "VULTO",
+          "amount": 8375
+        },
+        {
+          "rank": 95,
+          "player": "Mavin",
+          "amount": 8187
+        },
+        {
+          "rank": 96,
+          "player": "diovolo",
+          "amount": 7536
+        },
+        {
+          "rank": 97,
+          "player": "1NightReaperLWY",
+          "amount": 7341
+        },
+        {
+          "rank": 98,
+          "player": "XIShanksXI",
+          "amount": 6888
+        },
+        {
+          "rank": 99,
+          "player": "Kytario",
+          "amount": 6765
+        },
+        {
+          "rank": 100,
+          "player": "Merlinavo",
+          "amount": 6566
+        },
+        {
+          "rank": 101,
+          "player": "TensaiPT",
+          "amount": 6052
+        },
+        {
+          "rank": 102,
+          "player": "vitinraba",
+          "amount": 5853
+        },
+        {
+          "rank": 103,
+          "player": "1SkylifhtLWY",
+          "amount": 5587
+        },
+        {
+          "rank": 104,
+          "player": "DanyV2",
+          "amount": 5448
+        },
+        {
+          "rank": 105,
+          "player": "NamikazePT",
+          "amount": 5428
+        },
+        {
+          "rank": 106,
+          "player": "jackTrip21",
+          "amount": 5065
+        },
+        {
+          "rank": 107,
+          "player": "TheBad",
+          "amount": 4435
+        },
+        {
+          "rank": 108,
+          "player": "Stresseed",
+          "amount": 4223
+        },
+        {
+          "rank": 109,
+          "player": "nito19",
+          "amount": 3981
+        },
+        {
+          "rank": 110,
+          "player": "2PowerGiat",
+          "amount": 3831
+        },
+        {
+          "rank": 111,
+          "player": "Bijior",
+          "amount": 3660
+        },
+        {
+          "rank": 112,
+          "player": "Davllmix",
+          "amount": 3466
+        },
+        {
+          "rank": 113,
+          "player": "kadigo",
+          "amount": 3026
+        },
+        {
+          "rank": 114,
+          "player": "gusta23",
+          "amount": 3021
+        },
+        {
+          "rank": 115,
+          "player": "xXFate",
+          "amount": 3005
+        },
+        {
+          "rank": 116,
+          "player": "Porquitchona",
+          "amount": 2963
+        },
+        {
+          "rank": 117,
+          "player": "FullTime",
+          "amount": 2963
+        },
+        {
+          "rank": 118,
+          "player": "EBMonarca",
+          "amount": 2924
+        },
+        {
+          "rank": 119,
+          "player": "Tuga95",
+          "amount": 2630
+        },
+        {
+          "rank": 120,
+          "player": "Sracriola",
+          "amount": 2502
+        },
+        {
+          "rank": 121,
+          "player": "dudugamexd43",
+          "amount": 2492
+        },
+        {
+          "rank": 122,
+          "player": "Kuntakint",
+          "amount": 2368
+        },
+        {
+          "rank": 123,
+          "player": "ISpellNotFound",
+          "amount": 2285
+        },
+        {
+          "rank": 124,
+          "player": "habibino",
+          "amount": 2254
+        },
+        {
+          "rank": 125,
+          "player": "Hlinha",
+          "amount": 2219
+        },
+        {
+          "rank": 126,
+          "player": "JoxPT",
+          "amount": 1770
+        },
+        {
+          "rank": 127,
+          "player": "Zicadas",
+          "amount": 1753
+        },
+        {
+          "rank": 128,
+          "player": "Sonjigolo",
+          "amount": 1607
+        },
+        {
+          "rank": 129,
+          "player": "Spotk",
+          "amount": 1542
+        },
+        {
+          "rank": 130,
+          "player": "Chuckzerah",
+          "amount": 1431
+        },
+        {
+          "rank": 131,
+          "player": "Horsix",
+          "amount": 1421
+        },
+        {
+          "rank": 132,
+          "player": "ToastT",
+          "amount": 1371
+        },
+        {
+          "rank": 133,
+          "player": "avven1996",
+          "amount": 1215
+        },
+        {
+          "rank": 134,
+          "player": "LuiziN",
+          "amount": 1132
+        },
+        {
+          "rank": 135,
+          "player": "RobertXVII",
+          "amount": 955
+        },
+        {
+          "rank": 136,
+          "player": "Ruizao",
+          "amount": 877
+        },
+        {
+          "rank": 137,
+          "player": "julszthaone",
+          "amount": 877
+        },
+        {
+          "rank": 138,
+          "player": "OWERLORI123",
+          "amount": 814
+        },
+        {
+          "rank": 139,
+          "player": "JORJAO",
+          "amount": 758
+        },
+        {
+          "rank": 140,
+          "player": "zNeii",
+          "amount": 751
+        },
+        {
+          "rank": 141,
+          "player": "SuSex",
+          "amount": 751
+        },
+        {
+          "rank": 142,
+          "player": "MaCiRoSKi",
+          "amount": 731
+        },
+        {
+          "rank": 143,
+          "player": "tfmPuniSHEr",
+          "amount": 731
+        },
+        {
+          "rank": 144,
+          "player": "JJWAR",
+          "amount": 620
+        },
+        {
+          "rank": 145,
+          "player": "MRBrutu",
+          "amount": 438
+        },
+        {
+          "rank": 146,
+          "player": "executador",
+          "amount": 346
+        },
+        {
+          "rank": 147,
+          "player": "Warm4m",
+          "amount": 267
+        },
+        {
+          "rank": 148,
+          "player": "Margitomen",
+          "amount": 250
+        },
+        {
+          "rank": 149,
+          "player": "BWCTuga",
+          "amount": 217
+        },
+        {
+          "rank": 150,
+          "player": "Bigodediarame",
+          "amount": 115
+        },
+        {
+          "rank": 151,
+          "player": "Merus",
+          "amount": 68
+        },
+        {
+          "rank": 152,
+          "player": "WillHue",
+          "amount": 58
+        }
+      ]
+    },
+    {
+      "name": "Hellgates",
+      "seasonPoints": 800,
+      "totalAmount": 55285,
+      "displayedRoundedTotal": 55000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "Dorfiuses",
+          "amount": 8843
+        },
+        {
+          "rank": 2,
+          "player": "RobertXVII",
+          "amount": 8194
+        },
+        {
+          "rank": 3,
+          "player": "NamikazePT",
+          "amount": 5194
+        },
+        {
+          "rank": 4,
+          "player": "SuSex",
+          "amount": 4545
+        },
+        {
+          "rank": 5,
+          "player": "IPPON",
+          "amount": 4020
+        },
+        {
+          "rank": 6,
+          "player": "VnfaTI",
+          "amount": 3618
+        },
+        {
+          "rank": 7,
+          "player": "MatMac",
+          "amount": 3107
+        },
+        {
+          "rank": 8,
+          "player": "TKZX",
+          "amount": 3107
+        },
+        {
+          "rank": 9,
+          "player": "jairrodrigo",
+          "amount": 3030
+        },
+        {
+          "rank": 10,
+          "player": "dsn",
+          "amount": 2412
+        },
+        {
+          "rank": 11,
+          "player": "Hi6or",
+          "amount": 2412
+        },
+        {
+          "rank": 12,
+          "player": "goncalves23",
+          "amount": 1731
+        },
+        {
+          "rank": 13,
+          "player": "jaxSlayer",
+          "amount": 804
+        },
+        {
+          "rank": 14,
+          "player": "lordkiller01",
+          "amount": 649
+        },
+        {
+          "rank": 15,
+          "player": "Euhh",
+          "amount": 649
+        },
+        {
+          "rank": 16,
+          "player": "imdonedontkillme",
+          "amount": 557
+        },
+        {
+          "rank": 17,
+          "player": "Cominhos",
+          "amount": 557
+        },
+        {
+          "rank": 18,
+          "player": "ZURGUING",
+          "amount": 557
+        },
+        {
+          "rank": 19,
+          "player": "Kuntakint",
+          "amount": 433
+        },
+        {
+          "rank": 20,
+          "player": "Sonjigolo",
+          "amount": 433
+        },
+        {
+          "rank": 21,
+          "player": "Pevida",
+          "amount": 433
+        }
+      ]
+    },
+    {
+      "name": "The Depths",
+      "seasonPoints": 6600,
+      "totalAmount": 422039,
+      "displayedRoundedTotal": 422000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "theYousek",
+          "amount": 101816
+        },
+        {
+          "rank": 2,
+          "player": "Djwd",
+          "amount": 49312
+        },
+        {
+          "rank": 3,
+          "player": "Lumen821",
+          "amount": 47800
+        },
+        {
+          "rank": 4,
+          "player": "BSAIGunner",
+          "amount": 29768
+        },
+        {
+          "rank": 5,
+          "player": "OniGuM000",
+          "amount": 29020
+        },
+        {
+          "rank": 6,
+          "player": "imdonedontkillme",
+          "amount": 23408
+        },
+        {
+          "rank": 7,
+          "player": "Sabedoria7",
+          "amount": 19382
+        },
+        {
+          "rank": 8,
+          "player": "SerpentVeil",
+          "amount": 17317
+        },
+        {
+          "rank": 9,
+          "player": "SuSex",
+          "amount": 10933
+        },
+        {
+          "rank": 10,
+          "player": "Reguilla",
+          "amount": 6921
+        },
+        {
+          "rank": 11,
+          "player": "Cominhos",
+          "amount": 6793
+        },
+        {
+          "rank": 12,
+          "player": "MatMac",
+          "amount": 6571
+        },
+        {
+          "rank": 13,
+          "player": "KABRITONHO",
+          "amount": 5580
+        },
+        {
+          "rank": 14,
+          "player": "Hi6or",
+          "amount": 4902
+        },
+        {
+          "rank": 15,
+          "player": "Natsury",
+          "amount": 4362
+        },
+        {
+          "rank": 16,
+          "player": "TKZX",
+          "amount": 4230
+        },
+        {
+          "rank": 17,
+          "player": "Merlinavo",
+          "amount": 3928
+        },
+        {
+          "rank": 18,
+          "player": "PlantsTK",
+          "amount": 3528
+        },
+        {
+          "rank": 19,
+          "player": "VnfaTI",
+          "amount": 3168
+        },
+        {
+          "rank": 20,
+          "player": "A2ar",
+          "amount": 2982
+        },
+        {
+          "rank": 21,
+          "player": "Jmbv",
+          "amount": 2946
+        },
+        {
+          "rank": 22,
+          "player": "avven1996",
+          "amount": 2436
+        },
+        {
+          "rank": 23,
+          "player": "BrEnnD",
+          "amount": 2424
+        },
+        {
+          "rank": 24,
+          "player": "xXFate",
+          "amount": 2304
+        },
+        {
+          "rank": 25,
+          "player": "3YS4N",
+          "amount": 2184
+        },
+        {
+          "rank": 26,
+          "player": "hardfedles",
+          "amount": 2184
+        },
+        {
+          "rank": 27,
+          "player": "jairrodrigo",
+          "amount": 1904
+        },
+        {
+          "rank": 28,
+          "player": "Davimix",
+          "amount": 1776
+        },
+        {
+          "rank": 29,
+          "player": "ZURGUING",
+          "amount": 1710
+        },
+        {
+          "rank": 30,
+          "player": "goncalves23",
+          "amount": 1568
+        },
+        {
+          "rank": 31,
+          "player": "MRBrutu",
+          "amount": 1568
+        },
+        {
+          "rank": 32,
+          "player": "jokker1998",
+          "amount": 1518
+        },
+        {
+          "rank": 33,
+          "player": "Dorfiuses",
+          "amount": 1460
+        },
+        {
+          "rank": 34,
+          "player": "Temperamental",
+          "amount": 1404
+        },
+        {
+          "rank": 35,
+          "player": "Lamusk",
+          "amount": 1392,
+          "manual": true
+        },
+        {
+          "rank": 36,
+          "player": "LuiziN",
+          "amount": 1344
+        },
+        {
+          "rank": 37,
+          "player": "dsn",
+          "amount": 1086
+        },
+        {
+          "rank": 38,
+          "player": "kadigo",
+          "amount": 1064
+        },
+        {
+          "rank": 39,
+          "player": "minhafemea1",
+          "amount": 1008
+        },
+        {
+          "rank": 40,
+          "player": "Nagacaburos",
+          "amount": 960
+        },
+        {
+          "rank": 41,
+          "player": "VULTO",
+          "amount": 904
+        },
+        {
+          "rank": 42,
+          "player": "MachoAlpha",
+          "amount": 728
+        },
+        {
+          "rank": 43,
+          "player": "SShadowless",
+          "amount": 528
+        },
+        {
+          "rank": 44,
+          "player": "Soldier027",
+          "amount": 504
+        },
+        {
+          "rank": 45,
+          "player": "Julioczr",
+          "amount": 468
+        },
+        {
+          "rank": 46,
+          "player": "HolyGyat2324",
+          "amount": 420
+        },
+        {
+          "rank": 47,
+          "player": "vitinraba",
+          "amount": 392
+        },
+        {
+          "rank": 48,
+          "player": "Jabiroca1",
+          "amount": 336
+        },
+        {
+          "rank": 49,
+          "player": "Karz1N",
+          "amount": 224
+        },
+        {
+          "rank": 50,
+          "player": "KalosKirk2",
+          "amount": 208
+        },
+        {
+          "rank": 51,
+          "player": "JowManojow",
+          "amount": 198
+        },
+        {
+          "rank": 52,
+          "player": "diovolo",
+          "amount": 168
+        },
+        {
+          "rank": 53,
+          "player": "jordansPt",
+          "amount": 168
+        },
+        {
+          "rank": 54,
+          "player": "Euhh",
+          "amount": 150
+        },
+        {
+          "rank": 55,
+          "player": "xVenon",
+          "amount": 144
+        },
+        {
+          "rank": 56,
+          "player": "Vr4L",
+          "amount": 140
+        },
+        {
+          "rank": 57,
+          "player": "Ruizao",
+          "amount": 84
+        },
+        {
+          "rank": 58,
+          "player": "Superpk",
+          "amount": 78
+        },
+        {
+          "rank": 59,
+          "player": "Madruguinha",
+          "amount": 66
+        },
+        {
+          "rank": 60,
+          "player": "KuNaKiNa",
+          "amount": 66
+        },
+        {
+          "rank": 61,
+          "player": "dudugamexd43",
+          "amount": 52
+        },
+        {
+          "rank": 62,
+          "player": "Nandixx",
+          "amount": 52
+        }
+      ]
+    },
+    {
+      "name": "Corrupted Dungeons",
+      "seasonPoints": 550,
+      "totalAmount": 19247,
+      "displayedRoundedTotal": 19000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "SuSex",
+          "amount": 4533
+        },
+        {
+          "rank": 2,
+          "player": "Ruizao",
+          "amount": 2909
+        },
+        {
+          "rank": 3,
+          "player": "NamikazePT",
+          "amount": 2493
+        },
+        {
+          "rank": 4,
+          "player": "Dorfiuses",
+          "amount": 2078
+        },
+        {
+          "rank": 5,
+          "player": "RobertXVII",
+          "amount": 1395
+        },
+        {
+          "rank": 6,
+          "player": "zBrunooHD",
+          "amount": 935
+        },
+        {
+          "rank": 7,
+          "player": "KABRITONHO",
+          "amount": 579
+        },
+        {
+          "rank": 8,
+          "player": "imdonedontkillme",
+          "amount": 557
+        },
+        {
+          "rank": 9,
+          "player": "Xiitos",
+          "amount": 534
+        },
+        {
+          "rank": 10,
+          "player": "zNeii",
+          "amount": 534
+        },
+        {
+          "rank": 11,
+          "player": "2PowerGiat",
+          "amount": 386
+        },
+        {
+          "rank": 12,
+          "player": "goncalves23",
+          "amount": 356
+        },
+        {
+          "rank": 13,
+          "player": "Hi6or",
+          "amount": 289
+        },
+        {
+          "rank": 14,
+          "player": "Superpk",
+          "amount": 289
+        },
+        {
+          "rank": 15,
+          "player": "MachoAlpha",
+          "amount": 289
+        },
+        {
+          "rank": 16,
+          "player": "TKZX",
+          "amount": 267
+        },
+        {
+          "rank": 17,
+          "player": "MineMim",
+          "amount": 245
+        },
+        {
+          "rank": 18,
+          "player": "diovolo",
+          "amount": 208
+        },
+        {
+          "rank": 19,
+          "player": "Stresseed",
+          "amount": 193
+        },
+        {
+          "rank": 20,
+          "player": "Sonjigolo",
+          "amount": 178
+        }
+      ]
+    },
+    {
+      "name": "Castles & Castle Outposts",
+      "seasonPoints": 1950,
+      "totalAmount": 1512746,
+      "displayedRoundedTotal": 1500000,
+      "rows": [
+        {
+          "rank": 1,
+          "player": "TKZX",
+          "amount": 111136
+        },
+        {
+          "rank": 2,
+          "player": "Akuma1000",
+          "amount": 103809
+        },
+        {
+          "rank": 3,
+          "player": "Tmaiusculo",
+          "amount": 92533
+        },
+        {
+          "rank": 4,
+          "player": "A2ar",
+          "amount": 81352
+        },
+        {
+          "rank": 5,
+          "player": "Euhh",
+          "amount": 71949
+        },
+        {
+          "rank": 6,
+          "player": "MatMac",
+          "amount": 64006
+        },
+        {
+          "rank": 7,
+          "player": "Cominhos",
+          "amount": 59229
+        },
+        {
+          "rank": 8,
+          "player": "dsn",
+          "amount": 53112
+        },
+        {
+          "rank": 9,
+          "player": "lordkiller01",
+          "amount": 50902
+        },
+        {
+          "rank": 10,
+          "player": "jokker1998",
+          "amount": 48577
+        },
+        {
+          "rank": 11,
+          "player": "DanyV2",
+          "amount": 41995
+        },
+        {
+          "rank": 12,
+          "player": "jrfate",
+          "amount": 40963
+        },
+        {
+          "rank": 13,
+          "player": "Nandixx",
+          "amount": 39318,
+          "manual": true
+        },
+        {
+          "rank": 14,
+          "player": "imdonedontkillme",
+          "amount": 36712
+        },
+        {
+          "rank": 15,
+          "player": "vadisley",
+          "amount": 35608
+        },
+        {
+          "rank": 16,
+          "player": "MineMim",
+          "amount": 32555
+        },
+        {
+          "rank": 17,
+          "player": "Yuangii",
+          "amount": 29844
+        },
+        {
+          "rank": 18,
+          "player": "VULTO",
+          "amount": 29660
+        },
+        {
+          "rank": 19,
+          "player": "OniGuM000",
+          "amount": 25921
+        },
+        {
+          "rank": 20,
+          "player": "Jmbv",
+          "amount": 25135
+        },
+        {
+          "rank": 21,
+          "player": "PlantsTK",
+          "amount": 24291
+        },
+        {
+          "rank": 22,
+          "player": "minhafemea1",
+          "amount": 20778
+        },
+        {
+          "rank": 23,
+          "player": "KuNaKiNa",
+          "amount": 20139
+        },
+        {
+          "rank": 24,
+          "player": "maicon1357",
+          "amount": 19960
+        },
+        {
+          "rank": 25,
+          "player": "BSAIGunner",
+          "amount": 17962
+        },
+        {
+          "rank": 26,
+          "player": "Sabedoria7",
+          "amount": 17883
+        },
+        {
+          "rank": 27,
+          "player": "SerpentVeil",
+          "amount": 16657
+        },
+        {
+          "rank": 28,
+          "player": "goncalves23",
+          "amount": 16357
+        },
+        {
+          "rank": 29,
+          "player": "Groom84",
+          "amount": 16332
+        },
+        {
+          "rank": 30,
+          "player": "theYousek",
+          "amount": 16154
+        },
+        {
+          "rank": 31,
+          "player": "Lumen821",
+          "amount": 14450
+        },
+        {
+          "rank": 32,
+          "player": "MaxHardcore",
+          "amount": 13976
+        },
+        {
+          "rank": 33,
+          "player": "VTracer",
+          "amount": 13340
+        },
+        {
+          "rank": 34,
+          "player": "Patolas",
+          "amount": 13057
+        },
+        {
+          "rank": 35,
+          "player": "Sum0l",
+          "amount": 12883
+        },
+        {
+          "rank": 36,
+          "player": "Natsury",
+          "amount": 12488
+        },
+        {
+          "rank": 37,
+          "player": "Nagacaburos",
+          "amount": 11834
+        },
+        {
+          "rank": 38,
+          "player": "Davimix",
+          "amount": 11012
+        },
+        {
+          "rank": 39,
+          "player": "Temperamental",
+          "amount": 10430
+        },
+        {
+          "rank": 40,
+          "player": "MYLOLA262",
+          "amount": 10421
+        },
+        {
+          "rank": 41,
+          "player": "CunaPrata",
+          "amount": 9197
+        },
+        {
+          "rank": 42,
+          "player": "Soldier027",
+          "amount": 8612
+        },
+        {
+          "rank": 43,
+          "player": "Guislave",
+          "amount": 8328
+        },
+        {
+          "rank": 44,
+          "player": "WellITKD",
+          "amount": 8247
+        },
+        {
+          "rank": 45,
+          "player": "Hlinha",
+          "amount": 8076
+        },
+        {
+          "rank": 46,
+          "player": "Karz1N",
+          "amount": 7341
+        },
+        {
+          "rank": 47,
+          "player": "RobertXVII",
+          "amount": 7174
+        },
+        {
+          "rank": 48,
+          "player": "HolyGyat2324",
+          "amount": 6851
+        },
+        {
+          "rank": 49,
+          "player": "Jabiroca1",
+          "amount": 6284
+        },
+        {
+          "rank": 50,
+          "player": "Hi6or",
+          "amount": 5564
+        },
+        {
+          "rank": 51,
+          "player": "Dorfiuses",
+          "amount": 4976
+        },
+        {
+          "rank": 52,
+          "player": "Amakv",
+          "amount": 4757
+        },
+        {
+          "rank": 53,
+          "player": "MonetaryMike",
+          "amount": 4342
+        },
+        {
+          "rank": 54,
+          "player": "Lamusk",
+          "amount": 3663
+        },
+        {
+          "rank": 55,
+          "player": "teessa",
+          "amount": 3205
+        },
+        {
+          "rank": 56,
+          "player": "LuiziN",
+          "amount": 2922
+        },
+        {
+          "rank": 57,
+          "player": "kadigo",
+          "amount": 2895
+        },
+        {
+          "rank": 58,
+          "player": "Horsix",
+          "amount": 2435
+        },
+        {
+          "rank": 59,
+          "player": "Chuckzerah",
+          "amount": 1948
+        },
+        {
+          "rank": 60,
+          "player": "KABRITONHO",
+          "amount": 1948
+        },
+        {
+          "rank": 61,
+          "player": "LEOPOLD",
+          "amount": 1948
+        },
+        {
+          "rank": 62,
+          "player": "Julioczr",
+          "amount": 1628
+        },
+        {
+          "rank": 63,
+          "player": "Djwd",
+          "amount": 1461
+        },
+        {
+          "rank": 64,
+          "player": "SeuDanadoo",
+          "amount": 1349
+        },
+        {
+          "rank": 65,
+          "player": "vitinraba",
+          "amount": 1299
+        },
+        {
+          "rank": 66,
+          "player": "morrty",
+          "amount": 1299
+        },
+        {
+          "rank": 67,
+          "player": "Merus",
+          "amount": 1156
+        },
+        {
+          "rank": 68,
+          "player": "MARIOMALAN",
+          "amount": 1156
+        },
+        {
+          "rank": 69,
+          "player": "ISpellNotFound",
+          "amount": 974
+        },
+        {
+          "rank": 70,
+          "player": "WillHue",
+          "amount": 974
+        },
+        {
+          "rank": 71,
+          "player": "FullTime",
+          "amount": 974
+        },
+        {
+          "rank": 72,
+          "player": "Telesss",
+          "amount": 974
+        },
+        {
+          "rank": 73,
+          "player": "Spotk",
+          "amount": 974
+        },
+        {
+          "rank": 74,
+          "player": "Kuntakint",
+          "amount": 904
+        },
+        {
+          "rank": 75,
+          "player": "XIShanksXI",
+          "amount": 771
+        },
+        {
+          "rank": 76,
+          "player": "OkiteKomi",
+          "amount": 771
+        },
+        {
+          "rank": 77,
+          "player": "Merlinavo",
+          "amount": 649
+        }
+      ]
+    }
+  ]
+}
