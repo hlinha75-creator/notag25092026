@@ -9,7 +9,7 @@ const ensuringForGuild = new Map();
 
 function isTriggerName(name) {
   return String(name || '')
-    .normalize('NFD')
+    .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/\s+/g, '')
     .toLowerCase() === '+criarsala';

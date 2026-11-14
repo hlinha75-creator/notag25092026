@@ -4,9 +4,10 @@ const { ChannelType } = require('discord.js');
 
 const temporaryVoice = require('../src/modules/voice/temporaryVoice.service');
 
-test('reconhece as duas grafias historicas do gatilho', () => {
+test('reconhece as grafias historicas e o sinal de mais largo do gatilho', () => {
   assert.equal(temporaryVoice.isTriggerName('+ Criar Sala'), true);
   assert.equal(temporaryVoice.isTriggerName('+Criar Sala'), true);
+  assert.equal(temporaryVoice.isTriggerName('＋ Criar Sala'), true);
   assert.equal(temporaryVoice.isTriggerName('Sala comum'), false);
 });
 
@@ -23,7 +24,7 @@ test('mantem um gatilho e remove duplicados vazios', async () => {
     async delete() { deleted.push(this.id); channels.delete(this.id); }
   });
   channels.set('100', makeTrigger('100', '+Criar Sala'));
-  channels.set('200', makeTrigger('200', '+ Criar Sala'));
+  channels.set('200', makeTrigger('200', '＋ Criar Sala'));
   channels.set('waiting', {
     id: 'waiting', type: ChannelType.GuildVoice, parentId: 'category', name: 'Aguardando Evento'
   });
