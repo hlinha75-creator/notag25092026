@@ -1,6 +1,6 @@
 const assert = require('node:assert/strict');
 const test = require('node:test');
-const { ChannelType } = require('discord.js');
+const { ChannelType, PermissionFlagsBits } = require('discord.js');
 
 const temporaryVoice = require('../src/modules/voice/temporaryVoice.service');
 
@@ -44,4 +44,44 @@ test('mantem um gatilho e remove duplicados vazios', async () => {
   assert.equal(trigger.id, '100');
   assert.equal(trigger.name, '+ Criar Sala');
   assert.deepEqual(deleted, ['200']);
+});
+
+test('aplica o padrão de visitante entrar sem falar', () => {
+  assert.deepEqual(temporaryVoice.guestAccessPermissions(), {
+    ViewChannel: true,
+    Connect: true,
+    Speak: false,
+    Stream: false
+  });
+  assert.deepEqual(temporaryVoice.guestAccessPermissions('view'), {
+    ViewChannel: true,
+    Connect: false,
+    Speak: false,
+    Stream: false
+  });
+  assert.deepEqual(temporaryVoice.guestAccessPermissions('hidden'), {
+    ViewChannel: false,
+    Connect: false,
+    Speak: false,
+    Stream: false
+  });
+});
+
+test('preserva acesso do criador e dos cargos de membro na sala', () => {
+  const guild = { roles: { everyone: { id: 'guild-id' } } };
+  const member = { id: 'owner-id' };
+  const overwrites = temporaryVoice.roomPermissionOverwrites(guild, member);
+  const everyone = overwrites.find((entry) => entry.id === 'guild-id');
+  const owner = overwrites.find((entry) => entry.id === 'owner-id');
+
+  assert.ok(everyone.allow.includes(PermissionFlagsBits.ViewChannel));
+  assert.ok(everyone.allow.includes(PermissionFlagsBits.Connect));
+  assert.ok(everyone.deny.includes(PermissionFlagsBits.Speak));
+  assert.ok(owner.allow.includes(PermissionFlagsBits.Connect));
+  assert.ok(owner.allow.includes(PermissionFlagsBits.Speak));
+  assert.ok(overwrites.some((entry) => (
+    entry.id !== 'guild-id'
+      && entry.id !== 'owner-id'
+      && entry.allow.includes(PermissionFlagsBits.Speak)
+  )));
 });

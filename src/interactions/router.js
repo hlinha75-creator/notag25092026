@@ -7,6 +7,7 @@ const eventsRepo = require('../modules/events/events.repository');
 const missions = require('../modules/missions/missions.service');
 const wtb = require('../modules/marketplace/wtb.service');
 const callerSchedule = require('../modules/operations/callerSchedule.service');
+const temporaryVoice = require('../modules/voice/temporaryVoice.service');
 const { MessageFlags } = require('discord.js');
 const { safeDeferReply, safeEditReply, safeReply } = require('../utils/interactions');
 
@@ -14,12 +15,16 @@ async function handleInteraction(interaction) {
   try {
     if (interaction.isChatInputCommand()) return await handleCommand(interaction);
     if (interaction.isButton()) {
+      if (interaction.customId.startsWith('temp_voice:')) return await temporaryVoice.handleButton(interaction);
       if (interaction.customId.startsWith('caller_schedule:')) return await callerSchedule.handleButton(interaction);
       if (interaction.customId.startsWith('wtb:')) return await wtb.handleButton(interaction);
       return await handleButton(interaction);
     }
     if (interaction.isStringSelectMenu() && interaction.customId.startsWith('caller_schedule:')) {
       return await callerSchedule.handleSelect(interaction);
+    }
+    if (interaction.isStringSelectMenu() && interaction.customId.startsWith('temp_voice_select:')) {
+      return await temporaryVoice.handleSelect(interaction);
     }
     if (interaction.isStringSelectMenu() || interaction.isUserSelectMenu() || interaction.isChannelSelectMenu()) return await handleSelect(interaction);
     if (interaction.isModalSubmit()) {
