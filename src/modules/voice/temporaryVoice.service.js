@@ -8,11 +8,12 @@ const creatingForMember = new Map();
 const ensuringForGuild = new Map();
 
 function isTriggerName(name) {
-  return String(name || '')
+  const normalized = String(name || '')
     .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\p{M}\uFE0F]/gu, '')
     .replace(/\s+/g, '')
-    .toLowerCase() === '+criarsala';
+    .toLowerCase();
+  return /^[+✚➕]criarsala$/u.test(normalized);
 }
 
 function memberRoomName(member) {
