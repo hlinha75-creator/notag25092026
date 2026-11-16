@@ -73,15 +73,18 @@ test('preserva acesso do criador e dos cargos de membro na sala', () => {
   const overwrites = temporaryVoice.roomPermissionOverwrites(guild, member);
   const everyone = overwrites.find((entry) => entry.id === 'guild-id');
   const owner = overwrites.find((entry) => entry.id === 'owner-id');
+  const guest = overwrites.find((entry) => entry.id === '1481251365857525782');
 
   assert.ok(everyone.allow.includes(PermissionFlagsBits.ViewChannel));
   assert.ok(everyone.allow.includes(PermissionFlagsBits.Connect));
   assert.ok(everyone.deny.includes(PermissionFlagsBits.Speak));
+  assert.ok(guest.deny.includes(PermissionFlagsBits.ViewChannel));
+  assert.ok(guest.deny.includes(PermissionFlagsBits.Connect));
   assert.ok(owner.allow.includes(PermissionFlagsBits.Connect));
   assert.ok(owner.allow.includes(PermissionFlagsBits.Speak));
   assert.ok(overwrites.some((entry) => (
     entry.id !== 'guild-id'
       && entry.id !== 'owner-id'
-      && entry.allow.includes(PermissionFlagsBits.Speak)
+      && entry.allow?.includes(PermissionFlagsBits.Speak)
   )));
 });

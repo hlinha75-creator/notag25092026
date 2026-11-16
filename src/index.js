@@ -32,6 +32,7 @@ const seasonAnnouncement = require('./modules/albion/seasonAnnouncement.service'
 const missions = require('./modules/missions/missions.service');
 const wtb = require('./modules/marketplace/wtb.service');
 const contentPreview = require('./modules/events/contentPreview.service');
+const { syncGuestChannelPermissions } = require('./modules/setup/guestChannelPermissions');
 const { startWebServer } = require('./web/server');
 const { handleInteraction } = require('./interactions/router');
 const { isExpiredOrDuplicateInteraction } = require('./utils/interactions');
@@ -110,6 +111,12 @@ client.once('clientReady', () => {
       });
     }
     if (guild.id === ids.guildId) {
+      syncGuestChannelPermissions(guild, { apply: true })
+        .then((results) => {
+          const changed = results.filter((item) => item.changed).length;
+          console.log(`[CONVIDADO] Permissoes sincronizadas: ${changed}/${results.length} canal(is) atualizado(s).`);
+        })
+        .catch((error) => console.error(`[CONVIDADO] Falha ao sincronizar permissoes no servidor ${guild.id}:`, error));
       temporaryVoice.initializeGuild(guild)
         .then(({ trigger, deleted }) => {
           console.log(`[VOZ TEMPORARIA] Gatilho pronto: ${trigger.name} (${trigger.id}); ${deleted} sala(s) vazia(s) removida(s).`);

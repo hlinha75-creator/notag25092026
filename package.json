@@ -16,6 +16,7 @@
     "audit:channels": "node --no-warnings scripts/auditChannels.js",
     "audit:nicks": "node --no-warnings scripts/auditNicks.js",
     "rename:channels": "node --no-warnings scripts/renameChannels.js",
+    "sync:guest-channels": "node --no-warnings scripts/syncGuestChannelPermissions.js",
     "import:members": "node --no-warnings scripts/importMemberSnapshot.js",
     "import:albion": "node --no-warnings scripts/importAlbionOperationalData.js",
     "import:fame": "node --no-warnings scripts/importAlbionCategory.js",

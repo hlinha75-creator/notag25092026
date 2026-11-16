@@ -36,7 +36,7 @@ module.exports = {
     announcements: '1484312044772655154',
     rules: '1481325786710409357',
     registrationRequests: '1482334949540626462',
-    guestVoice: '1492707387700674600',
+    guestVoice: '1570472546216706089',
     memberExit: '1482334950639534110',
     memberList: '1482334951637516289',
     memberPanel: '1515255057971548261',
@@ -67,5 +67,19 @@ module.exports = {
   categories: {
     activeEvents: '1481251398246203402',
     closedEvents: '1511385037864570970'
+  },
+  guestChannelAccess: {
+    readOnly: [
+      '1492707388552253525',
+      '1481325786710409357',
+      '1481284047526166731'
+    ],
+    writable: [
+      '1492305645628555334',
+      '1540997572171141191'
+    ],
+    voice: [
+      '1570472546216706089'
+    ]
   }
 };

@@ -60,6 +60,15 @@ function roomPermissionOverwrites(guild, member) {
       allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.Connect],
       deny: [PermissionFlagsBits.Speak, PermissionFlagsBits.Stream]
     },
+    {
+      id: ids.roles.guest,
+      deny: [
+        PermissionFlagsBits.ViewChannel,
+        PermissionFlagsBits.Connect,
+        PermissionFlagsBits.Speak,
+        PermissionFlagsBits.Stream
+      ]
+    },
     ...memberRoleIds().map((id) => ({ id, allow: memberPermissions })),
     {
       id: member.id,
@@ -81,7 +90,7 @@ function controlPanelPayload(channelId, ownerId) {
     content: [
       `## Controles da sala de <@${ownerId}>`,
       'Somente o criador pode alterar estas opções.',
-      'Padrão: **sem limite** e pessoas sem a tag Membro **entram sem falar**.'
+      'Padrão: **sem limite** e pessoas sem a tag Membro, exceto Convidado, **entram sem falar**.'
     ].join('\n'),
     components: [
       new ActionRowBuilder().addComponents(
@@ -143,7 +152,7 @@ async function handleButton(interaction) {
   }
   if (action === 'access') {
     return interaction.reply({
-      content: 'Escolha o que pessoas sem a tag Membro podem fazer:',
+      content: 'Escolha o que pessoas sem a tag Membro podem fazer. O cargo Convidado continua sem acesso:',
       components: [new ActionRowBuilder().addComponents(
         new StringSelectMenuBuilder()
           .setCustomId(`temp_voice_select:access:${channelId}`)
@@ -187,6 +196,7 @@ async function handleSelect(interaction) {
       privilegedPermissions,
       { reason: 'Mantendo acesso de membros e equipe na sala temporária' }
     )));
+    await hideChannelFromGuests(channel);
     return interaction.update({
       content: `Acesso sem tag atualizado para **${mode.label}**.`,
       components: []
@@ -264,13 +274,25 @@ async function removeDuplicateTriggers(candidates, canonical) {
   }
 }
 
+async function hideChannelFromGuests(channel) {
+  if (!ids.roles.guest || !channel?.permissionOverwrites?.edit) return;
+  await channel.permissionOverwrites.edit(
+    ids.roles.guest,
+    { ViewChannel: false, Connect: false, Speak: false, Stream: false },
+    { reason: 'Cargo Convidado restrito aos canais autorizados' }
+  );
+}
+
 async function ensureTriggerChannel(guild) {
   const current = ensuringForGuild.get(guild.id);
   if (current) return current;
   const task = (async () => {
     const parentId = await resolveParentId(guild);
     const existing = await reconcileTriggerChannels(guild, parentId);
-    if (existing) return existing;
+    if (existing) {
+      await hideChannelFromGuests(existing);
+      return existing;
+    }
     await guild.channels.create({
       name: TRIGGER_NAME,
       type: ChannelType.GuildVoice,
@@ -278,7 +300,9 @@ async function ensureTriggerChannel(guild) {
       reason: 'Canal para criacao automatica de salas temporarias'
     });
     await guild.channels.fetch().catch(() => null);
-    return reconcileTriggerChannels(guild, parentId);
+    const created = await reconcileTriggerChannels(guild, parentId);
+    await hideChannelFromGuests(created);
+    return created;
   })().finally(() => ensuringForGuild.delete(guild.id));
   ensuringForGuild.set(guild.id, task);
   return task;
