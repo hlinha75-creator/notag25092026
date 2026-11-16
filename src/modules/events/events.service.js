@@ -96,15 +96,14 @@ const emojiRefs = {
 const raidAvalonSlots = { tank: 3, healer: 3, support: 3, dps: 11 };
 const raidAvalonWeaponSlots = {
   tank: ['Martelo', 'Incubus', 'Quebra Reinos'],
-  healer: ['Fallen', 'Raiz', 'Hallow'],
+  healer: ['Hallow', 'Fallen', 'Raiz'],
   support: ['SC', 'Enig', 'Danacao'],
   dps: ['Aguia', 'Uivo Frio', 'Furabruma', 'Repetidor 1', 'Repetidor 2', 'Repetidor 3', 'Repetidor 4', 'Repetidor 5', 'Repetidor 6', 'Repetidor 7', 'Repetidor 8']
 };
 const raidAvalonUnlockRules = {
   raiz: 6,
   quebra_reinos: 7,
-  danacao: 8,
-  hallow: 9
+  danacao: 8
 };
 const raidAvalonWeapons = Object.fromEntries(
   Object.entries(raidAvalonWeaponSlots).map(([role, weapons]) => [role, [...new Set(weapons)]])
