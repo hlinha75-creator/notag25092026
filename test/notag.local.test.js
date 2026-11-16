@@ -380,6 +380,7 @@ test('evento comum reserva a ultima vaga DPS para o Looter', async () => {
   });
 
   const description = harness.sentMessages[0].payload.embeds[0].data.description;
+  assert.match(description, /EVENTO COM LOOTER \(Hoje as 18:30 UTC \u2022 <t:\d+:R>\)/);
   assert.match(description, /DPS 1/);
   assert.match(description, /DPS 2/);
   assert.match(description, /Looter/);
@@ -424,7 +425,7 @@ test('evento personalizado cria telas dinamicas e salva detalhes por vaga', asyn
   const event = await events.createCustomEventFromDraft(harness.interaction('creator-custom'), draft);
   const message = [...harness.messages.values()][0];
   const description = message.payload.embeds[0].data.description;
-  assert.match(description, /20\/07\/2099 18:30 UTC/);
+  assert.match(description, /20\/07\/2099 as 18:30 UTC \u2022 <t:\d+:R>/);
   assert.match(description, /Full loot split/);
   assert.match(description, /Giga Pot T7/);
   assert.match(description, /Montaria:\*\* 120%\+/);
@@ -513,13 +514,23 @@ test('fluxo local cobre evento, voz, loot split, aprovacao, ledger, saque e depo
 
   const review = events.saveLootReview({
     eventId: event.id,
-    lootTotal: 9000,
-    repair: 0,
-    silverBags: 0,
-    taxPercent: 0,
+    lootTotal: 10000,
+    repair: 1000,
+    silverBags: 1000,
+    taxPercent: 10,
     evidenceNotes: 'teste local'
   });
   assert.deepEqual(review, { netLoot: 9000 });
+
+  const financialCalculation = events.reviewEmbed(event.id).data.fields
+    .find((field) => field.name === 'Calculo financeiro');
+  assert.equal(financialCalculation.value, [
+    'Loot: **10k**',
+    '+ Silver: **1k**',
+    '- Reparo: **1k**',
+    '- Taxa (10%): **1k**',
+    '= Lucro liquido: **9k**'
+  ].join('\n'));
 
   const afterReview = eventsRepo.listParticipants(event.id);
   assert.equal(afterReview.find((item) => item.discord_id === participantA).calculated_seconds, 2700);
@@ -597,7 +608,9 @@ test('world boss cria 16 vagas e permite acumular DPS com Scout Mobile', async (
 
   assert.equal(harness.sentMessages[0].channelId, '1526954695938019490');
   assert.equal(events.worldBossSlotOptions(event.id, playerA).length, 16);
-  assert.match([...harness.messages.values()][0].payload.embeds[0].data.description, /TOTAL: 0\/16/);
+  const description = [...harness.messages.values()][0].payload.embeds[0].data.description;
+  assert.match(description, /Horario:\*\* 20\/07\/2026 00:00 as 02:00 UTC \(<t:\d+:R>\)/);
+  assert.match(description, /TOTAL: 0\/16/);
 
   await events.joinWorldBossSlot(harness.interaction(playerA), event.id, 'main_tank');
   assertParticipant(event.id, playerA, { role: 'tank', isSpectator: 0 });

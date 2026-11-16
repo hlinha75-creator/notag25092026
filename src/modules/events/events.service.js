@@ -393,7 +393,7 @@ function worldBossAnnouncementDescription(event) {
   const status = event.status === 'running' ? '\n\n\u{1F7E2} **EVENTO EM ANDAMENTO**' : '';
   return [
     '# \u2694\uFE0F FARM WORLD BOSS \u2694\uFE0F',
-    `> **\u{1F552} Horario:** ${event.scheduled_time || '00:00 as 02:00 UTC'}`,
+    `> **\u{1F552} Horario:** ${formatScheduleWithCountdown(event.scheduled_time || '00:00 as 02:00 UTC')}`,
     `> **\u{1F4CD} Local:** ${event.location || 'DK / Vulcano'}`,
     `> **\u{1F4DA} [BUILDS](${buildUrl})**`,
     '',
@@ -432,9 +432,7 @@ function commonEventAnnouncement(event, participants, options = {}) {
   const filled = active.length;
   const timing = options.running
     ? `em andamento - ${options.elapsed || '0m'}`
-    : customMeta
-      ? event.scheduled_time
-      : eventTimeLabel(event.scheduled_time);
+    : eventTimeLabel(event.scheduled_time);
   const lines = [
     `## ${eventEmoji(event)} ${title}${timing ? ` (${timing})` : ''}`,
     '',
@@ -596,7 +594,7 @@ function eventEmoji(event) {
 function eventTimeLabel(value) {
   const start = parseAlbionEventTime(value);
   if (!start) return value || '';
-  return discordTimestamp(start, 'R');
+  return `${formatAlbionScheduleText(value, start)} \u2022 ${discordTimestamp(start, 'R')}`;
 }
 
 function roleOccupants(event, participants, role) {
@@ -3147,6 +3145,27 @@ async function deleteEventMessage(client, eventId) {
   if (isPingContentChannel(event.message_channel_id)) await syncPingContentIndex(client, channel);
 }
 
+function lootCalculationField(review) {
+  const lootTotal = Number(review?.loot_total || 0);
+  const silverBags = Number(review?.silver_bags || 0);
+  const repair = Number(review?.repair || 0);
+  const taxPercent = Number(review?.tax_percent || 0);
+  const taxableAmount = lootTotal + silverBags - repair;
+  const taxAmount = Math.floor((taxableAmount * taxPercent) / 100);
+
+  return {
+    name: 'Calculo financeiro',
+    value: [
+      `Loot: **${formatSilver(lootTotal)}**`,
+      `+ Silver: **${formatSilver(silverBags)}**`,
+      `- Reparo: **${formatSilver(repair)}**`,
+      `- Taxa (${taxPercent}%): **${formatSilver(taxAmount)}**`,
+      `= Lucro liquido: **${formatSilver(review?.net_loot || 0)}**`
+    ].join('\n'),
+    inline: false
+  };
+}
+
 function reviewEmbed(eventId) {
   const event = repo.getEvent(eventId);
   const review = repo.getReview(eventId);
@@ -3162,7 +3181,7 @@ function reviewEmbed(eventId) {
     .setTitle(event.status === 'approved' ? 'Evento finalizado' : event.status === 'pending_payment' ? 'Pagamento pendente' : 'Revisao de participacao')
     .setDescription(`**${formatEventTitle(event.title)}**\n${event.event_code}`)
     .addFields(
-      { name: 'Loot liquido', value: formatSilver(review?.net_loot || 0), inline: true },
+      lootCalculationField(review),
       { name: 'Evidencias', value: embedFieldValue(review?.evidence_notes || 'Anexe/cole DPS meter, fama total e CSV do loot logger no canal de revisao.'), inline: false },
       ...embedLinesFields('Participantes', lines, 'Nenhum participante com tempo contabilizado.')
     )
@@ -3216,7 +3235,7 @@ function dpsMeterEmbed(eventId) {
     .addFields(
       { name: 'Criador', value: `<@${event.creator_id}>`, inline: true },
       { name: 'Horario', value: event.scheduled_time || 'Nao informado', inline: true },
-      { name: 'Loot liquido', value: formatSilver(review?.net_loot || 0), inline: true },
+      lootCalculationField(review),
       { name: 'Evidencias', value: embedFieldValue(review?.evidence_notes || 'Aguardando prints/links/CSV no canal de revisao.'), inline: false },
       ...embedLinesFields('Participantes', lines, 'Nenhum participante.')
     )
@@ -3337,11 +3356,19 @@ function formatRaidSchedule(value) {
   return `${formatAlbionScheduleText(text, startAt)} (${discordTimestamp(startAt, 'R')})`;
 }
 
+function formatScheduleWithCountdown(value) {
+  const text = String(value || '').trim();
+  if (!text) return 'horario nao informado';
+  const startAt = parseAlbionEventTime(text);
+  return startAt ? `${text} (${discordTimestamp(startAt, 'R')})` : text;
+}
+
 function formatAlbionScheduleText(text, startAt) {
-  const dateMatch = String(text || '').match(/\b(\d{1,2})[/-](\d{1,2})(?:[/-]\d{2,4})?\b/);
+  const dateMatch = String(text || '').match(/\b(\d{1,2})[/-](\d{1,2})(?:[/-](\d{2,4}))?\b/);
   const time = `${String(startAt.getUTCHours()).padStart(2, '0')}:${String(startAt.getUTCMinutes()).padStart(2, '0')}`;
   if (dateMatch) {
-    return `${dateMatch[1].padStart(2, '0')}/${dateMatch[2].padStart(2, '0')} as ${time} UTC`;
+    const year = dateMatch[3] ? `/${dateMatch[3]}` : '';
+    return `${dateMatch[1].padStart(2, '0')}/${dateMatch[2].padStart(2, '0')}${year} as ${time} UTC`;
   }
   return `Hoje as ${time} UTC`;
 }
