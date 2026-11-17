@@ -2596,7 +2596,7 @@ const migrations = [
     }
   },
   {
-    version: 89,
+    version: 90,
     name: 'guild_removal_campaigns',
     up(db) {
       db.exec(`
