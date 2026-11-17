@@ -7,6 +7,10 @@ const {
 const ids = require('../../config/ids');
 const { getDatabase } = require('../../database/connection');
 const { htmlReportAttachment } = require('../../utils/htmlReport');
+const accountLinks = require('../accounts/accountLinks.service');
+const memberSnapshots = require('./memberSnapshot.service');
+
+const protectedRoleKeys = ['staff', 'adm', 'caller', 'recruiter', 'treasurer'];
 
 const roleFilters = {
   members: { label: 'Membros', role: 'member' },
@@ -94,6 +98,110 @@ async function filteredEmbed(guild, filterKey) {
     .setTimestamp(new Date());
 }
 
+function classifyGuildAbsence(memberRows, rosterRows) {
+  const rosterNames = new Set(rosterRows
+    .map((row) => normalizeName(row.member_key || row.characterName || row.character_name))
+    .filter(Boolean));
+  const discordMembers = memberRows.filter((row) => row.roleIds?.has(ids.roles.member));
+  const absent = discordMembers.filter((row) => row.albionName && !rosterNames.has(normalizeName(row.albionName)));
+  return {
+    discordMembers,
+    absent,
+    eligible: absent.filter((row) => !row.removalBlockedReason),
+    protected: absent.filter((row) => row.removalBlockedReason),
+    unverified: discordMembers.filter((row) => !row.albionName)
+  };
+}
+
+async function guildAbsenceComparison(guild) {
+  const snapshot = memberSnapshots.latestSnapshotDetails();
+  if (!snapshot) {
+    throw new Error('Ainda nao existe uma lista oficial da guild importada. Importe a lista antes de comparar.');
+  }
+  return {
+    snapshot,
+    comparison: classifyGuildAbsence(await collectMembers(guild), snapshot.rows)
+  };
+}
+
+async function guildAbsencePayload(guild) {
+  const { snapshot, comparison } = await guildAbsenceComparison(guild);
+  const visibleAbsent = comparison.absent.slice(0, 30).map((row, index) => (
+    `${index + 1}. **${row.albionName}** — ${row.displayName} (<@${row.discordId}>)`
+  ));
+  const visibleUnverified = comparison.unverified.slice(0, 10).map((row) => (
+    `• ${row.displayName} (<@${row.discordId}>)`
+  ));
+  const description = [
+    `Comparacao entre quem possui o cargo **Membro** no Discord e a lista oficial #${snapshot.id}.`,
+    '',
+    '**No Discord, mas fora da guild:**',
+    ...(visibleAbsent.length ? visibleAbsent : ['Nenhum encontrado.']),
+    ...(comparison.absent.length > visibleAbsent.length
+      ? [`... e mais **${comparison.absent.length - visibleAbsent.length}** no arquivo completo.`]
+      : []),
+    comparison.protected.length
+      ? `\n**${comparison.protected.length}** pessoa(s) desta lista estao protegidas por cargo, propriedade do servidor ou hierarquia do bot e nao entrarao na campanha.`
+      : null,
+    '',
+    '**Sem nome Albion cadastrado (nao foi possivel verificar):**',
+    ...(visibleUnverified.length ? visibleUnverified : ['Nenhum.']),
+    ...(comparison.unverified.length > visibleUnverified.length
+      ? [`... e mais **${comparison.unverified.length - visibleUnverified.length}** no arquivo completo.`]
+      : [])
+  ].filter((line) => line !== null).join('\n');
+
+  const reportRows = [
+    ...comparison.absent.map((row) => reportRow(row, 'Fora da lista atual da guild')),
+    ...comparison.unverified.map((row) => reportRow(row, 'Sem nome Albion cadastrado'))
+  ];
+  const attachment = htmlReportAttachment({
+    title: 'Membros do Discord ausentes da guild',
+    subtitle: `Comparação com a lista oficial #${snapshot.id}, importada em ${snapshot.created_at}.`,
+    fileName: `discord-fora-guild-${dateKey()}.html`,
+    csvName: `discord-fora-guild-${dateKey()}.csv`,
+    rows: reportRows,
+    columns: [
+      { key: 'situacao', label: 'Situação' },
+      { key: 'albion_name', label: 'Nome Albion' },
+      { key: 'discord_name', label: 'Nome Discord' },
+      { key: 'discord_id', label: 'ID Discord' },
+      { key: 'joined_at', label: 'Entrou no servidor' },
+      { key: 'discord_server_age_days', label: 'Dias no servidor', align: 'right' }
+    ],
+    summary: [
+      ['Cargo Membro no Discord', comparison.discordMembers.length],
+      ['Fora da guild', comparison.absent.length],
+      ['Sem cadastro Albion', comparison.unverified.length],
+      ['Lista oficial', `#${snapshot.id}`]
+    ]
+  });
+
+  return {
+    embeds: [new EmbedBuilder()
+      .setTitle('Discord x lista atual da guild')
+      .setDescription(description)
+      .addFields(
+        { name: 'Cargo Membro', value: String(comparison.discordMembers.length), inline: true },
+        { name: 'Fora da guild', value: String(comparison.absent.length), inline: true },
+        { name: 'Removiveis', value: String(comparison.eligible.length), inline: true },
+        { name: 'Sem cadastro', value: String(comparison.unverified.length), inline: true }
+      )
+      .setColor(comparison.absent.length ? 0xd97706 : 0x16a34a)
+      .setTimestamp(new Date())],
+    files: [attachment],
+    components: comparison.eligible.length
+      ? [new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+          .setCustomId(`guild_cleanup:start:${snapshot.id}`)
+          .setLabel('Publicar aviso de 24 horas')
+          .setStyle(ButtonStyle.Danger)
+      )]
+      : [],
+    allowedMentions: { parse: [] }
+  };
+}
+
 async function collectMembers(guild) {
   const users = userMap();
   const pendingIds = new Set(pendingRegistrations().map((row) => row.discord_id));
@@ -101,8 +209,21 @@ async function collectMembers(guild) {
   return [...members.values()]
     .filter((member) => !member.user.bot)
     .map((member) => {
-      const user = users.get(member.id);
+      const directUser = users.get(member.id);
+      const primaryId = accountLinks.resolvePrimaryUserId(member.id);
+      const user = directUser?.albion_name ? directUser : (users.get(primaryId) || directUser);
       const roleNames = importantRoles(member);
+      const protectedRole = protectedRoleKeys.find((roleKey) => {
+        const roleId = ids.roles[roleKey];
+        return roleId && member.roles.cache.has(roleId);
+      });
+      const removalBlockedReason = member.guild.ownerId === member.id
+        ? 'dono do servidor'
+        : protectedRole
+          ? `cargo ${protectedRole}`
+          : !member.kickable
+            ? 'hierarquia do bot'
+            : null;
       return {
         discordId: member.id,
         discordTag: member.user.tag || member.user.username,
@@ -113,7 +234,8 @@ async function collectMembers(guild) {
         joinedAt: member.joinedAt?.toISOString() || '',
         createdAt: member.user.createdAt?.toISOString() || '',
         roleNames,
-        roleIds: new Set(member.roles.cache.keys())
+        roleIds: new Set(member.roles.cache.keys()),
+        removalBlockedReason
       };
     })
     .sort((a, b) => displaySort(a).localeCompare(displaySort(b), 'pt-BR', { sensitivity: 'base' }));
@@ -190,7 +312,8 @@ function panelComponents() {
       new ButtonBuilder().setCustomId('member_list:view:no_tag').setLabel('Sem tag').setStyle(ButtonStyle.Secondary),
       new ButtonBuilder().setCustomId('member_list:view:staff').setLabel('Equipe').setStyle(ButtonStyle.Secondary),
       new ButtonBuilder().setCustomId('member_list:view:members_60_days').setLabel('Membros 60+ dias').setStyle(ButtonStyle.Secondary),
-      new ButtonBuilder().setCustomId('member_list:view:members_75_days').setLabel('Membros 75+ dias').setStyle(ButtonStyle.Secondary)
+      new ButtonBuilder().setCustomId('member_list:view:members_75_days').setLabel('Membros 75+ dias').setStyle(ButtonStyle.Secondary),
+      new ButtonBuilder().setCustomId('member_list:outside_guild').setLabel('Fora da guild').setStyle(ButtonStyle.Danger)
     )
   ];
 }
@@ -250,13 +373,35 @@ function displaySort(row) {
   return row.albionName || row.displayName || row.discordTag || row.discordId;
 }
 
+function normalizeName(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim()
+    .toLowerCase();
+}
+
+function reportRow(row, situation) {
+  return {
+    situacao: situation,
+    albion_name: row.albionName || '',
+    discord_name: row.displayName || row.discordTag || '',
+    discord_id: row.discordId,
+    joined_at: row.joinedAt,
+    discord_server_age_days: ageDays(row.joinedAt)
+  };
+}
+
 function dateKey() {
   return new Date().toISOString().slice(0, 10);
 }
 
 module.exports = {
+  classifyGuildAbsence,
   csvAttachment,
   filteredEmbed,
+  guildAbsenceComparison,
+  guildAbsencePayload,
   panelComponents,
   panelPayload,
   refreshPanel

@@ -76,6 +76,9 @@ const commands = [
         { name: '75 dias ou mais', value: 75 }
       )),
   new SlashCommandBuilder()
+    .setName('ausentes_guild')
+    .setDescription('Lista quem tem cargo Membro no Discord, mas não está na lista atual da guild.'),
+  new SlashCommandBuilder()
     .setName('mesclar_contas')
     .setDescription('Mescla duas contas Discord do mesmo jogador.')
     .addUserOption((option) => option.setName('principal').setDescription('Conta que permanecera como principal.').setRequired(true))

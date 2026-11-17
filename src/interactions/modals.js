@@ -23,6 +23,7 @@ const financeRepo = require('../modules/finance/finance.repository');
 const deposit = require('../modules/deposit/deposit.service');
 const lochMarket = require('../modules/community/lochMarket.service');
 const springHideout = require('../modules/community/springHideout.service');
+const guildRemovalCampaign = require('../modules/members/guildRemovalCampaign.service');
 
 function intField(fields, name) {
   const value = Number.parseInt(fields.getTextInputValue(name), 10);
@@ -31,6 +32,23 @@ function intField(fields, name) {
 }
 
 async function handleModal(interaction) {
+  if (interaction.customId.startsWith('guild_cleanup:appeal:')) {
+    const campaignId = Number(interaction.customId.split(':')[2]);
+    const acknowledged = await safeDeferReply(interaction, { flags: MessageFlags.Ephemeral });
+    if (!acknowledged) return null;
+    const result = await guildRemovalCampaign.submitAppeal({
+      client: interaction.client,
+      campaignId,
+      discordId: interaction.user.id,
+      albionName: interaction.fields.getTextInputValue('albionName'),
+      reason: interaction.fields.getTextInputValue('reason')
+    });
+    return safeEditReply(interaction, {
+      content: result.alreadySubmitted
+        ? 'Sua solicitacao ja estava registrada. Voce nao sera removido automaticamente nesta campanha.'
+        : 'Solicitacao enviada para a staff. Voce foi retirado da remocao automatica desta campanha enquanto seu cadastro e verificado.'
+    });
+  }
   if (interaction.customId.startsWith('event_config:save:')) {
     if (!can(interaction.member, 'createEvent')) {
       return safeReply(interaction, { content: 'Você não tem permissão para salvar configurações.', flags: MessageFlags.Ephemeral });

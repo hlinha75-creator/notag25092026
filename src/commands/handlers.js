@@ -18,6 +18,7 @@ const albionVerification = require('../modules/albion/guildVerification.service'
 const ids = require('../config/ids');
 const albionFame = require('../modules/albion/fame.service');
 const memberList = require('../modules/members/memberList.service');
+const guildRemovalCampaign = require('../modules/members/guildRemovalCampaign.service');
 const inactiveEvents = require('../modules/members/inactiveEvents.service');
 const inactiveGuests = require('../modules/members/inactiveGuests.service');
 const dailyPveRanking = require('../modules/albion/dailyPveRanking.service');
@@ -179,6 +180,36 @@ async function handleCommand(interaction) {
     const days = interaction.options.getInteger('dias');
     const filter = days === 75 ? 'members_75_days' : 'members_60_days';
     return interaction.editReply({ embeds: [await memberList.filteredEmbed(interaction.guild, filter)] });
+  }
+
+  if (interaction.commandName === 'ausentes_guild') {
+    if (!can(interaction.member, 'approveRegistration') && !can(interaction.member, 'importCsv')) {
+      return interaction.reply({ content: 'Voce nao tem permissao para comparar os membros com a guild.', flags: MessageFlags.Ephemeral });
+    }
+    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    const activeCampaign = guildRemovalCampaign.activeCampaign(interaction.guild.id);
+    if (activeCampaign) {
+      const deadline = Math.floor(Date.parse(`${activeCampaign.execute_at.replace(' ', 'T')}Z`) / 1000);
+      return interaction.editReply({
+        content: [
+          `Ja existe uma campanha ativa: **#${activeCampaign.id}**.`,
+          `Remocao prevista: <t:${deadline}:F> (<t:${deadline}:R>).`,
+          activeCampaign.status === 'running'
+            ? 'A verificacao final esta sendo executada agora.'
+            : 'Cancele a campanha antes de publicar uma nova.'
+        ].join('\n'),
+        components: activeCampaign.status === 'running'
+          ? []
+          : [new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+              .setCustomId(`guild_cleanup:cancel:${activeCampaign.id}`)
+              .setLabel('Cancelar campanha')
+              .setStyle(ButtonStyle.Danger)
+          )],
+        allowedMentions: { parse: [] }
+      });
+    }
+    return interaction.editReply(await memberList.guildAbsencePayload(interaction.guild));
   }
 
   if (interaction.commandName === 'temporada') {

@@ -222,6 +222,22 @@ O bot mostra previa antes de aplicar:
 
 Confirme somente depois de revisar.
 
+## Avisar E Remover Quem Esta Fora Da Guild
+
+Depois de importar e conferir a lista oficial atual, use:
+
+```text
+/ausentes_guild
+```
+
+1. Revise a previa e o HTML.
+2. Confirme em **Publicar aviso de 24 horas**.
+3. Acompanhe no canal da staff as contestacoes enviadas pelo botao do anuncio.
+4. Corrija cadastros ou importe uma lista oficial mais nova quando necessario.
+5. No fim do prazo, o bot confere novamente a lista mais recente antes de aplicar qualquer kick.
+
+Sem nick cadastrado, cargos protegidos, dono do servidor, contas acima do bot na hierarquia e pessoas que contestaram nao sao removidos automaticamente. Rode `/ausentes_guild` novamente para consultar ou cancelar uma campanha ativa.
+
 ## Inativos
 
 Use:

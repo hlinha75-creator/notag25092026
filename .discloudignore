@@ -3,6 +3,9 @@
 .vscode/
 .agents/
 .codex-remote-check/
+.codex-backups/
+discloud/
+dist/
 node_modules/
 .env
 data/*.sqlite
@@ -17,5 +20,7 @@ data/manual-download/
 test/
 docs/
 data/reports/
+outputs/
+reports/
 MEMORY.md
 README.md

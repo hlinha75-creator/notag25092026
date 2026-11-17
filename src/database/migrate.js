@@ -2594,6 +2594,54 @@ const migrations = [
           ON temporary_voice_channels (guild_id);
       `);
     }
+  },
+  {
+    version: 89,
+    name: 'guild_removal_campaigns',
+    up(db) {
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS guild_removal_campaigns (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          guild_id TEXT NOT NULL,
+          snapshot_id INTEGER NOT NULL,
+          channel_id TEXT,
+          message_ids_json TEXT NOT NULL DEFAULT '[]',
+          created_by TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'publishing',
+          execute_at TEXT NOT NULL,
+          created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          completed_at TEXT,
+          attempts INTEGER NOT NULL DEFAULT 0,
+          result_json TEXT,
+          last_error TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS guild_removal_candidates (
+          campaign_id INTEGER NOT NULL,
+          discord_id TEXT NOT NULL,
+          discord_name TEXT,
+          albion_name TEXT NOT NULL,
+          status TEXT NOT NULL DEFAULT 'scheduled',
+          appeal_albion_name TEXT,
+          appeal_reason TEXT,
+          appealed_at TEXT,
+          result_detail TEXT,
+          processed_at TEXT,
+          PRIMARY KEY (campaign_id, discord_id),
+          FOREIGN KEY (campaign_id) REFERENCES guild_removal_campaigns(id) ON DELETE CASCADE
+        );
+
+        CREATE INDEX IF NOT EXISTS idx_guild_removal_campaigns_due
+          ON guild_removal_campaigns (status, execute_at);
+
+        CREATE UNIQUE INDEX IF NOT EXISTS idx_guild_removal_campaigns_one_active
+          ON guild_removal_campaigns (guild_id)
+          WHERE status IN ('publishing', 'scheduled', 'running');
+
+        CREATE INDEX IF NOT EXISTS idx_guild_removal_candidates_status
+          ON guild_removal_candidates (campaign_id, status);
+      `);
+    }
   }
 ];
 

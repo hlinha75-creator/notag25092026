@@ -17,6 +17,7 @@ const albionVerification = require('../modules/albion/guildVerification.service'
 const deposit = require('../modules/deposit/deposit.service');
 const inactiveEvents = require('../modules/members/inactiveEvents.service');
 const inactiveGuests = require('../modules/members/inactiveGuests.service');
+const guildRemovalCampaign = require('../modules/members/guildRemovalCampaign.service');
 const operations = require('../modules/operations/operations.service');
 const announcementAcknowledgement = require('../modules/operations/announcementAcknowledgement.service');
 const mandatoryRules = require('../modules/operations/mandatoryRules.service');
@@ -308,6 +309,62 @@ async function handleButton(interaction) {
   if (scope === 'giveaway') return giveaways.handleButton(interaction);
   if (scope === 'mission') return missions.handleButton(interaction);
   if (scope === 'academy') return academy.handleButton(interaction);
+  if (scope === 'guild_cleanup' && action === 'start') {
+    if (!can(interaction.member, 'approveRegistration') && !can(interaction.member, 'importCsv')) {
+      return interaction.reply({ content: 'Voce nao tem permissao para iniciar esta campanha.', flags: MessageFlags.Ephemeral });
+    }
+    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    const result = await guildRemovalCampaign.startCampaign({
+      guild: interaction.guild,
+      actorId: interaction.user.id,
+      expectedSnapshotId: id
+    });
+    return interaction.editReply({
+      content: [
+        `Campanha #${result.id} publicada em <#${result.channelId}>.`,
+        `Candidatos avisados: **${result.candidates}** em **${result.messages}** mensagem(ns).`,
+        `Remocao prevista: <t:${Math.floor(result.executeAt.getTime() / 1000)}:F> (<t:${Math.floor(result.executeAt.getTime() / 1000)}:R>).`,
+        result.protected ? `Protegidos e excluidos: **${result.protected}**.` : null,
+        result.unverified ? `Sem cadastro, para revisao manual: **${result.unverified}**.` : null
+      ].filter(Boolean).join('\n'),
+      components: [],
+      embeds: [],
+      files: [],
+      allowedMentions: { parse: [] }
+    });
+  }
+  if (scope === 'guild_cleanup' && action === 'appeal') {
+    const candidate = guildRemovalCampaign.candidateForAppeal(id, interaction.user.id);
+    if (!candidate) {
+      return interaction.reply({ content: 'Voce nao esta na lista desta campanha.', flags: MessageFlags.Ephemeral });
+    }
+    if (candidate.campaign_status !== 'scheduled') {
+      return interaction.reply({ content: 'O prazo desta campanha ja terminou.', flags: MessageFlags.Ephemeral });
+    }
+    if (candidate.status === 'appealed') {
+      return interaction.reply({ content: 'Sua solicitacao de revisao ja foi registrada. Voce nao sera removido automaticamente nesta campanha.', flags: MessageFlags.Ephemeral });
+    }
+    if (candidate.status !== 'scheduled') {
+      return interaction.reply({ content: 'Sua situacao nesta campanha ja foi processada.', flags: MessageFlags.Ephemeral });
+    }
+    return showModal(interaction, `guild_cleanup:appeal:${id}`, 'Revisao da lista da guild', [
+      textInput('albionName', 'Seu nick atual no Albion', true, candidate.albion_name).setMaxLength(64),
+      textInput('reason', 'Explique por que ainda esta na guild', true, 'Ex: troquei de nick ou uso outro personagem', TextInputStyle.Paragraph).setMaxLength(1000)
+    ]);
+  }
+  if (scope === 'guild_cleanup' && action === 'cancel') {
+    if (!can(interaction.member, 'approveRegistration') && !can(interaction.member, 'importCsv')) {
+      return interaction.reply({ content: 'Voce nao tem permissao para cancelar esta campanha.', flags: MessageFlags.Ephemeral });
+    }
+    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+    await guildRemovalCampaign.cancelCampaign({
+      client: interaction.client,
+      campaignId: id,
+      guildId: interaction.guild.id,
+      actorId: interaction.user.id
+    });
+    return interaction.editReply({ content: `Campanha #${id} cancelada. Nenhum membro sera removido por este aviso.`, components: [] });
+  }
   if (scope === 'mandatory_rules' && action === 'ack') {
     const result = await mandatoryRules.acknowledge(interaction);
     await interaction.update({ components: result.components });
@@ -947,6 +1004,11 @@ async function handleButton(interaction) {
       return interaction.editReply({
         embeds: [await memberList.filteredEmbed(interaction.guild, id)]
       });
+    }
+
+    if (action === 'outside_guild') {
+      await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+      return interaction.editReply(await memberList.guildAbsencePayload(interaction.guild));
     }
   }
 

@@ -209,6 +209,20 @@ Anexos:
 - `voz`: CSV diario de voz gerado pelo bot.
 - `data`: data do relatorio em `AAAA-MM-DD`.
 
+### `/ausentes_guild`
+
+Compara quem possui o cargo Membro no Discord com a lista oficial da guild mais recente.
+
+Permissao interna: `approveRegistration` ou `importCsv`.
+
+O comando gera uma previa e um relatorio HTML. Pessoas sem nick Albion cadastrado e pessoas protegidas por cargo ou hierarquia nao entram na remocao automatica.
+
+O botao **Publicar aviso de 24 horas** inicia uma campanha no canal de regularizacao. Os membros sao mencionados e podem usar **Estou na lista, mas estou na guild. Por que?** para enviar o nick correto e uma explicacao. Uma contestacao retira a pessoa da remocao automatica daquela campanha e avisa a staff.
+
+No vencimento, o bot consulta novamente a lista oficial mais recente. Somente quem continuar ausente, estiver sem contestacao e ainda puder ser removido pelo bot recebe kick do servidor. O processo e o resultado ficam na auditoria.
+
+Enquanto houver campanha ativa, o mesmo comando mostra o prazo e permite que a staff a cancele.
+
 ### `/renomear_canais`
 
 Mostra ou aplica padronizacao de nomes dos canais do bot.

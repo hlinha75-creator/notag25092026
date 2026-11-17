@@ -24,6 +24,7 @@ const { startResourceMonitor } = require('./modules/operations/resourceMonitor')
 const campaigns = require('./modules/campaigns/campaigns.service');
 const guildReverification = require('./modules/members/guildReverification.service');
 const activityRoles = require('./modules/members/activityRoles.service');
+const guildRemovalCampaign = require('./modules/members/guildRemovalCampaign.service');
 const memberOnboarding = require('./modules/tutorials/memberOnboarding.service');
 const springHideout = require('./modules/community/springHideout.service');
 const giveaways = require('./modules/giveaways/giveaways.service');
@@ -159,6 +160,7 @@ client.once('clientReady', () => {
     backgroundTask(() => campaigns.refreshActiveCampaignProgress(client), 'Falha ao atualizar progresso da campanha:'),
     backgroundTask(() => campaigns.processExpiredEventPayouts(client), 'Falha ao processar escolhas vencidas da campanha:'),
     backgroundTask(() => guildVerification.processIdentificationNoticeQueue(client), 'Falha ao processar avisos de regularizacao:'),
+    backgroundTask(() => guildRemovalCampaign.processDueCampaigns(client), 'Falha ao processar campanhas de remocao da guild:'),
     backgroundTask(() => guildReverification.postReminderIfNeeded(client), 'Falha ao processar verificacao da guilda:'),
     backgroundTask(() => activityRoles.reconcileActivityRoles(client), 'Falha ao sincronizar cargos NOVO e CORE:'),
     backgroundTask(() => killFeed.pollKillFeed(client), 'Falha ao consultar killfeed:'),
@@ -186,6 +188,7 @@ client.once('clientReady', () => {
     { intervalMs: 10 * 60 * 1000, tasks: [backgroundTask(() => campaigns.processExpiredEventPayouts(client), 'Falha ao processar escolhas vencidas da campanha:')] },
     { intervalMs: 10 * 60 * 1000, tasks: [backgroundTask(() => campaigns.refreshActiveCampaignProgress(client), 'Falha ao atualizar progresso da campanha:')] },
     { intervalMs: 10 * 60 * 1000, tasks: [backgroundTask(() => guildVerification.processIdentificationNoticeQueue(client), 'Falha ao processar avisos de regularizacao:')] },
+    { intervalMs: 60 * 1000, tasks: [backgroundTask(() => guildRemovalCampaign.processDueCampaigns(client), 'Falha ao processar campanhas de remocao da guild:')] },
     { intervalMs: 60 * 60 * 1000, tasks: [backgroundTask(() => events.cleanupExpiredReviewChannels(client), 'Falha ao limpar canais de revisao:')] },
     {
       intervalMs: 60 * 60 * 1000,
