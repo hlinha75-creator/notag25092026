@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Plano de negócios educacional e interativo da NOTAG Corporation. Simulações fictícias, sem pagamento real e sem coleta de dados pessoais.">
+  <title>NOTAG Corporation — Plano de negócios</title>
+  <link rel="stylesheet" href="/assets/plano-negocios.css?v=20261117-2">
+</head>
+<body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+  <nav class="plan-nav" data-notag-site-nav aria-label="Seções do plano">
+    <a class="brand" href="#visao"><strong>NOTAG</strong><span>Plano de negócios</span></a>
+    <p class="progress-copy" data-progress-label>Seção 1 de 15: Visão geral</p>
+    <ol>
+      <li><a href="#visao" aria-current="true">Visão geral</a></li>
+      <li><a href="#concorrentes">Concorrentes</a></li>
+      <li><a href="#ecossistema">Ecossistema</a></li>
+      <li><a href="#pessoa">Uma pessoa com IA</a></li>
+      <li><a href="#arquitetura">Arquitetura</a></li>
+      <li><a href="#marketplace">Marketplace</a></li>
+      <li><a href="#verificacao">Verificação</a></li>
+      <li><a href="#pagamentos">Pagamentos</a></li>
+      <li><a href="#tributos">Tributos</a></li>
+      <li><a href="#custos">Custos</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#marketing">Marketing</a></li>
+      <li><a href="#roadmap">90 dias</a></li>
+      <li><a href="#riscos">Riscos</a></li>
+      <li><a href="#painel">Painel</a></li>
+    </ol>
+    <a class="home-link" href="/">Início</a>
+  </nav>
+
+  <main class="plan-main" id="conteudo">
+    <section class="section" id="visao">
+      <div class="section-inner hero-grid">
+        <div>
+          <p class="flag">Estimativa educacional · 17 de novembro de 2026</p>
+          <p class="kicker">01 — Visão geral</p>
+          <h1>NOTAG Corporation</h1>
+          <p class="lede">Um ecossistema gamer desenvolvido por uma pessoa com inteligência artificial.</p>
+          <div class="prose">
+            <p>A NOTAG que existe hoje é a guilda e a plataforma em <a href="https://notag.discloud.app">notag.discloud.app</a>: site, bot de Discord e banco SQLite no mesmo processo. Este plano organiza o que essa base pode vir a ser. Não é oferta de investimento, não publica preço e não promete resultado.</p>
+            <p>O diretor é Lucas Moura. O ritmo desenhado é de 6 horas por dia, 6 dias por semana, 36 horas semanais. A inteligência artificial redige, sugere e acelera. A decisão, o dado pessoal, o dinheiro e a regra do jogo continuam com a pessoa.</p>
+            <p>Os seis serviços abaixo são o mapa do ecossistema. Dream Team, LFG/LFM, Events, Bot e Academy nascem do que a guilda já faz. O marketplace é futuro e só avança se a regra do jogo, o contrato do meio de pagamento e a lei permitirem.</p>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="#ecossistema">Conhecer o projeto</a>
+            <a class="button" href="#servicos" data-open-service="servico-dream">Explorar os serviços</a>
+            <a class="button" href="#planos">Simular investimentos</a>
+            <a class="button" href="#roadmap">Ver plano de implementação</a>
+          </div>
+          <div class="service-row">
+            <a class="chip" href="#ecossistema" data-open-service="servico-dream">Dream Team</a>
+            <a class="chip" href="#ecossistema" data-open-service="servico-lfg">LFG/LFM</a>
+            <a class="chip" href="#ecossistema" data-open-service="servico-eventos">NOTAG Events</a>
+            <a class="chip" href="#ecossistema" data-open-service="servico-bot">NOTAG Bot</a>
+            <a class="chip" href="#ecossistema" data-open-service="servico-academy">NOTAG Academy</a>
+            <a class="chip" href="#ecossistema" data-open-service="servico-market">Marketplace</a>
+          </div>
+        </div>
+        <svg class="constellation" viewBox="0 0 720 480" role="img" aria-label="Animação ligando jogadores, guildas, eventos, bot e marketplace à NOTAG">
+          <defs>
+            <linearGradient id="planGlow" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#8ea2ff"/>
+              <stop offset="1" stop-color="#e7c98a"/>
+            </linearGradient>
+          </defs>
+          <g fill="none">
+            <path class="link" d="M150 90 C240 90 250 180 360 220"/>
+            <path class="link" d="M580 100 C500 120 460 170 390 210"/>
+            <path class="link" d="M120 360 C200 330 250 280 330 240"/>
+            <path class="link" d="M610 350 C520 330 470 280 400 245"/>
+            <path class="link" d="M360 430 C360 360 360 300 360 270"/>
+          </g>
+          <g class="pulse">
+            <circle class="node-core" cx="360" cy="230" r="54"/>
+            <text class="node-label" x="360" y="226" text-anchor="middle">NOTAG</text>
+            <text class="node-label" x="360" y="244" text-anchor="middle">Corporation</text>
+          </g>
+          <g>
+            <circle class="node-dot" cx="120" cy="78" r="36"/>
+            <text class="node-label" x="120" y="82" text-anchor="middle">Jogadores</text>
+            <circle class="node-dot" cx="600" cy="86" r="36"/>
+            <text class="node-label" x="600" y="90" text-anchor="middle">Guildas</text>
+            <circle class="node-dot" cx="96" cy="360" r="36"/>
+            <text class="node-label" x="96" y="364" text-anchor="middle">Eventos</text>
+            <circle class="node-dot" cx="624" cy="348" r="36"/>
+            <text class="node-label" x="624" y="352" text-anchor="middle">Bot</text>
+            <circle class="node-dot" cx="360" cy="430" r="28"/>
+            <text class="node-label" x="360" y="434" text-anchor="middle">Mercado</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" id="concorrentes">
+      <div class="section-inner">
+        <p class="kicker">02 — Análise dos concorrentes</p>
+        <h2>Quatro referências, sem copiar a marca delas.</h2>
+        <div class="prose">
+          <p>EZGame, FunPay, Raid-Helper e MEE6 entram só como texto e link oficial. Esta página não usa logo, código, cor proprietária nem identidade visual desses produtos. Consulta feita em 17 de novembro de 2026. Número que não está na fonte fica marcado como desconhecido. Alegação publicada pela própria empresa não é auditoria.</p>
+          <p>O que importa para a NOTAG não é repetir o catálogo de contas e moedas. É entender inscrição em evento, hábito de abrir o Discord, confiança na hora de pagar e o custo de operar sozinho.</p>
+        </div>
+        <div class="cards">
+          <details class="competitor" id="comp-ez">
+            <summary><span class="mark">EZ</span><span><strong>EZGame</strong><small>Marketplace brasileiro de produtos digitais</small></span></summary>
+            <div class="detail-body">
+              <h4>O que oferece</h4>
+              <p>A página Sobre descreve um marketplace em que jogadores compram e vendem moedas, itens, contas, serviços de boosting e gift cards, com Pix e proteção ao comprador. A página inicial fala em anúncio com entrega garantida, dinheiro protegido até a confirmação, vendedor verificado e identidade validada.</p>
+              <h4>Como funciona para o usuário</h4>
+              <p>O artigo público de 13 de agosto de 2026, atualizado em 17 de outubro de 2026, explica anúncio, entrega automática ou manual, chat do pedido e disputa. O mesmo artigo descreve espera de 8 horas no plano padrão e de 1 hora num plano VIP de +2,99% sobre o valor, com prazo máximo de 30 dias. Isso é texto daquele artigo, não uma medição feita aqui no checkout.</p>
+              <h4>Como adquire clientes</h4>
+              <p>O site público é um catálogo por jogo, com página institucional e artigo educativo. Gasto de anúncio, CAC e número de compradores: desconhecidos nesta consulta.</p>
+              <h4>Como ganha dinheiro</h4>
+              <p>O modelo visível é intermediação com retenção até a confirmação. O percentual de comissão da EZGame: desconhecido nesta consulta. Não há, aqui, faturamento, lucro ou GMV oficial.</p>
+              <h4>Como se divulga</h4>
+              <p>Pela própria vitrine, por texto de segurança e por atendimento anunciado na home como sete dias por semana. Canais pagos: desconhecidos.</p>
+              <h4>O que importa para a NOTAG</h4>
+              <p>A separação entre anúncio, pagamento dentro da plataforma, chat que vira registro e disputa com prazo. Também a frase de que pagar por fora acaba com a proteção.</p>
+              <h4>O que pede mais investimento</h4>
+              <p>Verificação de vendedor, operação de disputa e suporte humano. Uma pessoa em 36 horas não replica isso no primeiro trimestre.</p>
+              <h4>Riscos operacionais</h4>
+              <p>Conta, moeda e boosting podem violar a regra do jogo. Chargeback, golpe e guarda de documento são pesados demais para copiar sem advogado, contador e provedor. A NOTAG não adota esse catálogo como plano.</p>
+              <p class="meta">Fontes: <a href="https://ezgame.com.br/about-us">ezgame.com.br/about-us</a>, <a href="https://ezgame.com.br/">ezgame.com.br</a>, <a href="https://ezgame.com.br/blog/comprar-conta-de-jogo-com-seguranca">artigo de segurança</a>.</p>
+            </div>
+          </details>
+          <details class="competitor">
+            <summary><span class="mark">FP</span><span><strong>FunPay</strong><small>Loja de produtos e serviços de jogos</small></span></summary>
+            <div class="detail-body">
+              <h4>O que oferece</h4>
+              <p>A loja pública organiza ofertas por jogo em categorias como contas, recarga, chaves, itens, serviços e boosting. É um catálogo grande, não um bot de guilda.</p>
+              <h4>Como funciona para o usuário</h4>
+              <p>O acordo do usuário diz que a plataforma não é parte da transação entre comprador e vendedor, que a entrega do bem ocorre fora do site e que o comprador confirma o recebimento antes de o pagamento ficar disponível ao vendedor. O artigo de princípios descreve duas operações: recarga de saldo, com taxa do meio de pagamento, e pagamento do pedido com esse saldo.</p>
+              <h4>Como adquire clientes</h4>
+              <p>A descoberta visível é o catálogo por jogo. Orçamento de mídia, embaixadores e base de usuários: desconhecidos nesta consulta.</p>
+              <h4>Como ganha dinheiro</h4>
+              <p>O artigo de comissões, alterado em 20 de agosto de 2025, descreve três taxas: a do meio no pagamento, a comissão FunPay sobre pedido concluído e a taxa de saque. O próprio artigo diz que a comissão varia por seção, fica em média perto de 9%, é de 3% em muitas seções e é bem maior em outras. Se o vendedor devolve o pedido, a comissão FunPay também volta. A taxa do meio de pagamento, no cancelamento, não volta. Não há aqui GMV, lucro ou número de vendedores.</p>
+              <h4>Como se divulga</h4>
+              <p>Pela vitrine e pela central de ajuda. Campanhas pagas: desconhecidas.</p>
+              <h4>O que importa para a NOTAG</h4>
+              <p>Comissão variável por categoria, em vez de um percentual eterno. E a diferença entre taxa do meio, comissão da plataforma e taxa de saque. O simulador desta página separa essas peças de propósito.</p>
+              <h4>O que pede mais investimento</h4>
+              <p>Suporte de disputa, regra por jogo e operação de saque. O acordo ainda diz que a plataforma não verifica as regras dos jogos. Para a NOTAG, essa lacuna é um risco, não um modelo a copiar.</p>
+              <h4>Riscos operacionais</h4>
+              <p>Venda de conta ou moeda pode quebrar o contrato do jogo e o do provedor de pagamento. Dependência de um saldo interno também concentra fraude e saque.</p>
+              <p class="meta">Fontes: <a href="https://funpay.com/en/">funpay.com</a>, <a href="https://funpay.com/en/account/agreement">acordo</a>, <a href="https://funpay.freshdesk.com/support/solutions/articles/103000273187-fees">comissões</a>, <a href="https://funpay.freshdesk.com/support/solutions/articles/103000273184-%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF%D1%8B-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">princípios</a>.</p>
+            </div>
+          </details>
+          <details class="competitor">
+            <summary><span class="mark">RH</span><span><strong>Raid-Helper</strong><small>Eventos dentro do Discord</small></span></summary>
+            <div class="detail-body">
+              <h4>O que oferece</h4>
+              <p>A página oficial descreve uma ferramenta para criar e organizar eventos no Discord, com personalização, enquetes, reaction roles, embeds, vários idiomas, painel web e suporte no Discord do projeto. Afirma operação desde 2019, disponibilidade de 99,9% e custo de servidor coberto por anos. Essas frases são alegações do próprio site.</p>
+              <h4>Como funciona para o usuário</h4>
+              <p>Pelo que a home declara, o organizador cria o evento sem depender de um comando difícil e os membros interagem no Discord. O detalhe de classes, specs e reações não estava descrito na página inicial consultada. Por isso esse detalhe fica como desconhecido nesta consulta, mesmo sendo fama comum do produto.</p>
+              <h4>Como adquire clientes</h4>
+              <p>Bot no Discord, site e servidor de suporte. Quantidade de servidores na página inicial: desconhecida. Não uso número publicado por site de terceiro.</p>
+              <h4>Como ganha dinheiro</h4>
+              <p>A home não publica preço de Premium. Preço: desconhecido nesta consulta.</p>
+              <h4>Como se divulga</h4>
+              <p>Pelo próprio produto, que aparece onde o evento acontece, e por uma página curta de benefícios. Verba de anúncio: desconhecida.</p>
+              <h4>O que importa para a NOTAG</h4>
+              <p>Evento no lugar em que o jogador já está, modelo simples de começar e um painel para quem não quer viver no comando. A NOTAG já tem evento, vaga e voz na guilda. O caminho é aprofundar isso, não prometer o conjunto inteiro de outro bot em 90 dias.</p>
+              <h4>O que pede mais investimento</h4>
+              <p>Modelo multi-servidor, disponibilidade alta e suporte contínuo. O repositório atual usa IDs fixos de uma guilda. Generalizar isso é projeto próprio, com cuidado.</p>
+              <h4>Riscos operacionais</h4>
+              <p>Depender de um bot terceiro para a rotina da guilda, e também o inverso: prometer uptime de produto global com um processo só e 512 MB na Discloud.</p>
+              <p class="meta">Fonte: <a href="https://raid-helper.xyz/">raid-helper.xyz</a>. Preço e base instalada não estavam na home em 17 de novembro de 2026.</p>
+            </div>
+          </details>
+          <details class="competitor">
+            <summary><span class="mark">M6</span><span><strong>MEE6</strong><small>Bot de servidor com plano Premium</small></span></summary>
+            <div class="detail-body">
+              <h4>O que oferece</h4>
+              <p>O artigo oficial de 16 de junho de 2026 compara Free e Premium: automações, comandos, moderação, reaction roles, boas-vindas, enquetes, embeds, canais temporários, lembretes, alertas de redes, economia, sorteios, conquistas e níveis. IA e o plano Pro são produtos separados, não inclusos no Premium.</p>
+              <h4>Como funciona para o usuário</h4>
+              <p>O dono do servidor instala o bot, configura plugins e, se quiser limite maior ou recurso exclusivo, assina por aquele servidor. O artigo de serviços diz que o Premium vale para um servidor e pode ser movido.</p>
+              <h4>Como adquire clientes</h4>
+              <p>A página de Premium afirma “more than 21 million servers”. É alegação comercial da MEE6, não auditoria independente. O funil exato de instalação: desconhecido.</p>
+              <h4>Como ganha dinheiro</h4>
+              <p>Assinatura por servidor, mais serviços separados de IA e Pro. Em 17 de novembro de 2026 a página de Premium exibia lifetime promocional de US$ 54,99, com âncora de US$ 109,99, e plano anual de US$ 29,99 no primeiro ano, renovando a US$ 59,99. Havia valor mensal na mesma página, mas a leitura automática não separou com segurança o preço mensal do equivalente mensal do lifetime. O mensal fica como “conferir na página oficial”. Preço muda com moeda e promoção.</p>
+              <h4>Como se divulga</h4>
+              <p>Pelo bot já instalado, pela página de upgrade e por alerta de rede social que o próprio Premium destrava. Verba de mídia: desconhecida.</p>
+              <h4>O que importa para a NOTAG</h4>
+              <p>Plano gratuito que já entrega valor e plano pago por comunidade, com limite claro. Também a lição de não misturar assinatura do servidor com outro produto, como IA, na mesma cobrança.</p>
+              <h4>O que pede mais investimento</h4>
+              <p>Moderação genérica, níveis, economia e dezenas de plugins. Isso não cabe em 90 dias de uma pessoa e não é o foco da NOTAG.</p>
+              <h4>Riscos operacionais</h4>
+              <p>Competir em plugin horizontal com um produto que já declara dezenas de milhões de servidores. A NOTAG ganha especificidade de grupo, evento e guilda, não largura de recurso.</p>
+              <p class="meta">Fontes: <a href="https://mee6.xyz/en/premium">página Premium</a>, <a href="https://help.mee6.xyz/en/articles/710936-mee6-free-vs-premium-plans-comparison">Free e Premium</a>, <a href="https://help.mee6.xyz/en/articles/611792-understanding-mee6-services-from-premium-to-ai-to-pro">serviços separados</a>.</p>
+            </div>
+          </details>
+        </div>
+
+        <h3>Tabela comparativa</h3>
+        <p class="note">Célula sem fonte pública nesta consulta aparece como desconhecido. “Não é o produto” significa que a página oficial descreve outra coisa, não que um recurso secreto foi medido.</p>
+        <div class="filters" role="group" aria-label="Filtrar capacidades">
+          <button class="choice" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="choice" type="button" data-filter="marketplace" aria-pressed="false">Marketplace</button>
+          <button class="choice" type="button" data-filter="bot" aria-pressed="false">Bot Discord</button>
+          <button class="choice" type="button" data-filter="eventos" aria-pressed="false">Gestão de eventos</button>
+          <button class="choice" type="button" data-filter="marketing" aria-pressed="false">Marketing</button>
+          <button class="choice" type="button" data-filter="monetizacao" aria-pressed="false">Monetização</button>
+        </div>
+        <p class="note" data-filter-status>Mostrando todas as capacidades.</p>
+        <div class="table-wrap">
+          <table id="comparison-table">
+            <caption class="note">Comparação qualitativa consultada em 17 de novembro de 2026.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Capacidade</th>
+                <th scope="col">NOTAG</th>
+                <th scope="col">EZGame</th>
+                <th scope="col">FunPay</th>
+                <th scope="col">Raid-Helper</th>
+                <th scope="col">MEE6</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-areas="marketplace">
+                <th scope="row">Catálogo de produtos digitais de jogos</th>
+                <td>Futuro e condicionado à regra do jogo, ao provedor e à lei. Não é o plano vender conta ou ouro proibido.</td>
+                <td>Sim. Sobre: moedas, itens, contas, boosting e gift cards.</td>
+                <td>Sim. Loja pública por jogo, com contas, recarga, itens e serviços.</td>
+                <td>Não é o produto descrito na home.</td>
+                <td>Não é o produto descrito. Há plugin de economia, que é outra coisa.</td>
+              </tr>
+              <tr data-areas="marketplace monetizacao">
+                <th scope="row">Proteção até o comprador confirmar</th>
+                <td>Desenho futuro. Não está implementado e não é escrow automático.</td>
+                <td>Sim, declarado na home e no artigo de outubro de 2026.</td>
+                <td>Sim. O acordo libera o pagamento do vendedor depois da confirmação.</td>
+                <td>Não se aplica ao produto descrito.</td>
+                <td>Não se aplica ao produto descrito.</td>
+              </tr>
+              <tr data-areas="marketplace monetizacao">
+                <th scope="row">Comissão publicada</th>
+                <td>Não há preço publicado. Os 10% do simulador são fictícios.</td>
+                <td>Desconhecida nesta consulta.</td>
+                <td>Artigo de 20 ago 2025: varia por seção; média cerca de 9%; muitas seções em 3%; outras bem maiores.</td>
+                <td>Não é comissão de marketplace. Preço do Premium: desconhecido na home.</td>
+                <td>Não é o modelo principal. A receita visível é assinatura.</td>
+              </tr>
+              <tr data-areas="bot">
+                <th scope="row">Bot no Discord</th>
+                <td>Sim, hoje, para a guilda NOTAG. Não é um bot genérico de qualquer servidor.</td>
+                <td>Não descrito como produto principal.</td>
+                <td>Não descrito como produto principal.</td>
+                <td>Sim. É o centro do produto.</td>
+                <td>Sim. É o centro do produto.</td>
+              </tr>
+              <tr data-areas="bot">
+                <th scope="row">Moderação, níveis e comandos amplos</th>
+                <td>Parcial e específico da guilda. Não é um pacote horizontal.</td>
+                <td>Desconhecido.</td>
+                <td>Desconhecido.</td>
+                <td>A home cita reaction roles, embeds e enquetes. Moderação completa: não descrita na home.</td>
+                <td>Sim, com limites diferentes em Free e Premium, segundo o artigo de 16 jun 2026.</td>
+              </tr>
+              <tr data-areas="eventos bot">
+                <th scope="row">Inscrição em evento</th>
+                <td>Sim no bot atual: vaga, voz, loot e saldo da guilda.</td>
+                <td>Não descrito.</td>
+                <td>Não descrito.</td>
+                <td>Sim. A home é inteira sobre organizar eventos.</td>
+                <td>Parcial: enquete, lembrete e canal temporário. Raid no estilo de guilda não é o foco declarado.</td>
+              </tr>
+              <tr data-areas="eventos">
+                <th scope="row">Vaga por função Tank, Healer, DPS</th>
+                <td>Sim na rotina atual da guilda.</td>
+                <td>Não descrito.</td>
+                <td>Não descrito.</td>
+                <td>Desconhecido na home oficial consultada. Não confirmo detalhe de classe por reação sem a página que o diga.</td>
+                <td>Desconhecido como recurso de composição de grupo.</td>
+              </tr>
+              <tr data-areas="marketing">
+                <th scope="row">Superfície pública de descoberta</th>
+                <td>Site da guilda e Discord. Alcance pago: não medido.</td>
+                <td>Catálogo e artigo. Mídia paga: desconhecida.</td>
+                <td>Catálogo por jogo. Mídia paga: desconhecida.</td>
+                <td>Site, bot e Discord de suporte. Base instalada: desconhecida na home.</td>
+                <td>Site, bot e página de Premium. A própria página alega mais de 21 milhões de servidores.</td>
+              </tr>
+              <tr data-areas="monetizacao">
+                <th scope="row">Assinatura</th>
+                <td>Planos desta página são hipotéticos: Free, Guild Pro e Guild Business. Não estão à venda.</td>
+                <td>Não descrita como assinatura de bot. O artigo cita um VIP de disputa; condições atuais devem ser relidas no site.</td>
+                <td>Não descrita como assinatura de servidor.</td>
+                <td>Preço: desconhecido na home de 17 nov 2026.</td>
+                <td>Sim, por servidor. Valores promocionais lidos naquele dia: lifetime US$ 54,99 e anual US$ 29,99 / US$ 59,99. Mensal: conferir a página.</td>
+              </tr>
+              <tr data-areas="marketing monetizacao bot eventos marketplace">
+                <th scope="row">Usuários, receita e lucro oficiais</th>
+                <td>Desconhecidos como métrica pública auditada. O painel desta página é fictício.</td>
+                <td>Desconhecidos nesta consulta.</td>
+                <td>Desconhecidos nesta consulta.</td>
+                <td>Uptime de 99,9% e início em 2019 são alegações da home. Receita: desconhecida.</td>
+                <td>A alegação de servidores é da própria página. Receita e lucro: desconhecidos.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ecossistema">
+      <div class="section-inner">
+        <p class="kicker">03 — Ecossistema NOTAG</p>
+        <h2>Seis serviços, uma operação.</h2>
+        <div class="prose">
+          <p>O jogador não precisa entender a empresa. Ele precisa achar um grupo, entrar num evento ou aprender o próximo passo. Cada serviço abaixo abre o que entrega, para quem é, como seria construído em cima do repositório atual e o que não deve ser prometido.</p>
+        </div>
+        <div class="hub"><strong>NOTAG CORPORATION</strong><span>Site, bot, banco e pessoas na mesma operação</span></div>
+        <div class="talk" aria-hidden="true">
+          <span>Usuário</span>
+          <span>Site</span>
+          <span>Bot Discord</span>
+          <span>Banco</span>
+        </div>
+        <div class="service-grid" id="servicos">
+          <details class="service-card" id="servico-dream">
+            <summary><span class="mark">01</span><span><strong>Dream Team</strong><small>Grupo com função para jogar hoje</small></span></summary>
+            <div class="detail-body">
+              <p>Um jogador declara função e horário. O organizador vê quem falta: tank, healer, suporte ou DPS. O grupo fecha quando as vagas fecham.</p>
+              <h4>Público</h4>
+              <p>Quem joga solo e quem chama grupo no mesmo dia.</p>
+              <h4>Recursos principais</h4>
+              <p>Perfil de função, horário, vaga limitada e convite de volta ao Discord.</p>
+              <h4>Como será construído</h4>
+              <p>Em cima dos eventos e das vagas que o bot já conhece. Não exige marketplace nem pagamento.</p>
+              <h4>Integrações</h4>
+              <p>Discord OAuth do portal, cargos e canal de participação. Nada de token no navegador.</p>
+              <h4>Monetização possível</h4>
+              <p>Nenhuma no núcleo. No futuro, uma guilda pode pagar um plano para ter mais eventos simultâneos. Isso é hipótese.</p>
+              <h4>Complexidade e prioridade</h4>
+              <p>Complexidade média. Prioridade alta na fase Dream Team e Eventos, porque a guilda já sente essa dor.</p>
+            </div>
+          </details>
+          <details class="service-card" id="servico-lfg">
+            <summary><span class="mark">02</span><span><strong>LFG/LFM</strong><small>Procurar grupo ou procurar mais gente</small></span></summary>
+            <div class="detail-body">
+              <p>LFG é “procuro grupo”. LFM é “procuro mais gente para o grupo que já existe”. O anúncio dura pouco: conteúdo, horário e função. Não é loja.</p>
+              <h4>Público</h4>
+              <p>Jogador avulso e líder de grupo pequeno.</p>
+              <h4>Recursos principais</h4>
+              <p>Quadro do dia, filtro por conteúdo e encerramento automático quando o horário passa.</p>
+              <h4>Como será construído</h4>
+              <p>Como uma lista curta ligada ao mesmo cadastro de evento. Primeiro na NOTAG, só depois em outra comunidade, e ainda assim como protótipo.</p>
+              <h4>Integrações</h4>
+              <p>Mensagem no Discord e página do site. Sem pagamento.</p>
+              <h4>Monetização possível</h4>
+              <p>Indireta: o quadro ajuda a retenção que, um dia, sustenta um plano de guilda. Não há taxa por anúncio neste plano de 90 dias.</p>
+              <h4>Complexidade e prioridade</h4>
+              <p>Complexidade média. Prioridade alta, junto do Dream Team.</p>
+            </div>
+          </details>
+          <details class="service-card" id="servico-eventos">
+            <summary><span class="mark">03</span><span><strong>NOTAG Events</strong><small>Inscrição, vaga, voz e fechamento</small></span></summary>
+            <div class="detail-body">
+              <p>É o serviço mais próximo do que já está em produção: criar evento, ocupar vaga, abrir voz, acompanhar presença, fechar loot e lançar saldo da guilda. O plano não reescreve isso. Organiza a experiência e a explicação.</p>
+              <h4>Público</h4>
+              <p>Caller, staff e membro que quer saber onde entrar.</p>
+              <h4>Recursos principais</h4>
+              <p>Vagas por função, horário, lista de presença e página de inscrição legível no celular.</p>
+              <h4>Como será construído</h4>
+              <p>Revisando o fluxo que o bot já tem e desenhando a página pública de inscrição. Loot e saldo continuam internos da guilda.</p>
+              <h4>Integrações</h4>
+              <p>Bot Discord, canais, voz temporária e o banco SQLite atual.</p>
+              <h4>Monetização possível</h4>
+              <p>Para outras comunidades, no futuro, um plano por servidor. Para a NOTAG, o evento segue sendo ferramenta da guilda.</p>
+              <h4>Complexidade e prioridade</h4>
+              <p>A base existe, então a complexidade de um primeiro corte é média. Prioridade alta.</p>
+            </div>
+          </details>
+          <details class="service-card" id="servico-bot">
+            <summary><span class="mark">04</span><span><strong>NOTAG Bot</strong><small>A rotina que já responde no Discord</small></span></summary>
+            <div class="detail-body">
+              <p>O bot atual não é um produto de prateleira. Ele conhece cargos, canais e categorias desta guilda. O serviço “NOTAG Bot”, como oferta, seria um conjunto menor de módulos que outra comunidade pudesse ligar sem herdar os IDs da NOTAG.</p>
+              <h4>Público</h4>
+              <p>Primeiro a própria staff. Depois, um organizador de outra comunidade, em teste controlado.</p>
+              <h4>Recursos principais</h4>
+              <p>Evento, aviso, inscrição e, só se fizer sentido, um painel de leitura. Moderação genérica fica de fora.</p>
+              <h4>Como será construído</h4>
+              <p>Mapeando o que está preso em configuração fixa. O mapa é trabalho de 90 dias. A troca de arquitetura não entra neste ciclo e não entra neste pull request.</p>
+              <h4>Integrações</h4>
+              <p>discord.js, o servidor HTTP que já existe e o login OAuth para a staff e para o portal do membro.</p>
+              <h4>Monetização possível</h4>
+              <p>Plano hipotético por servidor, desenhado na seção de planos, sem cobrança real agora.</p>
+              <h4>Complexidade e prioridade</h4>
+              <p>Manter o bot atual é prioridade contínua. Generalizar é complexidade alta e prioridade média, atrás de evento e grupo.</p>
+            </div>
+          </details>
+          <details class="service-card" id="servico-academy">
+            <summary><span class="mark">05</span><span><strong>NOTAG Academy</strong><small>Trilha curta para jogar e organizar</small></span></summary>
+            <div class="detail-body">
+              <p>A cartilha que o bot já aponta é a semente. Academy é uma trilha curta: como entrar na guilda, como ler um evento, como chamar um grupo sem bagunçar o canal.</p>
+              <h4>Público</h4>
+              <p>Membro novo e organizador iniciante.</p>
+              <h4>Recursos principais</h4>
+              <p>Aula curta, exemplo visual de inscrição e um checklist. Sem certificado com valor oficial.</p>
+              <h4>Como será construído</h4>
+              <p>Reusando a página de cartilha e o tom do site. Sem plataforma de curso separada.</p>
+              <h4>Integrações</h4>
+              <p>Páginas estáticas do site e, se couber, um lembrete no Discord.</p>
+              <h4>Monetização possível</h4>
+              <p>O básico permanece gratuito. Trilha avançada pode entrar num plano de guilda no futuro. Não há matrícula paga neste plano.</p>
+              <h4>Complexidade e prioridade</h4>
+              <p>Complexidade baixa. Prioridade média, porque ajuda o marketing e o suporte ao mesmo tempo.</p>
+            </div>
+          </details>
+          <details class="service-card" id="servico-market">
+            <summary><span class="mark">06</span><span><strong>Marketplace</strong><small>Futuro, só se for permitido</small></span></summary>
+            <div class="detail-body">
+              <p>Há hoje, no Discord da guilda, anúncios de compra e venda entre membros. Isso não é marketplace com pagamento, split ou verificação. O serviço futuro é outra coisa e pode nem nascer.</p>
+              <h4>Público</h4>
+              <p>Um organizador ou prestador de serviço permitido, e um jogador que contrata por dentro de uma regra clara. Conta, ouro e item proibidos pelo jogo não são o produto.</p>
+              <h4>Recursos principais</h4>
+              <p>Pedido de cadastro, verificação por empresa especializada, publicação de serviço lícito, pedido, pagamento no provedor, entrega, conclusão, repasse e comissão. Tudo isso está desenhado nas seções seguintes como educação, não como sistema ligado.</p>
+              <h4>Como será construído</h4>
+              <p>Só depois de contador, leitura da regra do jogo e contrato de pagamento. Nenhum formulário desta página coleta documento.</p>
+              <h4>Integrações</h4>
+              <p>Provedor de pagamento, verificador de identidade e o banco da aplicação. A NOTAG não guarda cópia de documento se a empresa especializada puder atestar só o resultado.</p>
+              <h4>Monetização possível</h4>
+              <p>Comissão sobre serviço permitido. O exemplo de 10% é fictício.</p>
+              <h4>Complexidade e prioridade</h4>
+              <p>Complexidade alta. Prioridade baixa nos 90 dias: estudar e escrever a política, sem cobrar ninguém.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pessoa">
+      <div class="section-inner">
+        <p class="kicker">04 — Uma empresa de uma pessoa com IA</p>
+        <h2>Lucas Moura dirige. A IA não assina.</h2>
+        <div class="prose">
+          <p>Sete papéis cabem na mesma semana de 36 horas. A IA pode ocupar a cadeira de rascunho. Não ocupa a cadeira de contador, de advogado, de decisão legal nem de responsabilidade perante o jogador. Se a ferramenta erra, a responsabilidade continua humana.</p>
+          <p>Nenhuma destas ferramentas substitui profissional habilitado. Texto de imposto desta página é educação. Contrato, CNAE e enquadramento saem de uma consulta real, com o documento da empresa na mesa, não de um chat.</p>
+        </div>
+        <div class="cards">
+          <details class="role"><summary><span class="mark">Cód</span><span><strong>IA de programação</strong><small>Rascunho, teste e leitura do repositório</small></span></summary><div class="detail-body"><p>Propõe função, explica o que o arquivo já faz e escreve teste repetitivo. Ferramentas: o editor com assistente, Node.js, a suíte node:test e o Git que já versiona este projeto.</p><p>Dá para automatizar o primeiro rascunho e a checagem de sintaxe. Precisa de aprovação humana tudo o que vai para o bot em produção, qualquer migração e qualquer mensagem que o membro lê.</p><p>Custo possível: a assinatura do assistente. O valor de mercado muda; lance o número na categoria IA do calculador de custos. Não é fatura.</p><p>Risco: código seguro de si e errado, e trecho sensível colado num prompt. Segredo fica no ambiente, nunca no front e nunca no chat.</p></div></details>
+          <details class="role"><summary><span class="mark">Dsn</span><span><strong>Design</strong><small>Hierarquia, contraste e a cara da NOTAG</small></span></summary><div class="detail-body"><p>Cuida de leitura, estado de botão, celular e de a página parecer a NOTAG, não uma cópia de outro produto. Ferramentas: o CSS do próprio site e SVG feito aqui. Um editor visual é opcional.</p><p>Dá para automatizar variação de layout. A aprovação humana olha contraste, foco visível e se o texto cabe no polegar.</p><p>Custo possível: zero no começo. Um editor pago entra como estimativa na categoria “outras”.</p><p>Risco: interface bonita que não se opera por teclado, ou identidade genérica que o jogador não reconhece.</p></div></details>
+          <details class="role"><summary><span class="mark">QA</span><span><strong>Testes e segurança</strong><small>O que não pode vazar nem quebrar</small></span></summary><div class="detail-body"><p>Roda a suíte, a checagem de sintaxe e a verificação de arquivo sensível. Olha cabeçalho de segurança, cookie e o que o navegador recebe. Ferramentas já presentes: npm test, test:syntax e test:repository.</p><p>Dá para automatizar regressão de cálculo, como os simuladores desta página. Aprovação humana: o que se guarda, quem vê o dashboard e qualquer mudança de sessão.</p><p>Custo possível: sobretudo hora do diretor. Scanner pago não está no repositório e não é obrigatório para este plano.</p><p>Risco: teste que passa porque a afirmação ficou fraca, e IA “corrigindo” segurança sem entender o fluxo do Discord.</p></div></details>
+          <details class="role"><summary><span class="mark">Mkt</span><span><strong>Marketing</strong><small>Pauta, página e medida</small></span></summary><div class="detail-body"><p>Escreve roteiro, legenda e a página para onde o vídeo aponta. Ferramentas: TikTok, YouTube Shorts, Instagram Reels, Discord e o site. Nenhuma delas está ligada a esta página por API.</p><p>Dá para automatizar pauta e variação de frase. Publicar, prometer vaga e usar imagem de outra pessoa exigem a pessoa.</p><p>Custo possível: o orçamento que você digita no simulador de marketing. Ele não reserva verba.</p><p>Risco: anúncio que promete grupo, prêmio ou preço que o produto não entrega.</p></div></details>
+          <details class="role"><summary><span class="mark">Sup</span><span><strong>Atendimento</strong><small>Resposta com dono</small></span></summary><div class="detail-body"><p>Responde jogador e organizador. No futuro, se houver vendedor, também a disputa. Ferramenta atual: o Discord da guilda e um modelo de resposta.</p><p>Dá para automatizar a primeira minuta e a classificação do pedido. Banimento, reembolso, acusação de golpe e dado pessoal não saem sem leitura humana.</p><p>Custo possível: hora que deixa de ir para código. O distribuidor de horas abaixo existe para mostrar esse conflito.</p><p>Risco: fila crescendo enquanto a única pessoa está construindo, e resposta automática que promete o que a regra não diz.</p></div></details>
+          <details class="role"><summary><span class="mark">Dad</span><span><strong>Análise de dados</strong><small>Contar sem inventar</small></span></summary><div class="detail-body"><p>Lê evento, inscrição, erro e custo, e separa fato de hipótese. Ferramentas: o SQLite local, a rota /health, o log de CPU e memória que o processo já escreve, e uma planilha simples.</p><p>Dá para automatizar consulta e gráfico. Publicar número de membro, exportar lista ou colar dado pessoal num prompt exige aprovação.</p><p>Custo possível: baixo enquanto o banco for o arquivo atual. Um banco servidor, se um dia existir, entra como estimativa, não como decisão desta página.</p><p>Risco: tratar o painel fictício do final como se fosse o banco real, e métrica de vaidade no lugar de grupo que realmente jogou.</p></div></details>
+          <details class="role"><summary><span class="mark">Ops</span><span><strong>Operações</strong><small>Backup, publicação e incidente</small></span></summary><div class="detail-body"><p>Cuida do sobe-e-desce do processo, do backup e do que fazer quando a RAM aperta. Ferramentas já no projeto: backup no startup, npm run backup:db, monitor de recurso e a publicação operacional na Discloud. O GitHub deste repositório testa. Não achei workflow que publique sozinho.</p><p>Dá para automatizar lembrete e checklist. Restaurar banco, mudar variável de produção e gastar dinheiro pedem a pessoa.</p><p>Custo possível: o plano de hospedagem, lançado como estimativa na categoria hospedagem. Não é a fatura da Discloud.</p><p>Risco: uma gripe para a operação inteira. Este plano não esconde o limite de uma pessoa só.</p></div></details>
+        </div>
+
+        <h3>Distribuidor das 36 horas</h3>
+        <p class="note">Arraste uma categoria. Se a soma passar de 36 horas, as outras diminuem, das maiores para as menores. Simulação local, sem envio.</p>
+        <div class="actions">
+          <button class="button" type="button" data-hour-preset="foco">Priorizar desenvolvimento</button>
+          <button class="button ghost" type="button" data-hour-preset="equilibrio">Dividir em partes iguais</button>
+        </div>
+        <div class="form-grid">
+          <label class="field">Desenvolvimento <output data-hour-out="desenvolvimento">16 h</output><input data-hour="desenvolvimento" type="range" min="0" max="36" step="0.5" value="16" aria-label="Horas de desenvolvimento"></label>
+          <label class="field">Testes <output data-hour-out="testes">6 h</output><input data-hour="testes" type="range" min="0" max="36" step="0.5" value="6" aria-label="Horas de testes"></label>
+          <label class="field">Marketing <output data-hour-out="marketing">5 h</output><input data-hour="marketing" type="range" min="0" max="36" step="0.5" value="5" aria-label="Horas de marketing"></label>
+          <label class="field">Atendimento <output data-hour-out="atendimento">3 h</output><input data-hour="atendimento" type="range" min="0" max="36" step="0.5" value="3" aria-label="Horas de atendimento"></label>
+          <label class="field">Administração <output data-hour-out="administracao">3 h</output><input data-hour="administracao" type="range" min="0" max="36" step="0.5" value="3" aria-label="Horas de administração"></label>
+          <label class="field">Planejamento <output data-hour-out="planejamento">3 h</output><input data-hour="planejamento" type="range" min="0" max="36" step="0.5" value="3" aria-label="Horas de planejamento"></label>
+        </div>
+        <p aria-live="polite"><strong data-hour-total>36 h de 36 h</strong></p>
+        <div class="donut-wrap">
+          <svg class="donut" data-hour-donut viewBox="0 0 42 42" role="img" aria-label="Gráfico das horas da semana"></svg>
+          <ul class="legend" data-hour-legend></ul>
+        </div>
+        <div class="bars" data-hour-bars></div>
+      </div>
+    </section>
+
+    <section class="section" id="arquitetura">
+      <div class="section-inner">
+        <p class="kicker">05 — Arquitetura técnica</p>
+        <h2>O que o repositório faz hoje.</h2>
+        <div class="prose">
+          <p>O processo de entrada é <code>src/index.js</code>. Ele sobe o bot Discord e o site no mesmo Node.js. Não há Express, não há TypeScript e não há etapa de build separada. A página que você está lendo é um HTML servido por <code>src/web/server.js</code>, no mesmo servidor das páginas que já existem. Esta entrega não troca essa stack.</p>
+          <p>O banco em uso é SQLite, via better-sqlite3, no caminho configurado por <code>DATABASE_PATH</code>, com padrão <code>data/notag.sqlite</code>. Não há PostgreSQL no projeto. Um banco servidor só faria sentido se, no futuro, muitas escritas concorrentes de um marketplace pedissem isso. Não é proposta deste ciclo e não há migração aqui.</p>
+        </div>
+        <div class="arch">
+          <details class="arch-step" open><summary><strong>Usuário</strong><small>Navegador ou Discord</small></summary><div class="detail-body"><p>O membro abre o site ou fala com o bot. O visitante da home pública não precisa de conta. Staff e portal entram por OAuth.</p></div></details>
+          <details class="arch-step"><summary><strong>Site NOTAG</strong><small>HTML em public/</small></summary><div class="detail-body"><p>As páginas vivem em <code>src/web/public</code>. O servidor entrega o arquivo e acrescenta cabeçalhos: CSP sem script externo, proteção de quadro, nosniff e, em produção, HSTS. Esta página recusa a navegação flutuante padrão para não cobrir o plano, e traz o próprio link de volta à home.</p></div></details>
+          <details class="arch-step"><summary><strong>Discord OAuth2</strong><small>Staff e portal</small></summary><div class="detail-body"><p>Há dois começos: <code>/auth/discord</code> para a staff e <code>/join/discord</code> para o membro. O callback troca o código no Discord. O segredo do cliente e a chave que assina o cookie ficam só no ambiente do processo. Nenhum dos dois é embutido nesta página.</p></div></details>
+          <details class="arch-step"><summary><strong>API backend</strong><small>Rotas /api no mesmo processo</small></summary><div class="detail-body"><p>Não existe um segundo serviço. As rotas <code>/api</code> leem sessão, conferem CSRF nos formulários do portal e chamam os módulos. O plano de negócios não adiciona API nova e não recebe dado de volta.</p></div></details>
+          <details class="arch-step"><summary><strong>Banco</strong><small>SQLite local</small></summary><div class="detail-body"><p>Um arquivo SQLite guarda a guilda. Backup roda no startup, antes de migração pendente e por <code>npm run backup:db</code>. Restauração existe e não deve ser disparada daqui. O arquivo real não vai para o Git.</p></div></details>
+          <details class="arch-step"><summary><strong>Bot Discord</strong><small>discord.js 14</small></summary><div class="detail-body"><p>Comandos, botões, modais e eventos entram por <code>src/interactions</code> e descem para serviços e repositórios. O bot também cria voz, lembra evento e acompanha a rotina da staff.</p></div></details>
+          <details class="arch-step"><summary><strong>Eventos e avisos</strong><small>Mensagem no canal</small></summary><div class="detail-body"><p>O fechamento do ciclo é mensagem, vaga, voz e notificação no Discord. Não há fila externa de e-mail nem provedor de push além do próprio Discord neste repositório.</p></div></details>
+        </div>
+        <div class="prose">
+          <h3>Hospedagem, domínio e operação</h3>
+          <p>O <code>discloud.config</code> marca o app como site, com 512 MB, entrada em <code>src/index.js</code> e reinício automático. O README descreve escuta em <code>0.0.0.0:8080</code> e o endereço público <code>https://notag.discloud.app</code>. Domínio próprio não aparece na configuração lida. Se um dia existir, o callback do OAuth precisa ser cadastrado de novo no portal do Discord.</p>
+          <p>Autenticação é OAuth do Discord mais cookie de sessão, com prazos diferentes para staff, portal e entrada. O painel <code>/dashboard</code> é a área administrativa da staff, com papéis de ADM, staff e tesouraria; caller e recrutador revisam cadastro sem virar administração completa. Há também painéis de evento, regear, prime time e intelligence. Eles continuam como estão.</p>
+          <p>Segurança prática já presente: segredo fora do Git, CSP, cookie de sessão, checagem de origem nos formulários e uma verificação de repositório que recusa versionar <code>.env</code> e SQLite. Monitoramento: a rota <code>/health</code> olha se o Discord está pronto e se o SQLite responde, e um monitor interno registra CPU, RAM e atraso do event loop, com alerta quando a memória sobe. Não há APM externo no código.</p>
+          <p>GitHub: o workflow em <code>.github/workflows/ci.yml</code> roda teste, sintaxe e a checagem de arquivos em pull request para a main. Publicação automatizada para a Discloud não está nesse workflow. Continua sendo o processo operacional já usado, fora deste pull request.</p>
+          <p>Há integração opcional com planilha para regra de composição de evento. A credencial fica no ambiente, em base64, e não entra no navegador. Anúncios WTB e WTS existem como mensagem no Discord da guilda. Eles não movimentam pagamento.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="marketplace">
+      <div class="section-inner">
+        <p class="kicker">06 — Como funciona um marketplace</p>
+        <h2>Doze passos, todos ainda de papel.</h2>
+        <div class="prose">
+          <p>Esta jornada é educativa. Nenhum passo envia cadastro, documento ou pagamento. Ela serve para ver onde a confiança é criada e onde uma pessoa só não dá conta. Serviço que viole a regra do jogo não entra na fila.</p>
+        </div>
+        <div class="timeline">
+          <details class="step"><summary><span class="mark">1</span><span><strong>Acesso</strong><small>A pessoa chega ao site</small></span></summary><div class="detail-body"><p>Ela vê a explicação do que pode ser anunciado. Se a categoria for proibida pelo jogo ou pelo provedor, a página diz não antes do cadastro. Não há conta criada neste clique.</p></div></details>
+          <details class="step"><summary><span class="mark">2</span><span><strong>Pedido de cadastro</strong><small>Querer vender não é poder vender</small></span></summary><div class="detail-body"><p>O pedido guarda a intenção e o tipo de serviço. Num sistema real, isso seria o mínimo: nome de exibição e canal de contato. Esta página não tem esse formulário.</p></div></details>
+          <details class="step"><summary><span class="mark">3</span><span><strong>Identificação</strong><small>Saber quem é a pessoa</small></span></summary><div class="detail-body"><p>Identificação é o conjunto de dados que distingue uma pessoa de outra. Pode ser feita por uma empresa especializada. A NOTAG não precisa receber a foto do documento para saber o resultado: aprovado, recusado ou pendente.</p></div></details>
+          <details class="step"><summary><span class="mark">4</span><span><strong>Verificação</strong><small>Identidade, dado financeiro e antifraude</small></span></summary><div class="detail-body"><p>Verificar identidade não é a mesma coisa que analisar crédito, nem a mesma coisa que olhar comportamento suspeito. São três perguntas. A resposta de cada uma pode vir de um fornecedor diferente, com contrato e base legal próprios.</p></div></details>
+          <details class="step"><summary><span class="mark">5</span><span><strong>Autorização</strong><small>A NOTAG ainda diz sim ou não</small></span></summary><div class="detail-body"><p>Mesmo com identidade confirmada, a NOTAG pode recusar um serviço que não combina com a regra do jogo, com o contrato do pagamento ou com a capacidade de suporte. Aprovação comercial é critério da casa, não carimbo automático.</p></div></details>
+          <details class="step"><summary><span class="mark">6</span><span><strong>Publicar serviços</strong><small>Só o que a autorização cobre</small></span></summary><div class="detail-body"><p>O anúncio descreve entrega, prazo e o que não está incluído. Publicar conta, moeda ou item vedado pelo jogo não é um atalho: é um motivo para nem abrir a categoria.</p></div></details>
+          <details class="step"><summary><span class="mark">7</span><span><strong>Pedido do comprador</strong><small>O combinado fica registrado</small></span></summary><div class="detail-body"><p>O comprador escolhe o anúncio e o pedido nasce com preço, prazo e descrição. Conversa paralela por fora não gera proteção. Este passo, aqui, é só explicação.</p></div></details>
+          <details class="step"><summary><span class="mark">8</span><span><strong>Pagamento</strong><small>O dinheiro passa no provedor</small></span></summary><div class="detail-body"><p>Cartão, Pix e saldo são do provedor de pagamento, não um caixa dentro do HTML. A NOTAG não vê o número do cartão. Split, se o contrato tiver, reparte o valor. Isso não cria, sozinho, uma conta de garantia.</p></div></details>
+          <details class="step"><summary><span class="mark">9</span><span><strong>Entrega</strong><small>O serviço acontece</small></span></summary><div class="detail-body"><p>Entrega de um serviço permitido pode ser uma sessão, uma organização de evento ou um arquivo combinado. A prova fica no pedido. Entrega de bem que o jogo proíbe não tem desenho aqui.</p></div></details>
+          <details class="step"><summary><span class="mark">10</span><span><strong>Conclusão</strong><small>O comprador confirma</small></span></summary><div class="detail-body"><p>Confirmar encerra a disputa amigável daquele pedido, dentro do prazo que o contrato publicar. Silêncio não deve ser lido como confirmação sem uma regra escrita e um prazo visível.</p></div></details>
+          <details class="step"><summary><span class="mark">11</span><span><strong>Repasse ao vendedor</strong><small>Quando o provedor liberar</small></span></summary><div class="detail-body"><p>O repasse segue o contrato: pode ser imediato, pode ter espera, pode depender de reserva para chargeback. A espera não se inventa numa landing page. Ela é cláusula.</p></div></details>
+          <details class="step"><summary><span class="mark">12</span><span><strong>Comissão da NOTAG</strong><small>A receita não é o valor inteiro</small></span></summary><div class="detail-body"><p>Se o comprador paga 100 e a comissão combinada é 10, a receita da NOTAG naquele exemplo é 10, antes de taxa e de imposto. Os outros 90 não são faturamento da NOTAG só porque passaram pela tela. O tratamento fiscal depende do contrato e do contador.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="verificacao">
+      <div class="section-inner">
+        <p class="kicker">07 — Verificação de vendedores</p>
+        <h2>Cinco etapas, sem pedir documento.</h2>
+        <div class="prose">
+          <p>O fluxo educacional é cadastro, identificação, validação, análise e, no fim, aprovação ou rejeição. Esta página não tem campo de CPF, foto ou comprovante. Um demo que coleta documento real já seria tratamento de dado pessoal. Aqui não há tratamento: nada é enviado.</p>
+        </div>
+        <div class="timeline">
+          <details class="step"><summary><span class="mark">A</span><span><strong>Cadastro</strong><small>A intenção de vender</small></span></summary><div class="detail-body"><p>Registra que a pessoa quer anunciar um tipo de serviço. Ainda não prova quem ela é. Num sistema real, a base legal e a retenção desse dado precisariam estar escritas antes do primeiro campo.</p></div></details>
+          <details class="step"><summary><span class="mark">B</span><span><strong>Identificação</strong><small>Quem é a pessoa</small></span></summary><div class="detail-body"><p>Identificação responde “qual pessoa é esta”. Pode usar dados que o Discord já mostrou no login, como o identificador da conta, e dados civis coletados por um verificador. São camadas diferentes. O identificador do Discord não substitui a identidade civil quando o pagamento exige a segunda.</p></div></details>
+          <details class="step"><summary><span class="mark">C</span><span><strong>Validação</strong><small>O verificador confere</small></span></summary><div class="detail-body"><p>A empresa especializada compara o que foi informado com a fonte dela e devolve um resultado. A NOTAG pode guardar o resultado, a data e o identificador do processo. Guardar a cópia do documento é outra decisão, mais pesada, e não é o desenho preferido aqui.</p></div></details>
+          <details class="step"><summary><span class="mark">D</span><span><strong>Análise</strong><small>Antifraude e critério comercial</small></span></summary><div class="detail-body"><p>Antifraude olha sinal de golpe, dispositivo e histórico de disputa. A análise comercial da NOTAG olha se o serviço é permitido e se há gente para dar suporte. As duas podem discordar: identidade válida não autoriza serviço proibido.</p></div></details>
+          <details class="step" open><summary><span class="mark">E</span><span><strong>Aprovação ou rejeição</strong><small>Uma decisão com dono</small></span></summary><div class="detail-body"><p>Aprovar abre a publicação daquele tipo de serviço, com limite. Rejeitar explica o motivo em linguagem clara e o canal de revisão humana. Decisão automática sem recurso é um risco próprio, não uma meta.</p><p>Botões de demonstração, sem formulário:</p><div class="actions"><button class="button" type="button" id="kyc-yes">Simular aprovação</button><button class="button ghost" type="button" id="kyc-no">Simular rejeição</button></div><p id="kyc-result" aria-live="polite">Nenhuma decisão foi tomada. Isto não cria cadastro.</p></div></details>
+        </div>
+        <div class="cards">
+          <article class="panel pad"><h3>Verificação de identidade</h3><p>Confere se a pessoa é quem diz ser. Feita por empresa especializada sempre que o risco ou o provedor de pagamento exigir. A NOTAG consome o resultado.</p></article>
+          <article class="panel pad"><h3>Verificação financeira</h3><p>Olha a conta que vai receber o repasse e se ela pode receber. É contrato com o provedor. Não se resolve com um print enviado no Discord.</p></article>
+          <article class="panel pad"><h3>Antifraude</h3><p>Procura padrão de golpe, muitas contas e disputa repetida. Gera alerta. Quem age no caso grave é uma pessoa.</p></article>
+          <article class="panel pad"><h3>Aprovação comercial</h3><p>A NOTAG decide se aquele serviço entra na vitrine. Critério: regra do jogo, lei, capacidade de suporte e clareza do anúncio.</p></article>
+          <article class="panel pad"><h3>Monitoramento do vendedor</h3><p>Depois da aprovação, acompanhar disputa, atraso e reclamação. A aprovação não é vitalícia.</p></article>
+          <article class="panel pad"><h3>LGPD</h3><p>Dado pessoal pede finalidade, base legal, mínimo necessário, prazo e um canal para o titular. A lei é a <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">Lei 13.709/2018</a>. A autoridade é a <a href="https://www.gov.br/anpd/pt-br">ANPD</a>. Esta página não coleta dado para essa finalidade.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pagamentos">
+      <div class="section-inner">
+        <p class="kicker">08 — Pagamentos, split e reembolsos</p>
+        <h2>Um exemplo de R$ 100, inteiro fictício.</h2>
+        <div class="prose">
+          <p>O comprador paga R$ 100 pelo serviço e a comissão da NOTAG, neste exemplo, é 10%. A taxa do processador começa em zero para o exemplo ficar legível. Aumente a taxa para ver quem a absorve. Nenhum valor é cobrado. Split de pagamento não é, por si, uma conta de garantia. Reserva, espera e estorno dependem do contrato com o provedor.</p>
+        </div>
+        <form class="simulator" id="pay-form" autocomplete="off">
+          <div class="form-grid">
+            <label class="field">Valor da venda (R$) <input id="pay-sale" type="number" min="0" step="0.01" value="100"></label>
+            <label class="field">Comissão da NOTAG (%) <input id="pay-commission" type="number" min="0" max="100" step="0.1" value="10"></label>
+            <label class="field">Taxa percentual do processador (%) <input id="pay-percent" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">Taxa fixa do processador (R$) <input id="pay-fixed" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">Quem paga a taxa do processador
+              <select id="pay-payer">
+                <option value="vendedor" selected>Vendedor</option>
+                <option value="comprador">Comprador</option>
+                <option value="dividida">Dividida</option>
+              </select>
+            </label>
+          </div>
+          <div class="outputs" aria-live="polite">
+            <div class="output"><span>Total pago pelo comprador</span><b id="pay-buyer">R$ 100,00</b></div>
+            <div class="output"><span>Comissão NOTAG</span><b id="pay-commission-out">R$ 10,00</b></div>
+            <div class="output"><span>Bruto do vendedor</span><b id="pay-gross">R$ 90,00</b></div>
+            <div class="output"><span>Taxa do processador</span><b id="pay-fee">R$ 0,00</b></div>
+            <div class="output"><span>Líquido do vendedor</span><b id="pay-seller">R$ 90,00</b></div>
+            <div class="output"><span>Líquido NOTAG antes de impostos</span><b id="pay-notag">R$ 10,00</b></div>
+          </div>
+          <p class="note" data-pay-note></p>
+        </form>
+        <div class="cards">
+          <details class="explainer"><summary><strong>Pix</strong></summary><div class="detail-body"><p>Transferência instantânea, com regra própria de devolução. O recebimento rápido não impede uma disputa posterior se o contrato e o arranjo permitirem. A taxa, se houver, é a do provedor, não um número universal.</p></div></details>
+          <details class="explainer"><summary><strong>Cartão de crédito</strong></summary><div class="detail-body"><p>O emissor pode cobrar o comprador e, depois, aceitar um chargeback. A loja ou o vendedor pode ter o valor retomado semanas mais tarde. Por isso existe reserva em muitos contratos.</p></div></details>
+          <details class="explainer"><summary><strong>Parcelamento</strong></summary><div class="detail-body"><p>Parcelar muda o custo financeiro e, às vezes, quem recebe o valor cheio primeiro. Sem o contrato do provedor, esta página não afirma quem adianta a parcela.</p></div></details>
+          <details class="explainer"><summary><strong>Chargeback</strong></summary><div class="detail-body"><p>É a contestação do pagamento junto ao emissor ou ao arranjo. Diferente de um reembolso voluntário. Pode chegar quando a entrega já aconteceu. A defesa pede registro do pedido.</p></div></details>
+          <details class="explainer"><summary><strong>Split</strong></summary><div class="detail-body"><p>O provedor divide um pagamento entre recebedores, por regra configurada. Split reparte. Não guarda o dinheiro numa conta neutra só porque o nome soa assim.</p></div></details>
+          <details class="explainer"><summary><strong>Reserva e espera</strong></summary><div class="detail-body"><p>Hold é a espera que o contrato impõe antes do saque, para cobrir disputa. O prazo é cláusula, não um padrão da NOTAG.</p></div></details>
+          <details class="explainer"><summary><strong>Escrow</strong></summary><div class="detail-body"><p>Conta de garantia é um arranjo em que um terceiro segura o valor até a condição. Ela só existe se alguém, de fato, oferecer esse serviço no contrato. Não nasce do split.</p></div></details>
+          <details class="explainer"><summary><strong>Reembolso parcial e total</strong></summary><div class="detail-body"><p>Parcial devolve um pedaço e pode manter a entrega incompleta. Total desfaz a venda. A taxa do processador pode não voltar, como a própria ajuda da FunPay descreve no caso dela. Cada provedor tem a própria regra.</p></div></details>
+          <details class="explainer"><summary><strong>Disputa</strong></summary><div class="detail-body"><p>Comprador e vendedor discordam da entrega. Um humano lê o registro. Prazo, prova e consequência precisam estar escritos antes da primeira venda. Não estão escritos aqui porque não há venda.</p></div></details>
+        </div>
+        <div class="refund" data-refund data-sale="100" data-commission="10" data-fee="0">
+          <h3>Demonstração de reembolso</h3>
+          <p id="refund-copy">Valor combinado ainda com o comprador. Nada foi capturado.</p>
+          <div class="outputs">
+            <div class="output"><span>Volta ao comprador</span><b id="refund-back">R$ 0,00</b></div>
+            <div class="output"><span>Estimativa que resta ao vendedor</span><b id="refund-seller">R$ 0,00</b></div>
+            <div class="output"><span>Comissão que resta</span><b id="refund-notag">R$ 0,00</b></div>
+          </div>
+          <div class="actions">
+            <button class="button" type="button" data-refund-to="2">Animar reembolso parcial</button>
+            <button class="button" type="button" data-refund-to="3">Animar reembolso total</button>
+            <button class="button ghost" type="button" data-refund-to="0" data-refund-jump>Recomeçar</button>
+          </div>
+          <p class="note">Figuras fictícias, ligadas ao simulador acima. O parcial deste demo devolve 40% do valor da venda. A taxa digitada só entra na conta do vendedor a partir do passo em que há pagamento.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tributos">
+      <div class="section-inner">
+        <p class="kicker">09 — CNPJ, impostos e governo</p>
+        <h2>Educação fiscal, sem alíquota universal.</h2>
+        <div class="prose">
+          <p>CNPJ é o cadastro da pessoa jurídica na Receita Federal. CNAE é a classificação da atividade econômica. Microempresa é um porte, com teto de receita que a lei muda e que não cabe repetir aqui como se fosse eterno. Sociedade Limitada Unipessoal é uma sociedade limitada de um só sócio, prevista na legislação societária, inclusive na Lei 13.874/2019. Simples Nacional é um regime de arrecadação; entrar nele depende de atividade, porte e vedações. Nenhum desses nomes escolhe sozinho o imposto da NOTAG.</p>
+          <p>Nota fiscal registra a operação tributável. Quem emite, municipal ou nacional, depende do serviço e do município. Contador é o profissional que assina a leitura do caso. Receita Federal administra tributos federais e o cadastro. A prefeitura entra no ISS quando o serviço é tributado no município. A obrigação comercial inclui contrato claro, guarda de documento fiscal e não misturar dinheiro da casa com dinheiro de terceiro.</p>
+          <p>O tratamento do imposto depende do contrato, do CNAE, do modelo de operação e da lei vigente. Não apresento alíquota como se valesse para todo mundo. Antes de cobrar, Lucas Moura precisa sentar com um contador. A IA não substitui essa consulta.</p>
+        </div>
+        <h3>Quatro palavras que se confundem</h3>
+        <div class="cards">
+          <article class="panel pad"><h3>Faturamento</h3><p>No uso comum, a nota do que a empresa faturou. Num marketplace, o valor que só passou para o vendedor pode não ser faturamento da plataforma. O contrato e o regime é que dizem.</p></article>
+          <article class="panel pad"><h3>Comissão</h3><p>A parte combinada que fica com a NOTAG por aproximar e operar o serviço. No exemplo fictício de R$ 100 com 10%, a comissão é R$ 10.</p></article>
+          <article class="panel pad"><h3>Receita</h3><p>O que pertence à NOTAG: comissão, mensalidade de um plano, talvez um setup. Não é, automaticamente, a soma de tudo o que os compradores pagaram aos vendedores.</p></article>
+          <article class="panel pad"><h3>Lucro</h3><p>Receita menos custos, despesas e os tributos que incidirem. Receita alta com custo maior não é lucro. O simulador de planos mostra resultado operacional antes do imposto, de propósito.</p></article>
+        </div>
+        <h3>Valor que passa e valor que fica</h3>
+        <div class="money-split" aria-label="Cliente paga o marketplace, que repassa o vendedor e retém a comissão">
+          <div class="wide"><span class="note">Cliente</span><strong>Paga R$ 100 fictícios</strong><p>Valor transacionado do exemplo. Não é, sozinho, a receita da NOTAG.</p></div>
+          <div class="keep"><span class="note">NOTAG</span><strong>Comissão de R$ 10</strong><p>Esta é a fatia que o exemplo trata como receita, antes de taxa e tributo.</p></div>
+          <div><span class="note">Vendedor</span><strong>Bruto de R$ 90</strong><p>Permanece do vendedor, sujeito à taxa de quem a absorve e ao imposto dele, não ao da NOTAG por tabela.</p></div>
+        </div>
+        <ul class="source-list">
+          <li><a href="https://www.gov.br/receitafederal/pt-br">Receita Federal</a></li>
+          <li><a href="https://www8.receita.fazenda.gov.br/SimplesNacional/">Simples Nacional</a></li>
+          <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">Lei 13.709/2018, a LGPD</a></li>
+          <li><a href="https://www.gov.br/anpd/pt-br">ANPD</a></li>
+          <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2019/lei/l13874.htm">Lei 13.874/2019</a></li>
+          <li><a href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm">Código Civil, sociedades</a></li>
+          <li><a href="https://www.gov.br/nfse/pt-br">NFS-e</a></li>
+          <li><a href="https://concla.ibge.gov.br/busca-online-cnae.html">Busca de CNAE no IBGE</a></li>
+          <li><a href="https://www.gov.br/empresas-e-negocios/pt-br">Portal Empresas e Negócios</a></li>
+        </ul>
+        <p class="note">Alguns portais oficiais bloqueiam leitura automática. Os links são os endereços públicos das instituições e das leis, consultados como referência em 17 de novembro de 2026.</p>
+      </div>
+    </section>
+
+    <section class="section" id="custos">
+      <div class="section-inner">
+        <p class="kicker">10 — Custos da operação</p>
+        <h2>Três cenários, todos editáveis.</h2>
+        <div class="prose">
+          <p>Os números iniciais são estimativas para pensar, não cotação da Discloud, de um contador ou de uma ferramenta de IA. Troque qualquer campo. A conta é mensal, anual, setup, custo por usuário, custo por servidor de Discord e equilíbrio contra uma receita fictícia que você informa.</p>
+          <p>O cenário econômico assume o SQLite atual, por isso o banco começa em zero. A expansão coloca um banco pago só como hipótese, caso um dia a operação saia do arquivo único. Isso não autoriza a troca.</p>
+        </div>
+        <div class="scenario-row" role="group" aria-label="Cenários de custo">
+          <button class="scenario" type="button" data-scenario="mvp" aria-pressed="true">MVP econômico</button>
+          <button class="scenario" type="button" data-scenario="inicial" aria-pressed="false">Operação inicial</button>
+          <button class="scenario" type="button" data-scenario="expansao" aria-pressed="false">Expansão comercial</button>
+        </div>
+        <form class="simulator" id="cost-form" autocomplete="off">
+          <div class="form-grid">
+            <label class="field">Hospedagem <input id="cost-hospedagem" type="number" min="0" step="0.01" value="25"></label>
+            <label class="field">Domínio <input id="cost-dominio" type="number" min="0" step="0.01" value="5"></label>
+            <label class="field">Banco <input id="cost-banco" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">IA <input id="cost-ia" type="number" min="0" step="0.01" value="60"></label>
+            <label class="field">APIs <input id="cost-apis" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">E-mail <input id="cost-email" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">Monitoramento <input id="cost-monitoramento" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">Marketing <input id="cost-marketing" type="number" min="0" step="0.01" value="40"></label>
+            <label class="field">Contabilidade <input id="cost-contabilidade" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">Atendimento <input id="cost-atendimento" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">Segurança <input id="cost-seguranca" type="number" min="0" step="0.01" value="0"></label>
+            <label class="field">Outras <input id="cost-outras" type="number" min="0" step="0.01" value="15"></label>
+            <label class="field">Custo de setup <input id="cost-setup" type="number" min="0" step="0.01" value="80"></label>
+            <label class="field">Usuários estimados <input id="cost-users" type="number" min="0" step="1" value="80"></label>
+            <label class="field">Servidores de Discord <input id="cost-servers" type="number" min="0" step="1" value="1"></label>
+            <label class="field">Receita mensal fictícia <input id="cost-revenue" type="number" min="0" step="0.01" value="0"></label>
+          </div>
+          <div class="outputs" aria-live="polite">
+            <div class="output"><span>Gasto mensal</span><b id="cost-month">R$ 145,00</b></div>
+            <div class="output"><span>Gasto anual</span><b id="cost-year">R$ 1.740,00</b></div>
+            <div class="output"><span>Setup</span><b id="cost-setup-out">R$ 80,00</b></div>
+            <div class="output"><span>Custo por usuário</span><b id="cost-user">R$ 1,81</b></div>
+            <div class="output"><span>Custo por servidor</span><b id="cost-server">R$ 145,00</b></div>
+            <div class="output"><span>Receita fictícia menos gasto</span><b id="cost-result">-R$ 145,00</b></div>
+          </div>
+          <p class="note" data-cost-even>A receita fictícia ainda não cobre o gasto mensal.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="planos">
+      <div class="section-inner">
+        <p class="kicker">11 — Planos e monetização</p>
+        <h2>Preços hipotéticos, fora de catálogo.</h2>
+        <div class="prose">
+          <p>NOTAG Free custa R$ 0. NOTAG Guild Pro custa R$ 19,90 por mês. NOTAG Guild Business custa R$ 49,90 por mês. Nenhum deles está à venda. Free inclui o essencial para uma comunidade pequena experimentar evento. Pro acrescenta mais eventos simultâneos e a página de inscrição com a marca da guilda. Business acrescenta mais de um servidor no mesmo painel e um relatório mensal. Os limites exatos não estão fechados porque o produto multi-servidor não existe.</p>
+          <p>Churn e crescimento digitados aqui são hipóteses. Uma taxa de saída mensal não é previsão de que as pessoas vão sair, nem promessa de que vão ficar.</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="note">Tabela hipotética. Não é preço publicado.</caption>
+            <thead><tr><th scope="col">Plano</th><th scope="col">Preço hipotético</th><th scope="col">Para quem</th><th scope="col">O que a hipótese inclui</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">NOTAG Free</th><td>R$ 0</td><td>Grupo que está começando</td><td>Evento essencial e inscrição simples. Sem cobrança.</td></tr>
+              <tr><th scope="row">NOTAG Guild Pro</th><td>R$ 19,90 por mês</td><td>Uma guilda ativa</td><td>Mais eventos ao mesmo tempo e página de inscrição apresentável.</td></tr>
+              <tr><th scope="row">NOTAG Guild Business</th><td>R$ 49,90 por mês</td><td>Quem organiza mais de uma comunidade</td><td>Painel com mais de um servidor e um relatório mensal. Ainda não construído.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <form class="simulator" id="rev-form" autocomplete="off">
+          <div class="form-grid">
+            <label class="field">Clientes Free <input id="rev-free" type="number" min="0" step="1" value="40"></label>
+            <label class="field">Clientes Pro <input id="rev-pro" type="number" min="0" step="1" value="8"></label>
+            <label class="field">Clientes Business <input id="rev-business" type="number" min="0" step="1" value="2"></label>
+            <label class="field">Churn mensal (%) <input id="rev-churn" type="number" min="0" max="100" step="0.1" value="5"></label>
+            <label class="field">Custo operacional mensal (R$) <input id="rev-cost" type="number" min="0" step="0.01" value="893"></label>
+            <label class="field">Receita de comissão do marketplace (R$) <input id="rev-market" type="number" min="0" step="0.01" value="150"></label>
+          </div>
+          <div class="outputs" aria-live="polite">
+            <div class="output"><span>MRR</span><b id="rev-mrr">R$ 0,00</b></div>
+            <div class="output"><span>Receita anualizada sem churn</span><b id="rev-year">R$ 0,00</b></div>
+            <div class="output"><span>Custo operacional</span><b id="rev-cost-out">R$ 0,00</b></div>
+            <div class="output"><span>Resultado antes do imposto</span><b id="rev-result">R$ 0,00</b></div>
+            <div class="output"><span>MRR depois de um mês de churn</span><b id="rev-after">R$ 0,00</b></div>
+            <div class="output"><span>Equilíbrio só com Pro, além da comissão</span><b id="rev-break">0</b></div>
+          </div>
+          <p class="note" data-rev-note></p>
+          <div class="bars" data-rev-bars></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="marketing">
+      <div class="section-inner">
+        <p class="kicker">12 — Marketing e crescimento</p>
+        <h2>O vídeo precisa terminar numa vaga.</h2>
+        <div class="prose">
+          <p>Os canais deste plano são TikTok, YouTube Shorts, Instagram Reels, Discord, busca orgânica, Google Ads e parceria com streamer ou guilda. Nenhum anúncio está ligado. CPC, taxa de cadastro, ativação, retenção e conversão paga são hipóteses que você edita.</p>
+          <p>Uma campanha possível, em texto: “Precisa de Tank, Healer ou DPS para jogar hoje? Encontre seu grupo na NOTAG.” O vídeo mostra a falta de uma função. O clique abre uma página de inscrição. O Discord confirma a vaga. A pessoa joga. Se o grupo foi bom, ela volta e, um dia, pode organizar o próximo.</p>
+        </div>
+        <div class="two">
+          <article class="mock">
+            <p class="kicker">Exemplo visual de inscrição</p>
+            <h3>World Boss hoje · 21h</h3>
+            <p>Organizador Exemplo chamou um grupo fictício. As vagas abaixo não saem desta tela e não avisam o Discord.</p>
+            <div class="slots">
+              <button class="slot" type="button" data-label="Tank · aberta" aria-pressed="false">Tank · aberta</button>
+              <button class="slot" type="button" data-label="Healer · aberta" aria-pressed="false">Healer · aberta</button>
+              <button class="slot" type="button" data-label="DPS · aberta" aria-pressed="false">DPS · aberta</button>
+            </div>
+            <p class="note">Jogador Exemplo já aparece como interessado. É nome inventado para o desenho da página.</p>
+          </article>
+          <article class="mock">
+            <p class="kicker">Loop orgânico</p>
+            <div class="loop">
+              <span>1. O organizador cria o evento</span>
+              <span>2. Compartilha o link</span>
+              <span>3. Jogadores entram</span>
+              <span>4. Um novo organizador descobre a ferramenta</span>
+            </div>
+            <p>Esse ciclo não depende de anúncio. Depende de o link ser claro e de o evento acontecer. Se a página promete vaga e o Discord não confirma, o ciclo quebra.</p>
+          </article>
+        </div>
+        <form class="simulator" id="mkt-form" autocomplete="off">
+          <div class="form-grid">
+            <label class="field">Orçamento fictício (R$) <input id="mkt-budget" type="number" min="0" step="0.01" value="300"></label>
+            <label class="field">CPC hipotético (R$) <input id="mkt-cpc" type="number" min="0" step="0.01" value="0.80"></label>
+            <label class="field">Taxa de cadastro no Discord (%) <input id="mkt-signup" type="number" min="0" max="100" step="0.1" value="25"></label>
+            <label class="field">Taxa de ativação, ir ao evento (%) <input id="mkt-activation" type="number" min="0" max="100" step="0.1" value="40"></label>
+            <label class="field">Taxa de retenção (%) <input id="mkt-retention" type="number" min="0" max="100" step="0.1" value="50"></label>
+            <label class="field">Conversão paga (%) <input id="mkt-paid" type="number" min="0" max="100" step="0.1" value="8"></label>
+          </div>
+          <div class="funnel bars" data-funnel aria-live="polite"></div>
+          <p class="note" data-mkt-note></p>
+          <p class="note">Funil: Vídeo → Clique → Site → Discord → Participação em evento → Retenção → Cliente pagante. O vídeo não tem audiência calculada, porque orgânico não sai do CPC. O site, neste modelo, recebe os mesmos cliques. Cadastro, participação, retenção e pagante usam as taxas, em sequência.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-inner">
+        <p class="kicker">13 — Roadmap de 90 dias</p>
+        <h2>Quatro fases, dentro de 36 horas por semana.</h2>
+        <div class="prose">
+          <p>Noventa dias a seis dias por semana dão cerca de 463 horas. A lista abaixo soma 242 horas estimadas. O resto é folga para bug, suporte e vida, não um convite para copiar EZGame, FunPay, Raid-Helper e MEE6 inteiros. Essa cópia não termina em 90 dias e não é a meta.</p>
+          <p>Marcar uma tarefa guarda o estado só neste navegador, nesta sessão, sem conta e sem servidor. Dependência aberta gera aviso, mas não trava o clique: a vida real às vezes anda fora de ordem.</p>
+        </div>
+        <div class="outputs" aria-live="polite">
+          <div class="output"><span>Tarefas marcadas</span><b id="road-done">0 de 20</b></div>
+          <div class="output"><span>Horas marcadas</span><b id="road-hours">0 h de 242 h</b></div>
+          <div class="output"><span>Capacidade de 90 dias</span><b id="road-capacity">462,9 h</b></div>
+          <div class="output"><span>Folga sobre a lista</span><b id="road-buffer">220,9 h</b></div>
+        </div>
+        <div class="filters">
+          <button class="choice" type="button" data-phase-filter="todas" aria-pressed="true">Todas</button>
+          <button class="choice" type="button" data-phase-filter="fundacao" aria-pressed="false">Fundação</button>
+          <button class="choice" type="button" data-phase-filter="dream" aria-pressed="false">Dream Team e Eventos</button>
+          <button class="choice" type="button" data-phase-filter="expansao" aria-pressed="false">Expansão</button>
+          <button class="choice" type="button" data-phase-filter="comercial" aria-pressed="false">Comercial</button>
+          <button class="button ghost" type="button" data-road-reset>Limpar marcações</button>
+        </div>
+
+        <div data-phase="fundacao">
+          <h3 class="phase-title">Fundação</h3>
+          <ul class="check-list">
+            <li data-task="fund-map" data-hours="8" data-deps=""><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Mapear rotas, banco e autenticação</h3><p>Ler o servidor, o OAuth e o SQLite que já existem, e escrever o que cada rota pública faz. Prioridade alta. Dificuldade média. Dependência: nenhuma. 8 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="fund-scope" data-hours="6" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Separar o que é da guilda do que seria produto</h3><p>Listar evento, loot, saldo e ID fixo como operação da NOTAG, não como recurso de prateleira. Prioridade alta. Dificuldade baixa. Depende do mapa. 6 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="fund-security" data-hours="6" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Rever backup, saúde e segredo</h3><p>Confirmar o backup de startup, a rota de saúde e que nenhum segredo novo entrou no front. Prioridade alta. Dificuldade média. Depende do mapa. 6 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="fund-cut" data-hours="4" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Escrever o que fica fora dos 90 dias</h3><p>Cobrança real, marketplace aberto, multi-servidor em produção e clone dos quatro produtos de referência. Prioridade alta. Dificuldade baixa. Depende do mapa. 4 horas.</p><p data-dep-warning hidden></p></div></li>
+          </ul>
+        </div>
+        <div data-phase="dream">
+          <h3 class="phase-title">Dream Team e Eventos</h3>
+          <ul class="check-list">
+            <li data-task="dream-signup" data-hours="16" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Página de inscrição legível</h3><p>Uma página de evento que o jogador entende no celular, ligada ao fluxo que o bot já tem. Prioridade alta. Dificuldade média. Depende do mapa. 16 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="dream-roles" data-hours="14" data-deps="dream-signup"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Função Tank, Healer, suporte e DPS</h3><p>Mostrar a vaga por função sem inventar composição que a guilda não usa. Prioridade alta. Dificuldade média. Depende da inscrição. 14 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="dream-lfg" data-hours="18" data-deps="dream-roles"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Quadro LFG do dia</h3><p>Anúncio curto de conteúdo e horário, que expira. Prioridade alta. Dificuldade média. Depende das funções. 18 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="dream-team" data-hours="22" data-deps="dream-lfg"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Fechar um Dream Team</h3><p>Juntar as vagas até o grupo ficar completo e devolver o convite ao Discord. Prioridade alta. Dificuldade alta. Depende do LFG. 22 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="dream-discord" data-hours="12" data-deps="dream-team"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Aviso no Discord da própria guilda</h3><p>Publicar o grupo no canal que já existe. Sem prometer voz para outra guilda. Prioridade média. Dificuldade alta. Depende do Dream Team. 12 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="dream-tests" data-hours="12" data-deps="dream-team"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Testar inscrição, vaga e cancelamento</h3><p>Cobrir o caminho feliz e a desistência, sem usar dado real de membro no teste. Prioridade alta. Dificuldade média. Depende do Dream Team. 12 horas.</p><p data-dep-warning hidden></p></div></li>
+          </ul>
+        </div>
+        <div data-phase="expansao">
+          <h3 class="phase-title">Expansão</h3>
+          <ul class="check-list">
+            <li data-task="exp-ids" data-hours="20" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Listar o que está preso em ID fixo</h3><p>Documento, não reescrita. Prioridade média. Dificuldade alta. Depende do mapa. 20 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="exp-panel" data-hours="24" data-deps="exp-ids"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Protótipo de painel multi-servidor, só leitura</h3><p>Uma tela com dados de exemplo, sem ligar outra guilda de verdade. Prioridade baixa. Dificuldade alta. Depende da lista de IDs. 24 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="exp-report" data-hours="16" data-deps="dream-signup"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Relatório simples para o organizador</h3><p>Eventos, inscrições e presença, com dado da própria operação e sem ranking público novo. Prioridade média. Dificuldade média. Depende da inscrição. 16 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="exp-academy" data-hours="12" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Uma trilha curta da Academy</h3><p>Reusar a cartilha: entrar, ler um evento, chamar um grupo. Prioridade média. Dificuldade baixa. Depende do mapa. 12 horas.</p><p data-dep-warning hidden></p></div></li>
+          </ul>
+        </div>
+        <div data-phase="comercial">
+          <h3 class="phase-title">Comercial</h3>
+          <ul class="check-list">
+            <li data-task="com-plans" data-hours="6" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Fechar a tabela hipotética de planos</h3><p>Escrever o que Free, Pro e Business prometem e, principalmente, o que não prometem. Prioridade média. Dificuldade baixa. Depende do mapa. 6 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="com-accountant" data-hours="8" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Consulta com contador</h3><p>CNPJ, CNAE, Simples e nota, com um profissional. A hora é de preparo e de reunião, não de aconselhamento feito pela IA. Prioridade alta. Dificuldade baixa. Depende do mapa. 8 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="com-policy" data-hours="10" data-deps="fund-map"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Política do que o marketplace pode anunciar</h3><p>Lista do permitido e do proibido, com a regra do jogo do lado. Prioridade alta. Dificuldade média. Depende do mapa. 10 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="com-videos" data-hours="14" data-deps="dream-signup"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Quatro roteiros curtos e uma página de destino</h3><p>Inclui a campanha de Tank, Healer ou DPS. Prioridade média. Dificuldade média. Depende da página de inscrição. 14 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="com-experiment" data-hours="10" data-deps="com-videos"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Um experimento orgânico no Discord</h3><p>Medir clique, inscrição e presença de verdade, em amostra pequena, sem tratar isso como previsão. Prioridade média. Dificuldade baixa. Depende dos roteiros. 10 horas.</p><p data-dep-warning hidden></p></div></li>
+            <li data-task="com-nocharge" data-hours="4" data-deps="com-plans"><button class="check" type="button" aria-pressed="false">Marcar</button><div><h3>Não ligar cobrança neste ciclo</h3><p>Deixar escrito que Pro e Business seguem hipotéticos até existir contrato, nota e suporte. Prioridade alta. Dificuldade baixa. Depende da tabela de planos. 4 horas.</p><p data-dep-warning hidden></p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="riscos">
+      <div class="section-inner">
+        <p class="kicker">14 — Riscos e responsabilidades</p>
+        <h2>Cada risco tem um dono: a pessoa.</h2>
+        <div class="cards">
+          <article class="risk"><details><summary><span class="mark">1</span><span><strong>Fraude</strong><small>Anúncio que não entrega</small></span></summary><div class="detail-body"><p>Mitigação: não abrir pagamento antes da verificação, guardar o combinado no pedido e ter uma pessoa para a disputa. Enquanto isso não existe, não há venda.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">2</span><span><strong>Vazamento de dados</strong><small>Membro, saldo, token</small></span></summary><div class="detail-body"><p>Mitigação: segredo só no ambiente, banco fora do Git, CSP, e não colar dado real em prompt. O backup também é dado: guarda com o mesmo cuidado.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">3</span><span><strong>Chargeback</strong><small>O pagamento volta depois</small></span></summary><div class="detail-body"><p>Mitigação: reserva prevista em contrato, registro da entrega e não tratar split como garantia. Sem contrato, não se oferece cartão.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">4</span><span><strong>Regra do jogo</strong><small>Conta, ouro, item</small></span></summary><div class="detail-body"><p>Mitigação: a política do marketplace lista o proibido e a categoria nem abre. Parceria com guilda não autoriza comércio que o jogo veda.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">5</span><span><strong>Limite de monetização do Discord</strong><small>O que a plataforma permite cobrar</small></span></summary><div class="detail-body"><p>Mitigação: ler os termos atuais do Discord antes de vender acesso, cargo pago ou benefício dentro do servidor. O plano de guilda, se nascer, precisa caber nessa regra e na lei, não só no simulador.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">6</span><span><strong>Dependência de provedor</strong><small>Discloud, Discord, pagamento</small></span></summary><div class="detail-body"><p>Mitigação: saber o que quebra se um deles para, ter backup do SQLite e não construir caixa próprio de cartão. Trocar de provedor é projeto, não um botão.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">7</span><span><strong>Falha de infraestrutura</strong><small>Processo único, 512 MB</small></span></summary><div class="detail-body"><p>Mitigação: o monitor de memória que já existe, a rota de saúde e o hábito de não somar serviço pesado no mesmo processo sem medir. Reinício automático não recupera dado corrompido; o backup recupera.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">8</span><span><strong>Escala</strong><small>Uma guilda não é mil servidores</small></span></summary><div class="detail-body"><p>Mitigação: o roadmap trata multi-servidor como protótipo de leitura. SQLite cabe na operação atual. Não se promete a escala de um bot que alega dezenas de milhões de servidores.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">9</span><span><strong>Atendimento</strong><small>A fila compete com o código</small></span></summary><div class="detail-body"><p>Mitigação: o distribuidor de horas deixa a conta visível. Resposta automática não decide reembolso. Se a fila passar do que 36 horas aguentam, o produto para de crescer em vez de atender mal.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">10</span><span><strong>Imposto</strong><small>Receita mal classificada</small></span></summary><div class="detail-body"><p>Mitigação: contador antes da primeira cobrança, e não tratar valor transacionado como receita sem essa leitura. Esta página não fixa alíquota.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">11</span><span><strong>Custo de IA</strong><small>Assinatura que cresce com o uso</small></span></summary><div class="detail-body"><p>Mitigação: a categoria IA do calculador é editável. Uso tem teto mensal decidido pelo diretor. Ferramenta cara não entra porque o rascunho ficou fácil.</p></div></details></article>
+          <article class="risk"><details><summary><span class="mark">12</span><span><strong>Operação solo</strong><small>Férias, doença, cansaço</small></span></summary><div class="detail-body"><p>Mitigação: folga de horas no roadmap, backup que outra pessoa de confiança saiba achar, e a honestidade de não prometer suporte de 24 horas. Uma pessoa não é um plantão.</p></div></details></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="painel">
+      <div class="section-inner">
+        <p class="kicker">15 — Painel do fundador</p>
+        <h2>Um exemplo de painel, claramente fictício.</h2>
+        <div class="prose">
+          <p>Nada aqui foi lido do SQLite, do Discord ou da Discloud. Os três períodos são ilustrações para Lucas Moura ver que tipo de número um painel futuro mostraria. A janela de 7 e a de 30 dias descrevem uma guilda só, sem cliente pagante. A de 90 dias inventa uma segunda comunidade e seis clientes, para o gráfico ter o que mostrar. Não é meta.</p>
+        </div>
+        <div class="period-row" role="group" aria-label="Período do exemplo">
+          <button class="period" type="button" data-period="7" aria-pressed="false">7 dias</button>
+          <button class="period" type="button" data-period="30" aria-pressed="true">30 dias</button>
+          <button class="period" type="button" data-period="90" aria-pressed="false">90 dias</button>
+        </div>
+        <p class="note" data-dash-copy>Janela de exemplo.</p>
+        <div class="metric-grid" aria-live="polite">
+          <article class="metric"><span>Jogadores cadastrados</span><b id="dash-players">0</b></article>
+          <article class="metric"><span>Servidores Discord ligados</span><b id="dash-servers">0</b></article>
+          <article class="metric"><span>Eventos publicados</span><b id="dash-published">0</b></article>
+          <article class="metric"><span>Eventos concluídos</span><b id="dash-completed">0</b></article>
+          <article class="metric"><span>Inscrições</span><b id="dash-signups">0</b></article>
+          <article class="metric"><span>Usuários ativos</span><b id="dash-active">0</b></article>
+          <article class="metric"><span>Clientes pagantes</span><b id="dash-paying">0</b></article>
+          <article class="metric"><span>Receita do período</span><b id="dash-revenue">R$ 0,00</b></article>
+          <article class="metric"><span>Custos do período</span><b id="dash-costs">R$ 0,00</b></article>
+          <article class="metric"><span>Resultado do exemplo</span><b id="dash-result">R$ 0,00</b></article>
+          <article class="metric"><span>Fila de suporte</span><b id="dash-support">0</b></article>
+          <article class="metric"><span>Erros e incidentes</span><b id="dash-incidents">0</b></article>
+        </div>
+        <div class="bars" data-dash-bars></div>
+        <p class="note">Receita e custo deste painel também são fictícios. O resultado negativo nas janelas curtas é intencional: mostra uma operação que ainda não se paga.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>NOTAG Corporation · plano educacional de Lucas Moura · consulta de concorrentes e leis em 17 de novembro de 2026. Simulações fictícias ou estimativas. Sem pagamento, sem documento e sem dado pessoal enviado.</p>
+  </footer>
+  <script src="/assets/plano-negocios-model.js?v=20261117-2"></script>
+  <script src="/assets/plano-negocios.js?v=20261117-2"></script>
+</body>
+</html>

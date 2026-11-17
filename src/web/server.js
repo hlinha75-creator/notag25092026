@@ -749,6 +749,7 @@ function createRequestHandler(client, options = {}) {
       }
       if (url.pathname === '/') return serveFile(res, 'index.html', isProduction, 'public, max-age=300');
       if (url.pathname === '/cartilha') return serveFile(res, 'cartilha.html', isProduction, 'public, max-age=300');
+      if (url.pathname === '/plano-negocios') return serveFile(res, 'plano-negocios.html', isProduction, 'public, max-age=300');
       if (url.pathname === '/rotina') return serveFile(res, 'rotina.html', isProduction, 'public, max-age=300');
       if (url.pathname === '/minigame') return serveFile(res, 'minigame.html', isProduction, 'public, max-age=300');
       if (url.pathname === '/killboardguilds') return serveFile(res, 'killboardguilds.html', isProduction, 'public, max-age=300');
