@@ -289,6 +289,76 @@ test('ranking de fama ignora personagem que esta em outra guilda', async () => {
   assert.deepEqual(ranking, []);
 });
 
+test('ranking Albion respeita Retry-After e libera resposta 429 antes de repetir', async () => {
+  const waits = [];
+  let attempts = 0;
+  let released = 0;
+  const fetchImpl = async (url) => {
+    attempts += 1;
+    if (attempts === 1) {
+      return {
+        ok: false,
+        status: 429,
+        headers: { get: (name) => name === 'retry-after' ? '2' : null },
+        body: { cancel: async () => { released += 1; } }
+      };
+    }
+    if (new URL(url).pathname.endsWith('/search')) {
+      return { ok: true, json: async () => ({ players: [{ Id: '1', Name: 'Ana' }] }) };
+    }
+    return { ok: true, json: async () => ({ Name: 'Ana', GuildName: 'NoTag', LifetimeStatistics: { PvE: { Total: 100 } } }) };
+  };
+
+  const rows = await dailyPveRanking.fetchFameRanking(['Ana'], {
+    fetchImpl,
+    apiBase: 'https://example.test/api',
+    waitImpl: async (ms) => waits.push(ms)
+  });
+  assert.equal(rows.length, 1);
+  assert.equal(released, 1);
+  assert.deepEqual(waits, [2000]);
+});
+
+test('ranking Albion usa espera exponencial quando servidor omite Retry-After', async () => {
+  const waits = [];
+  let attempts = 0;
+  const fetchImpl = async (url) => {
+    attempts += 1;
+    if (attempts === 1) return { ok: false, status: 500, headers: { get: () => null } };
+    if (new URL(url).pathname.endsWith('/search')) {
+      return { ok: true, json: async () => ({ players: [{ Id: '1', Name: 'Ana' }] }) };
+    }
+    return { ok: true, json: async () => ({ Name: 'Ana', GuildName: 'NoTag', LifetimeStatistics: { PvE: { Total: 100 } } }) };
+  };
+  const rows = await dailyPveRanking.fetchFameRanking(['Ana'], {
+    fetchImpl,
+    apiBase: 'https://example.test/api',
+    waitImpl: async (ms) => waits.push(ms)
+  });
+  assert.equal(rows.length, 1);
+  assert.deepEqual(waits, [1000]);
+});
+
+test('ranking Albion ignora falha isolada sem perder jogadores validos', async () => {
+  const warnings = [];
+  const fetchImpl = async (url) => {
+    const parsed = new URL(url);
+    const name = parsed.searchParams.get('q');
+    if (parsed.pathname.endsWith('/search') && name === 'Falhou') return { ok: false, status: 404 };
+    if (parsed.pathname.endsWith('/search')) {
+      return { ok: true, json: async () => ({ players: [{ Id: 'ok', Name: name }] }) };
+    }
+    return { ok: true, json: async () => ({ Name: 'Valido', GuildName: 'NoTag', LifetimeStatistics: { PvE: { Total: 10 } } }) };
+  };
+  const rows = await dailyPveRanking.fetchFameRanking(['Falhou', 'Valido'], {
+    fetchImpl,
+    apiBase: 'https://example.test/api',
+    warnLogger: (message) => warnings.push(message)
+  });
+  assert.deepEqual(rows.map((row) => row.name), ['Valido']);
+  assert.equal(warnings.length, 1);
+});
+
 test('ranking semanal calcula crescimento entre primeiro e ultimo snapshot', () => {
   const insert = getDatabase().prepare(`INSERT INTO albion_fame_daily_snapshots
     (snapshot_date, albion_key, albion_name, pve_fame, pvp_fame, crafting_fame, gathering_fame, total_fame)

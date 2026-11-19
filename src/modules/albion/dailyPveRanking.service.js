@@ -6,6 +6,11 @@ const { formatFame } = require('./fame.service');
 const DEFAULT_API_BASE = 'https://gameinfo-ams.albiononline.com/api/gameinfo';
 const GUILD_NAME = process.env.ALBION_GUILD_NAME || 'NoTag';
 const POST_AFTER_HOUR = 9;
+const API_CONCURRENCY = 1;
+const API_THROTTLE_MS = 1500;
+const API_RETRIES = 4;
+const API_TIMEOUT_MS = 15000;
+const API_MAX_RETRY_DELAY_MS = 30000;
 const CATEGORIES = [
   ['pveFame', 'PvE'],
   ['pvpFame', 'PvP'],
@@ -115,14 +120,23 @@ function registeredAlbionNames() {
 
 async function fetchFameRanking(names, options = {}) {
   const { fetchImpl = fetch, apiBase = process.env.ALBION_API_BASE || DEFAULT_API_BASE } = options;
-  const concurrency = Math.max(1, Number(options.concurrency || 3));
-  const throttleMs = Math.max(0, Number(options.throttleMs ?? (fetchImpl === fetch ? 300 : 0)));
+  const concurrency = Math.max(1, Number(options.concurrency || API_CONCURRENCY));
+  const throttleMs = Math.max(0, Number(options.throttleMs ?? (fetchImpl === fetch ? API_THROTTLE_MS : 0)));
+  const warnLogger = options.warnLogger || console.warn;
   const uniqueNames = [...new Set(names.map((name) => String(name || '').trim()).filter(Boolean))];
   if (!uniqueNames.length) throw new Error('Nao ha jogadores Albion aprovados para montar o ranking.');
   const results = [];
   for (let index = 0; index < uniqueNames.length; index += concurrency) {
     const batch = uniqueNames.slice(index, index + concurrency);
-    const rows = await Promise.all(batch.map((name) => fetchPlayerFame(name, { ...options, fetchImpl, apiBase })));
+    const rows = await Promise.all(batch.map(async (name) => {
+      try {
+        return await fetchPlayerFame(name, { ...options, fetchImpl, apiBase });
+      } catch (error) {
+        if (error?.status === 429 || isSystemResourceError(error)) throw error;
+        warnLogger(`[ALBION FAMA] Jogador ${name} ignorado apos falha: ${error.message}`);
+        return null;
+      }
+    }));
     results.push(...rows.filter(Boolean));
     if (throttleMs && index + concurrency < uniqueNames.length) await wait(throttleMs);
   }
@@ -157,18 +171,76 @@ function wait(ms) {
 }
 
 async function fetchAlbionJson(url, action, options = {}) {
-  const retries = Math.max(1, Number(options.retries || 3));
+  const retries = Math.max(1, Number(options.retries || API_RETRIES));
+  const timeoutMs = Math.max(1, Number(options.timeoutMs || API_TIMEOUT_MS));
   const waitImpl = options.waitImpl || wait;
   let lastStatus = 0;
+  let lastError = null;
   for (let attempt = 1; attempt <= retries; attempt += 1) {
-    const response = await options.fetchImpl(url);
-    if (response.ok) return response.json();
-    lastStatus = Number(response.status || 0);
-    const retryable = lastStatus === 429 || lastStatus >= 500;
-    if (!retryable || attempt === retries) break;
-    await waitImpl(attempt * 1000);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    timeout.unref?.();
+    try {
+      const response = await options.fetchImpl(url, {
+        signal: controller.signal,
+        headers: { Accept: 'application/json', 'User-Agent': 'Notag-Discord-Bot/1.0' }
+      });
+      if (response.ok) return await response.json();
+      lastStatus = Number(response.status || 0);
+      const retryable = lastStatus === 429 || lastStatus >= 500;
+      const retryDelay = retryDelayMs(response, attempt, options);
+      await releaseResponse(response);
+      if (!retryable || attempt === retries) break;
+      await waitImpl(retryDelay);
+    } catch (error) {
+      lastStatus = 0;
+      lastError = error;
+      if (!isRetryableFetchError(error) || attempt === retries) break;
+      await waitImpl(retryDelayMs(null, attempt, options));
+    } finally {
+      clearTimeout(timeout);
+    }
   }
-  throw new Error(`API Albion respondeu ${lastStatus || 'com erro'} ao ${action}.`);
+  if (lastStatus) {
+    const error = new Error(`API Albion respondeu ${lastStatus} ao ${action} apos ${retries} tentativa(s).`);
+    error.status = lastStatus;
+    throw error;
+  }
+  const detail = lastError?.name === 'AbortError'
+    ? `timeout de ${Math.round(timeoutMs / 1000)}s`
+    : lastError?.message || 'erro desconhecido';
+  throw new Error(`Falha ao ${action} na API Albion apos ${retries} tentativa(s): ${detail}`, { cause: lastError });
+}
+
+function retryDelayMs(response, attempt, options = {}) {
+  const retryAfter = response?.headers?.get?.('retry-after');
+  const seconds = Number(retryAfter);
+  const hasRetryAfter = retryAfter !== null && retryAfter !== undefined && retryAfter !== '';
+  let delay = hasRetryAfter && Number.isFinite(seconds) && seconds >= 0 ? seconds * 1000 : null;
+  if (delay === null && retryAfter) {
+    const retryAt = Date.parse(retryAfter);
+    if (Number.isFinite(retryAt)) delay = Math.max(0, retryAt - Date.now());
+  }
+  if (delay === null) delay = 1000 * (2 ** Math.max(0, attempt - 1));
+  return Math.min(Number(options.maxRetryDelayMs || API_MAX_RETRY_DELAY_MS), delay);
+}
+
+async function releaseResponse(response) {
+  try {
+    await response?.body?.cancel?.();
+  } catch {}
+}
+
+function isSystemResourceError(error) {
+  const code = error?.code || error?.cause?.code;
+  return code === 'ENFILE' || code === 'EMFILE';
+}
+
+function isRetryableFetchError(error) {
+  const code = error?.code || error?.cause?.code;
+  return error?.name === 'AbortError'
+    || error instanceof TypeError
+    || ['EAI_AGAIN', 'ECONNRESET', 'ECONNREFUSED', 'ETIMEDOUT'].includes(code);
 }
 
 function extractFame(player, fallbackName = '') {

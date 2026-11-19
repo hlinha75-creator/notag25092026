@@ -260,6 +260,11 @@ process.on('unhandledRejection', (error) => {
 
 process.on('uncaughtException', (error) => {
   console.error('Uncaught exception:', error);
+  if (error?.code === 'ENFILE' || error?.cause?.code === 'ENFILE'
+    || error?.code === 'EMFILE' || error?.cause?.code === 'EMFILE') {
+    console.error('[PROCESSO] Limite temporario de descritores de arquivo atingido; mantendo o servidor em execucao.');
+    return;
+  }
   process.exit(1);
 });
 
